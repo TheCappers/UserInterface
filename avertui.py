@@ -13,18 +13,19 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
+        MainWindow.setObjectName("AVERT")
         MainWindow.resize(1792, 1120)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
-        self.tabWidget.setGeometry(QtCore.QRect(-80, 10, 1771, 1051))
+        self.tabWidget.setGeometry(QtCore.QRect(10, 10, 1771, 1051))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.tabWidget.sizePolicy().hasHeightForWidth())
         self.tabWidget.setSizePolicy(sizePolicy)
         self.tabWidget.setObjectName("tabWidget")
+
         self.tab_1 = QtWidgets.QWidget()
         self.tab_1.setObjectName("tab_1")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.tab_1)
@@ -229,6 +230,8 @@ class Ui_MainWindow(object):
         self.pushButton_3.setObjectName("pushButton_3")
         self.verticalLayout_5.addWidget(self.pushButton_3)
         self.tabWidget.addTab(self.tab_1, "")
+
+        #tab2 section config
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
         self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.tab_2)
@@ -237,20 +240,23 @@ class Ui_MainWindow(object):
         self.checkBox.setObjectName("checkBox")
         self.verticalLayout_6.addWidget(self.checkBox)
         self.tabWidget.addTab(self.tab_2, "")
+
+        #tab3 section sync
         self.tab_3 = QtWidgets.QWidget()
         self.tab_3.setObjectName("tab_3")
+        font = QtGui.QFont()
         self.listWidget = QtWidgets.QListWidget(self.tab_3)
         self.listWidget.setGeometry(QtCore.QRect(50, 60, 351, 81))
-        font = QtGui.QFont()
         font.setPointSize(18)
         self.listWidget.setFont(font)
         self.listWidget.setObjectName("listWidget")
-        item = QtWidgets.QListWidgetItem()
+        item = QtWidgets.QListWidgetItem() #from IP
         self.listWidget.addItem(item)
-        item = QtWidgets.QListWidgetItem()
+        item = QtWidgets.QListWidgetItem() #from MAC
         self.listWidget.addItem(item)
-        item = QtWidgets.QListWidgetItem()
+        item = QtWidgets.QListWidgetItem() #To IP
         self.listWidget.addItem(item)
+
         self.groupBox = QtWidgets.QGroupBox(self.tab_3)
         self.groupBox.setGeometry(QtCore.QRect(0, 250, 1761, 771))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
