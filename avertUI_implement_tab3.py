@@ -9,18 +9,66 @@ def getAllFrameForTab3():
     #tab 3
     tab_3 = QtWidgets.QWidget()
     tab_3.setObjectName("tab_3")
-    listWidget = QtWidgets.QListWidget(tab_3)
-    listWidget.setGeometry(QtCore.QRect(50, 60, 351, 81))
+
+    # Sync Basic Information Content Area (SRS 57)
+    syncbasicinformation_frame = QtWidgets.QFrame(tab_3)
+    syncbasicinformation_frame.setGeometry(QtCore.QRect(50, 60, 511, 111))
+    syncbasicinformation_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+    syncbasicinformation_frame.setFrameShadow(QtWidgets.QFrame.Raised)
+    syncbasicinformation_frame.setObjectName("syncbasicinformation_frame")
+    fromIPlabel_label = QtWidgets.QLabel(syncbasicinformation_frame)
+    fromIPlabel_label.setGeometry(QtCore.QRect(10, 10, 231, 31))
+    sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
+    sizePolicy.setHorizontalStretch(0)
+    sizePolicy.setVerticalStretch(0)
+    sizePolicy.setHeightForWidth(fromIPlabel_label.sizePolicy().hasHeightForWidth())
+    fromIPlabel_label.setSizePolicy(sizePolicy)
     font = QtGui.QFont()
-    font.setPointSize(18)
-    listWidget.setFont(font)
-    listWidget.setObjectName("listWidget")
-    item = QtWidgets.QListWidgetItem()
-    listWidget.addItem(item)
-    item = QtWidgets.QListWidgetItem()
-    listWidget.addItem(item)
-    item = QtWidgets.QListWidgetItem()
-    listWidget.addItem(item)
+    font.setPointSize(16)
+    fromIPlabel_label.setFont(font)
+    fromIPlabel_label.setObjectName("fromIPlabel_label")
+    fromMAClabel_label = QtWidgets.QLabel(syncbasicinformation_frame)
+    fromMAClabel_label.setGeometry(QtCore.QRect(10, 40, 231, 31))
+    sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
+    sizePolicy.setHorizontalStretch(0)
+    sizePolicy.setVerticalStretch(0)
+    sizePolicy.setHeightForWidth(fromMAClabel_label.sizePolicy().hasHeightForWidth())
+    fromMAClabel_label.setSizePolicy(sizePolicy)
+    font = QtGui.QFont()
+    font.setPointSize(16)
+    fromMAClabel_label.setFont(font)
+    fromMAClabel_label.setObjectName("fromMAClabel_label")
+    toIPlabel_label = QtWidgets.QLabel(syncbasicinformation_frame)
+    toIPlabel_label.setGeometry(QtCore.QRect(10, 70, 231, 31))
+    sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
+    sizePolicy.setHorizontalStretch(0)
+    sizePolicy.setVerticalStretch(0)
+    sizePolicy.setHeightForWidth(toIPlabel_label.sizePolicy().hasHeightForWidth())
+    toIPlabel_label.setSizePolicy(sizePolicy)
+    font = QtGui.QFont()
+    font.setPointSize(16)
+    toIPlabel_label.setFont(font)
+    toIPlabel_label.setObjectName("toIPlabel_label")
+    fromIPval_label = QtWidgets.QLabel(syncbasicinformation_frame)
+    fromIPval_label.setGeometry(QtCore.QRect(290, 10, 191, 31))
+    font = QtGui.QFont()
+    font.setPointSize(16)
+    fromIPval_label.setFont(font)
+    fromIPval_label.setObjectName("fromIPval_label")
+    fromMACval_label = QtWidgets.QLabel(syncbasicinformation_frame)
+    fromMACval_label.setGeometry(QtCore.QRect(290, 40, 191, 31))
+    font = QtGui.QFont()
+    font.setPointSize(16)
+    fromMACval_label.setFont(font)
+    fromMACval_label.setObjectName("fromMACval_label")
+    toIPval_lineEdit = QtWidgets.QLineEdit(syncbasicinformation_frame)
+    toIPval_lineEdit.setGeometry(QtCore.QRect(290, 70, 211, 31))
+    font = QtGui.QFont()
+    font.setPointSize(16)
+    toIPval_lineEdit.setFont(font)
+    toIPval_lineEdit.setText("")
+    toIPval_lineEdit.setObjectName("toIPval_lineEdit")
+
 
     progresssection = QtWidgets.QGroupBox(tab_3)
     progresssection.setGeometry(QtCore.QRect(0, 250, 1761, 771))
@@ -441,14 +489,14 @@ def getAllFrameForTab3():
 
     """btn groups"""
     allincludingvideo_btn = QtWidgets.QPushButton(tab_3)
-    allincludingvideo_btn.setGeometry(QtCore.QRect(1520, 30, 181, 32))
+    allincludingvideo_btn.setGeometry(QtCore.QRect(1520, 65, 181, 32))
     font = QtGui.QFont()
     font.setPointSize(16)
     allincludingvideo_btn.setFont(font)
     allincludingvideo_btn.setObjectName("allincludingvideo_btn")
 
     alexcludinglvideo_btn = QtWidgets.QPushButton(tab_3)
-    alexcludinglvideo_btn.setGeometry(QtCore.QRect(1300, 30, 181, 32))
+    alexcludinglvideo_btn.setGeometry(QtCore.QRect(1300, 65, 181, 32))
     font = QtGui.QFont()
     font.setPointSize(16)
     alexcludinglvideo_btn.setFont(font)
@@ -462,7 +510,7 @@ def getAllFrameForTab3():
     cancelall_btn.setObjectName("cancelall_btn")
 
     sync_btn = QtWidgets.QPushButton(tab_3)
-    sync_btn.setGeometry(QtCore.QRect(1470, 110, 71, 32))
+    sync_btn.setGeometry(QtCore.QRect(1470, 145, 71, 32))
     font = QtGui.QFont()
     font.setPointSize(16)
     sync_btn.setFont(font)
@@ -499,23 +547,20 @@ def getAllFrameForTab3():
     charview.setGeometry(QtCore.QRect(1310, 110, 171, 31))
 
     vox = QtWidgets.QVBoxLayout(tab_3)
-    vox.setContentsMargins(540, 5, 540, 765) #ltrb
+    vox.setContentsMargins(580, 5, 580, 765) #ltrb
     vox.addWidget(charview)
     """PIE CHART CONTENT END"""
 
 
 
     _translate = QtCore.QCoreApplication.translate
-
-    __sortingEnabled = listWidget.isSortingEnabled()
-    listWidget.setSortingEnabled(False)
-    item = listWidget.item(0)
-    item.setText(_translate("MainWindow", "From Analyst\'s IP Address: 127.0.0.1"))
-    item = listWidget.item(1)
-    item.setText(_translate("MainWindow", "From Analyst\'s MAC Address: 127.0.0.1"))
-    item = listWidget.item(2)
-    item.setText(_translate("MainWindow", "To Analyst\'s IP Address: 127.0.0.1"))
-    listWidget.setSortingEnabled(__sortingEnabled)
+    
+    fromIPlabel_label.setText(_translate("MainWindow", "From Analyst\'s IP Address:"))
+    fromMAClabel_label.setText(_translate("MainWindow", "From Analyst\'s MAC Address:"))
+    toIPlabel_label.setText(_translate("MainWindow", "To Analyst\'s IP Address:"))
+    fromIPval_label.setText(_translate("MainWindow", "127.0.0.1"))
+    fromMACval_label.setText(_translate("MainWindow", "3D-9F-1A-82-2C-0E"))
+    toIPval_lineEdit.setPlaceholderText(_translate("MainWindow", "Enter IP Address"))
     progresssection.setTitle(_translate("MainWindow", "Prgress Section"))
     stillscreenshot_pushButton.setText(_translate("MainWindow", "Cancel Still Screenshot Sync"))
     stillscreenshot_label_0.setText(_translate("MainWindow", "0%"))
@@ -1740,4 +1785,24 @@ def getAllFrameForTab3():
     alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
+
+
+
+
+    """Adding Functinality"""
+    
+
+
+
+
     return tab_3
+
+    """
+    check if it is an text boxes for IP address
+        SRS 147: when the user presses on Sync button && sync scope selected
+            a: system display percentage synced for each artifact
+            b: system shall display avaialbe space
+            c: system shall display used space
+        SRS 190: When the user presses on sync button && sync scope is not selected, display error message
+        SRS 192: when cancel button is pressed, stop synchonize. Stop progress bar????
+    """

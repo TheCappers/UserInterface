@@ -524,36 +524,6 @@ p, li { white-space: pre-wrap; }
      <attribute name="title">
       <string>Sync</string>
      </attribute>
-     <widget class="QListWidget" name="listWidget">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>60</y>
-        <width>351</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <item>
-       <property name="text">
-        <string>From Analyst's IP Address: 127.0.0.1</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>From Analyst's MAC Address: 127.0.0.1</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>To Analyst's IP Address: 127.0.0.1</string>
-       </property>
-      </item>
-     </widget>
      <widget class="QGroupBox" name="progresssection">
       <property name="geometry">
        <rect>
@@ -1744,6 +1714,151 @@ p, li { white-space: pre-wrap; }
       <property name="text">
        <string>Sycn</string>
       </property>
+     </widget>
+     <widget class="QFrame" name="syncbasicinformation_frame">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>30</y>
+        <width>521</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="fromIPlabel_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>231</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>From Analyst's IP Address:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="fromMAClabel_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>231</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>From Analyst's MAC Address:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="toIPlabel_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>231</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>To Analyst's IP Address:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="fromIPval_label">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>10</y>
+         <width>191</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>127.0.0.1</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="fromMACval_label">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>40</y>
+         <width>191</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>3D-9F-1A-82-2C-0E</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="toIPval_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>70</y>
+         <width>211</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>Enter IP Address</string>
+       </property>
+      </widget>
      </widget>
     </widget>
    </widget>
