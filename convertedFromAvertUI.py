@@ -17,8 +17,6 @@ class Ui_MainWindow(object):
         MainWindow.resize(1792, 1120)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-
-        #Tab
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
         self.tabWidget.setGeometry(QtCore.QRect(10, 10, 1771, 1051))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -231,7 +229,6 @@ class Ui_MainWindow(object):
         self.pushButton_3.setObjectName("pushButton_3")
         self.verticalLayout_5.addWidget(self.pushButton_3)
         self.tabWidget.addTab(self.tab_1, "")
-
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
         self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.tab_2)
@@ -240,8 +237,6 @@ class Ui_MainWindow(object):
         self.checkBox.setObjectName("checkBox")
         self.verticalLayout_6.addWidget(self.checkBox)
         self.tabWidget.addTab(self.tab_2, "")
-
-        #tab 3
         self.tab_3 = QtWidgets.QWidget()
         self.tab_3.setObjectName("tab_3")
         self.listWidget = QtWidgets.QListWidget(self.tab_3)
@@ -256,8 +251,6 @@ class Ui_MainWindow(object):
         self.listWidget.addItem(item)
         item = QtWidgets.QListWidgetItem()
         self.listWidget.addItem(item)
-
-
         self.progresssection = QtWidgets.QGroupBox(self.tab_3)
         self.progresssection.setGeometry(QtCore.QRect(0, 250, 1761, 771))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
@@ -266,8 +259,6 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.progresssection.sizePolicy().hasHeightForWidth())
         self.progresssection.setSizePolicy(sizePolicy)
         self.progresssection.setObjectName("progresssection")
-
-
         self.stillscreenshot_frame = QtWidgets.QFrame(self.progresssection)
         self.stillscreenshot_frame.setGeometry(QtCore.QRect(220, 30, 581, 141))
         self.stillscreenshot_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -303,8 +294,6 @@ class Ui_MainWindow(object):
         self.stillscreenshot_label.setFont(font)
         self.stillscreenshot_label.setAlignment(QtCore.Qt.AlignCenter)
         self.stillscreenshot_label.setObjectName("stillscreenshot_label")
-
-
         self.process_frame = QtWidgets.QFrame(self.progresssection)
         self.process_frame.setGeometry(QtCore.QRect(220, 170, 581, 141))
         self.process_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -340,8 +329,6 @@ class Ui_MainWindow(object):
         self.process_label.setFont(font)
         self.process_label.setAlignment(QtCore.Qt.AlignCenter)
         self.process_label.setObjectName("process_label")
-
-        
         self.keystroke_frame = QtWidgets.QFrame(self.progresssection)
         self.keystroke_frame.setGeometry(QtCore.QRect(220, 310, 581, 141))
         self.keystroke_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -377,8 +364,6 @@ class Ui_MainWindow(object):
         self.keystroke_label.setFont(font)
         self.keystroke_label.setAlignment(QtCore.Qt.AlignCenter)
         self.keystroke_label.setObjectName("keystroke_label")
-
-
         self.windowhistory_frame = QtWidgets.QFrame(self.progresssection)
         self.windowhistory_frame.setGeometry(QtCore.QRect(220, 450, 581, 141))
         self.windowhistory_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -414,8 +399,6 @@ class Ui_MainWindow(object):
         self.windowhistory_label.setFont(font)
         self.windowhistory_label.setAlignment(QtCore.Qt.AlignCenter)
         self.windowhistory_label.setObjectName("windowhistory_label")
-
-
         self.history_frame = QtWidgets.QFrame(self.progresssection)
         self.history_frame.setGeometry(QtCore.QRect(220, 590, 581, 141))
         self.history_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -451,8 +434,6 @@ class Ui_MainWindow(object):
         self.history_label.setFont(font)
         self.history_label.setAlignment(QtCore.Qt.AlignCenter)
         self.history_label.setObjectName("history_label")
-
-
         self.video_frame = QtWidgets.QFrame(self.progresssection)
         self.video_frame.setGeometry(QtCore.QRect(1000, 30, 581, 141))
         self.video_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -488,8 +469,6 @@ class Ui_MainWindow(object):
         self.video_label.setFont(font)
         self.video_label.setAlignment(QtCore.Qt.AlignCenter)
         self.video_label.setObjectName("video_label")
-
-
         self.networkactivitydata_frame = QtWidgets.QFrame(self.progresssection)
         self.networkactivitydata_frame.setGeometry(QtCore.QRect(1000, 170, 581, 141))
         self.networkactivitydata_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -525,8 +504,6 @@ class Ui_MainWindow(object):
         self.networkactivitydata_label.setFont(font)
         self.networkactivitydata_label.setAlignment(QtCore.Qt.AlignCenter)
         self.networkactivitydata_label.setObjectName("networkactivitydata_label")
-
-
         self.systemcall_frame = QtWidgets.QFrame(self.progresssection)
         self.systemcall_frame.setGeometry(QtCore.QRect(1000, 450, 581, 141))
         self.systemcall_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -562,8 +539,6 @@ class Ui_MainWindow(object):
         self.systemcall_label.setFont(font)
         self.systemcall_label.setAlignment(QtCore.Qt.AlignCenter)
         self.systemcall_label.setObjectName("systemcall_label")
-
-
         self.mouseaction_frame = QtWidgets.QFrame(self.progresssection)
         self.mouseaction_frame.setGeometry(QtCore.QRect(1000, 310, 581, 141))
         self.mouseaction_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -599,8 +574,6 @@ class Ui_MainWindow(object):
         self.mouseaction_label.setFont(font)
         self.mouseaction_label.setAlignment(QtCore.Qt.AlignCenter)
         self.mouseaction_label.setObjectName("mouseaction_label")
-
-
         self.log_frame = QtWidgets.QFrame(self.progresssection)
         self.log_frame.setGeometry(QtCore.QRect(1000, 590, 581, 141))
         self.log_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -636,36 +609,30 @@ class Ui_MainWindow(object):
         self.log_label.setFont(font)
         self.log_label.setAlignment(QtCore.Qt.AlignCenter)
         self.log_label.setObjectName("log_label")
-
-
+        self.cancelall_btn = QtWidgets.QPushButton(self.progresssection)
+        self.cancelall_btn.setGeometry(QtCore.QRect(810, 740, 171, 31))
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        self.cancelall_btn.setFont(font)
+        self.cancelall_btn.setObjectName("cancelall_btn")
         self.allincludingvideo_btn = QtWidgets.QPushButton(self.tab_3)
         self.allincludingvideo_btn.setGeometry(QtCore.QRect(1520, 30, 181, 32))
         font = QtGui.QFont()
         font.setPointSize(16)
         self.allincludingvideo_btn.setFont(font)
         self.allincludingvideo_btn.setObjectName("allincludingvideo_btn")
-
         self.alexcludinglvideo_btn = QtWidgets.QPushButton(self.tab_3)
         self.alexcludinglvideo_btn.setGeometry(QtCore.QRect(1300, 30, 181, 32))
         font = QtGui.QFont()
         font.setPointSize(16)
         self.alexcludinglvideo_btn.setFont(font)
         self.alexcludinglvideo_btn.setObjectName("alexcludinglvideo_btn")
-
-        self.cancelall_btn = QtWidgets.QPushButton(self.tab_3)
-        self.cancelall_btn.setGeometry(QtCore.QRect(1310, 110, 171, 31))
-        font = QtGui.QFont()
-        font.setPointSize(16)
-        self.cancelall_btn.setFont(font)
-        self.cancelall_btn.setObjectName("cancelall_btn")
-
         self.sync_btn = QtWidgets.QPushButton(self.tab_3)
         self.sync_btn.setGeometry(QtCore.QRect(1590, 110, 71, 32))
         font = QtGui.QFont()
         font.setPointSize(16)
         self.sync_btn.setFont(font)
         self.sync_btn.setObjectName("sync_btn")
-        
         self.tabWidget.addTab(self.tab_3, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -786,9 +753,9 @@ class Ui_MainWindow(object):
         self.log_label_100.setText(_translate("MainWindow", "100%"))
         self.log_label_cur.setText(_translate("MainWindow", "23%"))
         self.log_label.setText(_translate("MainWindow", "Log"))
+        self.cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
         self.allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
         self.alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
-        self.cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
         self.sync_btn.setText(_translate("MainWindow", "Sycn"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Sync"))
         self.menuAVERT.setTitle(_translate("MainWindow", "AVERT"))

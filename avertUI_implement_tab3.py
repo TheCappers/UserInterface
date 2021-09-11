@@ -455,14 +455,14 @@ def getAllFrameForTab3():
     alexcludinglvideo_btn.setObjectName("alexcludinglvideo_btn")
 
     cancelall_btn = QtWidgets.QPushButton(tab_3)
-    cancelall_btn.setGeometry(QtCore.QRect(1310, 110, 171, 31))
+    cancelall_btn.setGeometry(QtCore.QRect(810, 980, 171, 31)) #x, y, w, h
     font = QtGui.QFont()
     font.setPointSize(16)
     cancelall_btn.setFont(font)
     cancelall_btn.setObjectName("cancelall_btn")
 
     sync_btn = QtWidgets.QPushButton(tab_3)
-    sync_btn.setGeometry(QtCore.QRect(1590, 110, 71, 32))
+    sync_btn.setGeometry(QtCore.QRect(1470, 110, 71, 32))
     font = QtGui.QFont()
     font.setPointSize(16)
     sync_btn.setFont(font)
@@ -1740,46 +1740,4 @@ def getAllFrameForTab3():
     alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
-
-
-
-    # create_piechart()
-
-
-
-
-    # series = QPieSeries(tab_3)
-    # series.append("Python", 80)
-    # series.append("C", 80)
-    # series.append("Java", 80)
-    # series.append("PHP", 80)
-    # tab_3.addWidget(series)
-
-    # create_piechart()
-    
-
     return tab_3
-
-
-
-def create_piechart():
-    series = QPieSeries()
-    series.append("Python", 80)
-    series.append("C", 80)
-    series.append("Java", 80)
-    series.append("PHP", 80)
-    chart = QChart()
-    chart.addSeries(series)
-    chart.setAnimationOptions(QChart.SeriesAnimations)
-    chart.setTitle("Progromming")
-
-    chartview = QChartView(chart)
-    chartview.setRenderHint(QPainter.Antialiasing)
-
-    setCentralWidget(chartview)
-
-
-    
-
-
-

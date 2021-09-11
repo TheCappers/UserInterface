@@ -1672,6 +1672,24 @@ p, li { white-space: pre-wrap; }
         </property>
        </widget>
       </widget>
+      <widget class="QPushButton" name="cancelall_btn">
+       <property name="geometry">
+        <rect>
+         <x>810</x>
+         <y>740</y>
+         <width>171</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Cancel All Sync</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QPushButton" name="allincludingvideo_btn">
       <property name="geometry">
@@ -1707,24 +1725,6 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="text">
        <string>All Excluding Video</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="cancelall_btn">
-      <property name="geometry">
-       <rect>
-        <x>1310</x>
-        <y>110</y>
-        <width>171</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Cancel All Sync</string>
       </property>
      </widget>
      <widget class="QPushButton" name="sync_btn">
