@@ -678,6 +678,10 @@ class Ui_MainWindow(object):
         self.toIPval_lineEdit.setFont(font)
         self.toIPval_lineEdit.setText("")
         self.toIPval_lineEdit.setObjectName("toIPval_lineEdit")
+        self.errormessage = QtWidgets.QLabel(self.tab_3)
+        self.errormessage.setGeometry(QtCore.QRect(1000, 190, 60, 16))
+        self.errormessage.setObjectName("errormessage")
+        self.errormessage.setStyleSheet("color: red")
         self.tabWidget.addTab(self.tab_3, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -799,6 +803,7 @@ class Ui_MainWindow(object):
         self.fromIPval_label.setText(_translate("MainWindow", "127.0.0.1"))
         self.fromMACval_label.setText(_translate("MainWindow", "3D-9F-1A-82-2C-0E"))
         self.toIPval_lineEdit.setPlaceholderText(_translate("MainWindow", "Enter IP Address"))
+        self.errormessage.setText(_translate("MainWindow", "Error: Please select one choice on video sync scope above."))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Sync"))
         self.menuAVERT.setTitle(_translate("MainWindow", "AVERT"))
 

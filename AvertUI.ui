@@ -1860,6 +1860,19 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </widget>
+     <widget class="QLabel" name="errormessage">
+      <property name="geometry">
+       <rect>
+        <x>1000</x>
+        <y>190</y>
+        <width>60</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Error: Please select one choice on video sync scope above.</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

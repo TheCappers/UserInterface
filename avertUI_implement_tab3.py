@@ -6,6 +6,23 @@ from PyQt5.QtCore import Qt
 
 
 def getAllFrameForTab3():
+
+    def toggleButtons(val):
+        if val == "allecludingvideo_btn":
+            allexcludingvideo_btn.setChecked(1)
+            allincludingvideo_btn.setChecked(0)
+        
+        if val == "allincludingvideo_btn":
+            allexcludingvideo_btn.setChecked(0)
+            allincludingvideo_btn.setChecked(1)
+    
+    def syncbuttonpressed():
+        if not (allexcludingvideo_btn.isChecked() or allincludingvideo_btn.isChecked()):
+            errormessage.setHidden(False)
+        else:
+            errormessage.setHidden(True)
+
+
     #tab 3
     tab_3 = QtWidgets.QWidget()
     tab_3.setObjectName("tab_3")
@@ -490,17 +507,21 @@ def getAllFrameForTab3():
     """btn groups"""
     allincludingvideo_btn = QtWidgets.QPushButton(tab_3)
     allincludingvideo_btn.setGeometry(QtCore.QRect(1520, 65, 181, 32))
+    allincludingvideo_btn.setCheckable(True)
+    allincludingvideo_btn.setChecked(False)
     font = QtGui.QFont()
     font.setPointSize(16)
     allincludingvideo_btn.setFont(font)
     allincludingvideo_btn.setObjectName("allincludingvideo_btn")
 
-    alexcludinglvideo_btn = QtWidgets.QPushButton(tab_3)
-    alexcludinglvideo_btn.setGeometry(QtCore.QRect(1300, 65, 181, 32))
+    allexcludingvideo_btn = QtWidgets.QPushButton(tab_3)
+    allexcludingvideo_btn.setGeometry(QtCore.QRect(1300, 65, 181, 32))
+    allexcludingvideo_btn.setCheckable(True)
+    allexcludingvideo_btn.setChecked(False)
     font = QtGui.QFont()
     font.setPointSize(16)
-    alexcludinglvideo_btn.setFont(font)
-    alexcludinglvideo_btn.setObjectName("alexcludinglvideo_btn")
+    allexcludingvideo_btn.setFont(font)
+    allexcludingvideo_btn.setObjectName("allexcludingvideo_btn")
 
     cancelall_btn = QtWidgets.QPushButton(tab_3)
     cancelall_btn.setGeometry(QtCore.QRect(810, 980, 171, 31)) #x, y, w, h
@@ -515,6 +536,12 @@ def getAllFrameForTab3():
     font.setPointSize(16)
     sync_btn.setFont(font)
     sync_btn.setObjectName("sync_btn")
+
+    errormessage = QtWidgets.QLabel(tab_3)
+    errormessage.setGeometry(QtCore.QRect(1350, 105, 300, 16))
+    errormessage.setObjectName("errormessage")
+    errormessage.setStyleSheet("color: red")
+    errormessage.setHidden(True)
     """btn groups"""
 
 
@@ -613,7 +640,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -643,7 +670,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -673,7 +700,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -703,7 +730,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -733,7 +760,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -763,7 +790,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -793,7 +820,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -823,7 +850,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -853,7 +880,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -883,7 +910,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -913,7 +940,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -943,7 +970,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -973,7 +1000,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1003,7 +1030,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1033,7 +1060,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1063,7 +1090,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1093,7 +1120,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1123,7 +1150,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1153,7 +1180,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1183,7 +1210,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1213,7 +1240,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1243,7 +1270,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1273,7 +1300,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1303,7 +1330,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1333,7 +1360,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1363,7 +1390,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1393,7 +1420,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1423,7 +1450,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1453,7 +1480,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1483,7 +1510,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1513,7 +1540,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1543,7 +1570,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1573,7 +1600,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1603,7 +1630,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1633,7 +1660,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1663,7 +1690,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1693,7 +1720,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1723,7 +1750,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
     history_label.setText(_translate("MainWindow", "History"))
@@ -1753,7 +1780,7 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
 
@@ -1782,27 +1809,18 @@ def getAllFrameForTab3():
     log_label_cur.setText(_translate("MainWindow", "23%"))
     log_label.setText(_translate("MainWindow", "Log"))
     allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-    alexcludinglvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
+    allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
     cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
     sync_btn.setText(_translate("MainWindow", "Sycn"))
-
-
+    errormessage.setText(_translate("MainWindow", "Error: Please select video sync scope above."))
 
 
     """Adding Functinality"""
-    
-
-
+    # allexcludingvideo_btn.clicked.connect(lambda:toggleButtons('e', allexcludingvideo_btn)) # NOTE: to send as parameter; use lambda
+    allexcludingvideo_btn.clicked.connect(lambda: toggleButtons('allecludingvideo_btn'))
+    allincludingvideo_btn.clicked.connect(lambda: toggleButtons('allincludingvideo_btn'))
+    sync_btn.clicked.connect(syncbuttonpressed)
 
 
     return tab_3
 
-    """
-    check if it is an text boxes for IP address
-        SRS 147: when the user presses on Sync button && sync scope selected
-            a: system display percentage synced for each artifact
-            b: system shall display avaialbe space
-            c: system shall display used space
-        SRS 190: When the user presses on sync button && sync scope is not selected, display error message
-        SRS 192: when cancel button is pressed, stop synchonize. Stop progress bar????
-    """
