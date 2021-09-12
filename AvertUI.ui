@@ -641,7 +641,7 @@ p, li { white-space: pre-wrap; }
                        </rect>
                       </property>
                       <property name="currentIndex">
-                       <number>1</number>
+                       <number>5</number>
                       </property>
                       <widget class="QWidget" name="descriptionvideo_tab">
                        <attribute name="title">
@@ -2374,6 +2374,192 @@ p, li { white-space: pre-wrap; }
                        <attribute name="title">
                         <string>Network Packet</string>
                        </attribute>
+                       <widget class="QToolBox" name="toolBox">
+                        <property name="geometry">
+                         <rect>
+                          <x>0</x>
+                          <y>0</y>
+                          <width>1571</width>
+                          <height>311</height>
+                         </rect>
+                        </property>
+                        <property name="currentIndex">
+                         <number>0</number>
+                        </property>
+                        <widget class="QWidget" name="network_1">
+                         <property name="geometry">
+                          <rect>
+                           <x>0</x>
+                           <y>0</y>
+                           <width>1571</width>
+                           <height>209</height>
+                          </rect>
+                         </property>
+                         <attribute name="label">
+                          <string>Frame 107: 121 bytes on wire (968 bits), 121 bytes captured (968 bits) on interface en0, id 0</string>
+                         </attribute>
+                         <widget class="QListWidget" name="listWidget_4">
+                          <property name="geometry">
+                           <rect>
+                            <x>50</x>
+                            <y>0</y>
+                            <width>1511</width>
+                            <height>201</height>
+                           </rect>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>11</pointsize>
+                           </font>
+                          </property>
+                          <item>
+                           <property name="text">
+                            <string>Interface id: 0 (en0)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>Encapsulation type: Ethernet (1)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>Arrival Time: Sep 12, 2021 15:26:42.576923000 MDT</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>[Time shift for this packet: 0.000000000 seconds]</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>Epoch Time: 1631482002.576923000 seconds</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>[Time delta from previous captured frame: 0.034637000 seconds]</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>[Time delta from previous displayed frame: 0.034637000 seconds]</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>[Time since reference or first frame: 23.113211000 seconds]</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>Frame Number: 107</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>Frame Length: 121 bytes (968 bits)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>Capture Length: 121 bytes (968 bits)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>[Frame is marked: False]</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>[Frame is ignored: False]</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>[Protocols in frame: eth:ethertype:data]</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>[Coloring Rule Name: Broadcast]</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>[Coloring Rule String: eth[0] &amp; 1]</string>
+                           </property>
+                          </item>
+                         </widget>
+                        </widget>
+                        <widget class="QWidget" name="network_2">
+                         <attribute name="label">
+                          <string>Ethernet II, Src: 86:ef:16:75:3c:23 (86:ef:16:75:3c:23), Dst: Broadcast(ff:ff:ff:ff:ff:ff)</string>
+                         </attribute>
+                         <widget class="QListWidget" name="listWidget_3">
+                          <property name="geometry">
+                           <rect>
+                            <x>50</x>
+                            <y>0</y>
+                            <width>1511</width>
+                            <height>51</height>
+                           </rect>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>11</pointsize>
+                           </font>
+                          </property>
+                          <item>
+                           <property name="text">
+                            <string>Destination: Broadcast (ff:ff:ff:ff:ff:ff)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>Source: 86:ef:16:75:3c:23 (86:ef:16:75:3c:23)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>Type: Unknown (0x7373)</string>
+                           </property>
+                          </item>
+                         </widget>
+                        </widget>
+                        <widget class="QWidget" name="network_3">
+                         <attribute name="label">
+                          <string>Data (107 Bytes)</string>
+                         </attribute>
+                         <widget class="QListWidget" name="listWidget_2">
+                          <property name="geometry">
+                           <rect>
+                            <x>50</x>
+                            <y>0</y>
+                            <width>1501</width>
+                            <height>31</height>
+                           </rect>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>11</pointsize>
+                           </font>
+                          </property>
+                          <item>
+                           <property name="text">
+                            <string>Data: 121100000043f5cb114103ac1b368f8013380a496e868dc52e97008cbead8ae5402c46ef…</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>[Length: 107]</string>
+                           </property>
+                          </item>
+                         </widget>
+                        </widget>
+                       </widget>
                       </widget>
                       <widget class="QWidget" name="descriptionmouse_tab">
                        <attribute name="title">
@@ -2839,7 +3025,7 @@ p, li { white-space: pre-wrap; }
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>3</number>
                   </property>
                   <widget class="QWidget" name="type">
                    <attribute name="title">
@@ -3009,7 +3195,7 @@ p, li { white-space: pre-wrap; }
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>1588</width>
+                         <width>1573</width>
                          <height>353</height>
                         </rect>
                        </property>
