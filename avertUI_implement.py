@@ -295,33 +295,6 @@ class Ui_MainWindow(object):
         self.tabWidget_26.addTab(self.tab_100, "")
 
         # Detailed View of Seelected Artifact > Description START
-        """self.description_tab = QtWidgets.QWidget()
-        self.description_tab.setObjectName("description_tab")
-        self.description_table = QtWidgets.QTableWidget(self.description_tab)
-        self.description_table.setGeometry(QtCore.QRect(10,10,1651,361))
-        self.description_table.setObjectName("description_table")
-        self.description_table.setColumnCount(4)
-        self.description_table.setRowCount(1)
-        item = QtWidgets.QTableWidgetItem()
-        self.description_table.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.description_table.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.description_table.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.description_table.setHorizontalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.description_table.setHorizontalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.description_table.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.description_table.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.description_table.setItem(0, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.description_table.setItem(0, 3, item)
-        self.description_table.horizontalHeader().setDefaultSectionSize(350)"""
-        #START
         self.description_tab = QtWidgets.QTabWidget(self.tabWidget_26)
         self.description_tab.setGeometry(QtCore.QRect(9, 9, 1581, 341))
         self.description_tab.setObjectName("description_tab")
@@ -1094,9 +1067,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.setObjectName("verticalLayout_6")
         self.tabWidget.addTab(self.tab_2, "")
 
-        # self.tab_3 = QtWidgets.QWidget()
-        # self.tab_3.setObjectName("tab_3")
-
         self.tab_3 = avertUI_implement_tab3.getAllFrameForTab3()
         
         self.tabWidget.addTab(self.tab_3, "")
@@ -1178,25 +1148,6 @@ class Ui_MainWindow(object):
         self.tabWidget_26.setTabText(self.tabWidget_26.indexOf(self.description_tab), _translate("MainWindow", "Description"))
 
         self.description_tab.setCurrentIndex(1)
-        
-        # item = self.description_table.verticalHeaderItem(0)
-        # item.setText(_translate("MainWindow", "0"))
-        # item = self.description_table.horizontalHeaderItem(0)
-        # item.setText(_translate("MainWindow", "Timestamp"))
-        # item = self.description_table.horizontalHeaderItem(1)
-        # item.setText(_translate("MainWindow", "Video Size"))
-        # item = self.description_table.horizontalHeaderItem(2)
-        # item.setText(_translate("MainWindow", "Video Resolution"))
-        # item = self.description_table.horizontalHeaderItem(3)
-        # item.setText(_translate("MainWindow", "Video Framerate"))
-        # item = self.description_table.item(0, 0)
-        # item.setText(_translate("MainWindow", "10-6-26 02:31:29,573"))
-        # item = self.description_table.item(0, 1)
-        # item.setText(_translate("MainWindow", "12 MB"))
-        # item = self.description_table.item(0, 2)
-        # item.setText(_translate("MainWindow", "1200 x 780"))
-        # item = self.description_table.item(0, 3)
-        # item.setText(_translate("MainWindow", "60fps"))
 
         #DESCRIPTION DETAILED VIEW START
         self.label_88.setText(_translate("MainWindow", "<html><head/><body><p><img src=\":/detaileddescription/Screen Shot 2021-09-12 at 11.29.07 AM.png\"/></p></body></html>"))
@@ -1373,8 +1324,6 @@ class Ui_MainWindow(object):
         self.sections.append((title, widget))
 
         widget = QFrame(self.tree)
-        # self.tab_2 = QtWidgets.QWidget(widget)
-        # self.tab_2.setObjectName("tab_2")
         layout = QVBoxLayout(widget)
         
         
@@ -1393,11 +1342,6 @@ class Ui_MainWindow(object):
         self.label_31.setObjectName("label_31")
         self.gridLayout_4.addWidget(self.label_31, 6, 1, 1, 1)
         self.textEdit_3 = QtWidgets.QTextEdit()
-        # sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
-        # sizePolicy.setHorizontalStretch(0)
-        # sizePolicy.setVerticalStretch(0)
-        # sizePolicy.setHeightForWidth(self.textEdit_3.sizePolicy().hasHeightForWidth())
-        # self.textEdit_3.setSizePolicy(sizePolicy)
         self.textEdit_3.setMaximumSize(QtCore.QSize(400, 25))
         self.textEdit_3.setObjectName("textEdit_3")
         self.gridLayout_4.addWidget(self.textEdit_3, 2, 0, 1, 2)
