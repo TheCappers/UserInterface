@@ -246,16 +246,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-'''
-    if __name__ == "__main__":
-        app = QtWidgets.QApplication(sys.argv)
-        mainWindow = QtWidgets.QMainWindow()
-        ui = Ui_MainWindow
-        ui.setupUi(mainWindow)
-        mainWindow.show()
-        app.exec()
-
-'''
