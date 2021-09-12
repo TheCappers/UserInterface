@@ -10,7 +10,8 @@ import sys
 class SectionExpandButton(QPushButton):
     """a QPushbutton that can expand or collapse its section
     """
-    def __init__(self, item, text = "", parent = None):
+
+    def __init__(self, item, text="", parent=None):
         super().__init__(text, parent)
         self.section = item
         self.clicked.connect(self.on_clicked)
@@ -23,13 +24,14 @@ class SectionExpandButton(QPushButton):
         else:
             self.section.setExpanded(True)
 
+
 class AvertApp(QtWidgets.QMainWindow, avert.Ui_MainWindow):
     def __init__(self):
         super(AvertApp, self).__init__()
         self.setupUi(self)
 
         # portion for the tag_table
-        self.table_tag.setSortingEnabled(1) # allows for the sorting in the columns
+        self.table_tag.setSortingEnabled(1)  # allows for the sorting in the columns
 
         # portion needed for the accordion view
         self.tree = QtWidgets.QTreeWidget()
@@ -54,6 +56,7 @@ class AvertApp(QtWidgets.QMainWindow, avert.Ui_MainWindow):
         self.NetworkActivityDataOffButton.clicked.connect(self.toggleButtons)
         self.ProcessStatOnButton.clicked.connect(self.toggleButtons)
         self.ProcessStatOffButton.clicked.connect(self.toggleButtons)
+        self.tag_add_button.clicked.connect(self.add_row)
 
     # button toggle method
     '''
@@ -235,6 +238,26 @@ class AvertApp(QtWidgets.QMainWindow, avert.Ui_MainWindow):
         section.setDisabled(True)
         self.tree.setItemWidget(section, 0, widget)
         return section
+
+    def add_row(self):  # add a row when the button add is selected
+        """
+        create new row in the qwidget table within tag area of
+        detailed view
+        :return: none
+        """
+        row_position = self.table_tag.rowCount()  # the total rows
+
+        check_item = QtWidgets.QTableWidgetItem()
+        check_item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
+        check_item.setCheckState(QtCore.Qt.Unchecked)
+        rest_item = QtWidgets.QTableWidgetItem()
+        rest_item.setFlags(QtCore.Qt.ItemIsSelectable)
+
+        self.table_tag.insertRow(row_position)
+        self.table_tag.setItem(row_position, 0, check_item)
+        self.table_tag.setItem(row_position, 1, rest_item)
+        self.table_tag.setItem(row_position, 2, check_item)
+
 
 def main():
     app = QApplication(sys.argv)
