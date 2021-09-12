@@ -1,3 +1,5 @@
+
+import time
 from PyQt5 import QtCore, QtGui, QtWidgets, QtChart
 
 from PyQt5.QtChart import QChart, QChartView, QPieSeries
