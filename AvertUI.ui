@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1674</width>
-    <height>1027</height>
+    <width>1293</width>
+    <height>865</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,8 +24,8 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-369</y>
-         <width>1646</width>
+         <y>-561</y>
+         <width>1265</width>
          <height>1358</height>
         </rect>
        </property>
@@ -568,7 +568,7 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>1606</width>
+                 <width>1225</width>
                  <height>437</height>
                 </rect>
                </property>
@@ -586,7 +586,7 @@ p, li { white-space: pre-wrap; }
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>1586</width>
+                     <width>1205</width>
                      <height>417</height>
                     </rect>
                    </property>
@@ -612,7 +612,7 @@ p, li { white-space: pre-wrap; }
                      </size>
                     </property>
                     <property name="currentIndex">
-                     <number>3</number>
+                     <number>0</number>
                     </property>
                     <widget class="QWidget" name="tab_133">
                      <attribute name="title">
@@ -1188,8 +1188,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>329</width>
-                 <height>234</height>
+                 <width>1225</width>
+                 <height>437</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -1975,8 +1975,8 @@ border-color: rgb(170, 0, 0);</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>100</width>
-                 <height>30</height>
+                 <width>1225</width>
+                 <height>437</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -1988,21 +1988,107 @@ border-color: rgb(170, 0, 0);</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>100</width>
-                 <height>30</height>
+                 <width>1225</width>
+                 <height>437</height>
                 </rect>
                </property>
                <attribute name="label">
                 <string>History</string>
                </attribute>
+               <widget class="QTableWidget" name="history_table">
+                <property name="geometry">
+                 <rect>
+                  <x>9</x>
+                  <y>9</y>
+                  <width>1211</width>
+                  <height>411</height>
+                 </rect>
+                </property>
+                <property name="sortingEnabled">
+                 <bool>true</bool>
+                </property>
+                <row>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>Select</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Timestamp</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Expression Type</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>IP Address</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>MAC Address</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Expression</string>
+                 </property>
+                </column>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <stylestrategy>PreferAntialias</stylestrategy>
+                  </font>
+                 </property>
+                 <property name="checkState">
+                  <enum>Checked</enum>
+                 </property>
+                </item>
+                <item row="0" column="1">
+                 <property name="text">
+                  <string>10-06-26 02:31:29,573</string>
+                 </property>
+                </item>
+                <item row="0" column="2">
+                 <property name="text">
+                  <string>Type</string>
+                 </property>
+                </item>
+                <item row="0" column="3">
+                 <property name="text">
+                  <string>125.42.0.1</string>
+                 </property>
+                </item>
+                <item row="0" column="4">
+                 <property name="text">
+                  <string>89:28:B2:C6:55:19</string>
+                 </property>
+                </item>
+                <item row="0" column="5">
+                 <property name="text">
+                  <string>Sample Expression</string>
+                 </property>
+                </item>
+               </widget>
               </widget>
               <widget class="QWidget" name="log_accordion_16">
                <property name="geometry">
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>100</width>
-                 <height>30</height>
+                 <width>1225</width>
+                 <height>437</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -3313,7 +3399,7 @@ border-color: rgb(170, 0, 0);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1674</width>
+     <width>1293</width>
      <height>24</height>
     </rect>
    </property>
