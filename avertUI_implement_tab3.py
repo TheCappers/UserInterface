@@ -12,7 +12,7 @@ import addition_for_synctab
 def getAllFrameForTab3():
 
     def toggleButtons(val):
-        if val == "allecludingvideo_btn":
+        if val == "allexcludingvideo_btn":
             allexcludingvideo_btn.setChecked(1)
             allincludingvideo_btn.setChecked(0)
         
@@ -625,7 +625,7 @@ def getAllFrameForTab3():
 
     """Adding Functinality"""
     # allexcludingvideo_btn.clicked.connect(lambda:toggleButtons('e', allexcludingvideo_btn)) # NOTE: to send as parameter; use lambda
-    allexcludingvideo_btn.clicked.connect(lambda: toggleButtons('allecludingvideo_btn'))
+    allexcludingvideo_btn.clicked.connect(lambda: toggleButtons('allexcludingvideo_btn'))
     allincludingvideo_btn.clicked.connect(lambda: toggleButtons('allincludingvideo_btn'))
     sync_btn.clicked.connect(syncbuttonpressed)
 
