@@ -1,10 +1,10 @@
 
 import time
-from PyQt5 import QtCore, QtGui, QtWidgets, QtChart
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 from PyQt5.QtChart import QChart, QChartView, QPieSeries
-from PyQt5.QtGui import QPainter, QPen
-from PyQt5.QtCore import QBasicTimer, Qt
+from PyQt5.QtGui import QPen
+from PyQt5.QtCore import Qt
 
 
 def getAllFrameForTab3():
