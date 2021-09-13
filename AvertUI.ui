@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1245</width>
-    <height>835</height>
+    <width>1674</width>
+    <height>1027</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,8 +24,8 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-591</y>
-         <width>1217</width>
+         <y>-369</y>
+         <width>1646</width>
          <height>1358</height>
         </rect>
        </property>
@@ -568,7 +568,7 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>1177</width>
+                 <width>1606</width>
                  <height>437</height>
                 </rect>
                </property>
@@ -586,7 +586,7 @@ p, li { white-space: pre-wrap; }
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>1157</width>
+                     <width>1586</width>
                      <height>417</height>
                     </rect>
                    </property>
@@ -612,7 +612,7 @@ p, li { white-space: pre-wrap; }
                      </size>
                     </property>
                     <property name="currentIndex">
-                     <number>0</number>
+                     <number>3</number>
                     </property>
                     <widget class="QWidget" name="tab_133">
                      <attribute name="title">
@@ -1188,8 +1188,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>1177</width>
-                 <height>437</height>
+                 <width>329</width>
+                 <height>234</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -1372,8 +1372,8 @@ p, li { white-space: pre-wrap; }
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>1137</width>
-                         <height>368</height>
+                         <width>572</width>
+                         <height>265</height>
                         </rect>
                        </property>
                        <layout class="QGridLayout" name="gridLayout_6">
@@ -1975,8 +1975,8 @@ border-color: rgb(170, 0, 0);</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>1177</width>
-                 <height>437</height>
+                 <width>100</width>
+                 <height>30</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -1988,8 +1988,8 @@ border-color: rgb(170, 0, 0);</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>1177</width>
-                 <height>437</height>
+                 <width>100</width>
+                 <height>30</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -2001,8 +2001,8 @@ border-color: rgb(170, 0, 0);</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>1177</width>
-                 <height>437</height>
+                 <width>100</width>
+                 <height>30</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -3313,7 +3313,7 @@ border-color: rgb(170, 0, 0);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1245</width>
+     <width>1674</width>
      <height>24</height>
     </rect>
    </property>

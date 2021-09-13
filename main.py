@@ -72,7 +72,7 @@ class AvertApp(QtWidgets.QMainWindow, avert.Ui_MainWindow):
             self.VideoStatOnButton.setChecked(1)  # check the button we clicked
             self.VideoStatusOffButton.setChecked(0)  # check false the off button incase it is checked
 
-        if self.sender().objectName().__contains__("Video") and self.sender().objectName().__contains__('off'):
+        if self.sender().objectName().__contains__("Video") and self.sender().objectName().__contains__('Off'):
             self.VideoStatOnButton.setChecked(0)  # check off the on button
             self.VideoStatusOffButton.setChecked(1)  # check on the off button
 
