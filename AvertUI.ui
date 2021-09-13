@@ -485,6 +485,75 @@ p, li { white-space: pre-wrap; }
                 </item>
                </layout>
               </item>
+              <item row="6" column="0">
+               <widget class="QPushButton" name="pushButton">
+                <property name="maximumSize">
+                 <size>
+                  <width>150</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Search</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_10">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string>Search</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>AVERT RESULT</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_6">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>12</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Search Expression</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QTextEdit" name="textEdit_2">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>400</width>
+                  <height>25</height>
+                 </size>
+                </property>
+                <property name="html">
+                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'.AppleSystemUIFont'; font-size:13pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="placeholderText">
+                 <string extracomment="Expression">Expression</string>
+                </property>
+               </widget>
+              </item>
               <item row="7" column="1">
                <widget class="QTableView" name="tableView"/>
               </item>
@@ -518,7 +587,7 @@ p, li { white-space: pre-wrap; }
                </attribute>
                <layout class="QVBoxLayout" name="verticalLayout_25">
                 <item>
-                 <widget class="QScrollArea" name="scrollArea_41">
+                 <widget class="QScrollArea" name="DetailedViewScroll">
                   <property name="widgetResizable">
                    <bool>true</bool>
                   </property>
@@ -531,7 +600,7 @@ p, li { white-space: pre-wrap; }
                      <height>417</height>
                     </rect>
                    </property>
-                   <widget class="QTabWidget" name="tabWidget_26">
+                   <widget class="QTabWidget" name="DetailedViewTab">
                     <property name="geometry">
                      <rect>
                       <x>10</x>
@@ -632,7 +701,7 @@ p, li { white-space: pre-wrap; }
                       <string>Description</string>
                      </attribute>
                     </widget>
-                    <widget class="QWidget" name="tab_102">
+                    <widget class="QWidget" name="AnnotationTab">
                      <attribute name="title">
                       <string>Annotation</string>
                      </attribute>
@@ -718,10 +787,405 @@ p, li { white-space: pre-wrap; }
                       </property>
                      </widget>
                     </widget>
-                    <widget class="QWidget" name="tab_103">
+                    <widget class="QWidget" name="tags_tab">
                      <attribute name="title">
                       <string>Tags</string>
                      </attribute>
+                     <widget class="QWidget" name="gridLayoutWidget">
+                      <property name="geometry">
+                       <rect>
+                        <x>1180</x>
+                        <y>200</y>
+                        <width>111</width>
+                        <height>111</height>
+                       </rect>
+                      </property>
+                      <layout class="QGridLayout" name="gridLayout_14">
+                       <item row="0" column="0">
+                        <widget class="QPushButton" name="tag_add_button">
+                         <property name="text">
+                          <string>Add</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="0">
+                        <widget class="QPushButton" name="tag_delete_button">
+                         <property name="text">
+                          <string>Delete</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                     <widget class="QWidget" name="gridLayoutWidget_2">
+                      <property name="geometry">
+                       <rect>
+                        <x>320</x>
+                        <y>40</y>
+                        <width>851</width>
+                        <height>271</height>
+                       </rect>
+                      </property>
+                      <layout class="QGridLayout" name="gridLayout_15">
+                       <item row="0" column="0">
+                        <widget class="QTableWidget" name="table_tag">
+                         <property name="acceptDrops">
+                          <bool>false</bool>
+                         </property>
+                         <property name="editTriggers">
+                          <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked</set>
+                         </property>
+                         <property name="alternatingRowColors">
+                          <bool>true</bool>
+                         </property>
+                         <property name="selectionBehavior">
+                          <enum>QAbstractItemView::SelectRows</enum>
+                         </property>
+                         <property name="cornerButtonEnabled">
+                          <bool>true</bool>
+                         </property>
+                         <property name="rowCount">
+                          <number>8</number>
+                         </property>
+                         <attribute name="horizontalHeaderCascadingSectionResizes">
+                          <bool>true</bool>
+                         </attribute>
+                         <attribute name="horizontalHeaderMinimumSectionSize">
+                          <number>20</number>
+                         </attribute>
+                         <attribute name="horizontalHeaderDefaultSectionSize">
+                          <number>150</number>
+                         </attribute>
+                         <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+                          <bool>true</bool>
+                         </attribute>
+                         <attribute name="horizontalHeaderStretchLastSection">
+                          <bool>true</bool>
+                         </attribute>
+                         <attribute name="verticalHeaderVisible">
+                          <bool>false</bool>
+                         </attribute>
+                         <attribute name="verticalHeaderCascadingSectionResizes">
+                          <bool>true</bool>
+                         </attribute>
+                         <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+                          <bool>true</bool>
+                         </attribute>
+                         <row/>
+                         <row/>
+                         <row/>
+                         <row/>
+                         <row/>
+                         <row/>
+                         <row/>
+                         <row/>
+                         <column>
+                          <property name="text">
+                           <string>IP Address</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>MAC Address </string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>Tag</string>
+                          </property>
+                         </column>
+                         <item row="0" column="0">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="checkState">
+                           <enum>Unchecked</enum>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+                          </property>
+                         </item>
+                         <item row="0" column="1">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable</set>
+                          </property>
+                         </item>
+                         <item row="0" column="2">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
+                          </property>
+                         </item>
+                         <item row="1" column="0">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="checkState">
+                           <enum>Unchecked</enum>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+                          </property>
+                         </item>
+                         <item row="1" column="1">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable</set>
+                          </property>
+                         </item>
+                         <item row="1" column="2">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
+                          </property>
+                         </item>
+                         <item row="2" column="0">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="checkState">
+                           <enum>Unchecked</enum>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+                          </property>
+                         </item>
+                         <item row="2" column="1">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable</set>
+                          </property>
+                         </item>
+                         <item row="2" column="2">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
+                          </property>
+                         </item>
+                         <item row="3" column="0">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="checkState">
+                           <enum>Unchecked</enum>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+                          </property>
+                         </item>
+                         <item row="3" column="1">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable</set>
+                          </property>
+                         </item>
+                         <item row="3" column="2">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
+                          </property>
+                         </item>
+                         <item row="4" column="0">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="checkState">
+                           <enum>Unchecked</enum>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+                          </property>
+                         </item>
+                         <item row="4" column="1">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable</set>
+                          </property>
+                         </item>
+                         <item row="4" column="2">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
+                          </property>
+                         </item>
+                         <item row="5" column="0">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="checkState">
+                           <enum>Unchecked</enum>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+                          </property>
+                         </item>
+                         <item row="5" column="1">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable</set>
+                          </property>
+                         </item>
+                         <item row="5" column="2">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
+                          </property>
+                         </item>
+                         <item row="6" column="0">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="checkState">
+                           <enum>Unchecked</enum>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+                          </property>
+                         </item>
+                         <item row="6" column="1">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable</set>
+                          </property>
+                         </item>
+                         <item row="6" column="2">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
+                          </property>
+                         </item>
+                         <item row="7" column="0">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="checkState">
+                           <enum>Unchecked</enum>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+                          </property>
+                         </item>
+                         <item row="7" column="1">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable</set>
+                          </property>
+                         </item>
+                         <item row="7" column="2">
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="flags">
+                           <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
+                          </property>
+                         </item>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </widget>
+                    <widget class="QWidget" name="tab_100">
+                     <attribute name="title">
+                      <string>User Profile</string>
+                     </attribute>
+                     <widget class="QScrollArea" name="scrollArea_42">
+                      <property name="geometry">
+                       <rect>
+                        <x>10</x>
+                        <y>0</y>
+                        <width>1651</width>
+                        <height>371</height>
+                       </rect>
+                      </property>
+                      <property name="verticalScrollBarPolicy">
+                       <enum>Qt::ScrollBarAlwaysOn</enum>
+                      </property>
+                      <property name="horizontalScrollBarPolicy">
+                       <enum>Qt::ScrollBarAsNeeded</enum>
+                      </property>
+                      <property name="widgetResizable">
+                       <bool>true</bool>
+                      </property>
+                      <widget class="QWidget" name="scrollAreaWidgetContents_44">
+                       <property name="geometry">
+                        <rect>
+                         <x>0</x>
+                         <y>0</y>
+                         <width>1641</width>
+                         <height>369</height>
+                        </rect>
+                       </property>
+                       <widget class="QTableWidget" name="tableWidget_23">
+                        <property name="geometry">
+                         <rect>
+                          <x>20</x>
+                          <y>10</y>
+                          <width>1591</width>
+                          <height>351</height>
+                         </rect>
+                        </property>
+                        <attribute name="horizontalHeaderDefaultSectionSize">
+                         <number>400</number>
+                        </attribute>
+                        <row>
+                         <property name="text">
+                          <string>User</string>
+                         </property>
+                        </row>
+                        <column>
+                         <property name="text">
+                          <string>IP Address</string>
+                         </property>
+                        </column>
+                        <column>
+                         <property name="text">
+                          <string>MAC Address</string>
+                         </property>
+                        </column>
+                        <item row="0" column="0">
+                         <property name="text">
+                          <string>192.111.222.16</string>
+                         </property>
+                        </item>
+                        <item row="0" column="1">
+                         <property name="text">
+                          <string>AA:BB:CCC</string>
+                         </property>
+                        </item>
+                       </widget>
+                      </widget>
+                     </widget>
                     </widget>
                    </widget>
                   </widget>
@@ -1563,7 +2027,1088 @@ border-color: rgb(170, 0, 0);</string>
            <attribute name="title">
             <string>Configuration</string>
            </attribute>
-           <layout class="QVBoxLayout" name="verticalLayout_6"/>
+           <widget class="QLabel" name="StorageThreshLabel">
+            <property name="geometry">
+             <rect>
+              <x>160</x>
+              <y>200</y>
+              <width>131</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font/>
+            </property>
+            <property name="text">
+             <string>Storage Threshold</string>
+            </property>
+            <property name="scaledContents">
+             <bool>false</bool>
+            </property>
+           </widget>
+           <widget class="QLabel" name="VideoTitle">
+            <property name="geometry">
+             <rect>
+              <x>520</x>
+              <y>100</y>
+              <width>151</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Video</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="SystemCallOnButton">
+            <property name="geometry">
+             <rect>
+              <x>190</x>
+              <y>540</y>
+              <width>88</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>On</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="KeyStrokeStatOnButton">
+            <property name="geometry">
+             <rect>
+              <x>1080</x>
+              <y>530</y>
+              <width>88</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>On</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QTableView" name="ScreenshotMainView">
+            <property name="geometry">
+             <rect>
+              <x>1051</x>
+              <y>100</y>
+              <width>490</width>
+              <height>210</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QComboBox" name="NetworkActivityDataUnit">
+            <property name="geometry">
+             <rect>
+              <x>715</x>
+              <y>690</y>
+              <width>271</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>20</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>Network Activity Data Duration Unit</string>
+             </property>
+            </item>
+           </widget>
+           <widget class="QLabel" name="NetworkActivityStatus">
+            <property name="geometry">
+             <rect>
+              <x>550</x>
+              <y>730</y>
+              <width>151</width>
+              <height>91</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Automatic Network Activity Data Recording Default Stauts</string>
+            </property>
+            <property name="scaledContents">
+             <bool>false</bool>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QLabel" name="ProcessTitle">
+            <property name="geometry">
+             <rect>
+              <x>1069</x>
+              <y>670</y>
+              <width>151</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Process</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="KeyStrokeStatOffButton">
+            <property name="geometry">
+             <rect>
+              <x>1170</x>
+              <y>530</y>
+              <width>88</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Off</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="MouseActOffButton">
+            <property name="geometry">
+             <rect>
+              <x>270</x>
+              <y>840</y>
+              <width>88</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Off</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QLabel" name="ProcessStatLabel">
+            <property name="geometry">
+             <rect>
+              <x>1089</x>
+              <y>730</y>
+              <width>151</width>
+              <height>91</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Automatic Process Recording Default Status</string>
+            </property>
+            <property name="scaledContents">
+             <bool>false</bool>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QLabel" name="WindowHistoryStat">
+            <property name="geometry">
+             <rect>
+              <x>550</x>
+              <y>430</y>
+              <width>151</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Automatic Video Recording Default Stauts</string>
+            </property>
+            <property name="scaledContents">
+             <bool>false</bool>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QTableView" name="MouseActView">
+            <property name="geometry">
+             <rect>
+              <x>130</x>
+              <y>670</y>
+              <width>321</width>
+              <height>210</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QComboBox" name="VideoResolutionSelect">
+            <property name="geometry">
+             <rect>
+              <x>840</x>
+              <y>120</y>
+              <width>150</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>20</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>Video Resolution</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>360</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>720</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>480</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>1080</string>
+             </property>
+            </item>
+           </widget>
+           <widget class="QTableView" name="SystemCallConfiguration">
+            <property name="geometry">
+             <rect>
+              <x>130</x>
+              <y>370</y>
+              <width>321</width>
+              <height>210</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QLabel" name="KeystrokeStatus">
+            <property name="geometry">
+             <rect>
+              <x>1090</x>
+              <y>430</y>
+              <width>151</width>
+              <height>91</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Automatic Keystroke Recording Default Status</string>
+            </property>
+            <property name="scaledContents">
+             <bool>false</bool>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="WindowHistoryOffButton">
+            <property name="geometry">
+             <rect>
+              <x>630</x>
+              <y>530</y>
+              <width>88</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Off</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QLabel" name="ScreenshotStat">
+            <property name="geometry">
+             <rect>
+              <x>1091</x>
+              <y>160</y>
+              <width>151</width>
+              <height>91</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Automatic Screenshot Recording Default Stauts</string>
+            </property>
+            <property name="scaledContents">
+             <bool>false</bool>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QTableView" name="VideoConfiguration">
+            <property name="geometry">
+             <rect>
+              <x>510</x>
+              <y>100</y>
+              <width>490</width>
+              <height>210</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QComboBox" name="NetworkActivityDataWaiValue">
+            <property name="geometry">
+             <rect>
+              <x>705</x>
+              <y>720</y>
+              <width>281</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>20</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>Network Activity Data Duration Value</string>
+             </property>
+            </item>
+           </widget>
+           <widget class="QLabel" name="MouseActStatus">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>730</y>
+              <width>151</width>
+              <height>91</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Automatic Mouse Action Recording Default Status</string>
+            </property>
+            <property name="scaledContents">
+             <bool>false</bool>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QComboBox" name="ScreenshotFormatDrop">
+            <property name="geometry">
+             <rect>
+              <x>1320</x>
+              <y>120</y>
+              <width>211</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>220</width>
+              <height>20</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>Screenshot Format Default</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>JPG</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PNG</string>
+             </property>
+            </item>
+           </widget>
+           <widget class="QPushButton" name="ScreenshotStatOffButton">
+            <property name="geometry">
+             <rect>
+              <x>1160</x>
+              <y>260</y>
+              <width>88</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Off</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QTableView" name="WindowHistoryView">
+            <property name="geometry">
+             <rect>
+              <x>510</x>
+              <y>370</y>
+              <width>490</width>
+              <height>210</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="ScreenshotStatOnButton">
+            <property name="geometry">
+             <rect>
+              <x>1070</x>
+              <y>260</y>
+              <width>88</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>On</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QTableView" name="StorageContV">
+            <property name="geometry">
+             <rect>
+              <x>140</x>
+              <y>100</y>
+              <width>300</width>
+              <height>210</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QComboBox" name="WindowHistoryDurUnit">
+            <property name="geometry">
+             <rect>
+              <x>756</x>
+              <y>390</y>
+              <width>230</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>250</width>
+              <height>20</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>Window History Duration Unit</string>
+             </property>
+            </item>
+           </widget>
+           <widget class="QPushButton" name="NetworkActivityDataOffButton">
+            <property name="geometry">
+             <rect>
+              <x>630</x>
+              <y>830</y>
+              <width>88</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Off</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="VideoStatusOffButton">
+            <property name="geometry">
+             <rect>
+              <x>620</x>
+              <y>260</y>
+              <width>88</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Off</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+           <widget class="QComboBox" name="WaitValueSelection">
+            <property name="geometry">
+             <rect>
+              <x>770</x>
+              <y>210</y>
+              <width>220</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>220</width>
+              <height>20</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>Video Recording Wait Value</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Seconds</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Minutes</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Hours</string>
+             </property>
+            </item>
+           </widget>
+           <widget class="QComboBox" name="WindowHistoryWaitVal">
+            <property name="geometry">
+             <rect>
+              <x>766</x>
+              <y>420</y>
+              <width>220</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>220</width>
+              <height>20</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>Window History Wait Value</string>
+             </property>
+            </item>
+           </widget>
+           <widget class="QPushButton" name="WindowHistoryOnButton">
+            <property name="geometry">
+             <rect>
+              <x>540</x>
+              <y>530</y>
+              <width>88</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>On</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QTableView" name="ProcessMainView">
+            <property name="geometry">
+             <rect>
+              <x>1050</x>
+              <y>670</y>
+              <width>490</width>
+              <height>210</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="VideoStatOnButton">
+            <property name="geometry">
+             <rect>
+              <x>530</x>
+              <y>260</y>
+              <width>88</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>On</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+           <widget class="QLabel" name="ScreenshotTitle">
+            <property name="geometry">
+             <rect>
+              <x>1061</x>
+              <y>100</y>
+              <width>151</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Screenshot</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="NetworkActivityDataLabel">
+            <property name="geometry">
+             <rect>
+              <x>520</x>
+              <y>680</y>
+              <width>201</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Network Activity Data</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="VideoAutoStat">
+            <property name="geometry">
+             <rect>
+              <x>550</x>
+              <y>180</y>
+              <width>151</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Automatic Video Recording Default Stauts</string>
+            </property>
+            <property name="scaledContents">
+             <bool>false</bool>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QLabel" name="KeystrokeMainLabel">
+            <property name="geometry">
+             <rect>
+              <x>1070</x>
+              <y>370</y>
+              <width>151</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Keystroke</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="StorageInValue">
+            <property name="geometry">
+             <rect>
+              <x>290</x>
+              <y>200</y>
+              <width>31</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>30</string>
+            </property>
+            <property name="maxLength">
+             <number>2</number>
+            </property>
+           </widget>
+           <widget class="QTableView" name="KeystrokeMainView">
+            <property name="geometry">
+             <rect>
+              <x>1051</x>
+              <y>370</y>
+              <width>490</width>
+              <height>210</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QComboBox" name="VideoWaitSelection">
+            <property name="geometry">
+             <rect>
+              <x>810</x>
+              <y>180</y>
+              <width>180</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>180</width>
+              <height>20</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>Video Recording Wait</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>15</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>30</string>
+             </property>
+            </item>
+           </widget>
+           <widget class="QLabel" name="SysCallStatus">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>430</y>
+              <width>151</width>
+              <height>91</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Automatic System Call Recording Default Status</string>
+            </property>
+            <property name="scaledContents">
+             <bool>false</bool>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="SystemCallOffButton">
+            <property name="geometry">
+             <rect>
+              <x>280</x>
+              <y>540</y>
+              <width>88</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Off</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QLabel" name="MouseActionTitle">
+            <property name="geometry">
+             <rect>
+              <x>150</x>
+              <y>670</y>
+              <width>151</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Mouse Action</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="ProcessStatOffButton">
+            <property name="geometry">
+             <rect>
+              <x>1170</x>
+              <y>840</y>
+              <width>88</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Off</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QLabel" name="SystemCallLabel">
+            <property name="geometry">
+             <rect>
+              <x>150</x>
+              <y>370</y>
+              <width>151</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>System Call</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="WindowHistLabel">
+            <property name="geometry">
+             <rect>
+              <x>530</x>
+              <y>370</y>
+              <width>151</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Window History</string>
+            </property>
+           </widget>
+           <widget class="QTableView" name="NetworkActivityDataView">
+            <property name="geometry">
+             <rect>
+              <x>510</x>
+              <y>670</y>
+              <width>490</width>
+              <height>210</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="NetworkActivityDataOnButton">
+            <property name="geometry">
+             <rect>
+              <x>540</x>
+              <y>830</y>
+              <width>88</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>On</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QComboBox" name="FrameRateSelect">
+            <property name="geometry">
+             <rect>
+              <x>840</x>
+              <y>150</y>
+              <width>150</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>20</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>Video Frame Rate</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>15</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>30</string>
+             </property>
+            </item>
+           </widget>
+           <widget class="QPushButton" name="ProcessStatOnButton">
+            <property name="geometry">
+             <rect>
+              <x>1080</x>
+              <y>840</y>
+              <width>88</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>On</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="MouseActOnButton">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>840</y>
+              <width>88</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>On</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QLabel" name="StorageTitle">
+            <property name="geometry">
+             <rect>
+              <x>150</x>
+              <y>100</y>
+              <width>151</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Storage</string>
+            </property>
+           </widget>
+           <zorder>MouseActView</zorder>
+           <zorder>WindowHistoryView</zorder>
+           <zorder>VideoConfiguration</zorder>
+           <zorder>KeystrokeMainView</zorder>
+           <zorder>ScreenshotMainView</zorder>
+           <zorder>ProcessMainView</zorder>
+           <zorder>NetworkActivityDataView</zorder>
+           <zorder>SystemCallConfiguration</zorder>
+           <zorder>StorageContV</zorder>
+           <zorder>StorageThreshLabel</zorder>
+           <zorder>VideoTitle</zorder>
+           <zorder>SystemCallOnButton</zorder>
+           <zorder>KeyStrokeStatOnButton</zorder>
+           <zorder>NetworkActivityDataUnit</zorder>
+           <zorder>NetworkActivityStatus</zorder>
+           <zorder>ProcessTitle</zorder>
+           <zorder>KeyStrokeStatOffButton</zorder>
+           <zorder>MouseActOffButton</zorder>
+           <zorder>ProcessStatLabel</zorder>
+           <zorder>WindowHistoryStat</zorder>
+           <zorder>VideoResolutionSelect</zorder>
+           <zorder>KeystrokeStatus</zorder>
+           <zorder>WindowHistoryOffButton</zorder>
+           <zorder>ScreenshotStat</zorder>
+           <zorder>NetworkActivityDataWaiValue</zorder>
+           <zorder>MouseActStatus</zorder>
+           <zorder>ScreenshotFormatDrop</zorder>
+           <zorder>ScreenshotStatOffButton</zorder>
+           <zorder>ScreenshotStatOnButton</zorder>
+           <zorder>WindowHistoryDurUnit</zorder>
+           <zorder>NetworkActivityDataOffButton</zorder>
+           <zorder>VideoStatusOffButton</zorder>
+           <zorder>WaitValueSelection</zorder>
+           <zorder>WindowHistoryWaitVal</zorder>
+           <zorder>WindowHistoryOnButton</zorder>
+           <zorder>VideoStatOnButton</zorder>
+           <zorder>ScreenshotTitle</zorder>
+           <zorder>NetworkActivityDataLabel</zorder>
+           <zorder>VideoAutoStat</zorder>
+           <zorder>KeystrokeMainLabel</zorder>
+           <zorder>StorageInValue</zorder>
+           <zorder>VideoWaitSelection</zorder>
+           <zorder>SysCallStatus</zorder>
+           <zorder>SystemCallOffButton</zorder>
+           <zorder>MouseActionTitle</zorder>
+           <zorder>ProcessStatOffButton</zorder>
+           <zorder>SystemCallLabel</zorder>
+           <zorder>WindowHistLabel</zorder>
+           <zorder>NetworkActivityDataOnButton</zorder>
+           <zorder>FrameRateSelect</zorder>
+           <zorder>ProcessStatOnButton</zorder>
+           <zorder>MouseActOnButton</zorder>
+           <zorder>StorageTitle</zorder>
           </widget>
           <widget class="QWidget" name="tab_3">
            <attribute name="title">
@@ -1588,12 +3133,6 @@ border-color: rgb(170, 0, 0);</string>
      <height>24</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuAVERT">
-    <property name="title">
-     <string>AVERT</string>
-    </property>
-   </widget>
-   <addaction name="menuAVERT"/>
   </widget>
  </widget>
  <resources/>
