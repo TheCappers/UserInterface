@@ -874,7 +874,6 @@ class Ui_MainWindow(object):
         self.description_tab.addTab(self.descriptionwindowhistory_tab, "")
         self.descriptionnetwork_tab = QtWidgets.QWidget()
         self.descriptionnetwork_tab.setObjectName("descriptionnetwork_tab")
-        
         self.toolBox = QtWidgets.QToolBox(self.descriptionnetwork_tab)
         self.toolBox.setGeometry(QtCore.QRect(0, 0, 1571, 311))
         self.toolBox.setObjectName("toolBox")
@@ -948,9 +947,7 @@ class Ui_MainWindow(object):
         item = QtWidgets.QListWidgetItem()
         self.listWidget_2.addItem(item)
         self.toolBox.addItem(self.network_3, "")
-        
         self.description_tab.addTab(self.descriptionnetwork_tab, "")
-
         self.descriptionmouse_tab = QtWidgets.QWidget()
         self.descriptionmouse_tab.setObjectName("descriptionmouse_tab")
         self.label_73 = QtWidgets.QLabel(self.descriptionmouse_tab)
@@ -1614,7 +1611,6 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_42.setText(_translate("MainWindow", "Window Placement Command:"))
         self.label_82.setText(_translate("MainWindow", "??????"))
         self.description_tab.setTabText(self.description_tab.indexOf(self.descriptionwindowhistory_tab), _translate("MainWindow", "Window History"))
-        
         __sortingEnabled = self.listWidget_4.isSortingEnabled()
         self.listWidget_4.setSortingEnabled(False)
         item = self.listWidget_4.item(0)
@@ -1670,7 +1666,6 @@ class Ui_MainWindow(object):
         self.listWidget_2.setSortingEnabled(__sortingEnabled)
         self.toolBox.setItemText(self.toolBox.indexOf(self.network_3), _translate("MainWindow", "Data (107 Bytes)"))
         self.description_tab.setTabText(self.description_tab.indexOf(self.descriptionnetwork_tab), _translate("MainWindow", "Network Packet"))
-        
         self.label_73.setText(_translate("MainWindow", "??????"))
         self.label_79.setText(_translate("MainWindow", "?????"))
         self.label_80.setText(_translate("MainWindow", "10-6-26 02:31:29"))
