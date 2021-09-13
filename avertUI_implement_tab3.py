@@ -6,6 +6,8 @@ from PyQt5.QtChart import QChart, QChartView, QPieSeries
 from PyQt5.QtGui import QPen
 from PyQt5.QtCore import Qt
 
+import addition_for_synctab
+
 
 def getAllFrameForTab3():
 
@@ -532,35 +534,37 @@ def getAllFrameForTab3():
 
 
     """PIE CHART CONTENT START"""
-    series = QPieSeries()
-    series.append("Available", 80)
-    series.append("Used Space", 30)
+    # series = QPieSeries()
+    # series.append("Available", 80)
+    # series.append("Used Space", 30)
 
-    my_slice = series.slices()[0]
-    my_slice.setExploded(True)
-    my_slice.setLabelVisible(True)
-    my_slice.setPen(QPen(Qt.green, 4))
-    my_slice.setBrush(Qt.green)
+    # my_slice = series.slices()[0]
+    # my_slice.setExploded(True)
+    # my_slice.setLabelVisible(True)
+    # my_slice.setPen(QPen(Qt.green, 4))
+    # my_slice.setBrush(Qt.green)
 
-    my_slice = series.slices()[1]
-    my_slice.setExploded(True)
-    my_slice.setLabelVisible(True)
-    my_slice.setPen(QPen(Qt.green, 4))
-    my_slice.setBrush(Qt.green)
+    # my_slice = series.slices()[1]
+    # my_slice.setExploded(True)
+    # my_slice.setLabelVisible(True)
+    # my_slice.setPen(QPen(Qt.green, 4))
+    # my_slice.setBrush(Qt.green)
 
-    chart = QChart()
-    chart.addSeries(series)
-    chart.setAnimationOptions(QChart.SeriesAnimations)
-    chart.setTitle("Hard Drive Space")
-    chart.setTheme(QChart.ChartThemeDark)
-    chart.setGeometry(QtCore.QRectF(1310, 110, 171, 31))
+    # chart = QChart()
+    # chart.addSeries(series)
+    # chart.setAnimationOptions(QChart.SeriesAnimations)
+    # chart.setTitle("Hard Drive Space")
+    # chart.setTheme(QChart.ChartThemeDark)
+    # chart.setGeometry(QtCore.QRectF(1310, 110, 171, 31))
 
-    charview = QChartView(chart)
-    charview.setGeometry(QtCore.QRect(1310, 110, 171, 31))
+    # charview = QChartView(chart)
+    # charview.setGeometry(QtCore.QRect(1310, 110, 171, 31))
+
+    # charview = addition_for_synctab.piechart_for_synctab()
 
     vox = QtWidgets.QVBoxLayout(tab_3)
     vox.setContentsMargins(580, 5, 580, 1070) #ltrb
-    vox.addWidget(charview)
+    vox.addWidget(addition_for_synctab.piechart_for_synctab())
     """PIE CHART CONTENT END"""
 
 

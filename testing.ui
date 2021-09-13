@@ -1679,7 +1679,7 @@ p, li { white-space: pre-wrap; }
        <string>All Including Video</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="alexcludinglvideo_btn">
+     <widget class="QPushButton" name="allexcludinglvideo_btn">
       <property name="geometry">
        <rect>
         <x>1300</x>
@@ -1700,8 +1700,8 @@ p, li { white-space: pre-wrap; }
      <widget class="QPushButton" name="sync_btn">
       <property name="geometry">
        <rect>
-        <x>1590</x>
-        <y>110</y>
+        <x>1470</x>
+        <y>120</y>
         <width>71</width>
         <height>32</height>
        </rect>
@@ -1863,14 +1863,14 @@ p, li { white-space: pre-wrap; }
      <widget class="QLabel" name="errormessage">
       <property name="geometry">
        <rect>
-        <x>1000</x>
-        <y>190</y>
-        <width>60</width>
-        <height>16</height>
+        <x>1370</x>
+        <y>80</y>
+        <width>281</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>Error: Please select one choice on video sync scope above.</string>
+       <string>Error: Please select video sync scope above.</string>
       </property>
      </widget>
     </widget>
