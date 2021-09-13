@@ -8,10 +8,8 @@ from PyQt5.QtChart import QChart, QChartView, QPieSeries
 from PyQt5.QtGui import QPen
 from PyQt5.QtCore import Qt
 
-import pics_for_converted_from_master
+import pictures_in_destailed_description
 import addition_for_synctab
-
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -2512,13 +2510,12 @@ class Ui_MainWindow(object):
         self.errormessage.setStyleSheet("color: red")
         self.errormessage.setHidden(True)
 
+        #ADD THIS PART START
         vox = QtWidgets.QVBoxLayout(self.tab_3)
         vox.setContentsMargins(580,5,580,1100) #ltrb
         vox.addWidget(addition_for_synctab.piechart_for_synctab())
-
-
         addition_for_synctab.btns_connector_in_synctab(self.allexcludingvideo_btn, self.allincludingvideo_btn, self.sync_btn, self.errormessage)
-
+        #ADD THIS PART END
 
 
         
