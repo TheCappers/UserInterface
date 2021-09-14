@@ -7,6 +7,8 @@ from PyQt5.QtWidgets import (QPushButton, QDialog, QTreeWidget, QTreeWidgetItem,
 from PyQt5.QtChart import QChart, QChartView, QValueAxis, QBarCategoryAxis, QBarSet, QBarSeries
 from PyQt5.Qt import Qt
 
+# hello
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
