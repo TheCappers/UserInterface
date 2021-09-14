@@ -55,9 +55,9 @@ def piechart_for_synctab():
     chart.setAnimationOptions(QChart.SeriesAnimations)
     chart.setTitle("Hard Drive Space")
     chart.setTheme(QChart.ChartThemeDark)
-    chart.setGeometry(QtCore.QRectF(1310, 110, 171, 50))
+    chart.setGeometry(QtCore.QRectF(1310, 110, 171, 60))
 
     charview = QChartView(chart)
-    charview.setGeometry(QtCore.QRect(1310, 110, 171, 50))
+    charview.setGeometry(QtCore.QRect(1310, 110, 171, 60))
 
     return charview
