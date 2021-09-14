@@ -24,7 +24,7 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>0</y>
+         <y>-307</y>
          <width>1648</width>
          <height>1377</height>
         </rect>
@@ -39,7 +39,7 @@
            </sizepolicy>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_1">
            <attribute name="title">
@@ -700,7 +700,7 @@ p, li { white-space: pre-wrap; }
                        </rect>
                       </property>
                       <property name="currentIndex">
-                       <number>5</number>
+                       <number>0</number>
                       </property>
                       <widget class="QWidget" name="descriptionvideo_tab">
                        <attribute name="title">
@@ -737,7 +737,7 @@ p, li { white-space: pre-wrap; }
                           </sizepolicy>
                          </property>
                          <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/description_deatiledview/Screen Shot 2021-09-12 at 11.29.07 AM.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/pics_for_detailedview/video_detailedview.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                          </property>
                         </widget>
                        </widget>
@@ -1002,7 +1002,7 @@ p, li { white-space: pre-wrap; }
                           </rect>
                          </property>
                          <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/descriptiondetaileview_stillscreenshot/Blank diagram - Page 2 copy.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/pics_for_detailedview/stillscreenshot_detailedview.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                          </property>
                         </widget>
                        </widget>
@@ -3481,8 +3481,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>382</width>
-                 <height>283</height>
+                 <width>1594</width>
+                 <height>432</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -4268,8 +4268,8 @@ border-color: rgb(170, 0, 0);</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>98</width>
-                 <height>28</height>
+                 <width>1594</width>
+                 <height>432</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -4281,8 +4281,8 @@ border-color: rgb(170, 0, 0);</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>98</width>
-                 <height>28</height>
+                 <width>1594</width>
+                 <height>432</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -4294,8 +4294,8 @@ border-color: rgb(170, 0, 0);</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>98</width>
-                 <height>28</height>
+                 <width>1594</width>
+                 <height>432</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -6962,7 +6962,7 @@ border-color: rgb(170, 0, 0);</string>
   </widget>
  </widget>
  <resources>
-  <include location="videoplayer.qrc"/>
+  <include location="pics_for_detailedview.qrc"/>
  </resources>
  <connections/>
 </ui>
