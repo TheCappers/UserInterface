@@ -13,7 +13,7 @@ import sys
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1440, 841)
+        MainWindow.resize(1674, 1027)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -1152,7 +1152,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_34 = QtWidgets.QLabel(
             self.descriptionwindowhistory_tab)
         self.descriptionvideo_timestamp_label_34.setGeometry(
-            QtCore.QRect(30, 110, 211, 31))
+            QtCore.QRect(30, 110, 230, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_34.setFont(font)
@@ -3327,7 +3327,7 @@ class Ui_MainWindow(object):
         self.errormessage.setStyleSheet("color: red")
         self.errormessage.setHidden(True)
         vox = QtWidgets.QVBoxLayout(self.tab_3)
-        vox.setContentsMargins(580, 5, 580, 1100)  # ltrb
+        vox.setContentsMargins(580, 5, 580, 1080)  # ltrb
         vox.addWidget(addition_for_synctab.piechart_for_synctab())
         addition_for_synctab.btns_connector_in_synctab(
             self.allexcludingvideo_btn, self.allincludingvideo_btn, self.sync_btn, self.errormessage)
