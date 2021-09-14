@@ -1,13 +1,9 @@
 import pics_for_detailedview
-import sys
+import sys, random
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import (QPushButton, QDialog, QTreeWidget, QTreeWidgetItem, QVBoxLayout,
                              QHBoxLayout, QFrame, QLabel, QApplication, QMainWindow)
 
-from PyQt5.QtChart import QChart, QChartView, QValueAxis, QBarCategoryAxis, QBarSet, QBarSeries
-from PyQt5.Qt import Qt
-
-# hello
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -3503,10 +3499,10 @@ class Ui_MainWindow(object):
         set2 = QBarSet('Mouse Action')
         set3 = QBarSet('Window History')
 
-        set0.append(35)
-        set1.append(40)
-        set2.append(150)
-        set3.append(20)
+        set0.append(20)
+        set1.append(30)
+        set2.append(100)
+        set3.append(50)
 
         series = QBarSeries()
         series.append(set0)
