@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1674</width>
-    <height>1027</height>
+    <width>1014</width>
+    <height>493</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,9 +24,9 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-369</y>
-         <width>1646</width>
-         <height>1358</height>
+         <y>-761</y>
+         <width>977</width>
+         <height>1284</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -48,6 +48,409 @@
            <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
              <layout class="QGridLayout" name="gridLayout_2">
+              <item row="7" column="0">
+               <layout class="QGridLayout" name="gridLayout_3">
+                <item row="18" column="0">
+                 <widget class="QLabel" name="label_2">
+                  <property name="text">
+                   <string>Start Time</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_11">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>12</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>User Profile</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="18" column="1">
+                 <widget class="QTimeEdit" name="timeEdit"/>
+                </item>
+                <item row="13" column="0">
+                 <widget class="QLabel" name="label_26">
+                  <property name="text">
+                   <string>System Call</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="1">
+                 <widget class="QCheckBox" name="checkBox_15">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="15" column="1">
+                 <widget class="QCheckBox" name="checkBox_20">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QComboBox" name="comboBox_3">
+                  <property name="maximumSize">
+                   <size>
+                    <width>150</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0">
+                 <widget class="QLabel" name="label_18">
+                  <property name="text">
+                   <string>All Arifact Types</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="8" column="0">
+                 <widget class="QLabel" name="label_21">
+                  <property name="text">
+                   <string>Network Packet</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="1">
+                 <widget class="QLabel" name="label_17">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>12</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Value</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="13" column="1">
+                 <widget class="QCheckBox" name="checkBox_23">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="17" column="1">
+                 <widget class="QDateEdit" name="dateEdit"/>
+                </item>
+                <item row="20" column="1">
+                 <widget class="QTimeEdit" name="timeEdit_2"/>
+                </item>
+                <item row="11" column="1">
+                 <widget class="QCheckBox" name="checkBox_19">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="19" column="0">
+                 <widget class="QLabel" name="label_3">
+                  <property name="text">
+                   <string>End Date</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="0">
+                 <widget class="QLabel" name="label_19">
+                  <property name="text">
+                   <string>Still Screenshot</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="16" column="0">
+                 <widget class="QLabel" name="label_29">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>80</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
+                  <property name="text">
+                   <string>Date and Time</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="20" column="0">
+                 <widget class="QLabel" name="label_4">
+                  <property name="text">
+                   <string>End Time</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="10" column="0">
+                 <widget class="QLabel" name="label_23">
+                  <property name="text">
+                   <string>Keystroke</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="8" column="1">
+                 <widget class="QCheckBox" name="checkBox_21">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="19" column="1">
+                 <widget class="QDateEdit" name="dateEdit_2"/>
+                </item>
+                <item row="15" column="0">
+                 <widget class="QLabel" name="label_28">
+                  <property name="text">
+                   <string>Log</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QComboBox" name="comboBox_4">
+                  <property name="maximumSize">
+                   <size>
+                    <width>150</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0">
+                 <widget class="QLabel" name="label_16">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>15</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Type</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="1">
+                 <widget class="QCheckBox" name="checkBox_16">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="10" column="1">
+                 <widget class="QCheckBox" name="checkBox_18">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="label_15">
+                  <property name="maximumSize">
+                   <size>
+                    <width>100</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>MAC Address</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="12" column="1">
+                 <widget class="QCheckBox" name="checkBox_22">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="16" column="1">
+                 <widget class="QLabel" name="label_30">
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
+                  <property name="text">
+                   <string>Value</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="1">
+                 <widget class="QCheckBox" name="checkBox_14">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="14" column="1">
+                 <widget class="QCheckBox" name="checkBox_24">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="12" column="0">
+                 <widget class="QLabel" name="label_25">
+                  <property name="text">
+                   <string>Window History</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="9" column="0">
+                 <widget class="QLabel" name="label_22">
+                  <property name="text">
+                   <string>Process</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="9" column="1">
+                 <widget class="QCheckBox" name="checkBox_17">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QLabel" name="label_14">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>12</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Value</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="0">
+                 <widget class="QLabel" name="label_20">
+                  <property name="text">
+                   <string>Video</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_13">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>80</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
+                  <property name="text">
+                   <string>Filters</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <layout class="QVBoxLayout" name="verticalLayout"/>
+                </item>
+                <item row="11" column="0">
+                 <widget class="QLabel" name="label_24">
+                  <property name="text">
+                   <string>Mouse Action</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="label_12">
+                  <property name="maximumSize">
+                   <size>
+                    <width>100</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>IP Address</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="17" column="0">
+                 <widget class="QLabel" name="label">
+                  <property name="text">
+                   <string>Start Date</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="14" column="0">
+                 <widget class="QLabel" name="label_27">
+                  <property name="text">
+                   <string>History</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="6" column="1">
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>AVERT RESULT</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_6">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>12</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Search Expression</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="1">
+               <widget class="QTableView" name="tableView"/>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QTextEdit" name="textEdit_2">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>400</width>
+                  <height>25</height>
+                 </size>
+                </property>
+                <property name="html">
+                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'.AppleSystemUIFont'; font-size:13pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="placeholderText">
+                 <string extracomment="Expression">Expression</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QPushButton" name="pushButton">
+                <property name="maximumSize">
+                 <size>
+                  <width>150</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Search</string>
+                </property>
+               </widget>
+              </item>
               <item row="3" column="0">
                <layout class="QHBoxLayout" name="horizontalLayout">
                 <item>
@@ -101,9 +504,9 @@
                 </property>
                 <property name="html">
                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'.AppleSystemUIFont'; font-size:13pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="placeholderText">
@@ -111,370 +514,10 @@ p, li { white-space: pre-wrap; }
                 </property>
                </widget>
               </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_6">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>12</height>
-                 </size>
-                </property>
+              <item row="6" column="1">
+               <widget class="QLabel" name="label_9">
                 <property name="text">
-                 <string>Search Expression</string>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="0">
-               <layout class="QGridLayout" name="gridLayout_3">
-                <item row="9" column="1">
-                 <widget class="QCheckBox" name="checkBox_17">
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-                <item row="8" column="0">
-                 <widget class="QLabel" name="label_21">
-                  <property name="text">
-                   <string>Network Packet</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="17" column="0">
-                 <widget class="QLabel" name="label">
-                  <property name="text">
-                   <string>Start Date</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="7" column="0">
-                 <widget class="QLabel" name="label_20">
-                  <property name="text">
-                   <string>Video</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="5" column="0">
-                 <widget class="QLabel" name="label_18">
-                  <property name="text">
-                   <string>All Arifact Types</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="13" column="0">
-                 <widget class="QLabel" name="label_26">
-                  <property name="text">
-                   <string>System Call</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="18" column="1">
-                 <widget class="QTimeEdit" name="timeEdit"/>
-                </item>
-                <item row="3" column="1">
-                 <widget class="QComboBox" name="comboBox_3">
-                  <property name="maximumSize">
-                   <size>
-                    <width>150</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_13">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>80</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true"/>
-                  </property>
-                  <property name="text">
-                   <string>Filters</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="6" column="1">
-                 <widget class="QCheckBox" name="checkBox_15">
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-                <item row="18" column="0">
-                 <widget class="QLabel" name="label_2">
-                  <property name="text">
-                   <string>Start Time</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <layout class="QVBoxLayout" name="verticalLayout"/>
-                </item>
-                <item row="5" column="1">
-                 <widget class="QCheckBox" name="checkBox_14">
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-                <item row="16" column="1">
-                 <widget class="QLabel" name="label_30">
-                  <property name="styleSheet">
-                   <string notr="true"/>
-                  </property>
-                  <property name="text">
-                   <string>Value</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="15" column="0">
-                 <widget class="QLabel" name="label_28">
-                  <property name="text">
-                   <string>Log</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="17" column="1">
-                 <widget class="QDateEdit" name="dateEdit"/>
-                </item>
-                <item row="10" column="0">
-                 <widget class="QLabel" name="label_23">
-                  <property name="text">
-                   <string>Keystroke</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="11" column="0">
-                 <widget class="QLabel" name="label_24">
-                  <property name="text">
-                   <string>Mouse Action</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="20" column="1">
-                 <widget class="QTimeEdit" name="timeEdit_2"/>
-                </item>
-                <item row="9" column="0">
-                 <widget class="QLabel" name="label_22">
-                  <property name="text">
-                   <string>Process</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="8" column="1">
-                 <widget class="QCheckBox" name="checkBox_21">
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="label_11">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>12</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string>User Profile</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="7" column="1">
-                 <widget class="QCheckBox" name="checkBox_16">
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-                <item row="14" column="0">
-                 <widget class="QLabel" name="label_27">
-                  <property name="text">
-                   <string>History</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="6" column="0">
-                 <widget class="QLabel" name="label_19">
-                  <property name="text">
-                   <string>Still Screenshot</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="14" column="1">
-                 <widget class="QCheckBox" name="checkBox_24">
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0">
-                 <widget class="QLabel" name="label_12">
-                  <property name="maximumSize">
-                   <size>
-                    <width>100</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string>IP Address</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="10" column="1">
-                 <widget class="QCheckBox" name="checkBox_18">
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QLabel" name="label_14">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>12</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string>Value</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="11" column="1">
-                 <widget class="QCheckBox" name="checkBox_19">
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-                <item row="12" column="0">
-                 <widget class="QLabel" name="label_25">
-                  <property name="text">
-                   <string>Window History</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="15" column="1">
-                 <widget class="QCheckBox" name="checkBox_20">
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-                <item row="19" column="1">
-                 <widget class="QDateEdit" name="dateEdit_2"/>
-                </item>
-                <item row="16" column="0">
-                 <widget class="QLabel" name="label_29">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>80</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true"/>
-                  </property>
-                  <property name="text">
-                   <string>Date and Time</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="0">
-                 <widget class="QLabel" name="label_16">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>15</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string>Type</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="19" column="0">
-                 <widget class="QLabel" name="label_3">
-                  <property name="text">
-                   <string>End Date</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QComboBox" name="comboBox_4">
-                  <property name="maximumSize">
-                   <size>
-                    <width>150</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="1">
-                 <widget class="QLabel" name="label_17">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>12</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string>Value</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="13" column="1">
-                 <widget class="QCheckBox" name="checkBox_23">
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="0">
-                 <widget class="QLabel" name="label_15">
-                  <property name="maximumSize">
-                   <size>
-                    <width>100</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string>MAC Address</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="12" column="1">
-                 <widget class="QCheckBox" name="checkBox_22">
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-                <item row="20" column="0">
-                 <widget class="QLabel" name="label_4">
-                  <property name="text">
-                   <string>End Time</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item row="6" column="0">
-               <widget class="QPushButton" name="pushButton">
-                <property name="maximumSize">
-                 <size>
-                  <width>150</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Search</string>
+                 <string>AVERT RESULT</string>
                 </property>
                </widget>
               </item>
@@ -488,13 +531,6 @@ p, li { white-space: pre-wrap; }
                 </property>
                </widget>
               </item>
-              <item row="6" column="1">
-               <widget class="QLabel" name="label_9">
-                <property name="text">
-                 <string>AVERT RESULT</string>
-                </property>
-               </widget>
-              </item>
               <item row="1" column="0">
                <widget class="QLabel" name="label_6">
                 <property name="maximumSize">
@@ -505,42 +541,6 @@ p, li { white-space: pre-wrap; }
                 </property>
                 <property name="text">
                  <string>Search Expression</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0" colspan="2">
-               <widget class="QTextEdit" name="textEdit_2">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>400</width>
-                  <height>25</height>
-                 </size>
-                </property>
-                <property name="html">
-                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'.AppleSystemUIFont'; font-size:13pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-                <property name="placeholderText">
-                 <string extracomment="Expression">Expression</string>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="1">
-               <widget class="QTableView" name="tableView"/>
-              </item>
-              <item row="6" column="1">
-               <widget class="QLabel" name="label_9">
-                <property name="text">
-                 <string>AVERT RESULT</string>
                 </property>
                </widget>
               </item>
@@ -568,8 +568,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>1606</width>
-                 <height>437</height>
+                 <width>935</width>
+                 <height>451</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -586,8 +586,8 @@ p, li { white-space: pre-wrap; }
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>1586</width>
-                     <height>417</height>
+                     <width>915</width>
+                     <height>431</height>
                     </rect>
                    </property>
                    <widget class="QTabWidget" name="DetailedViewTab">
@@ -641,7 +641,7 @@ p, li { white-space: pre-wrap; }
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>1641</width>
+                         <width>1632</width>
                          <height>369</height>
                         </rect>
                        </property>
@@ -1132,7 +1132,7 @@ p, li { white-space: pre-wrap; }
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>1641</width>
+                         <width>1632</width>
                          <height>369</height>
                         </rect>
                        </property>
@@ -1188,8 +1188,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>329</width>
-                 <height>234</height>
+                 <width>935</width>
+                 <height>451</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -1372,8 +1372,8 @@ p, li { white-space: pre-wrap; }
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>572</width>
-                         <height>265</height>
+                         <width>500</width>
+                         <height>252</height>
                         </rect>
                        </property>
                        <layout class="QGridLayout" name="gridLayout_6">
@@ -1975,21 +1975,483 @@ border-color: rgb(170, 0, 0);</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>100</width>
-                 <height>30</height>
+                 <width>935</width>
+                 <height>451</height>
                 </rect>
                </property>
                <attribute name="label">
                 <string>Script</string>
                </attribute>
+               <widget class="QTableWidget" name="table_tag_2">
+                <property name="geometry">
+                 <rect>
+                  <x>70</x>
+                  <y>10</y>
+                  <width>801</width>
+                  <height>241</height>
+                 </rect>
+                </property>
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked</set>
+                </property>
+                <property name="alternatingRowColors">
+                 <bool>true</bool>
+                </property>
+                <property name="selectionBehavior">
+                 <enum>QAbstractItemView::SelectRows</enum>
+                </property>
+                <property name="cornerButtonEnabled">
+                 <bool>true</bool>
+                </property>
+                <property name="rowCount">
+                 <number>8</number>
+                </property>
+                <attribute name="horizontalHeaderCascadingSectionResizes">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="horizontalHeaderMinimumSectionSize">
+                 <number>20</number>
+                </attribute>
+                <attribute name="horizontalHeaderDefaultSectionSize">
+                 <number>150</number>
+                </attribute>
+                <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="verticalHeaderCascadingSectionResizes">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+                 <bool>true</bool>
+                </attribute>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <column>
+                 <property name="text">
+                  <string>Added Artifacts for Script Creation</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Time Stamp</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Artifact Type</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Tag</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>MAC Address</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Description</string>
+                 </property>
+                </column>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+                 </property>
+                </item>
+                <item row="0" column="2">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable</set>
+                 </property>
+                </item>
+                <item row="0" column="3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
+                 </property>
+                </item>
+                <item row="1" column="0">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+                 </property>
+                </item>
+                <item row="1" column="2">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable</set>
+                 </property>
+                </item>
+                <item row="1" column="3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
+                 </property>
+                </item>
+                <item row="2" column="0">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+                 </property>
+                </item>
+                <item row="2" column="2">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable</set>
+                 </property>
+                </item>
+                <item row="2" column="3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
+                 </property>
+                </item>
+                <item row="3" column="0">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+                 </property>
+                </item>
+                <item row="3" column="2">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable</set>
+                 </property>
+                </item>
+                <item row="3" column="3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
+                 </property>
+                </item>
+                <item row="4" column="0">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+                 </property>
+                </item>
+                <item row="4" column="2">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable</set>
+                 </property>
+                </item>
+                <item row="4" column="3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
+                 </property>
+                </item>
+                <item row="5" column="0">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+                 </property>
+                </item>
+                <item row="5" column="2">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable</set>
+                 </property>
+                </item>
+                <item row="5" column="3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
+                 </property>
+                </item>
+                <item row="6" column="0">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+                 </property>
+                </item>
+                <item row="6" column="2">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable</set>
+                 </property>
+                </item>
+                <item row="6" column="3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
+                 </property>
+                </item>
+                <item row="7" column="0">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+                 </property>
+                </item>
+                <item row="7" column="2">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable</set>
+                 </property>
+                </item>
+                <item row="7" column="3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="flags">
+                  <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
+                 </property>
+                </item>
+               </widget>
+               <widget class="QPushButton" name="pushButton_7">
+                <property name="geometry">
+                 <rect>
+                  <x>40</x>
+                  <y>330</y>
+                  <width>75</width>
+                  <height>24</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Up</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="pushButton_8">
+                <property name="geometry">
+                 <rect>
+                  <x>190</x>
+                  <y>330</y>
+                  <width>75</width>
+                  <height>24</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Down</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="pushButton_9">
+                <property name="geometry">
+                 <rect>
+                  <x>340</x>
+                  <y>330</y>
+                  <width>75</width>
+                  <height>24</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Remove</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="pushButton_10">
+                <property name="geometry">
+                 <rect>
+                  <x>660</x>
+                  <y>330</y>
+                  <width>75</width>
+                  <height>24</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Export</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="pushButton_11">
+                <property name="geometry">
+                 <rect>
+                  <x>520</x>
+                  <y>330</y>
+                  <width>75</width>
+                  <height>24</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Generate</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="pushButton_12">
+                <property name="geometry">
+                 <rect>
+                  <x>820</x>
+                  <y>330</y>
+                  <width>75</width>
+                  <height>24</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Preview</string>
+                </property>
+               </widget>
+               <widget class="QPlainTextEdit" name="plainTextEdit_2">
+                <property name="geometry">
+                 <rect>
+                  <x>30</x>
+                  <y>360</y>
+                  <width>104</width>
+                  <height>41</height>
+                 </rect>
+                </property>
+                <property name="plainText">
+                 <string>Move Artifact Up</string>
+                </property>
+               </widget>
+               <widget class="QPlainTextEdit" name="plainTextEdit_3">
+                <property name="geometry">
+                 <rect>
+                  <x>180</x>
+                  <y>360</y>
+                  <width>104</width>
+                  <height>51</height>
+                 </rect>
+                </property>
+                <property name="plainText">
+                 <string>Move Artifact Down</string>
+                </property>
+               </widget>
+               <widget class="QPlainTextEdit" name="plainTextEdit_4">
+                <property name="geometry">
+                 <rect>
+                  <x>810</x>
+                  <y>370</y>
+                  <width>104</width>
+                  <height>51</height>
+                 </rect>
+                </property>
+                <property name="plainText">
+                 <string>Generate Script Preview Window</string>
+                </property>
+               </widget>
+               <widget class="QPlainTextEdit" name="plainTextEdit_5">
+                <property name="geometry">
+                 <rect>
+                  <x>320</x>
+                  <y>370</y>
+                  <width>131</width>
+                  <height>61</height>
+                 </rect>
+                </property>
+                <property name="plainText">
+                 <string>Remove Artifact from Script Creation Table</string>
+                </property>
+               </widget>
+               <widget class="QPlainTextEdit" name="plainTextEdit_6">
+                <property name="geometry">
+                 <rect>
+                  <x>510</x>
+                  <y>370</y>
+                  <width>101</width>
+                  <height>31</height>
+                 </rect>
+                </property>
+                <property name="plainText">
+                 <string>Generate Script</string>
+                </property>
+               </widget>
+               <widget class="QPlainTextEdit" name="plainTextEdit_7">
+                <property name="geometry">
+                 <rect>
+                  <x>650</x>
+                  <y>370</y>
+                  <width>101</width>
+                  <height>31</height>
+                 </rect>
+                </property>
+                <property name="plainText">
+                 <string>Export Script</string>
+                </property>
+               </widget>
               </widget>
               <widget class="QWidget" name="history_accordion_16">
                <property name="geometry">
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>100</width>
-                 <height>30</height>
+                 <width>935</width>
+                 <height>451</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -2001,8 +2463,8 @@ border-color: rgb(170, 0, 0);</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>100</width>
-                 <height>30</height>
+                 <width>935</width>
+                 <height>451</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -2242,7 +2704,6 @@ border-color: rgb(170, 0, 0);</string>
             <property name="font">
              <font>
               <pointsize>14</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -2325,7 +2786,6 @@ border-color: rgb(170, 0, 0);</string>
             <property name="font">
              <font>
               <pointsize>14</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -2351,7 +2811,6 @@ border-color: rgb(170, 0, 0);</string>
             <property name="font">
              <font>
               <pointsize>14</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -2403,7 +2862,6 @@ border-color: rgb(170, 0, 0);</string>
             <property name="font">
              <font>
               <pointsize>14</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -2429,7 +2887,6 @@ border-color: rgb(170, 0, 0);</string>
             <property name="font">
              <font>
               <pointsize>14</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -2516,7 +2973,6 @@ border-color: rgb(170, 0, 0);</string>
             <property name="font">
              <font>
               <pointsize>14</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -2558,7 +3014,6 @@ border-color: rgb(170, 0, 0);</string>
             <property name="font">
              <font>
               <pointsize>14</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -2615,7 +3070,6 @@ border-color: rgb(170, 0, 0);</string>
             <property name="font">
              <font>
               <pointsize>14</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -2882,7 +3336,6 @@ border-color: rgb(170, 0, 0);</string>
             <property name="font">
              <font>
               <pointsize>14</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -2902,7 +3355,6 @@ border-color: rgb(170, 0, 0);</string>
             <property name="font">
              <font>
               <pointsize>14</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -2922,7 +3374,6 @@ border-color: rgb(170, 0, 0);</string>
             <property name="font">
              <font>
               <pointsize>14</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -2948,7 +3399,6 @@ border-color: rgb(170, 0, 0);</string>
             <property name="font">
              <font>
               <pointsize>14</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -3025,7 +3475,6 @@ border-color: rgb(170, 0, 0);</string>
             <property name="font">
              <font>
               <pointsize>14</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -3067,7 +3516,6 @@ border-color: rgb(170, 0, 0);</string>
             <property name="font">
              <font>
               <pointsize>14</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -3103,7 +3551,6 @@ border-color: rgb(170, 0, 0);</string>
             <property name="font">
              <font>
               <pointsize>14</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -3123,7 +3570,6 @@ border-color: rgb(170, 0, 0);</string>
             <property name="font">
              <font>
               <pointsize>14</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -3232,7 +3678,6 @@ border-color: rgb(170, 0, 0);</string>
             <property name="font">
              <font>
               <pointsize>14</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -3313,8 +3758,8 @@ border-color: rgb(170, 0, 0);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1674</width>
-     <height>24</height>
+     <width>1014</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>
