@@ -1,11 +1,14 @@
 import pics_for_detailedview
-import sys, random
+import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import (QPushButton, QDialog, QTreeWidget, QTreeWidgetItem, QVBoxLayout,
                              QHBoxLayout, QFrame, QLabel, QApplication, QMainWindow)
 
 from PyQt5.QtChart import QChart, QChartView, QValueAxis, QBarCategoryAxis, QBarSet, QBarSeries
 from PyQt5.Qt import Qt
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+import addition_for_synctab
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -19,7 +22,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents_3 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, -399, 1646, 1358))
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, -561, 1265, 1358))
         self.scrollAreaWidgetContents_3.setObjectName("scrollAreaWidgetContents_3")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.scrollAreaWidgetContents_3)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
@@ -465,7 +468,7 @@ class Ui_MainWindow(object):
         self.toolBox_14.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.toolBox_14.setObjectName("toolBox_14")
         self.detailed_view_accordion_20 = QtWidgets.QWidget()
-        self.detailed_view_accordion_20.setGeometry(QtCore.QRect(0, 0, 1606, 437))
+        self.detailed_view_accordion_20.setGeometry(QtCore.QRect(0, 0, 1225, 437))
         self.detailed_view_accordion_20.setObjectName("detailed_view_accordion_20")
         self.verticalLayout_31 = QtWidgets.QVBoxLayout(self.detailed_view_accordion_20)
         self.verticalLayout_31.setObjectName("verticalLayout_31")
@@ -473,7 +476,7 @@ class Ui_MainWindow(object):
         self.DetailedViewScroll.setWidgetResizable(True)
         self.DetailedViewScroll.setObjectName("DetailedViewScroll")
         self.scrollAreaWidgetContents_58 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_58.setGeometry(QtCore.QRect(0, 0, 1586, 417))
+        self.scrollAreaWidgetContents_58.setGeometry(QtCore.QRect(0, 0, 1205, 417))
         self.scrollAreaWidgetContents_58.setObjectName("scrollAreaWidgetContents_58")
         self.DetailedViewTab = QtWidgets.QTabWidget(self.scrollAreaWidgetContents_58)
         self.DetailedViewTab.setGeometry(QtCore.QRect(10, 0, 1681, 401))
@@ -489,7 +492,7 @@ class Ui_MainWindow(object):
         self.scrollArea_54.setWidgetResizable(True)
         self.scrollArea_54.setObjectName("scrollArea_54")
         self.scrollAreaWidgetContents_59 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_59.setGeometry(QtCore.QRect(0, 0, 1641, 369))
+        self.scrollAreaWidgetContents_59.setGeometry(QtCore.QRect(0, 0, 1633, 369))
         self.scrollAreaWidgetContents_59.setObjectName("scrollAreaWidgetContents_59")
         self.tableWidget_38 = QtWidgets.QTableWidget(self.scrollAreaWidgetContents_59)
         self.tableWidget_38.setGeometry(QtCore.QRect(20, 10, 1591, 351))
@@ -1102,7 +1105,7 @@ class Ui_MainWindow(object):
         self.toolBox.setGeometry(QtCore.QRect(0, 0, 1571, 311))
         self.toolBox.setObjectName("toolBox")
         self.network_1 = QtWidgets.QWidget()
-        self.network_1.setGeometry(QtCore.QRect(0, 0, 1571, 212))
+        self.network_1.setGeometry(QtCore.QRect(0, 0, 1571, 209))
         self.network_1.setObjectName("network_1")
         self.listWidget_4 = QtWidgets.QListWidget(self.network_1)
         self.listWidget_4.setGeometry(QtCore.QRect(50, 0, 1511, 201))
@@ -1144,7 +1147,7 @@ class Ui_MainWindow(object):
         self.listWidget_4.addItem(item)
         self.toolBox.addItem(self.network_1, "")
         self.network_2 = QtWidgets.QWidget()
-        self.network_2.setGeometry(QtCore.QRect(0, 0, 100, 30))
+        self.network_2.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.network_2.setObjectName("network_2")
         self.listWidget_3 = QtWidgets.QListWidget(self.network_2)
         self.listWidget_3.setGeometry(QtCore.QRect(50, 0, 1511, 51))
@@ -1160,7 +1163,7 @@ class Ui_MainWindow(object):
         self.listWidget_3.addItem(item)
         self.toolBox.addItem(self.network_2, "")
         self.network_3 = QtWidgets.QWidget()
-        self.network_3.setGeometry(QtCore.QRect(0, 0, 100, 30))
+        self.network_3.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.network_3.setObjectName("network_3")
         self.listWidget_2 = QtWidgets.QListWidget(self.network_3)
         self.listWidget_2.setGeometry(QtCore.QRect(50, 0, 1501, 31))
@@ -1460,7 +1463,7 @@ class Ui_MainWindow(object):
         self.scrollArea_42.setWidgetResizable(True)
         self.scrollArea_42.setObjectName("scrollArea_42")
         self.scrollAreaWidgetContents_44 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_44.setGeometry(QtCore.QRect(0, 0, 1641, 369))
+        self.scrollAreaWidgetContents_44.setGeometry(QtCore.QRect(0, 0, 1633, 369))
         self.scrollAreaWidgetContents_44.setObjectName("scrollAreaWidgetContents_44")
         self.tableWidget_23 = QtWidgets.QTableWidget(self.scrollAreaWidgetContents_44)
         self.tableWidget_23.setGeometry(QtCore.QRect(20, 10, 1591, 351))
@@ -1484,7 +1487,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_31.addWidget(self.DetailedViewScroll)
         self.toolBox_14.addItem(self.detailed_view_accordion_20, "")
         self.visualization_accordion_20 = QtWidgets.QWidget()
-        self.visualization_accordion_20.setGeometry(QtCore.QRect(0, 0, 1606, 437))
+        self.visualization_accordion_20.setGeometry(QtCore.QRect(0, 0, 1225, 437))
         self.visualization_accordion_20.setObjectName("visualization_accordion_20")
         self.gridLayout_9 = QtWidgets.QGridLayout(self.visualization_accordion_20)
         self.gridLayout_9.setObjectName("gridLayout_9")
@@ -1565,7 +1568,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName("scrollArea_2")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1566, 368))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 572, 265))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.gridLayout_6 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_6.setObjectName("gridLayout_6")
@@ -1818,11 +1821,11 @@ class Ui_MainWindow(object):
         self.gridLayout_9.addWidget(self.visualization_tabs, 0, 1, 1, 1)
         self.toolBox_14.addItem(self.visualization_accordion_20, "")
         self.script_accordion_16 = QtWidgets.QWidget()
-        self.script_accordion_16.setGeometry(QtCore.QRect(0, 0, 1606, 437))
+        self.script_accordion_16.setGeometry(QtCore.QRect(0, 0, 1225, 437))
         self.script_accordion_16.setObjectName("script_accordion_16")
         self.toolBox_14.addItem(self.script_accordion_16, "")
         self.history_accordion_16 = QtWidgets.QWidget()
-        self.history_accordion_16.setGeometry(QtCore.QRect(0, 0, 1606, 437))
+        self.history_accordion_16.setGeometry(QtCore.QRect(0, 0, 1225, 437))
         self.history_accordion_16.setObjectName("history_accordion_16")
         self.history_table = QtWidgets.QTableWidget(self.history_accordion_16)
         self.history_table.setGeometry(QtCore.QRect(9, 9, 1211, 411))
@@ -1868,7 +1871,7 @@ class Ui_MainWindow(object):
         self.history_table.horizontalHeader().setStretchLastSection(True)
         self.toolBox_14.addItem(self.history_accordion_16, "")
         self.log_accordion_16 = QtWidgets.QWidget()
-        self.log_accordion_16.setGeometry(QtCore.QRect(0, 0, 1606, 437))
+        self.log_accordion_16.setGeometry(QtCore.QRect(0, 0, 1225, 437))
         self.log_accordion_16.setObjectName("log_accordion_16")
         self.tableWidget_40 = QtWidgets.QTableWidget(self.log_accordion_16)
         self.tableWidget_40.setGeometry(QtCore.QRect(0, 0, 1761, 441))
@@ -2763,6 +2766,12 @@ class Ui_MainWindow(object):
         self.errormessage = QtWidgets.QLabel(self.tab_3)
         self.errormessage.setGeometry(QtCore.QRect(1270, 100, 281, 20))
         self.errormessage.setObjectName("errormessage")
+        self.errormessage.setStyleSheet("color: red")
+        self.errormessage.setHidden(True)
+        vox = QtWidgets.QVBoxLayout(self.tab_3)
+        vox.setContentsMargins(580,5,580,1100) #ltrb
+        vox.addWidget(addition_for_synctab.piechart_for_synctab())
+        addition_for_synctab.btns_connector_in_synctab(self.allexcludingvideo_btn, self.allincludingvideo_btn, self.sync_btn, self.errormessage)
         self.tabWidget.addTab(self.tab_3, "")
         self.horizontalLayout_2.addWidget(self.tabWidget)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents_3)
@@ -2772,7 +2781,7 @@ class Ui_MainWindow(object):
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1674, 24))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1293, 24))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
@@ -2781,7 +2790,7 @@ class Ui_MainWindow(object):
         self.DetailedViewTab.setCurrentIndex(1)
         self.description_tab.setCurrentIndex(0)
         self.toolBox.setCurrentIndex(0)
-        self.visualization_tabs.setCurrentIndex(2)
+        self.visualization_tabs.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -2792,8 +2801,8 @@ class Ui_MainWindow(object):
         self.textEdit_2.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Cantarell\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'.AppleSystemUIFont\'; font-size:13pt;\"><br /></p></body></html>"))
+"</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.textEdit_2.setPlaceholderText(_translate("MainWindow", "Expression"))
         self.label_6.setText(_translate("MainWindow", "Search Expression"))
         self.label_21.setText(_translate("MainWindow", "Network Packet"))
@@ -2820,6 +2829,16 @@ class Ui_MainWindow(object):
         self.label_17.setText(_translate("MainWindow", "Value"))
         self.label_15.setText(_translate("MainWindow", "MAC Address"))
         self.label_4.setText(_translate("MainWindow", "End Time"))
+        item = self.avert_result_table.verticalHeaderItem(7)
+        item.setText(_translate("MainWindow", " "))
+        item = self.avert_result_table.verticalHeaderItem(8)
+        item.setText(_translate("MainWindow", " "))
+        item = self.avert_result_table.verticalHeaderItem(9)
+        item.setText(_translate("MainWindow", " "))
+        item = self.avert_result_table.verticalHeaderItem(10)
+        item.setText(_translate("MainWindow", " "))
+        item = self.avert_result_table.verticalHeaderItem(11)
+        item.setText(_translate("MainWindow", " "))
         item = self.avert_result_table.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Select"))
         item = self.avert_result_table.horizontalHeaderItem(1)
@@ -2960,8 +2979,8 @@ class Ui_MainWindow(object):
         self.textEdit_21.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Cantarell\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'.AppleSystemUIFont\'; font-size:13pt;\"><br /></p></body></html>"))
+"</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.textEdit_21.setPlaceholderText(_translate("MainWindow", "Expression"))
         self.pushButton.setText(_translate("MainWindow", "Search"))
         self.label_61.setText(_translate("MainWindow", "Search Expression"))
@@ -3494,17 +3513,16 @@ class Ui_MainWindow(object):
         self.errormessage.setText(_translate("MainWindow", "Error: Please select video sync scope above."))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Sync"))
 
-# **& THis is needed
     def add_bar_graph(self):
         set0 = QBarSet('Screenshot')
         set1 = QBarSet('Video')
         set2 = QBarSet('Mouse Action')
         set3 = QBarSet('Window History')
 
-        set0.append(30)
-        set1.append([random.randint(0, 10) for i in range(1)])
-        set2.append([random.randint(0, 10) for i in range(1)])
-        set3.append([random.randint(0, 10) for i in range(1)])
+        set0.append(28)
+        set1.append(47)
+        set2.append(100)
+        set3.append(25)
 
         series = QBarSeries()
         series.append(set0)
@@ -3539,5 +3557,3 @@ if __name__ == "__main__":
     ui.setupUi(mainWindow)
     mainWindow.show()
     app.exec()
-
-
