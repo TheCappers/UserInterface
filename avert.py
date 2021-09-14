@@ -1,10 +1,11 @@
-# -*- coding: utf-8 -*-
+import pics_for_detailedview
+import sys
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import (QPushButton, QDialog, QTreeWidget, QTreeWidgetItem, QVBoxLayout,
+                             QHBoxLayout, QFrame, QLabel, QApplication, QMainWindow)
 
-# Form implementation generated from reading ui file 'AvertUI.ui'
-#
-# Created by: PyQt5 UI code generator 5.9.2
-#
-# WARNING! All changes made in this file will be lost!
+from PyQt5.QtChart import QChart, QChartView, QValueAxis, QBarCategoryAxis, QBarSet, QBarSeries
+from PyQt5.Qt import Qt
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import addition_for_synctab
@@ -1544,6 +1545,17 @@ class Ui_MainWindow(object):
         self.visualization_tabs.addTab(self.pie_chart, "")
         self.bar_graph = QtWidgets.QWidget()
         self.bar_graph.setObjectName("bar_graph")
+        self.Bar_Graph_Area_123 = QtWidgets.QScrollArea(self.bar_graph)
+        self.Bar_Graph_Area_123.setGeometry(QtCore.QRect(10, 10, 1571, 381))
+        self.Bar_Graph_Area_123.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
+        self.Bar_Graph_Area_123.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.Bar_Graph_Area_123.setWidgetResizable(True)
+        self.Bar_Graph_Area_123.setObjectName("Bar_Graph_Area_123")
+        self.scrollAreaWidgetContents_60 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_60.setGeometry(QtCore.QRect(0, 0, 1561, 379))
+        self.scrollAreaWidgetContents_60.setObjectName("scrollAreaWidgetContents_60")
+        self.Bar_Graph_Area_123.setWidget(self.scrollAreaWidgetContents_60)
+        self.Bar_Graph_Area_123.setWidget(self.add_bar_graph())
         self.visualization_tabs.addTab(self.bar_graph, "")
         self.timeline = QtWidgets.QWidget()
         self.timeline.setObjectName("timeline")
@@ -3501,11 +3513,42 @@ class Ui_MainWindow(object):
         self.errormessage.setText(_translate("MainWindow", "Error: Please select video sync scope above."))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Sync"))
 
-import pics_for_detailedview
-import sys
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import (QPushButton, QDialog, QTreeWidget, QTreeWidgetItem, QVBoxLayout,
-                             QHBoxLayout, QFrame, QLabel, QApplication, QMainWindow)
+    def add_bar_graph(self):
+        set0 = QBarSet('Screenshot')
+        set1 = QBarSet('Video')
+        set2 = QBarSet('Mouse Action')
+        set3 = QBarSet('Window History')
+
+        set0.append(28)
+        set1.append(47)
+        set2.append(100)
+        set3.append(25)
+
+        series = QBarSeries()
+        series.append(set0)
+        series.append(set1)
+        series.append(set2)
+        series.append(set3)
+
+        chart = QChart()
+        chart.addSeries(series)
+        chart.setTitle('Bar Chart')
+        chart.setAnimationOptions(QChart.SeriesAnimations)
+
+        axisX = QBarCategoryAxis()
+        axisX.append('Components')
+
+        axisY = QValueAxis()
+        axisY.setRange(0, 100)
+        chart.addAxis(axisX, Qt.AlignBottom)
+        chart.addAxis(axisY, Qt.AlignLeft)
+
+        chart.legend().setVisible(True)
+        chart.legend().setAlignment(Qt.AlignBottom)
+
+        chart_view = QChartView(chart)
+
+        return chart_view
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
