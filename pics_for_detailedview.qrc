@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="pics_for_detailedview">
+    <file>stillscreenshot_detailedview.jpg</file>
+    <file>video_detailedview.png</file>
+  </qresource>
+</RCC>
