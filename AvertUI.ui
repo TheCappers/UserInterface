@@ -24,9 +24,9 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-561</y>
-         <width>1265</width>
-         <height>1358</height>
+         <y>-307</y>
+         <width>1633</width>
+         <height>1377</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -519,27 +519,27 @@ p, li { white-space: pre-wrap; }
                 </row>
                 <row>
                  <property name="text">
-                  <string> </string>
+                  <string/>
                  </property>
                 </row>
                 <row>
                  <property name="text">
-                  <string> </string>
+                  <string/>
                  </property>
                 </row>
                 <row>
                  <property name="text">
-                  <string> </string>
+                  <string/>
                  </property>
                 </row>
                 <row>
                  <property name="text">
-                  <string> </string>
+                  <string/>
                  </property>
                 </row>
                 <row>
                  <property name="text">
-                  <string> </string>
+                  <string/>
                  </property>
                 </row>
                 <column>
@@ -1090,8 +1090,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>1225</width>
-                 <height>437</height>
+                 <width>1579</width>
+                 <height>432</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -1108,8 +1108,8 @@ p, li { white-space: pre-wrap; }
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>1205</width>
-                     <height>417</height>
+                     <width>1553</width>
+                     <height>406</height>
                     </rect>
                    </property>
                    <widget class="QTabWidget" name="DetailedViewTab">
@@ -1134,7 +1134,7 @@ p, li { white-space: pre-wrap; }
                      </size>
                     </property>
                     <property name="currentIndex">
-                     <number>1</number>
+                     <number>0</number>
                     </property>
                     <widget class="QWidget" name="tab_133">
                      <attribute name="title">
@@ -1163,7 +1163,7 @@ p, li { white-space: pre-wrap; }
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>1633</width>
+                         <width>1634</width>
                          <height>369</height>
                         </rect>
                        </property>
@@ -1493,7 +1493,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>????????</string>
+                         <string>PNG</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -1632,7 +1632,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>????????</string>
+                         <string>None</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -1716,7 +1716,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>??????</string>
+                         <string>systcall_getdents</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -1779,7 +1779,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>??????</string>
+                         <string>d_type</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -1800,7 +1800,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>?????</string>
+                         <string>Process Control</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -1826,7 +1826,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>??????</string>
+                         <string>_windowserver</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -1847,7 +1847,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>?????</string>
+                         <string>455</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -1910,7 +1910,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>????????</string>
+                         <string>idle</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -1973,7 +1973,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>??????</string>
+                         <string>45</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2036,7 +2036,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>??????</string>
+                         <string>init</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2057,7 +2057,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>?????</string>
+                         <string>3.4MB</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2120,7 +2120,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>????????</string>
+                         <string>shell</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2183,7 +2183,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>??????</string>
+                         <string>D</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2267,7 +2267,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>??????</string>
+                         <string>12.4%</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2330,7 +2330,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>??????</string>
+                         <string>88</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2351,7 +2351,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>????????</string>
+                         <string>root</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2414,7 +2414,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>?????</string>
+                         <string>Foregrou d</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2503,7 +2503,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>????????</string>
+                         <string>False</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2533,9 +2533,9 @@ p, li { white-space: pre-wrap; }
                        <widget class="QLabel" name="descriptionvideo_timestamp_label_30">
                         <property name="geometry">
                          <rect>
-                          <x>30</x>
+                          <x>20</x>
                           <y>210</y>
-                          <width>211</width>
+                          <width>231</width>
                           <height>31</height>
                          </rect>
                         </property>
@@ -2587,7 +2587,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>??????</string>
+                         <string>True</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2650,7 +2650,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>????????</string>
+                         <string>10-6-26 02:31:29</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2659,9 +2659,9 @@ p, li { white-space: pre-wrap; }
                        <widget class="QLabel" name="descriptionvideo_timestamp_label_34">
                         <property name="geometry">
                          <rect>
-                          <x>30</x>
+                          <x>20</x>
                           <y>110</y>
-                          <width>211</width>
+                          <width>231</width>
                           <height>31</height>
                          </rect>
                         </property>
@@ -2692,7 +2692,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>??????</string>
+                         <string>avert</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2755,7 +2755,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>????????</string>
+                         <string>0, 1860, 0, 1543</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2776,7 +2776,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>??????</string>
+                         <string>10-6-26 02:35:29</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2797,7 +2797,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>??????</string>
+                         <string>1860, 1543</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2827,9 +2827,9 @@ p, li { white-space: pre-wrap; }
                        <widget class="QLabel" name="descriptionvideo_timestamp_label_38">
                         <property name="geometry">
                          <rect>
-                          <x>30</x>
+                          <x>20</x>
                           <y>60</y>
-                          <width>211</width>
+                          <width>231</width>
                           <height>31</height>
                          </rect>
                         </property>
@@ -2869,9 +2869,9 @@ p, li { white-space: pre-wrap; }
                        <widget class="QLabel" name="descriptionvideo_timestamp_label_40">
                         <property name="geometry">
                          <rect>
-                          <x>30</x>
+                          <x>20</x>
                           <y>160</y>
-                          <width>211</width>
+                          <width>231</width>
                           <height>31</height>
                          </rect>
                         </property>
@@ -2902,7 +2902,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>??????</string>
+                         <string>False</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2944,7 +2944,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>??????</string>
+                         <string>AVERT</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -2972,8 +2972,8 @@ p, li { white-space: pre-wrap; }
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>1571</width>
-                           <height>209</height>
+                           <width>98</width>
+                           <height>28</height>
                           </rect>
                          </property>
                          <attribute name="label">
@@ -3177,7 +3177,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>??????</string>
+                         <string>Left</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -3198,7 +3198,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>?????</string>
+                         <string>terminal</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -3261,7 +3261,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>????????</string>
+                         <string>Click</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -3324,7 +3324,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>??????</string>
+                         <string>400,100</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -3408,7 +3408,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>??????</string>
+                         <string>terminal</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -3497,7 +3497,7 @@ p, li { white-space: pre-wrap; }
                          </font>
                         </property>
                         <property name="text">
-                         <string>??????</string>
+                         <string>f</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -3947,7 +3947,7 @@ p, li { white-space: pre-wrap; }
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>1633</width>
+                         <width>1634</width>
                          <height>369</height>
                         </rect>
                        </property>
@@ -4003,8 +4003,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>1225</width>
-                 <height>437</height>
+                 <width>1579</width>
+                 <height>432</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -4187,8 +4187,8 @@ p, li { white-space: pre-wrap; }
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>572</width>
-                         <height>265</height>
+                         <width>519</width>
+                         <height>298</height>
                         </rect>
                        </property>
                        <layout class="QGridLayout" name="gridLayout_6">
@@ -4790,8 +4790,8 @@ border-color: rgb(170, 0, 0);</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>1225</width>
-                 <height>437</height>
+                 <width>1579</width>
+                 <height>432</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -4803,8 +4803,8 @@ border-color: rgb(170, 0, 0);</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>1225</width>
-                 <height>437</height>
+                 <width>1579</width>
+                 <height>432</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -4923,8 +4923,8 @@ border-color: rgb(170, 0, 0);</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>1225</width>
-                 <height>437</height>
+                 <width>1579</width>
+                 <height>432</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -7584,7 +7584,7 @@ border-color: rgb(170, 0, 0);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1293</width>
+     <width>1674</width>
      <height>24</height>
     </rect>
    </property>
