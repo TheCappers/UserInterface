@@ -35,8 +35,8 @@ def btns_connector_in_synctab(b_ex, b_in, b_sync, err):
 
 def piechart_for_synctab():
     series = QPieSeries()
-    series.append("Available", 80)
-    series.append("Used Space", 30)
+    series.append("Available (45%)", 45)
+    series.append("Used Space (65%)", 65)
 
     my_slice = series.slices()[0]
     my_slice.setExploded(True)
@@ -55,9 +55,9 @@ def piechart_for_synctab():
     chart.setAnimationOptions(QChart.SeriesAnimations)
     chart.setTitle("Hard Drive Space")
     chart.setTheme(QChart.ChartThemeDark)
-    chart.setGeometry(QtCore.QRectF(1310, 110, 171, 31))
+    chart.setGeometry(QtCore.QRectF(1310, 110, 171, 50))
 
     charview = QChartView(chart)
-    charview.setGeometry(QtCore.QRect(1310, 110, 171, 31))
+    charview.setGeometry(QtCore.QRect(1310, 110, 171, 50))
 
     return charview
