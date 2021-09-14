@@ -7,6 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import addition_for_synctab
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -2753,6 +2754,12 @@ class Ui_MainWindow(object):
         self.errormessage = QtWidgets.QLabel(self.tab_3)
         self.errormessage.setGeometry(QtCore.QRect(1270, 100, 281, 20))
         self.errormessage.setObjectName("errormessage")
+        self.errormessage.setStyleSheet("color: red")
+        self.errormessage.setHidden(True)
+        vox = QtWidgets.QVBoxLayout(self.tab_3)
+        vox.setContentsMargins(580,5,580,1100) #ltrb
+        vox.addWidget(addition_for_synctab.piechart_for_synctab())
+        addition_for_synctab.btns_connector_in_synctab(self.allexcludingvideo_btn, self.allincludingvideo_btn, self.sync_btn, self.errormessage)
         self.tabWidget.addTab(self.tab_3, "")
         self.horizontalLayout_2.addWidget(self.tabWidget)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents_3)
@@ -3431,7 +3438,7 @@ class Ui_MainWindow(object):
         self.StorageTitle.setText(_translate("MainWindow", "Storage"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Configuration"))
         self.allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
-        self.sync_btn.setText(_translate("MainWindow", "Sycn"))
+        self.sync_btn.setText(_translate("MainWindow", "Sync"))
         self.allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
         self.fromIPlabel_label.setText(_translate("MainWindow", "From Analyst\'s IP Address:"))
         self.fromMAClabel_label.setText(_translate("MainWindow", "From Analyst\'s MAC Address:"))

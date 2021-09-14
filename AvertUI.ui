@@ -6253,7 +6253,7 @@ border-color: rgb(170, 0, 0);</string>
              </font>
             </property>
             <property name="text">
-             <string>Sycn</string>
+             <string>Sync</string>
             </property>
            </widget>
            <widget class="QPushButton" name="allexcludingvideo_btn">
