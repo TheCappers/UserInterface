@@ -1,14 +1,14 @@
-import pics_for_detailedview
-import sys
+from components import pics_for_detailedview
+from components import addition_for_synctab
+
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import (QPushButton, QDialog, QTreeWidget, QTreeWidgetItem, QVBoxLayout,
                              QHBoxLayout, QFrame, QLabel, QApplication, QMainWindow)
-
 from PyQt5.QtChart import QChart, QChartView, QValueAxis, QBarCategoryAxis, QBarSet, QBarSeries
 from PyQt5.Qt import Qt
-
 from PyQt5 import QtCore, QtGui, QtWidgets
-import addition_for_synctab
+import sys
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -22,15 +22,20 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents_3 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, -561, 1265, 1358))
-        self.scrollAreaWidgetContents_3.setObjectName("scrollAreaWidgetContents_3")
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.scrollAreaWidgetContents_3)
+        self.scrollAreaWidgetContents_3.setGeometry(
+            QtCore.QRect(0, -561, 1265, 1358))
+        self.scrollAreaWidgetContents_3.setObjectName(
+            "scrollAreaWidgetContents_3")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(
+            self.scrollAreaWidgetContents_3)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.tabWidget = QtWidgets.QTabWidget(self.scrollAreaWidgetContents_3)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.tabWidget.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.tabWidget.sizePolicy().hasHeightForWidth())
         self.tabWidget.setSizePolicy(sizePolicy)
         self.tabWidget.setObjectName("tabWidget")
         self.tab_1 = QtWidgets.QWidget()
@@ -55,10 +60,12 @@ class Ui_MainWindow(object):
         self.label_10.setObjectName("label_10")
         self.gridLayout_2.addWidget(self.label_10, 0, 0, 1, 1)
         self.textEdit_2 = QtWidgets.QTextEdit(self.tab_1)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.textEdit_2.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.textEdit_2.sizePolicy().hasHeightForWidth())
         self.textEdit_2.setSizePolicy(sizePolicy)
         self.textEdit_2.setMaximumSize(QtCore.QSize(400, 25))
         self.textEdit_2.setObjectName("textEdit_2")
@@ -430,10 +437,12 @@ class Ui_MainWindow(object):
         self.label_9.setObjectName("label_9")
         self.gridLayout_2.addWidget(self.label_9, 6, 1, 1, 1)
         self.textEdit_21 = QtWidgets.QTextEdit(self.tab_1)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.textEdit_21.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.textEdit_21.sizePolicy().hasHeightForWidth())
         self.textEdit_21.setSizePolicy(sizePolicy)
         self.textEdit_21.setMaximumSize(QtCore.QSize(400, 25))
         self.textEdit_21.setObjectName("textEdit_21")
@@ -459,26 +468,35 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addLayout(self.horizontalLayout1, 3, 0, 1, 1)
         self.verticalLayout_2.addLayout(self.gridLayout_2)
         self.toolBox_14 = QtWidgets.QToolBox(self.tab_1)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.toolBox_14.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.toolBox_14.sizePolicy().hasHeightForWidth())
         self.toolBox_14.setSizePolicy(sizePolicy)
         self.toolBox_14.setMinimumSize(QtCore.QSize(0, 600))
         self.toolBox_14.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.toolBox_14.setObjectName("toolBox_14")
         self.detailed_view_accordion_20 = QtWidgets.QWidget()
-        self.detailed_view_accordion_20.setGeometry(QtCore.QRect(0, 0, 1225, 437))
-        self.detailed_view_accordion_20.setObjectName("detailed_view_accordion_20")
-        self.verticalLayout_31 = QtWidgets.QVBoxLayout(self.detailed_view_accordion_20)
+        self.detailed_view_accordion_20.setGeometry(
+            QtCore.QRect(0, 0, 1225, 437))
+        self.detailed_view_accordion_20.setObjectName(
+            "detailed_view_accordion_20")
+        self.verticalLayout_31 = QtWidgets.QVBoxLayout(
+            self.detailed_view_accordion_20)
         self.verticalLayout_31.setObjectName("verticalLayout_31")
-        self.DetailedViewScroll = QtWidgets.QScrollArea(self.detailed_view_accordion_20)
+        self.DetailedViewScroll = QtWidgets.QScrollArea(
+            self.detailed_view_accordion_20)
         self.DetailedViewScroll.setWidgetResizable(True)
         self.DetailedViewScroll.setObjectName("DetailedViewScroll")
         self.scrollAreaWidgetContents_58 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_58.setGeometry(QtCore.QRect(0, 0, 1205, 417))
-        self.scrollAreaWidgetContents_58.setObjectName("scrollAreaWidgetContents_58")
-        self.DetailedViewTab = QtWidgets.QTabWidget(self.scrollAreaWidgetContents_58)
+        self.scrollAreaWidgetContents_58.setGeometry(
+            QtCore.QRect(0, 0, 1205, 417))
+        self.scrollAreaWidgetContents_58.setObjectName(
+            "scrollAreaWidgetContents_58")
+        self.DetailedViewTab = QtWidgets.QTabWidget(
+            self.scrollAreaWidgetContents_58)
         self.DetailedViewTab.setGeometry(QtCore.QRect(10, 0, 1681, 401))
         self.DetailedViewTab.setMinimumSize(QtCore.QSize(0, 0))
         self.DetailedViewTab.setMaximumSize(QtCore.QSize(16777215, 16777215))
@@ -487,14 +505,19 @@ class Ui_MainWindow(object):
         self.tab_133.setObjectName("tab_133")
         self.scrollArea_54 = QtWidgets.QScrollArea(self.tab_133)
         self.scrollArea_54.setGeometry(QtCore.QRect(10, 0, 1651, 371))
-        self.scrollArea_54.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
-        self.scrollArea_54.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.scrollArea_54.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarAlwaysOn)
+        self.scrollArea_54.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarAsNeeded)
         self.scrollArea_54.setWidgetResizable(True)
         self.scrollArea_54.setObjectName("scrollArea_54")
         self.scrollAreaWidgetContents_59 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_59.setGeometry(QtCore.QRect(0, 0, 1633, 369))
-        self.scrollAreaWidgetContents_59.setObjectName("scrollAreaWidgetContents_59")
-        self.tableWidget_38 = QtWidgets.QTableWidget(self.scrollAreaWidgetContents_59)
+        self.scrollAreaWidgetContents_59.setGeometry(
+            QtCore.QRect(0, 0, 1633, 369))
+        self.scrollAreaWidgetContents_59.setObjectName(
+            "scrollAreaWidgetContents_59")
+        self.tableWidget_38 = QtWidgets.QTableWidget(
+            self.scrollAreaWidgetContents_59)
         self.tableWidget_38.setGeometry(QtCore.QRect(20, 10, 1591, 351))
         self.tableWidget_38.setObjectName("tableWidget_38")
         self.tableWidget_38.setColumnCount(2)
@@ -519,26 +542,33 @@ class Ui_MainWindow(object):
         self.description_tab.setObjectName("description_tab")
         self.descriptionvideo_tab = QtWidgets.QWidget()
         self.descriptionvideo_tab.setObjectName("descriptionvideo_tab")
-        self.descriptionvideo_frame = QtWidgets.QFrame(self.descriptionvideo_tab)
+        self.descriptionvideo_frame = QtWidgets.QFrame(
+            self.descriptionvideo_tab)
         self.descriptionvideo_frame.setGeometry(QtCore.QRect(80, 20, 391, 291))
         self.descriptionvideo_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.descriptionvideo_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.descriptionvideo_frame.setObjectName("descriptionvideo_frame")
         self.label_88 = QtWidgets.QLabel(self.descriptionvideo_frame)
         self.label_88.setGeometry(QtCore.QRect(10, 0, 391, 281))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(3)
         sizePolicy.setVerticalStretch(4)
-        sizePolicy.setHeightForWidth(self.label_88.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.label_88.sizePolicy().hasHeightForWidth())
         self.label_88.setSizePolicy(sizePolicy)
         self.label_88.setObjectName("label_88")
-        self.descriptionvideo_timestamp_label = QtWidgets.QLabel(self.descriptionvideo_tab)
-        self.descriptionvideo_timestamp_label.setGeometry(QtCore.QRect(770, 50, 161, 31))
+        self.descriptionvideo_timestamp_label = QtWidgets.QLabel(
+            self.descriptionvideo_tab)
+        self.descriptionvideo_timestamp_label.setGeometry(
+            QtCore.QRect(770, 50, 161, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label.setFont(font)
-        self.descriptionvideo_timestamp_label.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label.setObjectName("descriptionvideo_timestamp_label")
+        self.descriptionvideo_timestamp_label.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label.setObjectName(
+            "descriptionvideo_timestamp_label")
         self.label_41 = QtWidgets.QLabel(self.descriptionvideo_tab)
         self.label_41.setGeometry(QtCore.QRect(950, 50, 201, 31))
         font = QtGui.QFont()
@@ -546,13 +576,17 @@ class Ui_MainWindow(object):
         self.label_41.setFont(font)
         self.label_41.setAlignment(QtCore.Qt.AlignCenter)
         self.label_41.setObjectName("label_41")
-        self.descriptionvideo_timestamp_label_2 = QtWidgets.QLabel(self.descriptionvideo_tab)
-        self.descriptionvideo_timestamp_label_2.setGeometry(QtCore.QRect(770, 100, 161, 31))
+        self.descriptionvideo_timestamp_label_2 = QtWidgets.QLabel(
+            self.descriptionvideo_tab)
+        self.descriptionvideo_timestamp_label_2.setGeometry(
+            QtCore.QRect(770, 100, 161, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_2.setFont(font)
-        self.descriptionvideo_timestamp_label_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_2.setObjectName("descriptionvideo_timestamp_label_2")
+        self.descriptionvideo_timestamp_label_2.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_2.setObjectName(
+            "descriptionvideo_timestamp_label_2")
         self.label_42 = QtWidgets.QLabel(self.descriptionvideo_tab)
         self.label_42.setGeometry(QtCore.QRect(950, 100, 201, 31))
         font = QtGui.QFont()
@@ -560,13 +594,17 @@ class Ui_MainWindow(object):
         self.label_42.setFont(font)
         self.label_42.setAlignment(QtCore.Qt.AlignCenter)
         self.label_42.setObjectName("label_42")
-        self.descriptionvideo_timestamp_label_3 = QtWidgets.QLabel(self.descriptionvideo_tab)
-        self.descriptionvideo_timestamp_label_3.setGeometry(QtCore.QRect(770, 150, 161, 31))
+        self.descriptionvideo_timestamp_label_3 = QtWidgets.QLabel(
+            self.descriptionvideo_tab)
+        self.descriptionvideo_timestamp_label_3.setGeometry(
+            QtCore.QRect(770, 150, 161, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_3.setFont(font)
-        self.descriptionvideo_timestamp_label_3.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_3.setObjectName("descriptionvideo_timestamp_label_3")
+        self.descriptionvideo_timestamp_label_3.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_3.setObjectName(
+            "descriptionvideo_timestamp_label_3")
         self.label_43 = QtWidgets.QLabel(self.descriptionvideo_tab)
         self.label_43.setGeometry(QtCore.QRect(950, 150, 201, 31))
         font = QtGui.QFont()
@@ -574,13 +612,17 @@ class Ui_MainWindow(object):
         self.label_43.setFont(font)
         self.label_43.setAlignment(QtCore.Qt.AlignCenter)
         self.label_43.setObjectName("label_43")
-        self.descriptionvideo_timestamp_label_4 = QtWidgets.QLabel(self.descriptionvideo_tab)
-        self.descriptionvideo_timestamp_label_4.setGeometry(QtCore.QRect(770, 200, 161, 31))
+        self.descriptionvideo_timestamp_label_4 = QtWidgets.QLabel(
+            self.descriptionvideo_tab)
+        self.descriptionvideo_timestamp_label_4.setGeometry(
+            QtCore.QRect(770, 200, 161, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_4.setFont(font)
-        self.descriptionvideo_timestamp_label_4.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_4.setObjectName("descriptionvideo_timestamp_label_4")
+        self.descriptionvideo_timestamp_label_4.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_4.setObjectName(
+            "descriptionvideo_timestamp_label_4")
         self.label_44 = QtWidgets.QLabel(self.descriptionvideo_tab)
         self.label_44.setGeometry(QtCore.QRect(950, 200, 201, 31))
         font = QtGui.QFont()
@@ -590,21 +632,30 @@ class Ui_MainWindow(object):
         self.label_44.setObjectName("label_44")
         self.description_tab.addTab(self.descriptionvideo_tab, "")
         self.descriptionstillscreenshot_tab = QtWidgets.QWidget()
-        self.descriptionstillscreenshot_tab.setObjectName("descriptionstillscreenshot_tab")
-        self.descriptionvideo_timestamp_label_5 = QtWidgets.QLabel(self.descriptionstillscreenshot_tab)
-        self.descriptionvideo_timestamp_label_5.setGeometry(QtCore.QRect(800, 190, 211, 31))
+        self.descriptionstillscreenshot_tab.setObjectName(
+            "descriptionstillscreenshot_tab")
+        self.descriptionvideo_timestamp_label_5 = QtWidgets.QLabel(
+            self.descriptionstillscreenshot_tab)
+        self.descriptionvideo_timestamp_label_5.setGeometry(
+            QtCore.QRect(800, 190, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_5.setFont(font)
-        self.descriptionvideo_timestamp_label_5.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_5.setObjectName("descriptionvideo_timestamp_label_5")
-        self.descriptionvideo_timestamp_label_6 = QtWidgets.QLabel(self.descriptionstillscreenshot_tab)
-        self.descriptionvideo_timestamp_label_6.setGeometry(QtCore.QRect(800, 140, 211, 31))
+        self.descriptionvideo_timestamp_label_5.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_5.setObjectName(
+            "descriptionvideo_timestamp_label_5")
+        self.descriptionvideo_timestamp_label_6 = QtWidgets.QLabel(
+            self.descriptionstillscreenshot_tab)
+        self.descriptionvideo_timestamp_label_6.setGeometry(
+            QtCore.QRect(800, 140, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_6.setFont(font)
-        self.descriptionvideo_timestamp_label_6.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_6.setObjectName("descriptionvideo_timestamp_label_6")
+        self.descriptionvideo_timestamp_label_6.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_6.setObjectName(
+            "descriptionvideo_timestamp_label_6")
         self.label_45 = QtWidgets.QLabel(self.descriptionstillscreenshot_tab)
         self.label_45.setGeometry(QtCore.QRect(1030, 190, 201, 31))
         font = QtGui.QFont()
@@ -612,9 +663,12 @@ class Ui_MainWindow(object):
         self.label_45.setFont(font)
         self.label_45.setAlignment(QtCore.Qt.AlignCenter)
         self.label_45.setObjectName("label_45")
-        self.descriptionvideo_frame_2 = QtWidgets.QFrame(self.descriptionstillscreenshot_tab)
-        self.descriptionvideo_frame_2.setGeometry(QtCore.QRect(9, 10, 491, 291))
-        self.descriptionvideo_frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.descriptionvideo_frame_2 = QtWidgets.QFrame(
+            self.descriptionstillscreenshot_tab)
+        self.descriptionvideo_frame_2.setGeometry(
+            QtCore.QRect(9, 10, 491, 291))
+        self.descriptionvideo_frame_2.setFrameShape(
+            QtWidgets.QFrame.StyledPanel)
         self.descriptionvideo_frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.descriptionvideo_frame_2.setObjectName("descriptionvideo_frame_2")
         self.label_89 = QtWidgets.QLabel(self.descriptionvideo_frame_2)
@@ -627,13 +681,17 @@ class Ui_MainWindow(object):
         self.label_46.setFont(font)
         self.label_46.setAlignment(QtCore.Qt.AlignCenter)
         self.label_46.setObjectName("label_46")
-        self.descriptionvideo_timestamp_label_7 = QtWidgets.QLabel(self.descriptionstillscreenshot_tab)
-        self.descriptionvideo_timestamp_label_7.setGeometry(QtCore.QRect(800, 90, 211, 31))
+        self.descriptionvideo_timestamp_label_7 = QtWidgets.QLabel(
+            self.descriptionstillscreenshot_tab)
+        self.descriptionvideo_timestamp_label_7.setGeometry(
+            QtCore.QRect(800, 90, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_7.setFont(font)
-        self.descriptionvideo_timestamp_label_7.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_7.setObjectName("descriptionvideo_timestamp_label_7")
+        self.descriptionvideo_timestamp_label_7.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_7.setObjectName(
+            "descriptionvideo_timestamp_label_7")
         self.label_47 = QtWidgets.QLabel(self.descriptionstillscreenshot_tab)
         self.label_47.setGeometry(QtCore.QRect(1030, 90, 201, 31))
         font = QtGui.QFont()
@@ -643,14 +701,19 @@ class Ui_MainWindow(object):
         self.label_47.setObjectName("label_47")
         self.description_tab.addTab(self.descriptionstillscreenshot_tab, "")
         self.descriptionsystemcall_tab = QtWidgets.QWidget()
-        self.descriptionsystemcall_tab.setObjectName("descriptionsystemcall_tab")
-        self.descriptionvideo_timestamp_label_8 = QtWidgets.QLabel(self.descriptionsystemcall_tab)
-        self.descriptionvideo_timestamp_label_8.setGeometry(QtCore.QRect(550, 50, 231, 31))
+        self.descriptionsystemcall_tab.setObjectName(
+            "descriptionsystemcall_tab")
+        self.descriptionvideo_timestamp_label_8 = QtWidgets.QLabel(
+            self.descriptionsystemcall_tab)
+        self.descriptionvideo_timestamp_label_8.setGeometry(
+            QtCore.QRect(550, 50, 231, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_8.setFont(font)
-        self.descriptionvideo_timestamp_label_8.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_8.setObjectName("descriptionvideo_timestamp_label_8")
+        self.descriptionvideo_timestamp_label_8.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_8.setObjectName(
+            "descriptionvideo_timestamp_label_8")
         self.label_48 = QtWidgets.QLabel(self.descriptionsystemcall_tab)
         self.label_48.setGeometry(QtCore.QRect(800, 150, 201, 31))
         font = QtGui.QFont()
@@ -658,20 +721,28 @@ class Ui_MainWindow(object):
         self.label_48.setFont(font)
         self.label_48.setAlignment(QtCore.Qt.AlignCenter)
         self.label_48.setObjectName("label_48")
-        self.descriptionvideo_timestamp_label_9 = QtWidgets.QLabel(self.descriptionsystemcall_tab)
-        self.descriptionvideo_timestamp_label_9.setGeometry(QtCore.QRect(550, 150, 231, 31))
+        self.descriptionvideo_timestamp_label_9 = QtWidgets.QLabel(
+            self.descriptionsystemcall_tab)
+        self.descriptionvideo_timestamp_label_9.setGeometry(
+            QtCore.QRect(550, 150, 231, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_9.setFont(font)
-        self.descriptionvideo_timestamp_label_9.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_9.setObjectName("descriptionvideo_timestamp_label_9")
-        self.descriptionvideo_timestamp_label_10 = QtWidgets.QLabel(self.descriptionsystemcall_tab)
-        self.descriptionvideo_timestamp_label_10.setGeometry(QtCore.QRect(550, 100, 231, 31))
+        self.descriptionvideo_timestamp_label_9.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_9.setObjectName(
+            "descriptionvideo_timestamp_label_9")
+        self.descriptionvideo_timestamp_label_10 = QtWidgets.QLabel(
+            self.descriptionsystemcall_tab)
+        self.descriptionvideo_timestamp_label_10.setGeometry(
+            QtCore.QRect(550, 100, 231, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_10.setFont(font)
-        self.descriptionvideo_timestamp_label_10.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_10.setObjectName("descriptionvideo_timestamp_label_10")
+        self.descriptionvideo_timestamp_label_10.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_10.setObjectName(
+            "descriptionvideo_timestamp_label_10")
         self.label_49 = QtWidgets.QLabel(self.descriptionsystemcall_tab)
         self.label_49.setGeometry(QtCore.QRect(800, 50, 201, 31))
         font = QtGui.QFont()
@@ -686,20 +757,28 @@ class Ui_MainWindow(object):
         self.label_50.setFont(font)
         self.label_50.setAlignment(QtCore.Qt.AlignCenter)
         self.label_50.setObjectName("label_50")
-        self.descriptionvideo_timestamp_label_11 = QtWidgets.QLabel(self.descriptionsystemcall_tab)
-        self.descriptionvideo_timestamp_label_11.setGeometry(QtCore.QRect(550, 200, 231, 31))
+        self.descriptionvideo_timestamp_label_11 = QtWidgets.QLabel(
+            self.descriptionsystemcall_tab)
+        self.descriptionvideo_timestamp_label_11.setGeometry(
+            QtCore.QRect(550, 200, 231, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_11.setFont(font)
-        self.descriptionvideo_timestamp_label_11.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_11.setObjectName("descriptionvideo_timestamp_label_11")
-        self.descriptionvideo_timestamp_label_13 = QtWidgets.QLabel(self.descriptionsystemcall_tab)
-        self.descriptionvideo_timestamp_label_13.setGeometry(QtCore.QRect(550, 250, 231, 31))
+        self.descriptionvideo_timestamp_label_11.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_11.setObjectName(
+            "descriptionvideo_timestamp_label_11")
+        self.descriptionvideo_timestamp_label_13 = QtWidgets.QLabel(
+            self.descriptionsystemcall_tab)
+        self.descriptionvideo_timestamp_label_13.setGeometry(
+            QtCore.QRect(550, 250, 231, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_13.setFont(font)
-        self.descriptionvideo_timestamp_label_13.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_13.setObjectName("descriptionvideo_timestamp_label_13")
+        self.descriptionvideo_timestamp_label_13.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_13.setObjectName(
+            "descriptionvideo_timestamp_label_13")
         self.label_52 = QtWidgets.QLabel(self.descriptionsystemcall_tab)
         self.label_52.setGeometry(QtCore.QRect(800, 200, 201, 31))
         font = QtGui.QFont()
@@ -738,13 +817,17 @@ class Ui_MainWindow(object):
         self.label_55.setFont(font)
         self.label_55.setAlignment(QtCore.Qt.AlignCenter)
         self.label_55.setObjectName("label_55")
-        self.descriptionvideo_timestamp_label_12 = QtWidgets.QLabel(self.descriptionprocess_tab)
-        self.descriptionvideo_timestamp_label_12.setGeometry(QtCore.QRect(80, 180, 211, 31))
+        self.descriptionvideo_timestamp_label_12 = QtWidgets.QLabel(
+            self.descriptionprocess_tab)
+        self.descriptionvideo_timestamp_label_12.setGeometry(
+            QtCore.QRect(80, 180, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_12.setFont(font)
-        self.descriptionvideo_timestamp_label_12.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_12.setObjectName("descriptionvideo_timestamp_label_12")
+        self.descriptionvideo_timestamp_label_12.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_12.setObjectName(
+            "descriptionvideo_timestamp_label_12")
         self.label_56 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_56.setGeometry(QtCore.QRect(310, 130, 181, 31))
         font = QtGui.QFont()
@@ -752,20 +835,28 @@ class Ui_MainWindow(object):
         self.label_56.setFont(font)
         self.label_56.setAlignment(QtCore.Qt.AlignCenter)
         self.label_56.setObjectName("label_56")
-        self.descriptionvideo_timestamp_label_14 = QtWidgets.QLabel(self.descriptionprocess_tab)
-        self.descriptionvideo_timestamp_label_14.setGeometry(QtCore.QRect(80, 230, 211, 31))
+        self.descriptionvideo_timestamp_label_14 = QtWidgets.QLabel(
+            self.descriptionprocess_tab)
+        self.descriptionvideo_timestamp_label_14.setGeometry(
+            QtCore.QRect(80, 230, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_14.setFont(font)
-        self.descriptionvideo_timestamp_label_14.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_14.setObjectName("descriptionvideo_timestamp_label_14")
-        self.descriptionvideo_timestamp_label_15 = QtWidgets.QLabel(self.descriptionprocess_tab)
-        self.descriptionvideo_timestamp_label_15.setGeometry(QtCore.QRect(80, 30, 211, 31))
+        self.descriptionvideo_timestamp_label_14.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_14.setObjectName(
+            "descriptionvideo_timestamp_label_14")
+        self.descriptionvideo_timestamp_label_15 = QtWidgets.QLabel(
+            self.descriptionprocess_tab)
+        self.descriptionvideo_timestamp_label_15.setGeometry(
+            QtCore.QRect(80, 30, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_15.setFont(font)
-        self.descriptionvideo_timestamp_label_15.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_15.setObjectName("descriptionvideo_timestamp_label_15")
+        self.descriptionvideo_timestamp_label_15.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_15.setObjectName(
+            "descriptionvideo_timestamp_label_15")
         self.label_57 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_57.setGeometry(QtCore.QRect(310, 180, 181, 31))
         font = QtGui.QFont()
@@ -773,20 +864,28 @@ class Ui_MainWindow(object):
         self.label_57.setFont(font)
         self.label_57.setAlignment(QtCore.Qt.AlignCenter)
         self.label_57.setObjectName("label_57")
-        self.descriptionvideo_timestamp_label_16 = QtWidgets.QLabel(self.descriptionprocess_tab)
-        self.descriptionvideo_timestamp_label_16.setGeometry(QtCore.QRect(80, 80, 211, 31))
+        self.descriptionvideo_timestamp_label_16 = QtWidgets.QLabel(
+            self.descriptionprocess_tab)
+        self.descriptionvideo_timestamp_label_16.setGeometry(
+            QtCore.QRect(80, 80, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_16.setFont(font)
-        self.descriptionvideo_timestamp_label_16.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_16.setObjectName("descriptionvideo_timestamp_label_16")
-        self.descriptionvideo_timestamp_label_17 = QtWidgets.QLabel(self.descriptionprocess_tab)
-        self.descriptionvideo_timestamp_label_17.setGeometry(QtCore.QRect(80, 130, 211, 31))
+        self.descriptionvideo_timestamp_label_16.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_16.setObjectName(
+            "descriptionvideo_timestamp_label_16")
+        self.descriptionvideo_timestamp_label_17 = QtWidgets.QLabel(
+            self.descriptionprocess_tab)
+        self.descriptionvideo_timestamp_label_17.setGeometry(
+            QtCore.QRect(80, 130, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_17.setFont(font)
-        self.descriptionvideo_timestamp_label_17.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_17.setObjectName("descriptionvideo_timestamp_label_17")
+        self.descriptionvideo_timestamp_label_17.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_17.setObjectName(
+            "descriptionvideo_timestamp_label_17")
         self.label_58 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_58.setGeometry(QtCore.QRect(810, 80, 201, 31))
         font = QtGui.QFont()
@@ -808,13 +907,17 @@ class Ui_MainWindow(object):
         self.label_60.setFont(font)
         self.label_60.setAlignment(QtCore.Qt.AlignCenter)
         self.label_60.setObjectName("label_60")
-        self.descriptionvideo_timestamp_label_18 = QtWidgets.QLabel(self.descriptionprocess_tab)
-        self.descriptionvideo_timestamp_label_18.setGeometry(QtCore.QRect(580, 180, 211, 31))
+        self.descriptionvideo_timestamp_label_18 = QtWidgets.QLabel(
+            self.descriptionprocess_tab)
+        self.descriptionvideo_timestamp_label_18.setGeometry(
+            QtCore.QRect(580, 180, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_18.setFont(font)
-        self.descriptionvideo_timestamp_label_18.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_18.setObjectName("descriptionvideo_timestamp_label_18")
+        self.descriptionvideo_timestamp_label_18.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_18.setObjectName(
+            "descriptionvideo_timestamp_label_18")
         self.label_61 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_61.setGeometry(QtCore.QRect(810, 130, 201, 31))
         font = QtGui.QFont()
@@ -822,20 +925,28 @@ class Ui_MainWindow(object):
         self.label_61.setFont(font)
         self.label_61.setAlignment(QtCore.Qt.AlignCenter)
         self.label_61.setObjectName("label_61")
-        self.descriptionvideo_timestamp_label_19 = QtWidgets.QLabel(self.descriptionprocess_tab)
-        self.descriptionvideo_timestamp_label_19.setGeometry(QtCore.QRect(580, 230, 211, 31))
+        self.descriptionvideo_timestamp_label_19 = QtWidgets.QLabel(
+            self.descriptionprocess_tab)
+        self.descriptionvideo_timestamp_label_19.setGeometry(
+            QtCore.QRect(580, 230, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_19.setFont(font)
-        self.descriptionvideo_timestamp_label_19.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_19.setObjectName("descriptionvideo_timestamp_label_19")
-        self.descriptionvideo_timestamp_label_20 = QtWidgets.QLabel(self.descriptionprocess_tab)
-        self.descriptionvideo_timestamp_label_20.setGeometry(QtCore.QRect(580, 30, 211, 31))
+        self.descriptionvideo_timestamp_label_19.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_19.setObjectName(
+            "descriptionvideo_timestamp_label_19")
+        self.descriptionvideo_timestamp_label_20 = QtWidgets.QLabel(
+            self.descriptionprocess_tab)
+        self.descriptionvideo_timestamp_label_20.setGeometry(
+            QtCore.QRect(580, 30, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_20.setFont(font)
-        self.descriptionvideo_timestamp_label_20.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_20.setObjectName("descriptionvideo_timestamp_label_20")
+        self.descriptionvideo_timestamp_label_20.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_20.setObjectName(
+            "descriptionvideo_timestamp_label_20")
         self.label_62 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_62.setGeometry(QtCore.QRect(810, 180, 201, 31))
         font = QtGui.QFont()
@@ -843,20 +954,28 @@ class Ui_MainWindow(object):
         self.label_62.setFont(font)
         self.label_62.setAlignment(QtCore.Qt.AlignCenter)
         self.label_62.setObjectName("label_62")
-        self.descriptionvideo_timestamp_label_21 = QtWidgets.QLabel(self.descriptionprocess_tab)
-        self.descriptionvideo_timestamp_label_21.setGeometry(QtCore.QRect(580, 80, 211, 31))
+        self.descriptionvideo_timestamp_label_21 = QtWidgets.QLabel(
+            self.descriptionprocess_tab)
+        self.descriptionvideo_timestamp_label_21.setGeometry(
+            QtCore.QRect(580, 80, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_21.setFont(font)
-        self.descriptionvideo_timestamp_label_21.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_21.setObjectName("descriptionvideo_timestamp_label_21")
-        self.descriptionvideo_timestamp_label_22 = QtWidgets.QLabel(self.descriptionprocess_tab)
-        self.descriptionvideo_timestamp_label_22.setGeometry(QtCore.QRect(580, 130, 211, 31))
+        self.descriptionvideo_timestamp_label_21.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_21.setObjectName(
+            "descriptionvideo_timestamp_label_21")
+        self.descriptionvideo_timestamp_label_22 = QtWidgets.QLabel(
+            self.descriptionprocess_tab)
+        self.descriptionvideo_timestamp_label_22.setGeometry(
+            QtCore.QRect(580, 130, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_22.setFont(font)
-        self.descriptionvideo_timestamp_label_22.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_22.setObjectName("descriptionvideo_timestamp_label_22")
+        self.descriptionvideo_timestamp_label_22.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_22.setObjectName(
+            "descriptionvideo_timestamp_label_22")
         self.label_63 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_63.setGeometry(QtCore.QRect(1350, 30, 201, 31))
         font = QtGui.QFont()
@@ -871,20 +990,28 @@ class Ui_MainWindow(object):
         self.label_64.setFont(font)
         self.label_64.setAlignment(QtCore.Qt.AlignCenter)
         self.label_64.setObjectName("label_64")
-        self.descriptionvideo_timestamp_label_23 = QtWidgets.QLabel(self.descriptionprocess_tab)
-        self.descriptionvideo_timestamp_label_23.setGeometry(QtCore.QRect(1120, 30, 211, 31))
+        self.descriptionvideo_timestamp_label_23 = QtWidgets.QLabel(
+            self.descriptionprocess_tab)
+        self.descriptionvideo_timestamp_label_23.setGeometry(
+            QtCore.QRect(1120, 30, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_23.setFont(font)
-        self.descriptionvideo_timestamp_label_23.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_23.setObjectName("descriptionvideo_timestamp_label_23")
-        self.descriptionvideo_timestamp_label_24 = QtWidgets.QLabel(self.descriptionprocess_tab)
-        self.descriptionvideo_timestamp_label_24.setGeometry(QtCore.QRect(1120, 180, 211, 31))
+        self.descriptionvideo_timestamp_label_23.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_23.setObjectName(
+            "descriptionvideo_timestamp_label_23")
+        self.descriptionvideo_timestamp_label_24 = QtWidgets.QLabel(
+            self.descriptionprocess_tab)
+        self.descriptionvideo_timestamp_label_24.setGeometry(
+            QtCore.QRect(1120, 180, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_24.setFont(font)
-        self.descriptionvideo_timestamp_label_24.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_24.setObjectName("descriptionvideo_timestamp_label_24")
+        self.descriptionvideo_timestamp_label_24.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_24.setObjectName(
+            "descriptionvideo_timestamp_label_24")
         self.label_65 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_65.setGeometry(QtCore.QRect(1350, 180, 201, 31))
         font = QtGui.QFont()
@@ -899,20 +1026,28 @@ class Ui_MainWindow(object):
         self.label_66.setFont(font)
         self.label_66.setAlignment(QtCore.Qt.AlignCenter)
         self.label_66.setObjectName("label_66")
-        self.descriptionvideo_timestamp_label_25 = QtWidgets.QLabel(self.descriptionprocess_tab)
-        self.descriptionvideo_timestamp_label_25.setGeometry(QtCore.QRect(1120, 230, 211, 31))
+        self.descriptionvideo_timestamp_label_25 = QtWidgets.QLabel(
+            self.descriptionprocess_tab)
+        self.descriptionvideo_timestamp_label_25.setGeometry(
+            QtCore.QRect(1120, 230, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_25.setFont(font)
-        self.descriptionvideo_timestamp_label_25.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_25.setObjectName("descriptionvideo_timestamp_label_25")
-        self.descriptionvideo_timestamp_label_26 = QtWidgets.QLabel(self.descriptionprocess_tab)
-        self.descriptionvideo_timestamp_label_26.setGeometry(QtCore.QRect(1120, 80, 211, 31))
+        self.descriptionvideo_timestamp_label_25.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_25.setObjectName(
+            "descriptionvideo_timestamp_label_25")
+        self.descriptionvideo_timestamp_label_26 = QtWidgets.QLabel(
+            self.descriptionprocess_tab)
+        self.descriptionvideo_timestamp_label_26.setGeometry(
+            QtCore.QRect(1120, 80, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_26.setFont(font)
-        self.descriptionvideo_timestamp_label_26.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_26.setObjectName("descriptionvideo_timestamp_label_26")
+        self.descriptionvideo_timestamp_label_26.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_26.setObjectName(
+            "descriptionvideo_timestamp_label_26")
         self.label_67 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_67.setGeometry(QtCore.QRect(1350, 230, 201, 31))
         font = QtGui.QFont()
@@ -920,16 +1055,21 @@ class Ui_MainWindow(object):
         self.label_67.setFont(font)
         self.label_67.setAlignment(QtCore.Qt.AlignCenter)
         self.label_67.setObjectName("label_67")
-        self.descriptionvideo_timestamp_label_27 = QtWidgets.QLabel(self.descriptionprocess_tab)
-        self.descriptionvideo_timestamp_label_27.setGeometry(QtCore.QRect(1120, 130, 211, 31))
+        self.descriptionvideo_timestamp_label_27 = QtWidgets.QLabel(
+            self.descriptionprocess_tab)
+        self.descriptionvideo_timestamp_label_27.setGeometry(
+            QtCore.QRect(1120, 130, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_27.setFont(font)
-        self.descriptionvideo_timestamp_label_27.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_27.setObjectName("descriptionvideo_timestamp_label_27")
+        self.descriptionvideo_timestamp_label_27.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_27.setObjectName(
+            "descriptionvideo_timestamp_label_27")
         self.description_tab.addTab(self.descriptionprocess_tab, "")
         self.descriptionwindowhistory_tab = QtWidgets.QWidget()
-        self.descriptionwindowhistory_tab.setObjectName("descriptionwindowhistory_tab")
+        self.descriptionwindowhistory_tab.setObjectName(
+            "descriptionwindowhistory_tab")
         self.label_68 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
         self.label_68.setGeometry(QtCore.QRect(800, 60, 171, 31))
         font = QtGui.QFont()
@@ -951,27 +1091,39 @@ class Ui_MainWindow(object):
         self.label_70.setFont(font)
         self.label_70.setAlignment(QtCore.Qt.AlignCenter)
         self.label_70.setObjectName("label_70")
-        self.descriptionvideo_timestamp_label_29 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
-        self.descriptionvideo_timestamp_label_29.setGeometry(QtCore.QRect(530, 210, 261, 31))
+        self.descriptionvideo_timestamp_label_29 = QtWidgets.QLabel(
+            self.descriptionwindowhistory_tab)
+        self.descriptionvideo_timestamp_label_29.setGeometry(
+            QtCore.QRect(530, 210, 261, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_29.setFont(font)
-        self.descriptionvideo_timestamp_label_29.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_29.setObjectName("descriptionvideo_timestamp_label_29")
-        self.descriptionvideo_timestamp_label_30 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
-        self.descriptionvideo_timestamp_label_30.setGeometry(QtCore.QRect(30, 210, 211, 31))
+        self.descriptionvideo_timestamp_label_29.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_29.setObjectName(
+            "descriptionvideo_timestamp_label_29")
+        self.descriptionvideo_timestamp_label_30 = QtWidgets.QLabel(
+            self.descriptionwindowhistory_tab)
+        self.descriptionvideo_timestamp_label_30.setGeometry(
+            QtCore.QRect(30, 210, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_30.setFont(font)
-        self.descriptionvideo_timestamp_label_30.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_30.setObjectName("descriptionvideo_timestamp_label_30")
-        self.descriptionvideo_timestamp_label_31 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
-        self.descriptionvideo_timestamp_label_31.setGeometry(QtCore.QRect(1070, 110, 231, 31))
+        self.descriptionvideo_timestamp_label_30.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_30.setObjectName(
+            "descriptionvideo_timestamp_label_30")
+        self.descriptionvideo_timestamp_label_31 = QtWidgets.QLabel(
+            self.descriptionwindowhistory_tab)
+        self.descriptionvideo_timestamp_label_31.setGeometry(
+            QtCore.QRect(1070, 110, 231, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_31.setFont(font)
-        self.descriptionvideo_timestamp_label_31.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_31.setObjectName("descriptionvideo_timestamp_label_31")
+        self.descriptionvideo_timestamp_label_31.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_31.setObjectName(
+            "descriptionvideo_timestamp_label_31")
         self.label_71 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
         self.label_71.setGeometry(QtCore.QRect(260, 210, 181, 31))
         font = QtGui.QFont()
@@ -979,20 +1131,28 @@ class Ui_MainWindow(object):
         self.label_71.setFont(font)
         self.label_71.setAlignment(QtCore.Qt.AlignCenter)
         self.label_71.setObjectName("label_71")
-        self.descriptionvideo_timestamp_label_32 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
-        self.descriptionvideo_timestamp_label_32.setGeometry(QtCore.QRect(1070, 160, 231, 31))
+        self.descriptionvideo_timestamp_label_32 = QtWidgets.QLabel(
+            self.descriptionwindowhistory_tab)
+        self.descriptionvideo_timestamp_label_32.setGeometry(
+            QtCore.QRect(1070, 160, 231, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_32.setFont(font)
-        self.descriptionvideo_timestamp_label_32.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_32.setObjectName("descriptionvideo_timestamp_label_32")
-        self.descriptionvideo_timestamp_label_33 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
-        self.descriptionvideo_timestamp_label_33.setGeometry(QtCore.QRect(530, 160, 261, 31))
+        self.descriptionvideo_timestamp_label_32.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_32.setObjectName(
+            "descriptionvideo_timestamp_label_32")
+        self.descriptionvideo_timestamp_label_33 = QtWidgets.QLabel(
+            self.descriptionwindowhistory_tab)
+        self.descriptionvideo_timestamp_label_33.setGeometry(
+            QtCore.QRect(530, 160, 261, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_33.setFont(font)
-        self.descriptionvideo_timestamp_label_33.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_33.setObjectName("descriptionvideo_timestamp_label_33")
+        self.descriptionvideo_timestamp_label_33.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_33.setObjectName(
+            "descriptionvideo_timestamp_label_33")
         self.label_72 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
         self.label_72.setGeometry(QtCore.QRect(1310, 160, 191, 31))
         font = QtGui.QFont()
@@ -1000,13 +1160,17 @@ class Ui_MainWindow(object):
         self.label_72.setFont(font)
         self.label_72.setAlignment(QtCore.Qt.AlignCenter)
         self.label_72.setObjectName("label_72")
-        self.descriptionvideo_timestamp_label_34 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
-        self.descriptionvideo_timestamp_label_34.setGeometry(QtCore.QRect(30, 110, 211, 31))
+        self.descriptionvideo_timestamp_label_34 = QtWidgets.QLabel(
+            self.descriptionwindowhistory_tab)
+        self.descriptionvideo_timestamp_label_34.setGeometry(
+            QtCore.QRect(30, 110, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_34.setFont(font)
-        self.descriptionvideo_timestamp_label_34.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_34.setObjectName("descriptionvideo_timestamp_label_34")
+        self.descriptionvideo_timestamp_label_34.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_34.setObjectName(
+            "descriptionvideo_timestamp_label_34")
         self.label_74 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
         self.label_74.setGeometry(QtCore.QRect(1310, 110, 191, 31))
         font = QtGui.QFont()
@@ -1014,20 +1178,28 @@ class Ui_MainWindow(object):
         self.label_74.setFont(font)
         self.label_74.setAlignment(QtCore.Qt.AlignCenter)
         self.label_74.setObjectName("label_74")
-        self.descriptionvideo_timestamp_label_35 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
-        self.descriptionvideo_timestamp_label_35.setGeometry(QtCore.QRect(1070, 210, 231, 31))
+        self.descriptionvideo_timestamp_label_35 = QtWidgets.QLabel(
+            self.descriptionwindowhistory_tab)
+        self.descriptionvideo_timestamp_label_35.setGeometry(
+            QtCore.QRect(1070, 210, 231, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_35.setFont(font)
-        self.descriptionvideo_timestamp_label_35.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_35.setObjectName("descriptionvideo_timestamp_label_35")
-        self.descriptionvideo_timestamp_label_36 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
-        self.descriptionvideo_timestamp_label_36.setGeometry(QtCore.QRect(530, 110, 261, 31))
+        self.descriptionvideo_timestamp_label_35.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_35.setObjectName(
+            "descriptionvideo_timestamp_label_35")
+        self.descriptionvideo_timestamp_label_36 = QtWidgets.QLabel(
+            self.descriptionwindowhistory_tab)
+        self.descriptionvideo_timestamp_label_36.setGeometry(
+            QtCore.QRect(530, 110, 261, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_36.setFont(font)
-        self.descriptionvideo_timestamp_label_36.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_36.setObjectName("descriptionvideo_timestamp_label_36")
+        self.descriptionvideo_timestamp_label_36.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_36.setObjectName(
+            "descriptionvideo_timestamp_label_36")
         self.label_75 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
         self.label_75.setGeometry(QtCore.QRect(260, 160, 181, 31))
         font = QtGui.QFont()
@@ -1056,27 +1228,39 @@ class Ui_MainWindow(object):
         self.label_78.setFont(font)
         self.label_78.setAlignment(QtCore.Qt.AlignCenter)
         self.label_78.setObjectName("label_78")
-        self.descriptionvideo_timestamp_label_38 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
-        self.descriptionvideo_timestamp_label_38.setGeometry(QtCore.QRect(30, 60, 211, 31))
+        self.descriptionvideo_timestamp_label_38 = QtWidgets.QLabel(
+            self.descriptionwindowhistory_tab)
+        self.descriptionvideo_timestamp_label_38.setGeometry(
+            QtCore.QRect(30, 60, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_38.setFont(font)
-        self.descriptionvideo_timestamp_label_38.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_38.setObjectName("descriptionvideo_timestamp_label_38")
-        self.descriptionvideo_timestamp_label_39 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
-        self.descriptionvideo_timestamp_label_39.setGeometry(QtCore.QRect(1070, 60, 231, 31))
+        self.descriptionvideo_timestamp_label_38.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_38.setObjectName(
+            "descriptionvideo_timestamp_label_38")
+        self.descriptionvideo_timestamp_label_39 = QtWidgets.QLabel(
+            self.descriptionwindowhistory_tab)
+        self.descriptionvideo_timestamp_label_39.setGeometry(
+            QtCore.QRect(1070, 60, 231, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_39.setFont(font)
-        self.descriptionvideo_timestamp_label_39.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_39.setObjectName("descriptionvideo_timestamp_label_39")
-        self.descriptionvideo_timestamp_label_40 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
-        self.descriptionvideo_timestamp_label_40.setGeometry(QtCore.QRect(30, 160, 211, 31))
+        self.descriptionvideo_timestamp_label_39.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_39.setObjectName(
+            "descriptionvideo_timestamp_label_39")
+        self.descriptionvideo_timestamp_label_40 = QtWidgets.QLabel(
+            self.descriptionwindowhistory_tab)
+        self.descriptionvideo_timestamp_label_40.setGeometry(
+            QtCore.QRect(30, 160, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_40.setFont(font)
-        self.descriptionvideo_timestamp_label_40.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_40.setObjectName("descriptionvideo_timestamp_label_40")
+        self.descriptionvideo_timestamp_label_40.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_40.setObjectName(
+            "descriptionvideo_timestamp_label_40")
         self.label_81 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
         self.label_81.setGeometry(QtCore.QRect(800, 110, 171, 31))
         font = QtGui.QFont()
@@ -1084,13 +1268,17 @@ class Ui_MainWindow(object):
         self.label_81.setFont(font)
         self.label_81.setAlignment(QtCore.Qt.AlignCenter)
         self.label_81.setObjectName("label_81")
-        self.descriptionvideo_timestamp_label_42 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
-        self.descriptionvideo_timestamp_label_42.setGeometry(QtCore.QRect(530, 60, 261, 31))
+        self.descriptionvideo_timestamp_label_42 = QtWidgets.QLabel(
+            self.descriptionwindowhistory_tab)
+        self.descriptionvideo_timestamp_label_42.setGeometry(
+            QtCore.QRect(530, 60, 261, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_42.setFont(font)
-        self.descriptionvideo_timestamp_label_42.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_42.setObjectName("descriptionvideo_timestamp_label_42")
+        self.descriptionvideo_timestamp_label_42.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_42.setObjectName(
+            "descriptionvideo_timestamp_label_42")
         self.label_82 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
         self.label_82.setGeometry(QtCore.QRect(800, 210, 171, 31))
         font = QtGui.QFont()
@@ -1200,13 +1388,17 @@ class Ui_MainWindow(object):
         self.label_80.setFont(font)
         self.label_80.setAlignment(QtCore.Qt.AlignCenter)
         self.label_80.setObjectName("label_80")
-        self.descriptionvideo_timestamp_label_28 = QtWidgets.QLabel(self.descriptionmouse_tab)
-        self.descriptionvideo_timestamp_label_28.setGeometry(QtCore.QRect(560, 160, 231, 31))
+        self.descriptionvideo_timestamp_label_28 = QtWidgets.QLabel(
+            self.descriptionmouse_tab)
+        self.descriptionvideo_timestamp_label_28.setGeometry(
+            QtCore.QRect(560, 160, 231, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_28.setFont(font)
-        self.descriptionvideo_timestamp_label_28.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_28.setObjectName("descriptionvideo_timestamp_label_28")
+        self.descriptionvideo_timestamp_label_28.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_28.setObjectName(
+            "descriptionvideo_timestamp_label_28")
         self.label_83 = QtWidgets.QLabel(self.descriptionmouse_tab)
         self.label_83.setGeometry(QtCore.QRect(810, 110, 201, 31))
         font = QtGui.QFont()
@@ -1214,20 +1406,28 @@ class Ui_MainWindow(object):
         self.label_83.setFont(font)
         self.label_83.setAlignment(QtCore.Qt.AlignCenter)
         self.label_83.setObjectName("label_83")
-        self.descriptionvideo_timestamp_label_37 = QtWidgets.QLabel(self.descriptionmouse_tab)
-        self.descriptionvideo_timestamp_label_37.setGeometry(QtCore.QRect(560, 210, 231, 31))
+        self.descriptionvideo_timestamp_label_37 = QtWidgets.QLabel(
+            self.descriptionmouse_tab)
+        self.descriptionvideo_timestamp_label_37.setGeometry(
+            QtCore.QRect(560, 210, 231, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_37.setFont(font)
-        self.descriptionvideo_timestamp_label_37.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_37.setObjectName("descriptionvideo_timestamp_label_37")
-        self.descriptionvideo_timestamp_label_41 = QtWidgets.QLabel(self.descriptionmouse_tab)
-        self.descriptionvideo_timestamp_label_41.setGeometry(QtCore.QRect(560, 10, 231, 31))
+        self.descriptionvideo_timestamp_label_37.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_37.setObjectName(
+            "descriptionvideo_timestamp_label_37")
+        self.descriptionvideo_timestamp_label_41 = QtWidgets.QLabel(
+            self.descriptionmouse_tab)
+        self.descriptionvideo_timestamp_label_41.setGeometry(
+            QtCore.QRect(560, 10, 231, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_41.setFont(font)
-        self.descriptionvideo_timestamp_label_41.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_41.setObjectName("descriptionvideo_timestamp_label_41")
+        self.descriptionvideo_timestamp_label_41.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_41.setObjectName(
+            "descriptionvideo_timestamp_label_41")
         self.label_84 = QtWidgets.QLabel(self.descriptionmouse_tab)
         self.label_84.setGeometry(QtCore.QRect(810, 160, 201, 31))
         font = QtGui.QFont()
@@ -1235,27 +1435,39 @@ class Ui_MainWindow(object):
         self.label_84.setFont(font)
         self.label_84.setAlignment(QtCore.Qt.AlignCenter)
         self.label_84.setObjectName("label_84")
-        self.descriptionvideo_timestamp_label_43 = QtWidgets.QLabel(self.descriptionmouse_tab)
-        self.descriptionvideo_timestamp_label_43.setGeometry(QtCore.QRect(560, 60, 231, 31))
+        self.descriptionvideo_timestamp_label_43 = QtWidgets.QLabel(
+            self.descriptionmouse_tab)
+        self.descriptionvideo_timestamp_label_43.setGeometry(
+            QtCore.QRect(560, 60, 231, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_43.setFont(font)
-        self.descriptionvideo_timestamp_label_43.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_43.setObjectName("descriptionvideo_timestamp_label_43")
-        self.descriptionvideo_timestamp_label_44 = QtWidgets.QLabel(self.descriptionmouse_tab)
-        self.descriptionvideo_timestamp_label_44.setGeometry(QtCore.QRect(560, 110, 231, 31))
+        self.descriptionvideo_timestamp_label_43.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_43.setObjectName(
+            "descriptionvideo_timestamp_label_43")
+        self.descriptionvideo_timestamp_label_44 = QtWidgets.QLabel(
+            self.descriptionmouse_tab)
+        self.descriptionvideo_timestamp_label_44.setGeometry(
+            QtCore.QRect(560, 110, 231, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_44.setFont(font)
-        self.descriptionvideo_timestamp_label_44.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_44.setObjectName("descriptionvideo_timestamp_label_44")
-        self.descriptionvideo_timestamp_label_45 = QtWidgets.QLabel(self.descriptionmouse_tab)
-        self.descriptionvideo_timestamp_label_45.setGeometry(QtCore.QRect(560, 260, 231, 31))
+        self.descriptionvideo_timestamp_label_44.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_44.setObjectName(
+            "descriptionvideo_timestamp_label_44")
+        self.descriptionvideo_timestamp_label_45 = QtWidgets.QLabel(
+            self.descriptionmouse_tab)
+        self.descriptionvideo_timestamp_label_45.setGeometry(
+            QtCore.QRect(560, 260, 231, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_45.setFont(font)
-        self.descriptionvideo_timestamp_label_45.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_45.setObjectName("descriptionvideo_timestamp_label_45")
+        self.descriptionvideo_timestamp_label_45.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_45.setObjectName(
+            "descriptionvideo_timestamp_label_45")
         self.label_85 = QtWidgets.QLabel(self.descriptionmouse_tab)
         self.label_85.setGeometry(QtCore.QRect(810, 260, 201, 31))
         font = QtGui.QFont()
@@ -1266,20 +1478,28 @@ class Ui_MainWindow(object):
         self.description_tab.addTab(self.descriptionmouse_tab, "")
         self.descriptionkeystroke_tab = QtWidgets.QWidget()
         self.descriptionkeystroke_tab.setObjectName("descriptionkeystroke_tab")
-        self.descriptionvideo_timestamp_label_46 = QtWidgets.QLabel(self.descriptionkeystroke_tab)
-        self.descriptionvideo_timestamp_label_46.setGeometry(QtCore.QRect(550, 150, 231, 31))
+        self.descriptionvideo_timestamp_label_46 = QtWidgets.QLabel(
+            self.descriptionkeystroke_tab)
+        self.descriptionvideo_timestamp_label_46.setGeometry(
+            QtCore.QRect(550, 150, 231, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_46.setFont(font)
-        self.descriptionvideo_timestamp_label_46.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_46.setObjectName("descriptionvideo_timestamp_label_46")
-        self.descriptionvideo_timestamp_label_47 = QtWidgets.QLabel(self.descriptionkeystroke_tab)
-        self.descriptionvideo_timestamp_label_47.setGeometry(QtCore.QRect(550, 100, 231, 31))
+        self.descriptionvideo_timestamp_label_46.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_46.setObjectName(
+            "descriptionvideo_timestamp_label_46")
+        self.descriptionvideo_timestamp_label_47 = QtWidgets.QLabel(
+            self.descriptionkeystroke_tab)
+        self.descriptionvideo_timestamp_label_47.setGeometry(
+            QtCore.QRect(550, 100, 231, 31))
         font = QtGui.QFont()
         font.setPointSize(19)
         self.descriptionvideo_timestamp_label_47.setFont(font)
-        self.descriptionvideo_timestamp_label_47.setAlignment(QtCore.Qt.AlignCenter)
-        self.descriptionvideo_timestamp_label_47.setObjectName("descriptionvideo_timestamp_label_47")
+        self.descriptionvideo_timestamp_label_47.setAlignment(
+            QtCore.Qt.AlignCenter)
+        self.descriptionvideo_timestamp_label_47.setObjectName(
+            "descriptionvideo_timestamp_label_47")
         self.label_86 = QtWidgets.QLabel(self.descriptionkeystroke_tab)
         self.label_86.setGeometry(QtCore.QRect(800, 100, 201, 31))
         font = QtGui.QFont()
@@ -1351,9 +1571,11 @@ class Ui_MainWindow(object):
         self.gridLayout_15.setObjectName("gridLayout_15")
         self.table_tag = QtWidgets.QTableWidget(self.gridLayoutWidget_2)
         self.table_tag.setAcceptDrops(False)
-        self.table_tag.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.DoubleClicked)
+        self.table_tag.setEditTriggers(
+            QtWidgets.QAbstractItemView.AnyKeyPressed | QtWidgets.QAbstractItemView.DoubleClicked)
         self.table_tag.setAlternatingRowColors(True)
-        self.table_tag.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.table_tag.setSelectionBehavior(
+            QtWidgets.QAbstractItemView.SelectRows)
         self.table_tag.setCornerButtonEnabled(True)
         self.table_tag.setRowCount(8)
         self.table_tag.setObjectName("table_tag")
@@ -1365,84 +1587,100 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.table_tag.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable |
+                      QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         item.setCheckState(QtCore.Qt.Unchecked)
         self.table_tag.setItem(0, 0, item)
         item = QtWidgets.QTableWidgetItem()
         item.setFlags(QtCore.Qt.ItemIsSelectable)
         self.table_tag.setItem(0, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsEditable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable |
+                      QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
         self.table_tag.setItem(0, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable |
+                      QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         item.setCheckState(QtCore.Qt.Unchecked)
         self.table_tag.setItem(1, 0, item)
         item = QtWidgets.QTableWidgetItem()
         item.setFlags(QtCore.Qt.ItemIsSelectable)
         self.table_tag.setItem(1, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsEditable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable |
+                      QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
         self.table_tag.setItem(1, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable |
+                      QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         item.setCheckState(QtCore.Qt.Unchecked)
         self.table_tag.setItem(2, 0, item)
         item = QtWidgets.QTableWidgetItem()
         item.setFlags(QtCore.Qt.ItemIsSelectable)
         self.table_tag.setItem(2, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsEditable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable |
+                      QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
         self.table_tag.setItem(2, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable |
+                      QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         item.setCheckState(QtCore.Qt.Unchecked)
         self.table_tag.setItem(3, 0, item)
         item = QtWidgets.QTableWidgetItem()
         item.setFlags(QtCore.Qt.ItemIsSelectable)
         self.table_tag.setItem(3, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsEditable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable |
+                      QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
         self.table_tag.setItem(3, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable |
+                      QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         item.setCheckState(QtCore.Qt.Unchecked)
         self.table_tag.setItem(4, 0, item)
         item = QtWidgets.QTableWidgetItem()
         item.setFlags(QtCore.Qt.ItemIsSelectable)
         self.table_tag.setItem(4, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsEditable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable |
+                      QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
         self.table_tag.setItem(4, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable |
+                      QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         item.setCheckState(QtCore.Qt.Unchecked)
         self.table_tag.setItem(5, 0, item)
         item = QtWidgets.QTableWidgetItem()
         item.setFlags(QtCore.Qt.ItemIsSelectable)
         self.table_tag.setItem(5, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsEditable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable |
+                      QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
         self.table_tag.setItem(5, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable |
+                      QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         item.setCheckState(QtCore.Qt.Unchecked)
         self.table_tag.setItem(6, 0, item)
         item = QtWidgets.QTableWidgetItem()
         item.setFlags(QtCore.Qt.ItemIsSelectable)
         self.table_tag.setItem(6, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsEditable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable |
+                      QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
         self.table_tag.setItem(6, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable |
+                      QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         item.setCheckState(QtCore.Qt.Unchecked)
         self.table_tag.setItem(7, 0, item)
         item = QtWidgets.QTableWidgetItem()
         item.setFlags(QtCore.Qt.ItemIsSelectable)
         self.table_tag.setItem(7, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsEditable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable |
+                      QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
         self.table_tag.setItem(7, 2, item)
         self.table_tag.horizontalHeader().setCascadingSectionResizes(True)
         self.table_tag.horizontalHeader().setDefaultSectionSize(150)
@@ -1458,14 +1696,19 @@ class Ui_MainWindow(object):
         self.tab_100.setObjectName("tab_100")
         self.scrollArea_42 = QtWidgets.QScrollArea(self.tab_100)
         self.scrollArea_42.setGeometry(QtCore.QRect(10, 0, 1651, 371))
-        self.scrollArea_42.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
-        self.scrollArea_42.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.scrollArea_42.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarAlwaysOn)
+        self.scrollArea_42.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarAsNeeded)
         self.scrollArea_42.setWidgetResizable(True)
         self.scrollArea_42.setObjectName("scrollArea_42")
         self.scrollAreaWidgetContents_44 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_44.setGeometry(QtCore.QRect(0, 0, 1633, 369))
-        self.scrollAreaWidgetContents_44.setObjectName("scrollAreaWidgetContents_44")
-        self.tableWidget_23 = QtWidgets.QTableWidget(self.scrollAreaWidgetContents_44)
+        self.scrollAreaWidgetContents_44.setGeometry(
+            QtCore.QRect(0, 0, 1633, 369))
+        self.scrollAreaWidgetContents_44.setObjectName(
+            "scrollAreaWidgetContents_44")
+        self.tableWidget_23 = QtWidgets.QTableWidget(
+            self.scrollAreaWidgetContents_44)
         self.tableWidget_23.setGeometry(QtCore.QRect(20, 10, 1591, 351))
         self.tableWidget_23.setObjectName("tableWidget_23")
         self.tableWidget_23.setColumnCount(2)
@@ -1487,11 +1730,15 @@ class Ui_MainWindow(object):
         self.verticalLayout_31.addWidget(self.DetailedViewScroll)
         self.toolBox_14.addItem(self.detailed_view_accordion_20, "")
         self.visualization_accordion_20 = QtWidgets.QWidget()
-        self.visualization_accordion_20.setGeometry(QtCore.QRect(0, 0, 1225, 437))
-        self.visualization_accordion_20.setObjectName("visualization_accordion_20")
-        self.gridLayout_9 = QtWidgets.QGridLayout(self.visualization_accordion_20)
+        self.visualization_accordion_20.setGeometry(
+            QtCore.QRect(0, 0, 1225, 437))
+        self.visualization_accordion_20.setObjectName(
+            "visualization_accordion_20")
+        self.gridLayout_9 = QtWidgets.QGridLayout(
+            self.visualization_accordion_20)
         self.gridLayout_9.setObjectName("gridLayout_9")
-        self.visualization_tabs = QtWidgets.QTabWidget(self.visualization_accordion_20)
+        self.visualization_tabs = QtWidgets.QTabWidget(
+            self.visualization_accordion_20)
         self.visualization_tabs.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.visualization_tabs.setObjectName("visualization_tabs")
         self.type = QtWidgets.QWidget()
@@ -1502,58 +1749,124 @@ class Ui_MainWindow(object):
         self.visualization_selection.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.visualization_selection.setFrameShadow(QtWidgets.QFrame.Plain)
         self.visualization_selection.setObjectName("visualization_selection")
-        self.gridLayout_13 = QtWidgets.QGridLayout(self.visualization_selection)
+        self.gridLayout_13 = QtWidgets.QGridLayout(
+            self.visualization_selection)
         self.gridLayout_13.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_13.setObjectName("gridLayout_13")
-        self.radioButton_2 = QtWidgets.QRadioButton(self.visualization_selection)
+        self.radioButton_2 = QtWidgets.QRadioButton(
+            self.visualization_selection)
         self.radioButton_2.setObjectName("radioButton_2")
-        self.gridLayout_13.addWidget(self.radioButton_2, 1, 0, 1, 1, QtCore.Qt.AlignLeft)
-        self.radioButton_4 = QtWidgets.QRadioButton(self.visualization_selection)
+        self.gridLayout_13.addWidget(
+            self.radioButton_2, 1, 0, 1, 1, QtCore.Qt.AlignLeft)
+        self.radioButton_4 = QtWidgets.QRadioButton(
+            self.visualization_selection)
         self.radioButton_4.setObjectName("radioButton_4")
-        self.gridLayout_13.addWidget(self.radioButton_4, 2, 0, 1, 1, QtCore.Qt.AlignLeft)
+        self.gridLayout_13.addWidget(
+            self.radioButton_4, 2, 0, 1, 1, QtCore.Qt.AlignLeft)
         self.radioButton = QtWidgets.QRadioButton(self.visualization_selection)
         self.radioButton.setChecked(True)
         self.radioButton.setObjectName("radioButton")
-        self.gridLayout_13.addWidget(self.radioButton, 0, 0, 1, 1, QtCore.Qt.AlignLeft)
+        self.gridLayout_13.addWidget(
+            self.radioButton, 0, 0, 1, 1, QtCore.Qt.AlignLeft)
         self.gridLayout.addWidget(self.visualization_selection, 0, 0, 1, 1)
         self.visualization_generators = QtWidgets.QFrame(self.type)
         self.visualization_generators.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.visualization_generators.setFrameShadow(QtWidgets.QFrame.Plain)
         self.visualization_generators.setObjectName("visualization_generators")
-        self.gridLayout_12 = QtWidgets.QGridLayout(self.visualization_generators)
+        self.gridLayout_12 = QtWidgets.QGridLayout(
+            self.visualization_generators)
         self.gridLayout_12.setObjectName("gridLayout_12")
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.gridLayout_12.addItem(spacerItem, 0, 0, 1, 1)
-        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.gridLayout_12.addItem(spacerItem1, 0, 1, 1, 1)
-        self.pushButton_5 = QtWidgets.QPushButton(self.visualization_generators)
+        self.pushButton_5 = QtWidgets.QPushButton(
+            self.visualization_generators)
         self.pushButton_5.setObjectName("pushButton_5")
         self.gridLayout_12.addWidget(self.pushButton_5, 1, 0, 1, 1)
-        self.pushButton_6 = QtWidgets.QPushButton(self.visualization_generators)
+        self.pushButton_6 = QtWidgets.QPushButton(
+            self.visualization_generators)
         self.pushButton_6.setObjectName("pushButton_6")
         self.gridLayout_12.addWidget(self.pushButton_6, 1, 1, 1, 1)
         self.gridLayout.addWidget(self.visualization_generators, 1, 3, 1, 1)
-        spacerItem2 = QtWidgets.QSpacerItem(399, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem2 = QtWidgets.QSpacerItem(
+            399, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem2, 1, 0, 1, 1)
-        spacerItem3 = QtWidgets.QSpacerItem(466, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem3 = QtWidgets.QSpacerItem(
+            466, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem3, 0, 2, 1, 1)
         self.visualization_tabs.addTab(self.type, "")
         self.pie_chart = QtWidgets.QWidget()
         self.pie_chart.setObjectName("pie_chart")
         self.gridLayout_10 = QtWidgets.QGridLayout(self.pie_chart)
         self.gridLayout_10.setObjectName("gridLayout_10")
+        self.widget = QtWidgets.QWidget(self.pie_chart)
+        self.widget.setObjectName("widget")
+        self.timeline_metadata_2 = QtWidgets.QFrame(self.widget)
+        self.timeline_metadata_2.setGeometry(QtCore.QRect(10, 10, 251, 71))
+        self.timeline_metadata_2.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.timeline_metadata_2.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.timeline_metadata_2.setObjectName("timeline_metadata_2")
+        self.gridLayout_16 = QtWidgets.QGridLayout(self.timeline_metadata_2)
+        self.gridLayout_16.setObjectName("gridLayout_16")
+        self.label_91 = QtWidgets.QLabel(self.timeline_metadata_2)
+        self.label_91.setObjectName("label_91")
+        self.gridLayout_16.addWidget(self.label_91, 1, 0, 1, 1)
+        self.lineEdit_4 = QtWidgets.QLineEdit(self.timeline_metadata_2)
+        self.lineEdit_4.setText("")
+        self.lineEdit_4.setObjectName("lineEdit_4")
+        self.gridLayout_16.addWidget(self.lineEdit_4, 1, 1, 1, 1)
+        self.label_90 = QtWidgets.QLabel(self.timeline_metadata_2)
+        self.label_90.setObjectName("label_90")
+        self.gridLayout_16.addWidget(self.label_90, 0, 0, 1, 1)
+        self.timeline_title_2 = QtWidgets.QFrame(self.widget)
+        self.timeline_title_2.setGeometry(QtCore.QRect(670, 10, 340, 121))
+        self.timeline_title_2.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.timeline_title_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.timeline_title_2.setObjectName("timeline_title_2")
+        self.gridLayout_17 = QtWidgets.QGridLayout(self.timeline_title_2)
+        self.gridLayout_17.setObjectName("gridLayout_17")
+        self.label_92 = QtWidgets.QLabel(self.timeline_title_2)
+        self.label_92.setObjectName("label_92")
+        self.gridLayout_17.addWidget(self.label_92, 0, 0, 1, 1)
+        self.label_93 = QtWidgets.QLabel(self.timeline_title_2)
+        self.label_93.setObjectName("label_93")
+        self.gridLayout_17.addWidget(self.label_93, 1, 0, 1, 1)
+        self.lineEdit_5 = QtWidgets.QLineEdit(self.timeline_title_2)
+        self.lineEdit_5.setObjectName("lineEdit_5")
+        self.gridLayout_17.addWidget(self.lineEdit_5, 1, 1, 1, 1)
+        self.frame_4 = QtWidgets.QFrame(self.timeline_title_2)
+        self.frame_4.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_4.setObjectName("frame_4")
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.frame_4)
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.gridLayout_17.addWidget(self.frame_4, 2, 1, 1, 1)
+        self.label_94 = QtWidgets.QLabel(self.widget)
+        self.label_94.setGeometry(QtCore.QRect(680, 110, 301, 241))
+        self.label_94.setText("")
+        self.label_94.setPixmap(QtGui.QPixmap(
+            "assets/pie-chart-too-few-slices.png"))
+        self.label_94.setObjectName("label_94")
+        self.gridLayout_10.addWidget(self.widget, 0, 0, 1, 1)
         self.visualization_tabs.addTab(self.pie_chart, "")
         self.bar_graph = QtWidgets.QWidget()
         self.bar_graph.setObjectName("bar_graph")
         self.Bar_Graph_Area_123 = QtWidgets.QScrollArea(self.bar_graph)
         self.Bar_Graph_Area_123.setGeometry(QtCore.QRect(10, 10, 1571, 381))
-        self.Bar_Graph_Area_123.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
-        self.Bar_Graph_Area_123.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.Bar_Graph_Area_123.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarAlwaysOn)
+        self.Bar_Graph_Area_123.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarAsNeeded)
         self.Bar_Graph_Area_123.setWidgetResizable(True)
         self.Bar_Graph_Area_123.setObjectName("Bar_Graph_Area_123")
         self.scrollAreaWidgetContents_60 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_60.setGeometry(QtCore.QRect(0, 0, 1561, 379))
-        self.scrollAreaWidgetContents_60.setObjectName("scrollAreaWidgetContents_60")
+        self.scrollAreaWidgetContents_60.setGeometry(
+            QtCore.QRect(0, 0, 1561, 379))
+        self.scrollAreaWidgetContents_60.setObjectName(
+            "scrollAreaWidgetContents_60")
         self.Bar_Graph_Area_123.setWidget(self.scrollAreaWidgetContents_60)
         self.Bar_Graph_Area_123.setWidget(self.add_bar_graph())
         self.visualization_tabs.addTab(self.bar_graph, "")
@@ -1570,7 +1883,8 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 572, 265))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
-        self.gridLayout_6 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
+        self.gridLayout_6 = QtWidgets.QGridLayout(
+            self.scrollAreaWidgetContents)
         self.gridLayout_6.setObjectName("gridLayout_6")
         self.timeline_footer = QtWidgets.QFrame(self.scrollAreaWidgetContents)
         self.timeline_footer.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -1607,7 +1921,8 @@ class Ui_MainWindow(object):
         item = QtWidgets.QListWidgetItem()
         self.listWidget.addItem(item)
         self.verticalLayout_21.addWidget(self.listWidget)
-        self.gridLayout_8.addWidget(self.timeline_legend, 0, 0, 1, 1, QtCore.Qt.AlignLeft)
+        self.gridLayout_8.addWidget(
+            self.timeline_legend, 0, 0, 1, 1, QtCore.Qt.AlignLeft)
         self.frame_3 = QtWidgets.QFrame(self.timeline_footer)
         self.frame_3.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Plain)
@@ -1620,35 +1935,35 @@ class Ui_MainWindow(object):
         self.line_2 = QtWidgets.QFrame(self.frame_3)
         self.line_2.setGeometry(QtCore.QRect(20, 60, 3, 61))
         self.line_2.setStyleSheet("background-color: rgb(170, 0, 0);\n"
-"border-color: rgb(170, 0, 0);")
+                                  "border-color: rgb(170, 0, 0);")
         self.line_2.setFrameShape(QtWidgets.QFrame.VLine)
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
         self.line_3 = QtWidgets.QFrame(self.frame_3)
         self.line_3.setGeometry(QtCore.QRect(70, 0, 3, 61))
         self.line_3.setStyleSheet("background-color: rgb(170, 0, 0);\n"
-"border-color: rgb(170, 0, 0);")
+                                  "border-color: rgb(170, 0, 0);")
         self.line_3.setFrameShape(QtWidgets.QFrame.VLine)
         self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_3.setObjectName("line_3")
         self.line_5 = QtWidgets.QFrame(self.frame_3)
         self.line_5.setGeometry(QtCore.QRect(230, 0, 3, 61))
         self.line_5.setStyleSheet("background-color: rgb(170, 0, 0);\n"
-"border-color: rgb(170, 0, 0);")
+                                  "border-color: rgb(170, 0, 0);")
         self.line_5.setFrameShape(QtWidgets.QFrame.VLine)
         self.line_5.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_5.setObjectName("line_5")
         self.line_6 = QtWidgets.QFrame(self.frame_3)
         self.line_6.setGeometry(QtCore.QRect(280, 60, 3, 61))
         self.line_6.setStyleSheet("background-color: rgb(170, 0, 0);\n"
-"border-color: rgb(170, 0, 0);")
+                                  "border-color: rgb(170, 0, 0);")
         self.line_6.setFrameShape(QtWidgets.QFrame.VLine)
         self.line_6.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_6.setObjectName("line_6")
         self.line_7 = QtWidgets.QFrame(self.frame_3)
         self.line_7.setGeometry(QtCore.QRect(340, 0, 3, 61))
         self.line_7.setStyleSheet("background-color: rgb(170, 0, 0);\n"
-"border-color: rgb(170, 0, 0);")
+                                  "border-color: rgb(170, 0, 0);")
         self.line_7.setFrameShape(QtWidgets.QFrame.VLine)
         self.line_7.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_7.setObjectName("line_7")
@@ -1696,7 +2011,8 @@ class Ui_MainWindow(object):
         self.line_12.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_12.setObjectName("line_12")
         self.gridLayout_8.addWidget(self.frame_3, 0, 1, 1, 1)
-        self.gridLayout_6.addWidget(self.timeline_footer, 1, 0, 1, 1, QtCore.Qt.AlignTop)
+        self.gridLayout_6.addWidget(
+            self.timeline_footer, 1, 0, 1, 1, QtCore.Qt.AlignTop)
         self.timeline_header = QtWidgets.QFrame(self.scrollAreaWidgetContents)
         self.timeline_header.setAutoFillBackground(False)
         self.timeline_header.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -1735,7 +2051,8 @@ class Ui_MainWindow(object):
         self.lineEdit_2 = QtWidgets.QLineEdit(self.timeline_metadata)
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.gridLayout_7.addWidget(self.lineEdit_2, 3, 1, 1, 1)
-        self.gridLayout_4.addWidget(self.timeline_metadata, 0, 0, 1, 1, QtCore.Qt.AlignLeft)
+        self.gridLayout_4.addWidget(
+            self.timeline_metadata, 0, 0, 1, 1, QtCore.Qt.AlignLeft)
         self.timeline_title = QtWidgets.QFrame(self.timeline_header)
         self.timeline_title.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.timeline_title.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -1767,8 +2084,10 @@ class Ui_MainWindow(object):
         self.label_40 = QtWidgets.QLabel(self.timeline_title)
         self.label_40.setObjectName("label_40")
         self.gridLayout_5.addWidget(self.label_40, 2, 0, 1, 1)
-        self.gridLayout_4.addWidget(self.timeline_title, 0, 1, 1, 1, QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
-        self.gridLayout_6.addWidget(self.timeline_header, 0, 0, 1, 1, QtCore.Qt.AlignTop)
+        self.gridLayout_4.addWidget(
+            self.timeline_title, 0, 1, 1, 1, QtCore.Qt.AlignLeft | QtCore.Qt.AlignTop)
+        self.gridLayout_6.addWidget(
+            self.timeline_header, 0, 0, 1, 1, QtCore.Qt.AlignTop)
         self.scrollArea_2.setWidget(self.scrollAreaWidgetContents)
         self.gridLayout_11.addWidget(self.scrollArea_2, 0, 1, 1, 1)
         self.visualization_tabs.addTab(self.timeline, "")
@@ -1810,13 +2129,16 @@ class Ui_MainWindow(object):
         self.visualization_table.setItem(1, 2, item)
         item = QtWidgets.QTableWidgetItem()
         self.visualization_table.setItem(1, 3, item)
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.SpanningRole, self.visualization_table)
+        self.formLayout.setWidget(
+            0, QtWidgets.QFormLayout.SpanningRole, self.visualization_table)
         self.plainTextEdit = QtWidgets.QPlainTextEdit(self.annotation)
         self.plainTextEdit.setObjectName("plainTextEdit")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.SpanningRole, self.plainTextEdit)
+        self.formLayout.setWidget(
+            1, QtWidgets.QFormLayout.SpanningRole, self.plainTextEdit)
         self.pushButton_4 = QtWidgets.QPushButton(self.annotation)
         self.pushButton_4.setObjectName("pushButton_4")
-        self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.pushButton_4)
+        self.formLayout.setWidget(
+            2, QtWidgets.QFormLayout.LabelRole, self.pushButton_4)
         self.visualization_tabs.addTab(self.annotation, "")
         self.gridLayout_9.addWidget(self.visualization_tabs, 0, 1, 1, 1)
         self.toolBox_14.addItem(self.visualization_accordion_20, "")
@@ -1869,6 +2191,9 @@ class Ui_MainWindow(object):
         self.history_table.setItem(0, 5, item)
         self.history_table.horizontalHeader().setCascadingSectionResizes(True)
         self.history_table.horizontalHeader().setStretchLastSection(True)
+        self.pushButton_7 = QtWidgets.QPushButton(self.history_accordion_16)
+        self.pushButton_7.setGeometry(QtCore.QRect(20, 400, 80, 27))
+        self.pushButton_7.setObjectName("pushButton_7")
         self.toolBox_14.addItem(self.history_accordion_16, "")
         self.log_accordion_16 = QtWidgets.QWidget()
         self.log_accordion_16.setGeometry(QtCore.QRect(0, 0, 1225, 437))
@@ -1981,7 +2306,8 @@ class Ui_MainWindow(object):
         self.ScreenshotMainView.setGeometry(QtCore.QRect(1051, 100, 490, 210))
         self.ScreenshotMainView.setObjectName("ScreenshotMainView")
         self.NetworkActivityDataUnit = QtWidgets.QComboBox(self.tab_2)
-        self.NetworkActivityDataUnit.setGeometry(QtCore.QRect(715, 690, 271, 20))
+        self.NetworkActivityDataUnit.setGeometry(
+            QtCore.QRect(715, 690, 271, 20))
         self.NetworkActivityDataUnit.setMaximumSize(QtCore.QSize(300, 20))
         self.NetworkActivityDataUnit.setObjectName("NetworkActivityDataUnit")
         self.NetworkActivityDataUnit.addItem("")
@@ -2004,7 +2330,8 @@ class Ui_MainWindow(object):
         self.ProcessTitle.setFont(font)
         self.ProcessTitle.setObjectName("ProcessTitle")
         self.KeyStrokeStatOffButton = QtWidgets.QPushButton(self.tab_2)
-        self.KeyStrokeStatOffButton.setGeometry(QtCore.QRect(1170, 530, 88, 27))
+        self.KeyStrokeStatOffButton.setGeometry(
+            QtCore.QRect(1170, 530, 88, 27))
         self.KeyStrokeStatOffButton.setCheckable(True)
         self.KeyStrokeStatOffButton.setObjectName("KeyStrokeStatOffButton")
         self.MouseActOffButton = QtWidgets.QPushButton(self.tab_2)
@@ -2044,7 +2371,8 @@ class Ui_MainWindow(object):
         self.VideoResolutionSelect.addItem("")
         self.VideoResolutionSelect.addItem("")
         self.SystemCallConfiguration = QtWidgets.QTableView(self.tab_2)
-        self.SystemCallConfiguration.setGeometry(QtCore.QRect(130, 370, 321, 210))
+        self.SystemCallConfiguration.setGeometry(
+            QtCore.QRect(130, 370, 321, 210))
         self.SystemCallConfiguration.setObjectName("SystemCallConfiguration")
         self.KeystrokeStatus = QtWidgets.QLabel(self.tab_2)
         self.KeystrokeStatus.setGeometry(QtCore.QRect(1090, 430, 151, 91))
@@ -2074,9 +2402,11 @@ class Ui_MainWindow(object):
         self.VideoConfiguration.setGeometry(QtCore.QRect(510, 100, 490, 210))
         self.VideoConfiguration.setObjectName("VideoConfiguration")
         self.NetworkActivityDataWaiValue = QtWidgets.QComboBox(self.tab_2)
-        self.NetworkActivityDataWaiValue.setGeometry(QtCore.QRect(705, 720, 281, 20))
+        self.NetworkActivityDataWaiValue.setGeometry(
+            QtCore.QRect(705, 720, 281, 20))
         self.NetworkActivityDataWaiValue.setMaximumSize(QtCore.QSize(300, 20))
-        self.NetworkActivityDataWaiValue.setObjectName("NetworkActivityDataWaiValue")
+        self.NetworkActivityDataWaiValue.setObjectName(
+            "NetworkActivityDataWaiValue")
         self.NetworkActivityDataWaiValue.addItem("")
         self.MouseActStatus = QtWidgets.QLabel(self.tab_2)
         self.MouseActStatus.setGeometry(QtCore.QRect(180, 730, 151, 91))
@@ -2096,14 +2426,16 @@ class Ui_MainWindow(object):
         self.ScreenshotFormatDrop.addItem("")
         self.ScreenshotFormatDrop.addItem("")
         self.ScreenshotStatOffButton = QtWidgets.QPushButton(self.tab_2)
-        self.ScreenshotStatOffButton.setGeometry(QtCore.QRect(1160, 260, 88, 27))
+        self.ScreenshotStatOffButton.setGeometry(
+            QtCore.QRect(1160, 260, 88, 27))
         self.ScreenshotStatOffButton.setCheckable(True)
         self.ScreenshotStatOffButton.setObjectName("ScreenshotStatOffButton")
         self.WindowHistoryView = QtWidgets.QTableView(self.tab_2)
         self.WindowHistoryView.setGeometry(QtCore.QRect(510, 370, 490, 210))
         self.WindowHistoryView.setObjectName("WindowHistoryView")
         self.ScreenshotStatOnButton = QtWidgets.QPushButton(self.tab_2)
-        self.ScreenshotStatOnButton.setGeometry(QtCore.QRect(1070, 260, 88, 27))
+        self.ScreenshotStatOnButton.setGeometry(
+            QtCore.QRect(1070, 260, 88, 27))
         self.ScreenshotStatOnButton.setCheckable(True)
         self.ScreenshotStatOnButton.setObjectName("ScreenshotStatOnButton")
         self.StorageContV = QtWidgets.QTableView(self.tab_2)
@@ -2115,9 +2447,11 @@ class Ui_MainWindow(object):
         self.WindowHistoryDurUnit.setObjectName("WindowHistoryDurUnit")
         self.WindowHistoryDurUnit.addItem("")
         self.NetworkActivityDataOffButton = QtWidgets.QPushButton(self.tab_2)
-        self.NetworkActivityDataOffButton.setGeometry(QtCore.QRect(630, 830, 88, 27))
+        self.NetworkActivityDataOffButton.setGeometry(
+            QtCore.QRect(630, 830, 88, 27))
         self.NetworkActivityDataOffButton.setCheckable(True)
-        self.NetworkActivityDataOffButton.setObjectName("NetworkActivityDataOffButton")
+        self.NetworkActivityDataOffButton.setObjectName(
+            "NetworkActivityDataOffButton")
         self.VideoStatusOffButton = QtWidgets.QPushButton(self.tab_2)
         self.VideoStatusOffButton.setGeometry(QtCore.QRect(620, 260, 88, 27))
         self.VideoStatusOffButton.setCheckable(True)
@@ -2157,7 +2491,8 @@ class Ui_MainWindow(object):
         self.ScreenshotTitle.setFont(font)
         self.ScreenshotTitle.setObjectName("ScreenshotTitle")
         self.NetworkActivityDataLabel = QtWidgets.QLabel(self.tab_2)
-        self.NetworkActivityDataLabel.setGeometry(QtCore.QRect(520, 680, 201, 51))
+        self.NetworkActivityDataLabel.setGeometry(
+            QtCore.QRect(520, 680, 201, 51))
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setBold(True)
@@ -2239,12 +2574,15 @@ class Ui_MainWindow(object):
         self.WindowHistLabel.setFont(font)
         self.WindowHistLabel.setObjectName("WindowHistLabel")
         self.NetworkActivityDataView = QtWidgets.QTableView(self.tab_2)
-        self.NetworkActivityDataView.setGeometry(QtCore.QRect(510, 670, 490, 210))
+        self.NetworkActivityDataView.setGeometry(
+            QtCore.QRect(510, 670, 490, 210))
         self.NetworkActivityDataView.setObjectName("NetworkActivityDataView")
         self.NetworkActivityDataOnButton = QtWidgets.QPushButton(self.tab_2)
-        self.NetworkActivityDataOnButton.setGeometry(QtCore.QRect(540, 830, 88, 27))
+        self.NetworkActivityDataOnButton.setGeometry(
+            QtCore.QRect(540, 830, 88, 27))
         self.NetworkActivityDataOnButton.setCheckable(True)
-        self.NetworkActivityDataOnButton.setObjectName("NetworkActivityDataOnButton")
+        self.NetworkActivityDataOnButton.setObjectName(
+            "NetworkActivityDataOnButton")
         self.FrameRateSelect = QtWidgets.QComboBox(self.tab_2)
         self.FrameRateSelect.setGeometry(QtCore.QRect(840, 150, 150, 20))
         self.FrameRateSelect.setMaximumSize(QtCore.QSize(150, 20))
@@ -2343,56 +2681,71 @@ class Ui_MainWindow(object):
         self.allexcludingvideo_btn.setFont(font)
         self.allexcludingvideo_btn.setObjectName("allexcludingvideo_btn")
         self.syncbasicinformation_frame = QtWidgets.QFrame(self.tab_3)
-        self.syncbasicinformation_frame.setGeometry(QtCore.QRect(40, 60, 521, 111))
-        self.syncbasicinformation_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.syncbasicinformation_frame.setGeometry(
+            QtCore.QRect(40, 60, 521, 111))
+        self.syncbasicinformation_frame.setFrameShape(
+            QtWidgets.QFrame.StyledPanel)
         self.syncbasicinformation_frame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.syncbasicinformation_frame.setObjectName("syncbasicinformation_frame")
-        self.fromIPlabel_label = QtWidgets.QLabel(self.syncbasicinformation_frame)
+        self.syncbasicinformation_frame.setObjectName(
+            "syncbasicinformation_frame")
+        self.fromIPlabel_label = QtWidgets.QLabel(
+            self.syncbasicinformation_frame)
         self.fromIPlabel_label.setGeometry(QtCore.QRect(10, 10, 231, 31))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.fromIPlabel_label.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.fromIPlabel_label.sizePolicy().hasHeightForWidth())
         self.fromIPlabel_label.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setPointSize(16)
         self.fromIPlabel_label.setFont(font)
         self.fromIPlabel_label.setObjectName("fromIPlabel_label")
-        self.fromMAClabel_label = QtWidgets.QLabel(self.syncbasicinformation_frame)
+        self.fromMAClabel_label = QtWidgets.QLabel(
+            self.syncbasicinformation_frame)
         self.fromMAClabel_label.setGeometry(QtCore.QRect(10, 40, 231, 31))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.fromMAClabel_label.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.fromMAClabel_label.sizePolicy().hasHeightForWidth())
         self.fromMAClabel_label.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setPointSize(16)
         self.fromMAClabel_label.setFont(font)
         self.fromMAClabel_label.setObjectName("fromMAClabel_label")
-        self.toIPlabel_label = QtWidgets.QLabel(self.syncbasicinformation_frame)
+        self.toIPlabel_label = QtWidgets.QLabel(
+            self.syncbasicinformation_frame)
         self.toIPlabel_label.setGeometry(QtCore.QRect(10, 70, 231, 31))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.toIPlabel_label.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.toIPlabel_label.sizePolicy().hasHeightForWidth())
         self.toIPlabel_label.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setPointSize(16)
         self.toIPlabel_label.setFont(font)
         self.toIPlabel_label.setObjectName("toIPlabel_label")
-        self.fromIPval_label = QtWidgets.QLabel(self.syncbasicinformation_frame)
+        self.fromIPval_label = QtWidgets.QLabel(
+            self.syncbasicinformation_frame)
         self.fromIPval_label.setGeometry(QtCore.QRect(290, 10, 191, 31))
         font = QtGui.QFont()
         font.setPointSize(16)
         self.fromIPval_label.setFont(font)
         self.fromIPval_label.setObjectName("fromIPval_label")
-        self.fromMACval_label = QtWidgets.QLabel(self.syncbasicinformation_frame)
+        self.fromMACval_label = QtWidgets.QLabel(
+            self.syncbasicinformation_frame)
         self.fromMACval_label.setGeometry(QtCore.QRect(290, 40, 191, 31))
         font = QtGui.QFont()
         font.setPointSize(16)
         self.fromMACval_label.setFont(font)
         self.fromMACval_label.setObjectName("fromMACval_label")
-        self.toIPval_lineEdit = QtWidgets.QLineEdit(self.syncbasicinformation_frame)
+        self.toIPval_lineEdit = QtWidgets.QLineEdit(
+            self.syncbasicinformation_frame)
         self.toIPval_lineEdit.setGeometry(QtCore.QRect(290, 70, 211, 31))
         font = QtGui.QFont()
         font.setPointSize(16)
@@ -2401,10 +2754,12 @@ class Ui_MainWindow(object):
         self.toIPval_lineEdit.setObjectName("toIPval_lineEdit")
         self.progresssection = QtWidgets.QGroupBox(self.tab_3)
         self.progresssection.setGeometry(QtCore.QRect(10, 220, 1601, 791))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.progresssection.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.progresssection.sizePolicy().hasHeightForWidth())
         self.progresssection.setSizePolicy(sizePolicy)
         self.progresssection.setObjectName("progresssection")
         self.stillscreenshot_frame = QtWidgets.QFrame(self.progresssection)
@@ -2412,28 +2767,44 @@ class Ui_MainWindow(object):
         self.stillscreenshot_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.stillscreenshot_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.stillscreenshot_frame.setObjectName("stillscreenshot_frame")
-        self.stillscreenshot_progressBar = QtWidgets.QProgressBar(self.stillscreenshot_frame)
-        self.stillscreenshot_progressBar.setGeometry(QtCore.QRect(10, 70, 541, 31))
+        self.stillscreenshot_progressBar = QtWidgets.QProgressBar(
+            self.stillscreenshot_frame)
+        self.stillscreenshot_progressBar.setGeometry(
+            QtCore.QRect(10, 70, 541, 31))
         self.stillscreenshot_progressBar.setProperty("value", 24)
-        self.stillscreenshot_progressBar.setObjectName("stillscreenshot_progressBar")
-        self.stillscreenshot_pushButton = QtWidgets.QPushButton(self.stillscreenshot_frame)
-        self.stillscreenshot_pushButton.setGeometry(QtCore.QRect(190, 110, 211, 31))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.stillscreenshot_progressBar.setObjectName(
+            "stillscreenshot_progressBar")
+        self.stillscreenshot_pushButton = QtWidgets.QPushButton(
+            self.stillscreenshot_frame)
+        self.stillscreenshot_pushButton.setGeometry(
+            QtCore.QRect(190, 110, 211, 31))
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.stillscreenshot_pushButton.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.stillscreenshot_pushButton.sizePolicy().hasHeightForWidth())
         self.stillscreenshot_pushButton.setSizePolicy(sizePolicy)
-        self.stillscreenshot_pushButton.setObjectName("stillscreenshot_pushButton")
-        self.stillscreenshot_label_0 = QtWidgets.QLabel(self.stillscreenshot_frame)
+        self.stillscreenshot_pushButton.setObjectName(
+            "stillscreenshot_pushButton")
+        self.stillscreenshot_label_0 = QtWidgets.QLabel(
+            self.stillscreenshot_frame)
         self.stillscreenshot_label_0.setGeometry(QtCore.QRect(0, 90, 21, 16))
         self.stillscreenshot_label_0.setObjectName("stillscreenshot_label_0")
-        self.stillscreenshot_label_100 = QtWidgets.QLabel(self.stillscreenshot_frame)
-        self.stillscreenshot_label_100.setGeometry(QtCore.QRect(530, 90, 41, 16))
-        self.stillscreenshot_label_100.setObjectName("stillscreenshot_label_100")
-        self.stillscreenshot_label_cur = QtWidgets.QLabel(self.stillscreenshot_frame)
-        self.stillscreenshot_label_cur.setGeometry(QtCore.QRect(130, 90, 31, 16))
-        self.stillscreenshot_label_cur.setObjectName("stillscreenshot_label_cur")
-        self.stillscreenshot_label = QtWidgets.QLabel(self.stillscreenshot_frame)
+        self.stillscreenshot_label_100 = QtWidgets.QLabel(
+            self.stillscreenshot_frame)
+        self.stillscreenshot_label_100.setGeometry(
+            QtCore.QRect(530, 90, 41, 16))
+        self.stillscreenshot_label_100.setObjectName(
+            "stillscreenshot_label_100")
+        self.stillscreenshot_label_cur = QtWidgets.QLabel(
+            self.stillscreenshot_frame)
+        self.stillscreenshot_label_cur.setGeometry(
+            QtCore.QRect(130, 90, 31, 16))
+        self.stillscreenshot_label_cur.setObjectName(
+            "stillscreenshot_label_cur")
+        self.stillscreenshot_label = QtWidgets.QLabel(
+            self.stillscreenshot_frame)
         self.stillscreenshot_label.setGeometry(QtCore.QRect(0, 30, 581, 31))
         font = QtGui.QFont()
         font.setFamily("Avenir Next Condensed")
@@ -2453,10 +2824,12 @@ class Ui_MainWindow(object):
         self.process_progressBar.setObjectName("process_progressBar")
         self.process_pushButton = QtWidgets.QPushButton(self.process_frame)
         self.process_pushButton.setGeometry(QtCore.QRect(210, 110, 151, 31))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.process_pushButton.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.process_pushButton.sizePolicy().hasHeightForWidth())
         self.process_pushButton.setSizePolicy(sizePolicy)
         self.process_pushButton.setObjectName("process_pushButton")
         self.process_label_0 = QtWidgets.QLabel(self.process_frame)
@@ -2482,16 +2855,19 @@ class Ui_MainWindow(object):
         self.keystroke_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.keystroke_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.keystroke_frame.setObjectName("keystroke_frame")
-        self.keystroke_progressBar = QtWidgets.QProgressBar(self.keystroke_frame)
+        self.keystroke_progressBar = QtWidgets.QProgressBar(
+            self.keystroke_frame)
         self.keystroke_progressBar.setGeometry(QtCore.QRect(10, 70, 541, 31))
         self.keystroke_progressBar.setProperty("value", 24)
         self.keystroke_progressBar.setObjectName("keystroke_progressBar")
         self.keystroke_pushButton = QtWidgets.QPushButton(self.keystroke_frame)
         self.keystroke_pushButton.setGeometry(QtCore.QRect(200, 100, 171, 31))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.keystroke_pushButton.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.keystroke_pushButton.sizePolicy().hasHeightForWidth())
         self.keystroke_pushButton.setSizePolicy(sizePolicy)
         self.keystroke_pushButton.setObjectName("keystroke_pushButton")
         self.keystroke_label_0 = QtWidgets.QLabel(self.keystroke_frame)
@@ -2517,25 +2893,34 @@ class Ui_MainWindow(object):
         self.windowhistory_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.windowhistory_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.windowhistory_frame.setObjectName("windowhistory_frame")
-        self.windowhistory_progressBar = QtWidgets.QProgressBar(self.windowhistory_frame)
-        self.windowhistory_progressBar.setGeometry(QtCore.QRect(10, 70, 541, 31))
+        self.windowhistory_progressBar = QtWidgets.QProgressBar(
+            self.windowhistory_frame)
+        self.windowhistory_progressBar.setGeometry(
+            QtCore.QRect(10, 70, 541, 31))
         self.windowhistory_progressBar.setProperty("value", 24)
-        self.windowhistory_progressBar.setObjectName("windowhistory_progressBar")
-        self.windowhistory_pushButton = QtWidgets.QPushButton(self.windowhistory_frame)
-        self.windowhistory_pushButton.setGeometry(QtCore.QRect(190, 100, 211, 31))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.windowhistory_progressBar.setObjectName(
+            "windowhistory_progressBar")
+        self.windowhistory_pushButton = QtWidgets.QPushButton(
+            self.windowhistory_frame)
+        self.windowhistory_pushButton.setGeometry(
+            QtCore.QRect(190, 100, 211, 31))
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.windowhistory_pushButton.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.windowhistory_pushButton.sizePolicy().hasHeightForWidth())
         self.windowhistory_pushButton.setSizePolicy(sizePolicy)
         self.windowhistory_pushButton.setObjectName("windowhistory_pushButton")
         self.windowhistory_label_0 = QtWidgets.QLabel(self.windowhistory_frame)
         self.windowhistory_label_0.setGeometry(QtCore.QRect(0, 90, 21, 16))
         self.windowhistory_label_0.setObjectName("windowhistory_label_0")
-        self.windowhistory_label_100 = QtWidgets.QLabel(self.windowhistory_frame)
+        self.windowhistory_label_100 = QtWidgets.QLabel(
+            self.windowhistory_frame)
         self.windowhistory_label_100.setGeometry(QtCore.QRect(530, 90, 41, 16))
         self.windowhistory_label_100.setObjectName("windowhistory_label_100")
-        self.windowhistory_label_cur = QtWidgets.QLabel(self.windowhistory_frame)
+        self.windowhistory_label_cur = QtWidgets.QLabel(
+            self.windowhistory_frame)
         self.windowhistory_label_cur.setGeometry(QtCore.QRect(130, 90, 31, 16))
         self.windowhistory_label_cur.setObjectName("windowhistory_label_cur")
         self.windowhistory_label = QtWidgets.QLabel(self.windowhistory_frame)
@@ -2558,10 +2943,12 @@ class Ui_MainWindow(object):
         self.history_progressBar.setObjectName("history_progressBar")
         self.history_pushButton = QtWidgets.QPushButton(self.history_frame)
         self.history_pushButton.setGeometry(QtCore.QRect(210, 100, 161, 31))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.history_pushButton.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.history_pushButton.sizePolicy().hasHeightForWidth())
         self.history_pushButton.setSizePolicy(sizePolicy)
         self.history_pushButton.setObjectName("history_pushButton")
         self.history_label_0 = QtWidgets.QLabel(self.history_frame)
@@ -2593,10 +2980,12 @@ class Ui_MainWindow(object):
         self.video_progressBar.setObjectName("video_progressBar")
         self.video_pushButton = QtWidgets.QPushButton(self.video_frame)
         self.video_pushButton.setGeometry(QtCore.QRect(220, 110, 151, 31))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.video_pushButton.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.video_pushButton.sizePolicy().hasHeightForWidth())
         self.video_pushButton.setSizePolicy(sizePolicy)
         self.video_pushButton.setObjectName("video_pushButton")
         self.video_label_0 = QtWidgets.QLabel(self.video_frame)
@@ -2618,55 +3007,82 @@ class Ui_MainWindow(object):
         self.video_label.setAlignment(QtCore.Qt.AlignCenter)
         self.video_label.setObjectName("video_label")
         self.networkactivitydata_frame = QtWidgets.QFrame(self.progresssection)
-        self.networkactivitydata_frame.setGeometry(QtCore.QRect(920, 170, 581, 141))
-        self.networkactivitydata_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.networkactivitydata_frame.setGeometry(
+            QtCore.QRect(920, 170, 581, 141))
+        self.networkactivitydata_frame.setFrameShape(
+            QtWidgets.QFrame.StyledPanel)
         self.networkactivitydata_frame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.networkactivitydata_frame.setObjectName("networkactivitydata_frame")
-        self.networkactivitydata_progressBar = QtWidgets.QProgressBar(self.networkactivitydata_frame)
-        self.networkactivitydata_progressBar.setGeometry(QtCore.QRect(10, 70, 541, 31))
+        self.networkactivitydata_frame.setObjectName(
+            "networkactivitydata_frame")
+        self.networkactivitydata_progressBar = QtWidgets.QProgressBar(
+            self.networkactivitydata_frame)
+        self.networkactivitydata_progressBar.setGeometry(
+            QtCore.QRect(10, 70, 541, 31))
         self.networkactivitydata_progressBar.setProperty("value", 24)
-        self.networkactivitydata_progressBar.setObjectName("networkactivitydata_progressBar")
-        self.networkactivitydata_pushButton = QtWidgets.QPushButton(self.networkactivitydata_frame)
-        self.networkactivitydata_pushButton.setGeometry(QtCore.QRect(180, 110, 241, 31))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.networkactivitydata_progressBar.setObjectName(
+            "networkactivitydata_progressBar")
+        self.networkactivitydata_pushButton = QtWidgets.QPushButton(
+            self.networkactivitydata_frame)
+        self.networkactivitydata_pushButton.setGeometry(
+            QtCore.QRect(180, 110, 241, 31))
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.networkactivitydata_pushButton.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.networkactivitydata_pushButton.sizePolicy().hasHeightForWidth())
         self.networkactivitydata_pushButton.setSizePolicy(sizePolicy)
-        self.networkactivitydata_pushButton.setObjectName("networkactivitydata_pushButton")
-        self.networkactivitydata_label_0 = QtWidgets.QLabel(self.networkactivitydata_frame)
-        self.networkactivitydata_label_0.setGeometry(QtCore.QRect(0, 90, 21, 16))
-        self.networkactivitydata_label_0.setObjectName("networkactivitydata_label_0")
-        self.networkactivitydata_label_100 = QtWidgets.QLabel(self.networkactivitydata_frame)
-        self.networkactivitydata_label_100.setGeometry(QtCore.QRect(530, 90, 41, 16))
-        self.networkactivitydata_label_100.setObjectName("networkactivitydata_label_100")
-        self.networkactivitydata_label_cur = QtWidgets.QLabel(self.networkactivitydata_frame)
-        self.networkactivitydata_label_cur.setGeometry(QtCore.QRect(130, 90, 31, 16))
-        self.networkactivitydata_label_cur.setObjectName("networkactivitydata_label_cur")
-        self.networkactivitydata_label = QtWidgets.QLabel(self.networkactivitydata_frame)
-        self.networkactivitydata_label.setGeometry(QtCore.QRect(0, 30, 581, 31))
+        self.networkactivitydata_pushButton.setObjectName(
+            "networkactivitydata_pushButton")
+        self.networkactivitydata_label_0 = QtWidgets.QLabel(
+            self.networkactivitydata_frame)
+        self.networkactivitydata_label_0.setGeometry(
+            QtCore.QRect(0, 90, 21, 16))
+        self.networkactivitydata_label_0.setObjectName(
+            "networkactivitydata_label_0")
+        self.networkactivitydata_label_100 = QtWidgets.QLabel(
+            self.networkactivitydata_frame)
+        self.networkactivitydata_label_100.setGeometry(
+            QtCore.QRect(530, 90, 41, 16))
+        self.networkactivitydata_label_100.setObjectName(
+            "networkactivitydata_label_100")
+        self.networkactivitydata_label_cur = QtWidgets.QLabel(
+            self.networkactivitydata_frame)
+        self.networkactivitydata_label_cur.setGeometry(
+            QtCore.QRect(130, 90, 31, 16))
+        self.networkactivitydata_label_cur.setObjectName(
+            "networkactivitydata_label_cur")
+        self.networkactivitydata_label = QtWidgets.QLabel(
+            self.networkactivitydata_frame)
+        self.networkactivitydata_label.setGeometry(
+            QtCore.QRect(0, 30, 581, 31))
         font = QtGui.QFont()
         font.setFamily("Avenir Next Condensed")
         font.setPointSize(28)
         font.setItalic(True)
         self.networkactivitydata_label.setFont(font)
         self.networkactivitydata_label.setAlignment(QtCore.Qt.AlignCenter)
-        self.networkactivitydata_label.setObjectName("networkactivitydata_label")
+        self.networkactivitydata_label.setObjectName(
+            "networkactivitydata_label")
         self.systemcall_frame = QtWidgets.QFrame(self.progresssection)
         self.systemcall_frame.setGeometry(QtCore.QRect(920, 450, 581, 141))
         self.systemcall_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.systemcall_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.systemcall_frame.setObjectName("systemcall_frame")
-        self.systemcall_progressBar = QtWidgets.QProgressBar(self.systemcall_frame)
+        self.systemcall_progressBar = QtWidgets.QProgressBar(
+            self.systemcall_frame)
         self.systemcall_progressBar.setGeometry(QtCore.QRect(10, 70, 541, 31))
         self.systemcall_progressBar.setProperty("value", 24)
         self.systemcall_progressBar.setObjectName("systemcall_progressBar")
-        self.systemcall_pushButton = QtWidgets.QPushButton(self.systemcall_frame)
+        self.systemcall_pushButton = QtWidgets.QPushButton(
+            self.systemcall_frame)
         self.systemcall_pushButton.setGeometry(QtCore.QRect(200, 100, 181, 31))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.systemcall_pushButton.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.systemcall_pushButton.sizePolicy().hasHeightForWidth())
         self.systemcall_pushButton.setSizePolicy(sizePolicy)
         self.systemcall_pushButton.setObjectName("systemcall_pushButton")
         self.systemcall_label_0 = QtWidgets.QLabel(self.systemcall_frame)
@@ -2692,16 +3108,21 @@ class Ui_MainWindow(object):
         self.mouseaction_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.mouseaction_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.mouseaction_frame.setObjectName("mouseaction_frame")
-        self.mouseaction_progressBar = QtWidgets.QProgressBar(self.mouseaction_frame)
+        self.mouseaction_progressBar = QtWidgets.QProgressBar(
+            self.mouseaction_frame)
         self.mouseaction_progressBar.setGeometry(QtCore.QRect(10, 70, 541, 31))
         self.mouseaction_progressBar.setProperty("value", 24)
         self.mouseaction_progressBar.setObjectName("mouseaction_progressBar")
-        self.mouseaction_pushButton = QtWidgets.QPushButton(self.mouseaction_frame)
-        self.mouseaction_pushButton.setGeometry(QtCore.QRect(190, 110, 191, 31))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.mouseaction_pushButton = QtWidgets.QPushButton(
+            self.mouseaction_frame)
+        self.mouseaction_pushButton.setGeometry(
+            QtCore.QRect(190, 110, 191, 31))
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.mouseaction_pushButton.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.mouseaction_pushButton.sizePolicy().hasHeightForWidth())
         self.mouseaction_pushButton.setSizePolicy(sizePolicy)
         self.mouseaction_pushButton.setObjectName("mouseaction_pushButton")
         self.mouseaction_label_0 = QtWidgets.QLabel(self.mouseaction_frame)
@@ -2733,10 +3154,12 @@ class Ui_MainWindow(object):
         self.log_progressBar.setObjectName("log_progressBar")
         self.log_pushButton = QtWidgets.QPushButton(self.log_frame)
         self.log_pushButton.setGeometry(QtCore.QRect(230, 100, 131, 31))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.log_pushButton.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.log_pushButton.sizePolicy().hasHeightForWidth())
         self.log_pushButton.setSizePolicy(sizePolicy)
         self.log_pushButton.setObjectName("log_pushButton")
         self.log_label_0 = QtWidgets.QLabel(self.log_frame)
@@ -2769,9 +3192,10 @@ class Ui_MainWindow(object):
         self.errormessage.setStyleSheet("color: red")
         self.errormessage.setHidden(True)
         vox = QtWidgets.QVBoxLayout(self.tab_3)
-        vox.setContentsMargins(580,5,580,1095) #ltrb
+        vox.setContentsMargins(580, 5, 580, 1100)  # ltrb
         vox.addWidget(addition_for_synctab.piechart_for_synctab())
-        addition_for_synctab.btns_connector_in_synctab(self.allexcludingvideo_btn, self.allincludingvideo_btn, self.sync_btn, self.errormessage)
+        addition_for_synctab.btns_connector_in_synctab(
+            self.allexcludingvideo_btn, self.allincludingvideo_btn, self.sync_btn, self.errormessage)
         self.tabWidget.addTab(self.tab_3, "")
         self.horizontalLayout_2.addWidget(self.tabWidget)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents_3)
@@ -2799,11 +3223,12 @@ class Ui_MainWindow(object):
         self.label_8.setText(_translate("MainWindow", "Tag"))
         self.label_10.setText(_translate("MainWindow", "Search"))
         self.textEdit_2.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
-        self.textEdit_2.setPlaceholderText(_translate("MainWindow", "Expression"))
+                                           "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                           "p, li { white-space: pre-wrap; }\n"
+                                           "</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
+                                           "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.textEdit_2.setPlaceholderText(
+            _translate("MainWindow", "Expression"))
         self.label_6.setText(_translate("MainWindow", "Search Expression"))
         self.label_21.setText(_translate("MainWindow", "Network Packet"))
         self.label.setText(_translate("MainWindow", "Start Date"))
@@ -2977,11 +3402,12 @@ class Ui_MainWindow(object):
         self.label_101.setText(_translate("MainWindow", "Search"))
         self.label_9.setText(_translate("MainWindow", "AVERT RESULT"))
         self.textEdit_21.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
-        self.textEdit_21.setPlaceholderText(_translate("MainWindow", "Expression"))
+                                            "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                            "p, li { white-space: pre-wrap; }\n"
+                                            "</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
+                                            "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.textEdit_21.setPlaceholderText(
+            _translate("MainWindow", "Expression"))
         self.pushButton.setText(_translate("MainWindow", "Search"))
         self.label_61.setText(_translate("MainWindow", "Search Expression"))
         self.label_81.setText(_translate("MainWindow", "Tag"))
@@ -2998,166 +3424,243 @@ class Ui_MainWindow(object):
         item = self.tableWidget_38.item(0, 1)
         item.setText(_translate("MainWindow", "AA:BB:CCC"))
         self.tableWidget_38.setSortingEnabled(__sortingEnabled)
-        self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(self.tab_133), _translate("MainWindow", "User Profile"))
-        self.label_88.setText(_translate("MainWindow", "<html><head/><body><p><img src=\":/pics_for_detailedview/video_detailedview.png\"/></p></body></html>"))
-        self.descriptionvideo_timestamp_label.setText(_translate("MainWindow", "Timestamp:"))
+        self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(
+            self.tab_133), _translate("MainWindow", "User Profile"))
+        self.label_88.setText(_translate(
+            "MainWindow", "<html><head/><body><p><img src=\":/pics_for_detailedview/video_detailedview.png\"/></p></body></html>"))
+        self.descriptionvideo_timestamp_label.setText(
+            _translate("MainWindow", "Timestamp:"))
         self.label_41.setText(_translate("MainWindow", "10-6-26 02:31:29"))
-        self.descriptionvideo_timestamp_label_2.setText(_translate("MainWindow", "Video Size:"))
+        self.descriptionvideo_timestamp_label_2.setText(
+            _translate("MainWindow", "Video Size:"))
         self.label_42.setText(_translate("MainWindow", "60MB"))
-        self.descriptionvideo_timestamp_label_3.setText(_translate("MainWindow", "Video Resolution:"))
+        self.descriptionvideo_timestamp_label_3.setText(
+            _translate("MainWindow", "Video Resolution:"))
         self.label_43.setText(_translate("MainWindow", "1260 x 680"))
-        self.descriptionvideo_timestamp_label_4.setText(_translate("MainWindow", "Video Frame Rate:"))
+        self.descriptionvideo_timestamp_label_4.setText(
+            _translate("MainWindow", "Video Frame Rate:"))
         self.label_44.setText(_translate("MainWindow", "24fps"))
-        self.description_tab.setTabText(self.description_tab.indexOf(self.descriptionvideo_tab), _translate("MainWindow", "Video"))
-        self.descriptionvideo_timestamp_label_5.setText(_translate("MainWindow", "Still Screenshot Format:"))
-        self.descriptionvideo_timestamp_label_6.setText(_translate("MainWindow", "Still Screenshot Size:"))
+        self.description_tab.setTabText(self.description_tab.indexOf(
+            self.descriptionvideo_tab), _translate("MainWindow", "Video"))
+        self.descriptionvideo_timestamp_label_5.setText(
+            _translate("MainWindow", "Still Screenshot Format:"))
+        self.descriptionvideo_timestamp_label_6.setText(
+            _translate("MainWindow", "Still Screenshot Size:"))
         self.label_45.setText(_translate("MainWindow", "PNG"))
-        self.label_89.setText(_translate("MainWindow", "<html><head/><body><p><img src=\":/pics_for_detailedview/stillscreenshot_detailedview.jpg\"/></p></body></html>"))
+        self.label_89.setText(_translate(
+            "MainWindow", "<html><head/><body><p><img src=\":/pics_for_detailedview/stillscreenshot_detailedview.jpg\"/></p></body></html>"))
         self.label_46.setText(_translate("MainWindow", "60MB"))
-        self.descriptionvideo_timestamp_label_7.setText(_translate("MainWindow", "Timestamp:"))
+        self.descriptionvideo_timestamp_label_7.setText(
+            _translate("MainWindow", "Timestamp:"))
         self.label_47.setText(_translate("MainWindow", "10-6-26 02:31:29"))
-        self.description_tab.setTabText(self.description_tab.indexOf(self.descriptionstillscreenshot_tab), _translate("MainWindow", "Still Screenshot"))
-        self.descriptionvideo_timestamp_label_8.setText(_translate("MainWindow", "Timestamp:"))
+        self.description_tab.setTabText(self.description_tab.indexOf(
+            self.descriptionstillscreenshot_tab), _translate("MainWindow", "Still Screenshot"))
+        self.descriptionvideo_timestamp_label_8.setText(
+            _translate("MainWindow", "Timestamp:"))
         self.label_48.setText(_translate("MainWindow", "None"))
-        self.descriptionvideo_timestamp_label_9.setText(_translate("MainWindow", "System Call Argument:"))
-        self.descriptionvideo_timestamp_label_10.setText(_translate("MainWindow", "System Call Name:"))
+        self.descriptionvideo_timestamp_label_9.setText(
+            _translate("MainWindow", "System Call Argument:"))
+        self.descriptionvideo_timestamp_label_10.setText(
+            _translate("MainWindow", "System Call Name:"))
         self.label_49.setText(_translate("MainWindow", "10-6-26 02:31:29"))
         self.label_50.setText(_translate("MainWindow", "systcall_getdents"))
-        self.descriptionvideo_timestamp_label_11.setText(_translate("MainWindow", "System Call Return Value:"))
-        self.descriptionvideo_timestamp_label_13.setText(_translate("MainWindow", "System Call Type:"))
+        self.descriptionvideo_timestamp_label_11.setText(
+            _translate("MainWindow", "System Call Return Value:"))
+        self.descriptionvideo_timestamp_label_13.setText(
+            _translate("MainWindow", "System Call Type:"))
         self.label_52.setText(_translate("MainWindow", "d_type"))
         self.label_53.setText(_translate("MainWindow", "Process Control"))
-        self.description_tab.setTabText(self.description_tab.indexOf(self.descriptionsystemcall_tab), _translate("MainWindow", "System Call"))
+        self.description_tab.setTabText(self.description_tab.indexOf(
+            self.descriptionsystemcall_tab), _translate("MainWindow", "System Call"))
         self.label_51.setText(_translate("MainWindow", "_windowserver"))
         self.label_54.setText(_translate("MainWindow", "455"))
         self.label_55.setText(_translate("MainWindow", "10-6-26 02:31:29"))
-        self.descriptionvideo_timestamp_label_12.setText(_translate("MainWindow", "Process ID:"))
+        self.descriptionvideo_timestamp_label_12.setText(
+            _translate("MainWindow", "Process ID:"))
         self.label_56.setText(_translate("MainWindow", "idle"))
-        self.descriptionvideo_timestamp_label_14.setText(_translate("MainWindow", "Parent Process Name:"))
-        self.descriptionvideo_timestamp_label_15.setText(_translate("MainWindow", "Timestamp:"))
+        self.descriptionvideo_timestamp_label_14.setText(
+            _translate("MainWindow", "Parent Process Name:"))
+        self.descriptionvideo_timestamp_label_15.setText(
+            _translate("MainWindow", "Timestamp:"))
         self.label_57.setText(_translate("MainWindow", "45"))
-        self.descriptionvideo_timestamp_label_16.setText(_translate("MainWindow", "User Name:"))
-        self.descriptionvideo_timestamp_label_17.setText(_translate("MainWindow", "Process Name:"))
+        self.descriptionvideo_timestamp_label_16.setText(
+            _translate("MainWindow", "User Name:"))
+        self.descriptionvideo_timestamp_label_17.setText(
+            _translate("MainWindow", "Process Name:"))
         self.label_58.setText(_translate("MainWindow", "init"))
         self.label_59.setText(_translate("MainWindow", "3.4MB"))
         self.label_60.setText(_translate("MainWindow", "10-6-26 02:31:29"))
-        self.descriptionvideo_timestamp_label_18.setText(_translate("MainWindow", "Status:"))
+        self.descriptionvideo_timestamp_label_18.setText(
+            _translate("MainWindow", "Status:"))
         self.label_61.setText(_translate("MainWindow", "shell"))
-        self.descriptionvideo_timestamp_label_19.setText(_translate("MainWindow", "Memory Usage"))
-        self.descriptionvideo_timestamp_label_20.setText(_translate("MainWindow", "Start Time:"))
+        self.descriptionvideo_timestamp_label_19.setText(
+            _translate("MainWindow", "Memory Usage"))
+        self.descriptionvideo_timestamp_label_20.setText(
+            _translate("MainWindow", "Start Time:"))
         self.label_62.setText(_translate("MainWindow", "D"))
-        self.descriptionvideo_timestamp_label_21.setText(_translate("MainWindow", "Command:"))
-        self.descriptionvideo_timestamp_label_22.setText(_translate("MainWindow", "Terminal:"))
+        self.descriptionvideo_timestamp_label_21.setText(
+            _translate("MainWindow", "Command:"))
+        self.descriptionvideo_timestamp_label_22.setText(
+            _translate("MainWindow", "Terminal:"))
         self.label_63.setText(_translate("MainWindow", "10-6-26 02:31:29"))
         self.label_64.setText(_translate("MainWindow", "12.4%"))
-        self.descriptionvideo_timestamp_label_23.setText(_translate("MainWindow", "No. of Thread:"))
-        self.descriptionvideo_timestamp_label_24.setText(_translate("MainWindow", "Process Priority:"))
+        self.descriptionvideo_timestamp_label_23.setText(
+            _translate("MainWindow", "No. of Thread:"))
+        self.descriptionvideo_timestamp_label_24.setText(
+            _translate("MainWindow", "Process Priority:"))
         self.label_65.setText(_translate("MainWindow", "88"))
         self.label_66.setText(_translate("MainWindow", "root"))
-        self.descriptionvideo_timestamp_label_25.setText(_translate("MainWindow", "Process Type:"))
-        self.descriptionvideo_timestamp_label_26.setText(_translate("MainWindow", "CPU Percentage:"))
+        self.descriptionvideo_timestamp_label_25.setText(
+            _translate("MainWindow", "Process Type:"))
+        self.descriptionvideo_timestamp_label_26.setText(
+            _translate("MainWindow", "CPU Percentage:"))
         self.label_67.setText(_translate("MainWindow", "Foregrou d"))
-        self.descriptionvideo_timestamp_label_27.setText(_translate("MainWindow", "Process Privileges:"))
-        self.description_tab.setTabText(self.description_tab.indexOf(self.descriptionprocess_tab), _translate("MainWindow", "Process"))
+        self.descriptionvideo_timestamp_label_27.setText(
+            _translate("MainWindow", "Process Privileges:"))
+        self.description_tab.setTabText(self.description_tab.indexOf(
+            self.descriptionprocess_tab), _translate("MainWindow", "Process"))
         self.label_68.setText(_translate("MainWindow", "10-6-26 02:31:29"))
         self.label_69.setText(_translate("MainWindow", "10-6-26 02:31:29"))
         self.label_70.setText(_translate("MainWindow", "False"))
-        self.descriptionvideo_timestamp_label_29.setText(_translate("MainWindow", "Application Name:"))
-        self.descriptionvideo_timestamp_label_30.setText(_translate("MainWindow", "Visible:"))
-        self.descriptionvideo_timestamp_label_31.setText(_translate("MainWindow", "Window Title:"))
+        self.descriptionvideo_timestamp_label_29.setText(
+            _translate("MainWindow", "Application Name:"))
+        self.descriptionvideo_timestamp_label_30.setText(
+            _translate("MainWindow", "Visible:"))
+        self.descriptionvideo_timestamp_label_31.setText(
+            _translate("MainWindow", "Window Title:"))
         self.label_71.setText(_translate("MainWindow", "True"))
-        self.descriptionvideo_timestamp_label_32.setText(_translate("MainWindow", "Window Creation Time:"))
-        self.descriptionvideo_timestamp_label_33.setText(_translate("MainWindow", "Maximized:"))
+        self.descriptionvideo_timestamp_label_32.setText(
+            _translate("MainWindow", "Window Creation Time:"))
+        self.descriptionvideo_timestamp_label_33.setText(
+            _translate("MainWindow", "Maximized:"))
         self.label_72.setText(_translate("MainWindow", "10-6-26 02:31:29"))
-        self.descriptionvideo_timestamp_label_34.setText(_translate("MainWindow", "Primary Screen Resolution:"))
+        self.descriptionvideo_timestamp_label_34.setText(
+            _translate("MainWindow", "Primary Screen Resolution:"))
         self.label_74.setText(_translate("MainWindow", "avert"))
-        self.descriptionvideo_timestamp_label_35.setText(_translate("MainWindow", "Window Destruction Time:"))
-        self.descriptionvideo_timestamp_label_36.setText(_translate("MainWindow", "Minimized:"))
+        self.descriptionvideo_timestamp_label_35.setText(
+            _translate("MainWindow", "Window Destruction Time:"))
+        self.descriptionvideo_timestamp_label_36.setText(
+            _translate("MainWindow", "Minimized:"))
         self.label_75.setText(_translate("MainWindow", "0, 1860, 0, 1543"))
         self.label_76.setText(_translate("MainWindow", "10-6-26 02:35:29"))
         self.label_77.setText(_translate("MainWindow", "1860, 1543"))
         self.label_78.setText(_translate("MainWindow", "10-6-26 02:31:29"))
-        self.descriptionvideo_timestamp_label_38.setText(_translate("MainWindow", "Timestamp:"))
-        self.descriptionvideo_timestamp_label_39.setText(_translate("MainWindow", "Window Style:"))
-        self.descriptionvideo_timestamp_label_40.setText(_translate("MainWindow", "Window Position:"))
+        self.descriptionvideo_timestamp_label_38.setText(
+            _translate("MainWindow", "Timestamp:"))
+        self.descriptionvideo_timestamp_label_39.setText(
+            _translate("MainWindow", "Window Style:"))
+        self.descriptionvideo_timestamp_label_40.setText(
+            _translate("MainWindow", "Window Position:"))
         self.label_81.setText(_translate("MainWindow", "False"))
-        self.descriptionvideo_timestamp_label_42.setText(_translate("MainWindow", "Window Placement Command:"))
+        self.descriptionvideo_timestamp_label_42.setText(
+            _translate("MainWindow", "Window Placement Command:"))
         self.label_82.setText(_translate("MainWindow", "AVERT"))
-        self.description_tab.setTabText(self.description_tab.indexOf(self.descriptionwindowhistory_tab), _translate("MainWindow", "Window History"))
+        self.description_tab.setTabText(self.description_tab.indexOf(
+            self.descriptionwindowhistory_tab), _translate("MainWindow", "Window History"))
         __sortingEnabled = self.listWidget_4.isSortingEnabled()
         self.listWidget_4.setSortingEnabled(False)
         item = self.listWidget_4.item(0)
         item.setText(_translate("MainWindow", "Interface id: 0 (en0)"))
         item = self.listWidget_4.item(1)
-        item.setText(_translate("MainWindow", "Encapsulation type: Ethernet (1)"))
+        item.setText(_translate(
+            "MainWindow", "Encapsulation type: Ethernet (1)"))
         item = self.listWidget_4.item(2)
-        item.setText(_translate("MainWindow", "Arrival Time: Sep 12, 2021 15:26:42.576923000 MDT"))
+        item.setText(_translate(
+            "MainWindow", "Arrival Time: Sep 12, 2021 15:26:42.576923000 MDT"))
         item = self.listWidget_4.item(3)
-        item.setText(_translate("MainWindow", "[Time shift for this packet: 0.000000000 seconds]"))
+        item.setText(_translate(
+            "MainWindow", "[Time shift for this packet: 0.000000000 seconds]"))
         item = self.listWidget_4.item(4)
-        item.setText(_translate("MainWindow", "Epoch Time: 1631482002.576923000 seconds"))
+        item.setText(_translate(
+            "MainWindow", "Epoch Time: 1631482002.576923000 seconds"))
         item = self.listWidget_4.item(5)
-        item.setText(_translate("MainWindow", "[Time delta from previous captured frame: 0.034637000 seconds]"))
+        item.setText(_translate(
+            "MainWindow", "[Time delta from previous captured frame: 0.034637000 seconds]"))
         item = self.listWidget_4.item(6)
-        item.setText(_translate("MainWindow", "[Time delta from previous displayed frame: 0.034637000 seconds]"))
+        item.setText(_translate(
+            "MainWindow", "[Time delta from previous displayed frame: 0.034637000 seconds]"))
         item = self.listWidget_4.item(7)
-        item.setText(_translate("MainWindow", "[Time since reference or first frame: 23.113211000 seconds]"))
+        item.setText(_translate(
+            "MainWindow", "[Time since reference or first frame: 23.113211000 seconds]"))
         item = self.listWidget_4.item(8)
         item.setText(_translate("MainWindow", "Frame Number: 107"))
         item = self.listWidget_4.item(9)
-        item.setText(_translate("MainWindow", "Frame Length: 121 bytes (968 bits)"))
+        item.setText(_translate(
+            "MainWindow", "Frame Length: 121 bytes (968 bits)"))
         item = self.listWidget_4.item(10)
-        item.setText(_translate("MainWindow", "Capture Length: 121 bytes (968 bits)"))
+        item.setText(_translate(
+            "MainWindow", "Capture Length: 121 bytes (968 bits)"))
         item = self.listWidget_4.item(11)
         item.setText(_translate("MainWindow", "[Frame is marked: False]"))
         item = self.listWidget_4.item(12)
         item.setText(_translate("MainWindow", "[Frame is ignored: False]"))
         item = self.listWidget_4.item(13)
-        item.setText(_translate("MainWindow", "[Protocols in frame: eth:ethertype:data]"))
+        item.setText(_translate(
+            "MainWindow", "[Protocols in frame: eth:ethertype:data]"))
         item = self.listWidget_4.item(14)
-        item.setText(_translate("MainWindow", "[Coloring Rule Name: Broadcast]"))
+        item.setText(_translate(
+            "MainWindow", "[Coloring Rule Name: Broadcast]"))
         item = self.listWidget_4.item(15)
-        item.setText(_translate("MainWindow", "[Coloring Rule String: eth[0] & 1]"))
+        item.setText(_translate(
+            "MainWindow", "[Coloring Rule String: eth[0] & 1]"))
         self.listWidget_4.setSortingEnabled(__sortingEnabled)
-        self.toolBox.setItemText(self.toolBox.indexOf(self.network_1), _translate("MainWindow", "Frame 107: 121 bytes on wire (968 bits), 121 bytes captured (968 bits) on interface en0, id 0"))
+        self.toolBox.setItemText(self.toolBox.indexOf(self.network_1), _translate(
+            "MainWindow", "Frame 107: 121 bytes on wire (968 bits), 121 bytes captured (968 bits) on interface en0, id 0"))
         __sortingEnabled = self.listWidget_3.isSortingEnabled()
         self.listWidget_3.setSortingEnabled(False)
         item = self.listWidget_3.item(0)
-        item.setText(_translate("MainWindow", "Destination: Broadcast (ff:ff:ff:ff:ff:ff)"))
+        item.setText(_translate(
+            "MainWindow", "Destination: Broadcast (ff:ff:ff:ff:ff:ff)"))
         item = self.listWidget_3.item(1)
-        item.setText(_translate("MainWindow", "Source: 86:ef:16:75:3c:23 (86:ef:16:75:3c:23)"))
+        item.setText(_translate(
+            "MainWindow", "Source: 86:ef:16:75:3c:23 (86:ef:16:75:3c:23)"))
         item = self.listWidget_3.item(2)
         item.setText(_translate("MainWindow", "Type: Unknown (0x7373)"))
         self.listWidget_3.setSortingEnabled(__sortingEnabled)
-        self.toolBox.setItemText(self.toolBox.indexOf(self.network_2), _translate("MainWindow", "Ethernet II, Src: 86:ef:16:75:3c:23 (86:ef:16:75:3c:23), Dst: Broadcast(ff:ff:ff:ff:ff:ff)"))
+        self.toolBox.setItemText(self.toolBox.indexOf(self.network_2), _translate(
+            "MainWindow", "Ethernet II, Src: 86:ef:16:75:3c:23 (86:ef:16:75:3c:23), Dst: Broadcast(ff:ff:ff:ff:ff:ff)"))
         __sortingEnabled = self.listWidget_2.isSortingEnabled()
         self.listWidget_2.setSortingEnabled(False)
         item = self.listWidget_2.item(0)
-        item.setText(_translate("MainWindow", "Data: 121100000043f5cb114103ac1b368f8013380a496e868dc52e97008cbead8ae5402c46ef…"))
+        item.setText(_translate(
+            "MainWindow", "Data: 121100000043f5cb114103ac1b368f8013380a496e868dc52e97008cbead8ae5402c46ef…"))
         item = self.listWidget_2.item(1)
         item.setText(_translate("MainWindow", "[Length: 107]"))
         self.listWidget_2.setSortingEnabled(__sortingEnabled)
-        self.toolBox.setItemText(self.toolBox.indexOf(self.network_3), _translate("MainWindow", "Data (107 Bytes)"))
-        self.description_tab.setTabText(self.description_tab.indexOf(self.descriptionnetwork_tab), _translate("MainWindow", "Network Packet"))
+        self.toolBox.setItemText(self.toolBox.indexOf(
+            self.network_3), _translate("MainWindow", "Data (107 Bytes)"))
+        self.description_tab.setTabText(self.description_tab.indexOf(
+            self.descriptionnetwork_tab), _translate("MainWindow", "Network Packet"))
         self.label_73.setText(_translate("MainWindow", "Left"))
         self.label_79.setText(_translate("MainWindow", "terminal"))
         self.label_80.setText(_translate("MainWindow", "10-6-26 02:31:29"))
-        self.descriptionvideo_timestamp_label_28.setText(_translate("MainWindow", "Mouse Action Value:"))
+        self.descriptionvideo_timestamp_label_28.setText(
+            _translate("MainWindow", "Mouse Action Value:"))
         self.label_83.setText(_translate("MainWindow", "Click"))
-        self.descriptionvideo_timestamp_label_37.setText(_translate("MainWindow", "Active Window:"))
-        self.descriptionvideo_timestamp_label_41.setText(_translate("MainWindow", "Timestamp:"))
+        self.descriptionvideo_timestamp_label_37.setText(
+            _translate("MainWindow", "Active Window:"))
+        self.descriptionvideo_timestamp_label_41.setText(
+            _translate("MainWindow", "Timestamp:"))
         self.label_84.setText(_translate("MainWindow", "400,100"))
-        self.descriptionvideo_timestamp_label_43.setText(_translate("MainWindow", "Button:"))
-        self.descriptionvideo_timestamp_label_44.setText(_translate("MainWindow", "Mouse Action:"))
-        self.descriptionvideo_timestamp_label_45.setText(_translate("MainWindow", "Window Focus:"))
+        self.descriptionvideo_timestamp_label_43.setText(
+            _translate("MainWindow", "Button:"))
+        self.descriptionvideo_timestamp_label_44.setText(
+            _translate("MainWindow", "Mouse Action:"))
+        self.descriptionvideo_timestamp_label_45.setText(
+            _translate("MainWindow", "Window Focus:"))
         self.label_85.setText(_translate("MainWindow", "terminal"))
-        self.description_tab.setTabText(self.description_tab.indexOf(self.descriptionmouse_tab), _translate("MainWindow", "Mouse Action"))
-        self.descriptionvideo_timestamp_label_46.setText(_translate("MainWindow", "Keypress:"))
-        self.descriptionvideo_timestamp_label_47.setText(_translate("MainWindow", "Timestamp:"))
+        self.description_tab.setTabText(self.description_tab.indexOf(
+            self.descriptionmouse_tab), _translate("MainWindow", "Mouse Action"))
+        self.descriptionvideo_timestamp_label_46.setText(
+            _translate("MainWindow", "Keypress:"))
+        self.descriptionvideo_timestamp_label_47.setText(
+            _translate("MainWindow", "Timestamp:"))
         self.label_86.setText(_translate("MainWindow", "10-6-26 02:31:29"))
         self.label_87.setText(_translate("MainWindow", "f"))
-        self.description_tab.setTabText(self.description_tab.indexOf(self.descriptionkeystroke_tab), _translate("MainWindow", "Keystroke"))
-        self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(self.tab_134), _translate("MainWindow", "Description"))
+        self.description_tab.setTabText(self.description_tab.indexOf(
+            self.descriptionkeystroke_tab), _translate("MainWindow", "Keystroke"))
+        self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(
+            self.tab_134), _translate("MainWindow", "Description"))
         item = self.tableWidget_39.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "Video1"))
         item = self.tableWidget_39.horizontalHeaderItem(0)
@@ -3180,7 +3683,8 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Lorem Ipsum"))
         self.tableWidget_39.setSortingEnabled(__sortingEnabled)
         self.pushButton_18.setText(_translate("MainWindow", "Add"))
-        self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(self.AnnotationTab), _translate("MainWindow", "Annotation"))
+        self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(
+            self.AnnotationTab), _translate("MainWindow", "Annotation"))
         self.tag_add_button.setText(_translate("MainWindow", "Add"))
         self.tag_delete_button.setText(_translate("MainWindow", "Delete"))
         item = self.table_tag.horizontalHeaderItem(0)
@@ -3192,7 +3696,8 @@ class Ui_MainWindow(object):
         __sortingEnabled = self.table_tag.isSortingEnabled()
         self.table_tag.setSortingEnabled(False)
         self.table_tag.setSortingEnabled(__sortingEnabled)
-        self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(self.tags_tab), _translate("MainWindow", "Tags"))
+        self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(
+            self.tags_tab), _translate("MainWindow", "Tags"))
         item = self.tableWidget_23.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "User"))
         item = self.tableWidget_23.horizontalHeaderItem(0)
@@ -3206,16 +3711,25 @@ class Ui_MainWindow(object):
         item = self.tableWidget_23.item(0, 1)
         item.setText(_translate("MainWindow", "AA:BB:CCC"))
         self.tableWidget_23.setSortingEnabled(__sortingEnabled)
-        self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(self.tab_100), _translate("MainWindow", "User Profile"))
-        self.toolBox_14.setItemText(self.toolBox_14.indexOf(self.detailed_view_accordion_20), _translate("MainWindow", "Detailed View of Selected Artifact"))
+        self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(
+            self.tab_100), _translate("MainWindow", "User Profile"))
+        self.toolBox_14.setItemText(self.toolBox_14.indexOf(self.detailed_view_accordion_20), _translate(
+            "MainWindow", "Detailed View of Selected Artifact"))
         self.radioButton_2.setText(_translate("MainWindow", "Bar Graph"))
         self.radioButton_4.setText(_translate("MainWindow", "Timeline"))
         self.radioButton.setText(_translate("MainWindow", "Pie Chart"))
         self.pushButton_5.setText(_translate("MainWindow", "Generate"))
         self.pushButton_6.setText(_translate("MainWindow", "Export"))
-        self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(self.type), _translate("MainWindow", "Type"))
-        self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(self.pie_chart), _translate("MainWindow", "Pie Chart"))
-        self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(self.bar_graph), _translate("MainWindow", "Bar Graph"))
+        self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(
+            self.type), _translate("MainWindow", "Type"))
+        self.label_91.setText(_translate("MainWindow", "Title"))
+        self.label_90.setText(_translate("MainWindow", "Pie Chart Metadata"))
+        self.label_92.setText(_translate("MainWindow", "Visualization Result"))
+        self.label_93.setText(_translate("MainWindow", "Pie Chart Title"))
+        self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(
+            self.pie_chart), _translate("MainWindow", "Pie Chart"))
+        self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(
+            self.bar_graph), _translate("MainWindow", "Bar Graph"))
         self.label_35.setText(_translate("MainWindow", "Artifact Key"))
         __sortingEnabled = self.listWidget.isSortingEnabled()
         self.listWidget.setSortingEnabled(False)
@@ -3250,7 +3764,8 @@ class Ui_MainWindow(object):
         self.pushButton_2.setText(_translate("MainWindow", "+"))
         self.pushButton_3.setText(_translate("MainWindow", "-"))
         self.label_40.setText(_translate("MainWindow", "Zoom"))
-        self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(self.timeline), _translate("MainWindow", "Timeline"))
+        self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(
+            self.timeline), _translate("MainWindow", "Timeline"))
         self.visualization_table.setSortingEnabled(False)
         item = self.visualization_table.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "1"))
@@ -3283,11 +3798,15 @@ class Ui_MainWindow(object):
         item = self.visualization_table.item(1, 3)
         item.setText(_translate("MainWindow", "Lorem ipsum"))
         self.visualization_table.setSortingEnabled(__sortingEnabled)
-        self.plainTextEdit.setPlaceholderText(_translate("MainWindow", "Annotation"))
+        self.plainTextEdit.setPlaceholderText(
+            _translate("MainWindow", "Annotation"))
         self.pushButton_4.setText(_translate("MainWindow", "Add"))
-        self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(self.annotation), _translate("MainWindow", "Annotation"))
-        self.toolBox_14.setItemText(self.toolBox_14.indexOf(self.visualization_accordion_20), _translate("MainWindow", "Visualization"))
-        self.toolBox_14.setItemText(self.toolBox_14.indexOf(self.script_accordion_16), _translate("MainWindow", "Script"))
+        self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(
+            self.annotation), _translate("MainWindow", "Annotation"))
+        self.toolBox_14.setItemText(self.toolBox_14.indexOf(
+            self.visualization_accordion_20), _translate("MainWindow", "Visualization"))
+        self.toolBox_14.setItemText(self.toolBox_14.indexOf(
+            self.script_accordion_16), _translate("MainWindow", "Script"))
         self.history_table.setSortingEnabled(True)
         item = self.history_table.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Select"))
@@ -3314,7 +3833,9 @@ class Ui_MainWindow(object):
         item = self.history_table.item(0, 5)
         item.setText(_translate("MainWindow", "Sample Expression"))
         self.history_table.setSortingEnabled(__sortingEnabled)
-        self.toolBox_14.setItemText(self.toolBox_14.indexOf(self.history_accordion_16), _translate("MainWindow", "History"))
+        self.pushButton_7.setText(_translate("MainWindow", "Add"))
+        self.toolBox_14.setItemText(self.toolBox_14.indexOf(
+            self.history_accordion_16), _translate("MainWindow", "History"))
         self.tableWidget_40.setSortingEnabled(True)
         item = self.tableWidget_40.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "1"))
@@ -3389,129 +3910,192 @@ class Ui_MainWindow(object):
         item = self.tableWidget_40.item(4, 4)
         item.setText(_translate("MainWindow", "Captured"))
         self.tableWidget_40.setSortingEnabled(__sortingEnabled)
-        self.toolBox_14.setItemText(self.toolBox_14.indexOf(self.log_accordion_16), _translate("MainWindow", "Log Content"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_1), _translate("MainWindow", "Home"))
-        self.StorageThreshLabel.setText(_translate("MainWindow", "Storage Threshold"))
+        self.toolBox_14.setItemText(self.toolBox_14.indexOf(
+            self.log_accordion_16), _translate("MainWindow", "Log Content"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(
+            self.tab_1), _translate("MainWindow", "Home"))
+        self.StorageThreshLabel.setText(
+            _translate("MainWindow", "Storage Threshold"))
         self.VideoTitle.setText(_translate("MainWindow", "Video"))
         self.SystemCallOnButton.setText(_translate("MainWindow", "On"))
         self.KeyStrokeStatOnButton.setText(_translate("MainWindow", "On"))
-        self.NetworkActivityDataUnit.setItemText(0, _translate("MainWindow", "Network Activity Data Duration Unit"))
-        self.NetworkActivityStatus.setText(_translate("MainWindow", "Automatic Network Activity Data Recording Default Stauts"))
+        self.NetworkActivityDataUnit.setItemText(0, _translate(
+            "MainWindow", "Network Activity Data Duration Unit"))
+        self.NetworkActivityStatus.setText(_translate(
+            "MainWindow", "Automatic Network Activity Data Recording Default Stauts"))
         self.ProcessTitle.setText(_translate("MainWindow", "Process"))
         self.KeyStrokeStatOffButton.setText(_translate("MainWindow", "Off"))
         self.MouseActOffButton.setText(_translate("MainWindow", "Off"))
-        self.ProcessStatLabel.setText(_translate("MainWindow", "Automatic Process Recording Default Status"))
-        self.WindowHistoryStat.setText(_translate("MainWindow", "Automatic Video Recording Default Stauts"))
-        self.VideoResolutionSelect.setItemText(0, _translate("MainWindow", "Video Resolution"))
-        self.VideoResolutionSelect.setItemText(1, _translate("MainWindow", "360"))
-        self.VideoResolutionSelect.setItemText(2, _translate("MainWindow", "720"))
-        self.VideoResolutionSelect.setItemText(3, _translate("MainWindow", "480"))
-        self.VideoResolutionSelect.setItemText(4, _translate("MainWindow", "1080"))
-        self.KeystrokeStatus.setText(_translate("MainWindow", "Automatic Keystroke Recording Default Status"))
+        self.ProcessStatLabel.setText(_translate(
+            "MainWindow", "Automatic Process Recording Default Status"))
+        self.WindowHistoryStat.setText(_translate(
+            "MainWindow", "Automatic Video Recording Default Stauts"))
+        self.VideoResolutionSelect.setItemText(
+            0, _translate("MainWindow", "Video Resolution"))
+        self.VideoResolutionSelect.setItemText(
+            1, _translate("MainWindow", "360"))
+        self.VideoResolutionSelect.setItemText(
+            2, _translate("MainWindow", "720"))
+        self.VideoResolutionSelect.setItemText(
+            3, _translate("MainWindow", "480"))
+        self.VideoResolutionSelect.setItemText(
+            4, _translate("MainWindow", "1080"))
+        self.KeystrokeStatus.setText(_translate(
+            "MainWindow", "Automatic Keystroke Recording Default Status"))
         self.WindowHistoryOffButton.setText(_translate("MainWindow", "Off"))
-        self.ScreenshotStat.setText(_translate("MainWindow", "Automatic Screenshot Recording Default Stauts"))
-        self.NetworkActivityDataWaiValue.setItemText(0, _translate("MainWindow", "Network Activity Data Duration Value"))
-        self.MouseActStatus.setText(_translate("MainWindow", "Automatic Mouse Action Recording Default Status"))
-        self.ScreenshotFormatDrop.setItemText(0, _translate("MainWindow", "Screenshot Format Default"))
-        self.ScreenshotFormatDrop.setItemText(1, _translate("MainWindow", "JPG"))
-        self.ScreenshotFormatDrop.setItemText(2, _translate("MainWindow", "PNG"))
+        self.ScreenshotStat.setText(_translate(
+            "MainWindow", "Automatic Screenshot Recording Default Stauts"))
+        self.NetworkActivityDataWaiValue.setItemText(0, _translate(
+            "MainWindow", "Network Activity Data Duration Value"))
+        self.MouseActStatus.setText(_translate(
+            "MainWindow", "Automatic Mouse Action Recording Default Status"))
+        self.ScreenshotFormatDrop.setItemText(
+            0, _translate("MainWindow", "Screenshot Format Default"))
+        self.ScreenshotFormatDrop.setItemText(
+            1, _translate("MainWindow", "JPG"))
+        self.ScreenshotFormatDrop.setItemText(
+            2, _translate("MainWindow", "PNG"))
         self.ScreenshotStatOffButton.setText(_translate("MainWindow", "Off"))
         self.ScreenshotStatOnButton.setText(_translate("MainWindow", "On"))
-        self.WindowHistoryDurUnit.setItemText(0, _translate("MainWindow", "Window History Duration Unit"))
-        self.NetworkActivityDataOffButton.setText(_translate("MainWindow", "Off"))
+        self.WindowHistoryDurUnit.setItemText(0, _translate(
+            "MainWindow", "Window History Duration Unit"))
+        self.NetworkActivityDataOffButton.setText(
+            _translate("MainWindow", "Off"))
         self.VideoStatusOffButton.setText(_translate("MainWindow", "Off"))
-        self.WaitValueSelection.setItemText(0, _translate("MainWindow", "Video Recording Wait Value"))
-        self.WaitValueSelection.setItemText(1, _translate("MainWindow", "Seconds"))
-        self.WaitValueSelection.setItemText(2, _translate("MainWindow", "Minutes"))
-        self.WaitValueSelection.setItemText(3, _translate("MainWindow", "Hours"))
-        self.WindowHistoryWaitVal.setItemText(0, _translate("MainWindow", "Window History Wait Value"))
+        self.WaitValueSelection.setItemText(0, _translate(
+            "MainWindow", "Video Recording Wait Value"))
+        self.WaitValueSelection.setItemText(
+            1, _translate("MainWindow", "Seconds"))
+        self.WaitValueSelection.setItemText(
+            2, _translate("MainWindow", "Minutes"))
+        self.WaitValueSelection.setItemText(
+            3, _translate("MainWindow", "Hours"))
+        self.WindowHistoryWaitVal.setItemText(
+            0, _translate("MainWindow", "Window History Wait Value"))
         self.WindowHistoryOnButton.setText(_translate("MainWindow", "On"))
         self.VideoStatOnButton.setText(_translate("MainWindow", "On"))
         self.ScreenshotTitle.setText(_translate("MainWindow", "Screenshot"))
-        self.NetworkActivityDataLabel.setText(_translate("MainWindow", "Network Activity Data"))
-        self.VideoAutoStat.setText(_translate("MainWindow", "Automatic Video Recording Default Stauts"))
+        self.NetworkActivityDataLabel.setText(
+            _translate("MainWindow", "Network Activity Data"))
+        self.VideoAutoStat.setText(_translate(
+            "MainWindow", "Automatic Video Recording Default Stauts"))
         self.KeystrokeMainLabel.setText(_translate("MainWindow", "Keystroke"))
         self.StorageInValue.setText(_translate("MainWindow", "30"))
-        self.VideoWaitSelection.setItemText(0, _translate("MainWindow", "Video Recording Wait"))
+        self.VideoWaitSelection.setItemText(
+            0, _translate("MainWindow", "Video Recording Wait"))
         self.VideoWaitSelection.setItemText(1, _translate("MainWindow", "15"))
         self.VideoWaitSelection.setItemText(2, _translate("MainWindow", "30"))
-        self.SysCallStatus.setText(_translate("MainWindow", "Automatic System Call Recording Default Status"))
+        self.SysCallStatus.setText(_translate(
+            "MainWindow", "Automatic System Call Recording Default Status"))
         self.SystemCallOffButton.setText(_translate("MainWindow", "Off"))
         self.MouseActionTitle.setText(_translate("MainWindow", "Mouse Action"))
         self.ProcessStatOffButton.setText(_translate("MainWindow", "Off"))
         self.SystemCallLabel.setText(_translate("MainWindow", "System Call"))
-        self.WindowHistLabel.setText(_translate("MainWindow", "Window History"))
-        self.NetworkActivityDataOnButton.setText(_translate("MainWindow", "On"))
-        self.FrameRateSelect.setItemText(0, _translate("MainWindow", "Video Frame Rate"))
+        self.WindowHistLabel.setText(
+            _translate("MainWindow", "Window History"))
+        self.NetworkActivityDataOnButton.setText(
+            _translate("MainWindow", "On"))
+        self.FrameRateSelect.setItemText(
+            0, _translate("MainWindow", "Video Frame Rate"))
         self.FrameRateSelect.setItemText(1, _translate("MainWindow", "15"))
         self.FrameRateSelect.setItemText(2, _translate("MainWindow", "30"))
         self.ProcessStatOnButton.setText(_translate("MainWindow", "On"))
         self.MouseActOnButton.setText(_translate("MainWindow", "On"))
         self.StorageTitle.setText(_translate("MainWindow", "Storage"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Configuration"))
-        self.allincludingvideo_btn.setText(_translate("MainWindow", "All Including Video"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(
+            self.tab_2), _translate("MainWindow", "Configuration"))
+        self.allincludingvideo_btn.setText(
+            _translate("MainWindow", "All Including Video"))
         self.sync_btn.setText(_translate("MainWindow", "Sync"))
-        self.allexcludingvideo_btn.setText(_translate("MainWindow", "All Excluding Video"))
-        self.fromIPlabel_label.setText(_translate("MainWindow", "From Analyst\'s IP Address:"))
-        self.fromMAClabel_label.setText(_translate("MainWindow", "From Analyst\'s MAC Address:"))
-        self.toIPlabel_label.setText(_translate("MainWindow", "To Analyst\'s IP Address:"))
+        self.allexcludingvideo_btn.setText(
+            _translate("MainWindow", "All Excluding Video"))
+        self.fromIPlabel_label.setText(_translate(
+            "MainWindow", "From Analyst\'s IP Address:"))
+        self.fromMAClabel_label.setText(_translate(
+            "MainWindow", "From Analyst\'s MAC Address:"))
+        self.toIPlabel_label.setText(_translate(
+            "MainWindow", "To Analyst\'s IP Address:"))
         self.fromIPval_label.setText(_translate("MainWindow", "127.0.0.1"))
-        self.fromMACval_label.setText(_translate("MainWindow", "3D-9F-1A-82-2C-0E"))
-        self.toIPval_lineEdit.setPlaceholderText(_translate("MainWindow", "Enter IP Address"))
-        self.progresssection.setTitle(_translate("MainWindow", "Prgress Section"))
-        self.stillscreenshot_pushButton.setText(_translate("MainWindow", "Cancel Still Screenshot Sync"))
+        self.fromMACval_label.setText(
+            _translate("MainWindow", "3D-9F-1A-82-2C-0E"))
+        self.toIPval_lineEdit.setPlaceholderText(
+            _translate("MainWindow", "Enter IP Address"))
+        self.progresssection.setTitle(
+            _translate("MainWindow", "Prgress Section"))
+        self.stillscreenshot_pushButton.setText(
+            _translate("MainWindow", "Cancel Still Screenshot Sync"))
         self.stillscreenshot_label_0.setText(_translate("MainWindow", "0%"))
-        self.stillscreenshot_label_100.setText(_translate("MainWindow", "100%"))
+        self.stillscreenshot_label_100.setText(
+            _translate("MainWindow", "100%"))
         self.stillscreenshot_label_cur.setText(_translate("MainWindow", "23%"))
-        self.stillscreenshot_label.setText(_translate("MainWindow", "Still Screenshot"))
-        self.process_pushButton.setText(_translate("MainWindow", "Cancel Process Sync"))
+        self.stillscreenshot_label.setText(
+            _translate("MainWindow", "Still Screenshot"))
+        self.process_pushButton.setText(
+            _translate("MainWindow", "Cancel Process Sync"))
         self.process_label_0.setText(_translate("MainWindow", "0%"))
         self.process_label_100.setText(_translate("MainWindow", "100%"))
         self.process_label_cur.setText(_translate("MainWindow", "23%"))
         self.process_label.setText(_translate("MainWindow", "Process"))
-        self.keystroke_pushButton.setText(_translate("MainWindow", "Cancel Keystroke Sync"))
+        self.keystroke_pushButton.setText(
+            _translate("MainWindow", "Cancel Keystroke Sync"))
         self.keystroke_label_0.setText(_translate("MainWindow", "0%"))
         self.keystroke_label_100.setText(_translate("MainWindow", "100%"))
         self.keystroke_label_cur.setText(_translate("MainWindow", "23%"))
         self.keystroke_label.setText(_translate("MainWindow", "Keystroke"))
-        self.windowhistory_pushButton.setText(_translate("MainWindow", "Cancel Window History Sync"))
+        self.windowhistory_pushButton.setText(
+            _translate("MainWindow", "Cancel Window History Sync"))
         self.windowhistory_label_0.setText(_translate("MainWindow", "0%"))
         self.windowhistory_label_100.setText(_translate("MainWindow", "100%"))
         self.windowhistory_label_cur.setText(_translate("MainWindow", "23%"))
-        self.windowhistory_label.setText(_translate("MainWindow", "Window HIstory"))
-        self.history_pushButton.setText(_translate("MainWindow", "Cancel History Sync"))
+        self.windowhistory_label.setText(
+            _translate("MainWindow", "Window HIstory"))
+        self.history_pushButton.setText(
+            _translate("MainWindow", "Cancel History Sync"))
         self.history_label_0.setText(_translate("MainWindow", "0%"))
         self.history_label_100.setText(_translate("MainWindow", "100%"))
         self.history_label_cur.setText(_translate("MainWindow", "23%"))
         self.history_label.setText(_translate("MainWindow", "History"))
-        self.video_pushButton.setText(_translate("MainWindow", "Cancel Video Sync"))
+        self.video_pushButton.setText(
+            _translate("MainWindow", "Cancel Video Sync"))
         self.video_label_0.setText(_translate("MainWindow", "0%"))
         self.video_label_100.setText(_translate("MainWindow", "100%"))
         self.video_label_cur.setText(_translate("MainWindow", "23%"))
         self.video_label.setText(_translate("MainWindow", "Video"))
-        self.networkactivitydata_pushButton.setText(_translate("MainWindow", "Cancel Network Activity Data Sync"))
-        self.networkactivitydata_label_0.setText(_translate("MainWindow", "0%"))
-        self.networkactivitydata_label_100.setText(_translate("MainWindow", "100%"))
-        self.networkactivitydata_label_cur.setText(_translate("MainWindow", "23%"))
-        self.networkactivitydata_label.setText(_translate("MainWindow", "Network Activity Data"))
-        self.systemcall_pushButton.setText(_translate("MainWindow", "Cancel System Call Sync"))
+        self.networkactivitydata_pushButton.setText(_translate(
+            "MainWindow", "Cancel Network Activity Data Sync"))
+        self.networkactivitydata_label_0.setText(
+            _translate("MainWindow", "0%"))
+        self.networkactivitydata_label_100.setText(
+            _translate("MainWindow", "100%"))
+        self.networkactivitydata_label_cur.setText(
+            _translate("MainWindow", "23%"))
+        self.networkactivitydata_label.setText(
+            _translate("MainWindow", "Network Activity Data"))
+        self.systemcall_pushButton.setText(
+            _translate("MainWindow", "Cancel System Call Sync"))
         self.systemcall_label_0.setText(_translate("MainWindow", "0%"))
         self.systemcall_label_100.setText(_translate("MainWindow", "100%"))
         self.systemcall_label_cur.setText(_translate("MainWindow", "23%"))
         self.systemcall_label.setText(_translate("MainWindow", "System Call"))
-        self.mouseaction_pushButton.setText(_translate("MainWindow", "Cancel Mouse Action Sync"))
+        self.mouseaction_pushButton.setText(
+            _translate("MainWindow", "Cancel Mouse Action Sync"))
         self.mouseaction_label_0.setText(_translate("MainWindow", "0%"))
         self.mouseaction_label_100.setText(_translate("MainWindow", "100%"))
         self.mouseaction_label_cur.setText(_translate("MainWindow", "23%"))
-        self.mouseaction_label.setText(_translate("MainWindow", "Mouse Action"))
-        self.log_pushButton.setText(_translate("MainWindow", "Cancel Log Sync"))
+        self.mouseaction_label.setText(
+            _translate("MainWindow", "Mouse Action"))
+        self.log_pushButton.setText(
+            _translate("MainWindow", "Cancel Log Sync"))
         self.log_label_0.setText(_translate("MainWindow", "0%"))
         self.log_label_100.setText(_translate("MainWindow", "100%"))
         self.log_label_cur.setText(_translate("MainWindow", "23%"))
         self.log_label.setText(_translate("MainWindow", "Log"))
         self.cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
-        self.errormessage.setText(_translate("MainWindow", "Error: Please select video sync scope above."))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Sync"))
+        self.errormessage.setText(_translate(
+            "MainWindow", "Error: Please select video sync scope above."))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(
+            self.tab_3), _translate("MainWindow", "Sync"))
+
     def add_bar_graph(self):
         set0 = QBarSet('Screenshot')
         set1 = QBarSet('Video')
@@ -3548,6 +4132,7 @@ class Ui_MainWindow(object):
         chart_view = QChartView(chart)
 
         return chart_view
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
