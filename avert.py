@@ -3486,7 +3486,7 @@ class Ui_MainWindow(object):
         self.cancelall_btn.setText(_translate("MainWindow", "Cancel All Sync"))
         self.errormessage.setText(_translate("MainWindow", "Error: Please select video sync scope above."))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Sync"))
-import pics_for_detailedview_rc
+import pics_for_detailedview
 
 
 if __name__ == "__main__":
