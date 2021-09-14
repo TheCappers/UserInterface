@@ -6,6 +6,7 @@ from PyQt5.QtChart import QChart, QChartView, QPieSeries
 from PyQt5.QtGui import QPen
 from PyQt5.QtCore import Qt
 
+
 def toggleButtons(val, b_ex, b_in):
     if val == "allexcludingvideo_btn":
         b_ex.setChecked(1)
@@ -13,6 +14,7 @@ def toggleButtons(val, b_ex, b_in):
     if val == "allincludingvideo_btn":
         b_ex.setChecked(0)
         b_in.setChecked(1)
+
 
 def syncbuttonpressed(b_ex, b_in, err):
     if not (b_ex.isChecked() or b_in.isChecked()):
@@ -24,8 +26,10 @@ def syncbuttonpressed(b_ex, b_in, err):
 def btns_connector_in_synctab(b_ex, b_in, b_sync, err):
     b_ex.setCheckable(True)
     b_in.setCheckable(True)
-    b_ex.clicked.connect(lambda: toggleButtons('allexcludingvideo_btn', b_ex, b_in))
-    b_in.clicked.connect(lambda: toggleButtons('allincludingvideo_btn', b_ex, b_in))
+    b_ex.clicked.connect(lambda: toggleButtons(
+        'allexcludingvideo_btn', b_ex, b_in))
+    b_in.clicked.connect(lambda: toggleButtons(
+        'allincludingvideo_btn', b_ex, b_in))
     b_sync.clicked.connect(lambda: syncbuttonpressed(b_ex, b_in, err))
 
 
