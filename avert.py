@@ -9,6 +9,23 @@ from PyQt5.Qt import Qt
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 
+# needed class for the accordion
+class SectionExpandButton(QPushButton):
+    """a QPushbutton that can expand or collapse its section
+    """
+
+    def __init__(self, item, text="", parent=None):
+        super().__init__(text, parent)
+        self.section = item
+        self.clicked.connect(self.on_clicked)
+
+    def on_clicked(self):
+        """toggle expand/collapse of section by clicking
+        """
+        if self.section.isExpanded():
+            self.section.setExpanded(False)
+        else:
+            self.section.setExpanded(True)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -47,7 +64,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.label_8 = QtWidgets.QLabel(self.tab_1)
-        self.label_8.setMaximumSize(QtCore.QSize(20, 20))
+        self.label_8.setMaximumSize(QtCore.QSize(25, 20))
         self.label_8.setObjectName("label_8")
         self.horizontalLayout.addWidget(self.label_8)
         self.comboBox_2 = QtWidgets.QComboBox(self.tab_1)
@@ -563,7 +580,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label.setGeometry(
             QtCore.QRect(770, 50, 161, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label.setFont(font)
         self.descriptionvideo_timestamp_label.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -572,7 +589,7 @@ class Ui_MainWindow(object):
         self.label_41 = QtWidgets.QLabel(self.descriptionvideo_tab)
         self.label_41.setGeometry(QtCore.QRect(950, 50, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_41.setFont(font)
         self.label_41.setAlignment(QtCore.Qt.AlignCenter)
         self.label_41.setObjectName("label_41")
@@ -581,7 +598,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_2.setGeometry(
             QtCore.QRect(770, 100, 161, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_2.setFont(font)
         self.descriptionvideo_timestamp_label_2.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -590,7 +607,7 @@ class Ui_MainWindow(object):
         self.label_42 = QtWidgets.QLabel(self.descriptionvideo_tab)
         self.label_42.setGeometry(QtCore.QRect(950, 100, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_42.setFont(font)
         self.label_42.setAlignment(QtCore.Qt.AlignCenter)
         self.label_42.setObjectName("label_42")
@@ -599,7 +616,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_3.setGeometry(
             QtCore.QRect(770, 150, 161, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_3.setFont(font)
         self.descriptionvideo_timestamp_label_3.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -608,16 +625,16 @@ class Ui_MainWindow(object):
         self.label_43 = QtWidgets.QLabel(self.descriptionvideo_tab)
         self.label_43.setGeometry(QtCore.QRect(950, 150, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_43.setFont(font)
         self.label_43.setAlignment(QtCore.Qt.AlignCenter)
         self.label_43.setObjectName("label_43")
         self.descriptionvideo_timestamp_label_4 = QtWidgets.QLabel(
             self.descriptionvideo_tab)
         self.descriptionvideo_timestamp_label_4.setGeometry(
-            QtCore.QRect(770, 200, 161, 31))
+            QtCore.QRect(770, 200, 180, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_4.setFont(font)
         self.descriptionvideo_timestamp_label_4.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -626,7 +643,7 @@ class Ui_MainWindow(object):
         self.label_44 = QtWidgets.QLabel(self.descriptionvideo_tab)
         self.label_44.setGeometry(QtCore.QRect(950, 200, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_44.setFont(font)
         self.label_44.setAlignment(QtCore.Qt.AlignCenter)
         self.label_44.setObjectName("label_44")
@@ -637,9 +654,9 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_5 = QtWidgets.QLabel(
             self.descriptionstillscreenshot_tab)
         self.descriptionvideo_timestamp_label_5.setGeometry(
-            QtCore.QRect(800, 190, 211, 31))
+            QtCore.QRect(800, 190, 240, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_5.setFont(font)
         self.descriptionvideo_timestamp_label_5.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -650,7 +667,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_6.setGeometry(
             QtCore.QRect(800, 140, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_6.setFont(font)
         self.descriptionvideo_timestamp_label_6.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -686,7 +703,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_7.setGeometry(
             QtCore.QRect(800, 90, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_7.setFont(font)
         self.descriptionvideo_timestamp_label_7.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -695,7 +712,7 @@ class Ui_MainWindow(object):
         self.label_47 = QtWidgets.QLabel(self.descriptionstillscreenshot_tab)
         self.label_47.setGeometry(QtCore.QRect(1030, 90, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_47.setFont(font)
         self.label_47.setAlignment(QtCore.Qt.AlignCenter)
         self.label_47.setObjectName("label_47")
@@ -717,7 +734,7 @@ class Ui_MainWindow(object):
         self.label_48 = QtWidgets.QLabel(self.descriptionsystemcall_tab)
         self.label_48.setGeometry(QtCore.QRect(800, 150, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_48.setFont(font)
         self.label_48.setAlignment(QtCore.Qt.AlignCenter)
         self.label_48.setObjectName("label_48")
@@ -726,7 +743,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_9.setGeometry(
             QtCore.QRect(550, 150, 231, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_9.setFont(font)
         self.descriptionvideo_timestamp_label_9.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -737,7 +754,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_10.setGeometry(
             QtCore.QRect(550, 100, 231, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_10.setFont(font)
         self.descriptionvideo_timestamp_label_10.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -746,23 +763,23 @@ class Ui_MainWindow(object):
         self.label_49 = QtWidgets.QLabel(self.descriptionsystemcall_tab)
         self.label_49.setGeometry(QtCore.QRect(800, 50, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_49.setFont(font)
         self.label_49.setAlignment(QtCore.Qt.AlignCenter)
         self.label_49.setObjectName("label_49")
         self.label_50 = QtWidgets.QLabel(self.descriptionsystemcall_tab)
         self.label_50.setGeometry(QtCore.QRect(800, 100, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_50.setFont(font)
         self.label_50.setAlignment(QtCore.Qt.AlignCenter)
         self.label_50.setObjectName("label_50")
         self.descriptionvideo_timestamp_label_11 = QtWidgets.QLabel(
             self.descriptionsystemcall_tab)
         self.descriptionvideo_timestamp_label_11.setGeometry(
-            QtCore.QRect(550, 200, 231, 31))
+            QtCore.QRect(550, 200, 250, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_11.setFont(font)
         self.descriptionvideo_timestamp_label_11.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -773,7 +790,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_13.setGeometry(
             QtCore.QRect(550, 250, 231, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_13.setFont(font)
         self.descriptionvideo_timestamp_label_13.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -782,14 +799,14 @@ class Ui_MainWindow(object):
         self.label_52 = QtWidgets.QLabel(self.descriptionsystemcall_tab)
         self.label_52.setGeometry(QtCore.QRect(800, 200, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_52.setFont(font)
         self.label_52.setAlignment(QtCore.Qt.AlignCenter)
         self.label_52.setObjectName("label_52")
         self.label_53 = QtWidgets.QLabel(self.descriptionsystemcall_tab)
         self.label_53.setGeometry(QtCore.QRect(800, 250, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_53.setFont(font)
         self.label_53.setAlignment(QtCore.Qt.AlignCenter)
         self.label_53.setObjectName("label_53")
@@ -799,21 +816,21 @@ class Ui_MainWindow(object):
         self.label_51 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_51.setGeometry(QtCore.QRect(310, 80, 181, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_51.setFont(font)
         self.label_51.setAlignment(QtCore.Qt.AlignCenter)
         self.label_51.setObjectName("label_51")
         self.label_54 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_54.setGeometry(QtCore.QRect(310, 230, 181, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_54.setFont(font)
         self.label_54.setAlignment(QtCore.Qt.AlignCenter)
         self.label_54.setObjectName("label_54")
         self.label_55 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_55.setGeometry(QtCore.QRect(310, 30, 181, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_55.setFont(font)
         self.label_55.setAlignment(QtCore.Qt.AlignCenter)
         self.label_55.setObjectName("label_55")
@@ -822,7 +839,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_12.setGeometry(
             QtCore.QRect(80, 180, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_12.setFont(font)
         self.descriptionvideo_timestamp_label_12.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -831,7 +848,7 @@ class Ui_MainWindow(object):
         self.label_56 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_56.setGeometry(QtCore.QRect(310, 130, 181, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_56.setFont(font)
         self.label_56.setAlignment(QtCore.Qt.AlignCenter)
         self.label_56.setObjectName("label_56")
@@ -840,7 +857,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_14.setGeometry(
             QtCore.QRect(80, 230, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_14.setFont(font)
         self.descriptionvideo_timestamp_label_14.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -851,7 +868,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_15.setGeometry(
             QtCore.QRect(80, 30, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_15.setFont(font)
         self.descriptionvideo_timestamp_label_15.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -860,7 +877,7 @@ class Ui_MainWindow(object):
         self.label_57 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_57.setGeometry(QtCore.QRect(310, 180, 181, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_57.setFont(font)
         self.label_57.setAlignment(QtCore.Qt.AlignCenter)
         self.label_57.setObjectName("label_57")
@@ -869,7 +886,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_16.setGeometry(
             QtCore.QRect(80, 80, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_16.setFont(font)
         self.descriptionvideo_timestamp_label_16.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -880,7 +897,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_17.setGeometry(
             QtCore.QRect(80, 130, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_17.setFont(font)
         self.descriptionvideo_timestamp_label_17.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -889,21 +906,21 @@ class Ui_MainWindow(object):
         self.label_58 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_58.setGeometry(QtCore.QRect(810, 80, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_58.setFont(font)
         self.label_58.setAlignment(QtCore.Qt.AlignCenter)
         self.label_58.setObjectName("label_58")
         self.label_59 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_59.setGeometry(QtCore.QRect(810, 230, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_59.setFont(font)
         self.label_59.setAlignment(QtCore.Qt.AlignCenter)
         self.label_59.setObjectName("label_59")
         self.label_60 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_60.setGeometry(QtCore.QRect(810, 30, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_60.setFont(font)
         self.label_60.setAlignment(QtCore.Qt.AlignCenter)
         self.label_60.setObjectName("label_60")
@@ -912,7 +929,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_18.setGeometry(
             QtCore.QRect(580, 180, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_18.setFont(font)
         self.descriptionvideo_timestamp_label_18.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -921,7 +938,7 @@ class Ui_MainWindow(object):
         self.label_61 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_61.setGeometry(QtCore.QRect(810, 130, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_61.setFont(font)
         self.label_61.setAlignment(QtCore.Qt.AlignCenter)
         self.label_61.setObjectName("label_61")
@@ -930,7 +947,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_19.setGeometry(
             QtCore.QRect(580, 230, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_19.setFont(font)
         self.descriptionvideo_timestamp_label_19.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -941,7 +958,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_20.setGeometry(
             QtCore.QRect(580, 30, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_20.setFont(font)
         self.descriptionvideo_timestamp_label_20.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -950,7 +967,7 @@ class Ui_MainWindow(object):
         self.label_62 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_62.setGeometry(QtCore.QRect(810, 180, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_62.setFont(font)
         self.label_62.setAlignment(QtCore.Qt.AlignCenter)
         self.label_62.setObjectName("label_62")
@@ -959,7 +976,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_21.setGeometry(
             QtCore.QRect(580, 80, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_21.setFont(font)
         self.descriptionvideo_timestamp_label_21.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -970,7 +987,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_22.setGeometry(
             QtCore.QRect(580, 130, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_22.setFont(font)
         self.descriptionvideo_timestamp_label_22.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -979,14 +996,14 @@ class Ui_MainWindow(object):
         self.label_63 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_63.setGeometry(QtCore.QRect(1350, 30, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_63.setFont(font)
         self.label_63.setAlignment(QtCore.Qt.AlignCenter)
         self.label_63.setObjectName("label_63")
         self.label_64 = QtWidgets.QLabel(self.descriptionprocess_tab)
         self.label_64.setGeometry(QtCore.QRect(1350, 80, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_64.setFont(font)
         self.label_64.setAlignment(QtCore.Qt.AlignCenter)
         self.label_64.setObjectName("label_64")
@@ -995,7 +1012,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_23.setGeometry(
             QtCore.QRect(1120, 30, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_23.setFont(font)
         self.descriptionvideo_timestamp_label_23.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1006,7 +1023,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_24.setGeometry(
             QtCore.QRect(1120, 180, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_24.setFont(font)
         self.descriptionvideo_timestamp_label_24.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1031,7 +1048,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_25.setGeometry(
             QtCore.QRect(1120, 230, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_25.setFont(font)
         self.descriptionvideo_timestamp_label_25.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1042,7 +1059,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_26.setGeometry(
             QtCore.QRect(1120, 80, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_26.setFont(font)
         self.descriptionvideo_timestamp_label_26.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1060,7 +1077,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_27.setGeometry(
             QtCore.QRect(1120, 130, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_27.setFont(font)
         self.descriptionvideo_timestamp_label_27.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1073,7 +1090,7 @@ class Ui_MainWindow(object):
         self.label_68 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
         self.label_68.setGeometry(QtCore.QRect(800, 60, 171, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(14)
         self.label_68.setFont(font)
         self.label_68.setAlignment(QtCore.Qt.AlignCenter)
         self.label_68.setObjectName("label_68")
@@ -1087,7 +1104,7 @@ class Ui_MainWindow(object):
         self.label_70 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
         self.label_70.setGeometry(QtCore.QRect(800, 160, 171, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_70.setFont(font)
         self.label_70.setAlignment(QtCore.Qt.AlignCenter)
         self.label_70.setObjectName("label_70")
@@ -1096,7 +1113,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_29.setGeometry(
             QtCore.QRect(530, 210, 261, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_29.setFont(font)
         self.descriptionvideo_timestamp_label_29.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1107,7 +1124,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_30.setGeometry(
             QtCore.QRect(30, 210, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_30.setFont(font)
         self.descriptionvideo_timestamp_label_30.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1118,7 +1135,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_31.setGeometry(
             QtCore.QRect(1070, 110, 231, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_31.setFont(font)
         self.descriptionvideo_timestamp_label_31.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1127,7 +1144,7 @@ class Ui_MainWindow(object):
         self.label_71 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
         self.label_71.setGeometry(QtCore.QRect(260, 210, 181, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_71.setFont(font)
         self.label_71.setAlignment(QtCore.Qt.AlignCenter)
         self.label_71.setObjectName("label_71")
@@ -1136,7 +1153,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_32.setGeometry(
             QtCore.QRect(1070, 160, 231, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_32.setFont(font)
         self.descriptionvideo_timestamp_label_32.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1147,7 +1164,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_33.setGeometry(
             QtCore.QRect(530, 160, 261, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_33.setFont(font)
         self.descriptionvideo_timestamp_label_33.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1163,9 +1180,9 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_34 = QtWidgets.QLabel(
             self.descriptionwindowhistory_tab)
         self.descriptionvideo_timestamp_label_34.setGeometry(
-            QtCore.QRect(30, 110, 211, 31))
+            QtCore.QRect(30, 110, 230, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_34.setFont(font)
         self.descriptionvideo_timestamp_label_34.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1183,7 +1200,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_35.setGeometry(
             QtCore.QRect(1070, 210, 231, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_35.setFont(font)
         self.descriptionvideo_timestamp_label_35.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1194,7 +1211,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_36.setGeometry(
             QtCore.QRect(530, 110, 261, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_36.setFont(font)
         self.descriptionvideo_timestamp_label_36.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1203,7 +1220,7 @@ class Ui_MainWindow(object):
         self.label_75 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
         self.label_75.setGeometry(QtCore.QRect(260, 160, 181, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_75.setFont(font)
         self.label_75.setAlignment(QtCore.Qt.AlignCenter)
         self.label_75.setObjectName("label_75")
@@ -1217,14 +1234,14 @@ class Ui_MainWindow(object):
         self.label_77 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
         self.label_77.setGeometry(QtCore.QRect(260, 110, 181, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_77.setFont(font)
         self.label_77.setAlignment(QtCore.Qt.AlignCenter)
         self.label_77.setObjectName("label_77")
         self.label_78 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
         self.label_78.setGeometry(QtCore.QRect(260, 60, 181, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_78.setFont(font)
         self.label_78.setAlignment(QtCore.Qt.AlignCenter)
         self.label_78.setObjectName("label_78")
@@ -1233,7 +1250,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_38.setGeometry(
             QtCore.QRect(30, 60, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_38.setFont(font)
         self.descriptionvideo_timestamp_label_38.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1244,7 +1261,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_39.setGeometry(
             QtCore.QRect(1070, 60, 231, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_39.setFont(font)
         self.descriptionvideo_timestamp_label_39.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1255,7 +1272,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_40.setGeometry(
             QtCore.QRect(30, 160, 211, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_40.setFont(font)
         self.descriptionvideo_timestamp_label_40.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1264,16 +1281,16 @@ class Ui_MainWindow(object):
         self.label_81 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
         self.label_81.setGeometry(QtCore.QRect(800, 110, 171, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_81.setFont(font)
         self.label_81.setAlignment(QtCore.Qt.AlignCenter)
         self.label_81.setObjectName("label_81")
         self.descriptionvideo_timestamp_label_42 = QtWidgets.QLabel(
             self.descriptionwindowhistory_tab)
         self.descriptionvideo_timestamp_label_42.setGeometry(
-            QtCore.QRect(530, 60, 261, 31))
+            QtCore.QRect(530, 60, 300, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(14)
         self.descriptionvideo_timestamp_label_42.setFont(font)
         self.descriptionvideo_timestamp_label_42.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1282,7 +1299,7 @@ class Ui_MainWindow(object):
         self.label_82 = QtWidgets.QLabel(self.descriptionwindowhistory_tab)
         self.label_82.setGeometry(QtCore.QRect(800, 210, 171, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_82.setFont(font)
         self.label_82.setAlignment(QtCore.Qt.AlignCenter)
         self.label_82.setObjectName("label_82")
@@ -1370,21 +1387,21 @@ class Ui_MainWindow(object):
         self.label_73 = QtWidgets.QLabel(self.descriptionmouse_tab)
         self.label_73.setGeometry(QtCore.QRect(810, 60, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_73.setFont(font)
         self.label_73.setAlignment(QtCore.Qt.AlignCenter)
         self.label_73.setObjectName("label_73")
         self.label_79 = QtWidgets.QLabel(self.descriptionmouse_tab)
         self.label_79.setGeometry(QtCore.QRect(810, 210, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_79.setFont(font)
         self.label_79.setAlignment(QtCore.Qt.AlignCenter)
         self.label_79.setObjectName("label_79")
         self.label_80 = QtWidgets.QLabel(self.descriptionmouse_tab)
         self.label_80.setGeometry(QtCore.QRect(810, 10, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_80.setFont(font)
         self.label_80.setAlignment(QtCore.Qt.AlignCenter)
         self.label_80.setObjectName("label_80")
@@ -1393,7 +1410,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_28.setGeometry(
             QtCore.QRect(560, 160, 231, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_28.setFont(font)
         self.descriptionvideo_timestamp_label_28.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1402,7 +1419,7 @@ class Ui_MainWindow(object):
         self.label_83 = QtWidgets.QLabel(self.descriptionmouse_tab)
         self.label_83.setGeometry(QtCore.QRect(810, 110, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_83.setFont(font)
         self.label_83.setAlignment(QtCore.Qt.AlignCenter)
         self.label_83.setObjectName("label_83")
@@ -1411,7 +1428,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_37.setGeometry(
             QtCore.QRect(560, 210, 231, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_37.setFont(font)
         self.descriptionvideo_timestamp_label_37.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1422,7 +1439,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_41.setGeometry(
             QtCore.QRect(560, 10, 231, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_41.setFont(font)
         self.descriptionvideo_timestamp_label_41.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1431,7 +1448,7 @@ class Ui_MainWindow(object):
         self.label_84 = QtWidgets.QLabel(self.descriptionmouse_tab)
         self.label_84.setGeometry(QtCore.QRect(810, 160, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_84.setFont(font)
         self.label_84.setAlignment(QtCore.Qt.AlignCenter)
         self.label_84.setObjectName("label_84")
@@ -1440,7 +1457,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_43.setGeometry(
             QtCore.QRect(560, 60, 231, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_43.setFont(font)
         self.descriptionvideo_timestamp_label_43.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1451,7 +1468,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_44.setGeometry(
             QtCore.QRect(560, 110, 231, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_44.setFont(font)
         self.descriptionvideo_timestamp_label_44.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1462,7 +1479,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_45.setGeometry(
             QtCore.QRect(560, 260, 231, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_45.setFont(font)
         self.descriptionvideo_timestamp_label_45.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1471,7 +1488,7 @@ class Ui_MainWindow(object):
         self.label_85 = QtWidgets.QLabel(self.descriptionmouse_tab)
         self.label_85.setGeometry(QtCore.QRect(810, 260, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_85.setFont(font)
         self.label_85.setAlignment(QtCore.Qt.AlignCenter)
         self.label_85.setObjectName("label_85")
@@ -1483,7 +1500,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_46.setGeometry(
             QtCore.QRect(550, 150, 231, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_46.setFont(font)
         self.descriptionvideo_timestamp_label_46.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1494,7 +1511,7 @@ class Ui_MainWindow(object):
         self.descriptionvideo_timestamp_label_47.setGeometry(
             QtCore.QRect(550, 100, 231, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.descriptionvideo_timestamp_label_47.setFont(font)
         self.descriptionvideo_timestamp_label_47.setAlignment(
             QtCore.Qt.AlignCenter)
@@ -1503,14 +1520,14 @@ class Ui_MainWindow(object):
         self.label_86 = QtWidgets.QLabel(self.descriptionkeystroke_tab)
         self.label_86.setGeometry(QtCore.QRect(800, 100, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_86.setFont(font)
         self.label_86.setAlignment(QtCore.Qt.AlignCenter)
         self.label_86.setObjectName("label_86")
         self.label_87 = QtWidgets.QLabel(self.descriptionkeystroke_tab)
         self.label_87.setGeometry(QtCore.QRect(800, 150, 201, 31))
         font = QtGui.QFont()
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_87.setFont(font)
         self.label_87.setAlignment(QtCore.Qt.AlignCenter)
         self.label_87.setObjectName("label_87")
@@ -1577,7 +1594,7 @@ class Ui_MainWindow(object):
         self.table_tag.setSelectionBehavior(
             QtWidgets.QAbstractItemView.SelectRows)
         self.table_tag.setCornerButtonEnabled(True)
-        self.table_tag.setRowCount(8)
+        self.table_tag.setRowCount(4)
         self.table_tag.setObjectName("table_tag")
         self.table_tag.setColumnCount(3)
         item = QtWidgets.QTableWidgetItem()
@@ -2148,11 +2165,12 @@ class Ui_MainWindow(object):
         self.table_tag_2 = QtWidgets.QTableWidget(self.script_accordion_16)
         self.table_tag_2.setGeometry(QtCore.QRect(20, 10, 911, 261))
         self.table_tag_2.setAcceptDrops(False)
-        self.table_tag_2.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.DoubleClicked)
+        self.table_tag_2.setEditTriggers(
+            QtWidgets.QAbstractItemView.AnyKeyPressed | QtWidgets.QAbstractItemView.DoubleClicked)
         self.table_tag_2.setAlternatingRowColors(True)
         self.table_tag_2.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.table_tag_2.setCornerButtonEnabled(True)
-        self.table_tag_2.setRowCount(8)
+        self.table_tag_2.setRowCount(4)
         self.table_tag_2.setObjectName("table_tag_2")
         self.table_tag_2.setColumnCount(6)
         item = QtWidgets.QTableWidgetItem()
@@ -2168,84 +2186,84 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.table_tag_2.setHorizontalHeaderItem(5, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         item.setCheckState(QtCore.Qt.Unchecked)
         self.table_tag_2.setItem(0, 0, item)
         item = QtWidgets.QTableWidgetItem()
         item.setFlags(QtCore.Qt.ItemIsSelectable)
         self.table_tag_2.setItem(0, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsEditable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
         self.table_tag_2.setItem(0, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         item.setCheckState(QtCore.Qt.Unchecked)
         self.table_tag_2.setItem(1, 0, item)
         item = QtWidgets.QTableWidgetItem()
         item.setFlags(QtCore.Qt.ItemIsSelectable)
         self.table_tag_2.setItem(1, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsEditable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
         self.table_tag_2.setItem(1, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         item.setCheckState(QtCore.Qt.Unchecked)
         self.table_tag_2.setItem(2, 0, item)
         item = QtWidgets.QTableWidgetItem()
         item.setFlags(QtCore.Qt.ItemIsSelectable)
         self.table_tag_2.setItem(2, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsEditable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
         self.table_tag_2.setItem(2, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         item.setCheckState(QtCore.Qt.Unchecked)
         self.table_tag_2.setItem(3, 0, item)
         item = QtWidgets.QTableWidgetItem()
         item.setFlags(QtCore.Qt.ItemIsSelectable)
         self.table_tag_2.setItem(3, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsEditable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
         self.table_tag_2.setItem(3, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         item.setCheckState(QtCore.Qt.Unchecked)
         self.table_tag_2.setItem(4, 0, item)
         item = QtWidgets.QTableWidgetItem()
         item.setFlags(QtCore.Qt.ItemIsSelectable)
         self.table_tag_2.setItem(4, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsEditable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
         self.table_tag_2.setItem(4, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         item.setCheckState(QtCore.Qt.Unchecked)
         self.table_tag_2.setItem(5, 0, item)
         item = QtWidgets.QTableWidgetItem()
         item.setFlags(QtCore.Qt.ItemIsSelectable)
         self.table_tag_2.setItem(5, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsEditable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
         self.table_tag_2.setItem(5, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         item.setCheckState(QtCore.Qt.Unchecked)
         self.table_tag_2.setItem(6, 0, item)
         item = QtWidgets.QTableWidgetItem()
         item.setFlags(QtCore.Qt.ItemIsSelectable)
         self.table_tag_2.setItem(6, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsEditable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
         self.table_tag_2.setItem(6, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         item.setCheckState(QtCore.Qt.Unchecked)
         self.table_tag_2.setItem(7, 0, item)
         item = QtWidgets.QTableWidgetItem()
         item.setFlags(QtCore.Qt.ItemIsSelectable)
         self.table_tag_2.setItem(7, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsEditable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
         self.table_tag_2.setItem(7, 3, item)
         self.table_tag_2.horizontalHeader().setCascadingSectionResizes(True)
         self.table_tag_2.horizontalHeader().setDefaultSectionSize(150)
@@ -3363,12 +3381,23 @@ class Ui_MainWindow(object):
         self.visualization_tabs.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        self.VideoStatOnButton.setChecked(1)
+        self.ScreenshotStatOnButton.setChecked(1)
+        self.SystemCallOnButton.setChecked(1)
+        self.WindowHistoryOnButton.setChecked(1)
+        self.KeyStrokeStatOnButton.setChecked(1)
+        self.MouseActOnButton.setChecked(1)
+        self.NetworkActivityDataOnButton.setChecked(1)
+        self.ProcessStatOnButton.setChecked(1)
+
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_8.setText(_translate("MainWindow", "Tag"))
         self.label_10.setText(_translate("MainWindow", "Search"))
-        self.textEdit_2.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        self.textEdit_2.setHtml(_translate("MainWindow",
+                                           "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                                            "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                            "p, li { white-space: pre-wrap; }\n"
                                            "</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
@@ -3547,7 +3576,8 @@ class Ui_MainWindow(object):
         self.avert_result_table.setSortingEnabled(__sortingEnabled)
         self.label_101.setText(_translate("MainWindow", "Search"))
         self.label_9.setText(_translate("MainWindow", "AVERT RESULT"))
-        self.textEdit_21.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        self.textEdit_21.setHtml(_translate("MainWindow",
+                                            "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                                             "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                             "p, li { white-space: pre-wrap; }\n"
                                             "</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
@@ -3573,7 +3603,8 @@ class Ui_MainWindow(object):
         self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(
             self.tab_133), _translate("MainWindow", "User Profile"))
         self.label_88.setText(_translate(
-            "MainWindow", "<html><head/><body><p><img src=\":/pics_for_detailedview/video_detailedview.png\"/></p></body></html>"))
+            "MainWindow",
+            "<html><head/><body><p><img src=\":/pics_for_detailedview/video_detailedview.png\"/></p></body></html>"))
         self.descriptionvideo_timestamp_label.setText(
             _translate("MainWindow", "Timestamp:"))
         self.label_41.setText(_translate("MainWindow", "10-6-26 02:31:29"))
@@ -3594,7 +3625,8 @@ class Ui_MainWindow(object):
             _translate("MainWindow", "Still Screenshot Size:"))
         self.label_45.setText(_translate("MainWindow", "PNG"))
         self.label_89.setText(_translate(
-            "MainWindow", "<html><head/><body><p><img src=\":/pics_for_detailedview/stillscreenshot_detailedview.jpg\"/></p></body></html>"))
+            "MainWindow",
+            "<html><head/><body><p><img src=\":/pics_for_detailedview/stillscreenshot_detailedview.jpg\"/></p></body></html>"))
         self.label_46.setText(_translate("MainWindow", "60MB"))
         self.descriptionvideo_timestamp_label_7.setText(
             _translate("MainWindow", "Timestamp:"))
@@ -3751,7 +3783,8 @@ class Ui_MainWindow(object):
             "MainWindow", "[Coloring Rule String: eth[0] & 1]"))
         self.listWidget_4.setSortingEnabled(__sortingEnabled)
         self.toolBox.setItemText(self.toolBox.indexOf(self.network_1), _translate(
-            "MainWindow", "Frame 107: 121 bytes on wire (968 bits), 121 bytes captured (968 bits) on interface en0, id 0"))
+            "MainWindow",
+            "Frame 107: 121 bytes on wire (968 bits), 121 bytes captured (968 bits) on interface en0, id 0"))
         __sortingEnabled = self.listWidget_3.isSortingEnabled()
         self.listWidget_3.setSortingEnabled(False)
         item = self.listWidget_3.item(0)
@@ -3947,8 +3980,10 @@ class Ui_MainWindow(object):
         self.plainTextEdit.setPlaceholderText(
             _translate("MainWindow", "Annotation"))
         self.pushButton_4.setText(_translate("MainWindow", "Add"))
-        self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(self.annotation), _translate("MainWindow", "Annotation"))
-        self.toolBox_14.setItemText(self.toolBox_14.indexOf(self.visualization_accordion_20), _translate("MainWindow", "Visualization"))
+        self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(self.annotation),
+                                           _translate("MainWindow", "Annotation"))
+        self.toolBox_14.setItemText(self.toolBox_14.indexOf(self.visualization_accordion_20),
+                                    _translate("MainWindow", "Visualization"))
         item = self.table_tag_2.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Added Artifacts for Script Creation"))
         item = self.table_tag_2.horizontalHeaderItem(1)
@@ -3976,7 +4011,8 @@ class Ui_MainWindow(object):
         self.plainTextEdit_5.setPlainText(_translate("MainWindow", "Remove Artifact from Script Creation Table"))
         self.plainTextEdit_6.setPlainText(_translate("MainWindow", "Generate Script"))
         self.plainTextEdit_7.setPlainText(_translate("MainWindow", "Export Script"))
-        self.toolBox_14.setItemText(self.toolBox_14.indexOf(self.script_accordion_16), _translate("MainWindow", "Script"))
+        self.toolBox_14.setItemText(self.toolBox_14.indexOf(self.script_accordion_16),
+                                    _translate("MainWindow", "Script"))
         self.history_table.setSortingEnabled(True)
         item = self.history_table.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Select"))
@@ -4266,6 +4302,35 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(
             self.tab_3), _translate("MainWindow", "Sync"))
 
+        # portion for the tag_table
+        self.table_tag.setSortingEnabled(1)  # allows for the sorting in the columns
+        self.table_tag.setSortingEnabled(1)
+        # portion needed for the accordion view
+        self.tree = QtWidgets.QTreeWidget()
+        self.tree.setHeaderHidden(True)
+        self.sections = []
+        self.define_sections()
+        self.add_sections()
+
+        # portion
+        self.VideoStatOnButton.clicked.connect(self.toggleButtons)
+        self.VideoStatusOffButton.clicked.connect(self.toggleButtons)
+        self.ScreenshotStatOnButton.clicked.connect(self.toggleButtons)
+        self.ScreenshotStatOffButton.clicked.connect(self.toggleButtons)
+        self.SystemCallOnButton.clicked.connect(self.toggleButtons)
+        self.SystemCallOffButton.clicked.connect(self.toggleButtons)
+        self.WindowHistoryOnButton.clicked.connect(self.toggleButtons)
+        self.WindowHistoryOffButton.clicked.connect(self.toggleButtons)
+        self.KeyStrokeStatOnButton.clicked.connect(self.toggleButtons)
+        self.KeyStrokeStatOffButton.clicked.connect(self.toggleButtons)
+        self.MouseActOnButton.clicked.connect(self.toggleButtons)
+        self.MouseActOffButton.clicked.connect(self.toggleButtons)
+        self.NetworkActivityDataOnButton.clicked.connect(self.toggleButtons)
+        self.NetworkActivityDataOffButton.clicked.connect(self.toggleButtons)
+        self.ProcessStatOnButton.clicked.connect(self.toggleButtons)
+        self.ProcessStatOffButton.clicked.connect(self.toggleButtons)
+        self.tag_add_button.clicked.connect(self.add_row)
+
     def add_bar_graph(self):
         set0 = QBarSet('Screenshot')
         set1 = QBarSet('Video')
@@ -4303,11 +4368,10 @@ class Ui_MainWindow(object):
 
         return chart_view
 
-
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    mainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
+    mainWindow = QtWidgets.QMainWindow()
     ui.setupUi(mainWindow)
     mainWindow.show()
     app.exec()

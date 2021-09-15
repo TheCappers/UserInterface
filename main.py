@@ -2,6 +2,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QPushButton, QInputDialog
 
 import avert
+import accordion_floating
+from accordion_floating import Ui_Form
 from avert import Ui_MainWindow
 
 import sys
@@ -40,6 +42,7 @@ class AvertApp(QtWidgets.QMainWindow, avert.Ui_MainWindow):
         self.define_sections()
         self.add_sections()
 
+        # automatic on button checked
         self.VideoStatOnButton.clicked.connect(self.toggleButtons)
         self.VideoStatusOffButton.clicked.connect(self.toggleButtons)
         self.ScreenshotStatOnButton.clicked.connect(self.toggleButtons)
@@ -58,6 +61,8 @@ class AvertApp(QtWidgets.QMainWindow, avert.Ui_MainWindow):
         self.ProcessStatOffButton.clicked.connect(self.toggleButtons)
         self.tag_add_button.clicked.connect(self.add_row)
 
+
+
     # button toggle method
     '''
     Author: David Amparan Date: 9/7/2021
@@ -67,7 +72,6 @@ class AvertApp(QtWidgets.QMainWindow, avert.Ui_MainWindow):
     '''
 
     def toggleButtons(self):  # called upon by button automatically will know which button
-
         if self.sender().objectName().__contains__("Video") and self.sender().objectName().__contains__('On'):
             self.VideoStatOnButton.setChecked(1)  # check the button we clicked
             self.VideoStatusOffButton.setChecked(0)  # check false the off button incase it is checked
@@ -264,6 +268,10 @@ def main():
     form = AvertApp()
     form.show()
 
+    Form = QtWidgets.QWidget()
+    form2 = Ui_Form()
+    form2.setupUi(Form)
+    Form.show()
     app.exec()
 
 
