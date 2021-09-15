@@ -70,6 +70,7 @@ class Ui_MainWindow(object):
         self.comboBox_2 = QtWidgets.QComboBox(self.tab_1)
         self.comboBox_2.setMaximumSize(QtCore.QSize(150, 20))
         self.comboBox_2.setObjectName("comboBox_2")
+        self.comboBox_2.addItem("")
         self.horizontalLayout.addWidget(self.comboBox_2)
         self.gridLayout_2.addLayout(self.horizontalLayout, 3, 0, 1, 1)
         self.label_10 = QtWidgets.QLabel(self.tab_1)
@@ -118,6 +119,8 @@ class Ui_MainWindow(object):
         self.comboBox_3 = QtWidgets.QComboBox(self.tab_1)
         self.comboBox_3.setMaximumSize(QtCore.QSize(150, 20))
         self.comboBox_3.setObjectName("comboBox_3")
+        self.comboBox_3.addItem("")
+        self.comboBox_3.addItem("")
         self.gridLayout_3.addWidget(self.comboBox_3, 3, 1, 1, 1)
         self.label_13 = QtWidgets.QLabel(self.tab_1)
         self.label_13.setMaximumSize(QtCore.QSize(16777215, 80))
@@ -223,6 +226,8 @@ class Ui_MainWindow(object):
         self.comboBox_4 = QtWidgets.QComboBox(self.tab_1)
         self.comboBox_4.setMaximumSize(QtCore.QSize(150, 20))
         self.comboBox_4.setObjectName("comboBox_4")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
         self.gridLayout_3.addWidget(self.comboBox_4, 2, 1, 1, 1)
         self.label_17 = QtWidgets.QLabel(self.tab_1)
         self.label_17.setMaximumSize(QtCore.QSize(16777215, 12))
@@ -1709,16 +1714,6 @@ class Ui_MainWindow(object):
         self.table_tag.verticalHeader().setSortIndicatorShown(True)
         self.gridLayout_15.addWidget(self.table_tag, 0, 0, 1, 1)
         self.DetailedViewTab.addTab(self.tags_tab, "")
-        self.tab_100 = QtWidgets.QWidget()
-        self.tab_100.setObjectName("tab_100")
-        self.scrollArea_42 = QtWidgets.QScrollArea(self.tab_100)
-        self.scrollArea_42.setGeometry(QtCore.QRect(10, 0, 1651, 371))
-        self.scrollArea_42.setVerticalScrollBarPolicy(
-            QtCore.Qt.ScrollBarAlwaysOn)
-        self.scrollArea_42.setHorizontalScrollBarPolicy(
-            QtCore.Qt.ScrollBarAsNeeded)
-        self.scrollArea_42.setWidgetResizable(True)
-        self.scrollArea_42.setObjectName("scrollArea_42")
         self.scrollAreaWidgetContents_44 = QtWidgets.QWidget()
         self.scrollAreaWidgetContents_44.setGeometry(
             QtCore.QRect(0, 0, 1633, 369))
@@ -1741,8 +1736,6 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_23.setItem(0, 1, item)
         self.tableWidget_23.horizontalHeader().setDefaultSectionSize(400)
-        self.scrollArea_42.setWidget(self.scrollAreaWidgetContents_44)
-        self.DetailedViewTab.addTab(self.tab_100, "")
         self.DetailedViewScroll.setWidget(self.scrollAreaWidgetContents_58)
         self.verticalLayout_31.addWidget(self.DetailedViewScroll)
         self.toolBox_14.addItem(self.detailed_view_accordion_20, "")
@@ -3394,6 +3387,13 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.comboBox_2.setItemText(0, _translate("Dialog", "Collection1"))
+        self.comboBox_2.setItemText(1, _translate("Dialog", "Collection2"))
+        self.comboBox_3.setItemText(0, _translate("Dialog", "7D:93:74:82:7B:71"))
+        self.comboBox_3.setItemText(1, _translate("Dialog", "7D:93:74:82:7B:71"))
+        self.comboBox_4.setItemText(1, _translate("Dialog", "195.273.25.4"))
+        self.comboBox_4.setItemText(0, _translate("Dialog", "195.273.25.4"))
+        
         self.label_8.setText(_translate("MainWindow", "Tag"))
         self.label_10.setText(_translate("MainWindow", "Search"))
         self.textEdit_2.setHtml(_translate("MainWindow",
@@ -3890,8 +3890,6 @@ class Ui_MainWindow(object):
         item = self.tableWidget_23.item(0, 1)
         item.setText(_translate("MainWindow", "AA:BB:CCC"))
         self.tableWidget_23.setSortingEnabled(__sortingEnabled)
-        self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(
-            self.tab_100), _translate("MainWindow", "User Profile"))
         self.toolBox_14.setItemText(self.toolBox_14.indexOf(self.detailed_view_accordion_20), _translate(
             "MainWindow", "Detailed View of Selected Artifact"))
         self.radioButton_2.setText(_translate("MainWindow", "Bar Graph"))
