@@ -77,6 +77,13 @@ class Ui_MainWindow(object):
         self.label_10.setStyleSheet("")
         self.label_10.setObjectName("label_10")
         self.gridLayout_2.addWidget(self.label_10, 0, 0, 1, 1)
+        #portion added for universal record
+        self.universalRecord = QtWidgets.QPushButton(self.tab_1)
+        self.universalRecord.setCheckable(True)
+        self.universalRecord.setChecked(True)
+        self.universalRecord.setObjectName("universalRecord")
+        self.gridLayout_2.addWidget(self.universalRecord, 2, 2, 1, 1)
+
         self.textEdit_2 = QtWidgets.QTextEdit(self.tab_1)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
@@ -2675,9 +2682,11 @@ class Ui_MainWindow(object):
         self.KeystrokeMainLabel.setFont(font)
         self.KeystrokeMainLabel.setObjectName("KeystrokeMainLabel")
         self.StorageInValue = QtWidgets.QLineEdit(self.tab_2)
-        self.StorageInValue.setGeometry(QtCore.QRect(290, 200, 31, 20))
+        self.StorageInValue.setGeometry(QtCore.QRect(290, 200, 120, 20))
         self.StorageInValue.setMaxLength(2)
         self.StorageInValue.setObjectName("StorageInValue")
+        self.StorageInValue.setPlaceholderText('Enter Percent')
+        self.StorageInValue.setAlignment(Qt.AlignCenter)
         self.KeystrokeMainView = QtWidgets.QTableView(self.tab_2)
         self.KeystrokeMainView.setGeometry(QtCore.QRect(1051, 370, 490, 210))
         self.KeystrokeMainView.setObjectName("KeystrokeMainView")
@@ -3586,6 +3595,7 @@ class Ui_MainWindow(object):
             _translate("MainWindow", "Expression"))
         self.pushButton.setText(_translate("MainWindow", "Search"))
         self.label_61.setText(_translate("MainWindow", "Search Expression"))
+        self.universalRecord.setText(_translate("MainWindow", "Record On"))
         self.label_81.setText(_translate("MainWindow", "Tag"))
         item = self.tableWidget_38.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "User"))
@@ -4184,7 +4194,7 @@ class Ui_MainWindow(object):
         self.VideoAutoStat.setText(_translate(
             "MainWindow", "Automatic Video Recording Default Stauts"))
         self.KeystrokeMainLabel.setText(_translate("MainWindow", "Keystroke"))
-        self.StorageInValue.setText(_translate("MainWindow", "30"))
+        self.StorageInValue.setText(_translate("MainWindow", ""))
         self.VideoWaitSelection.setItemText(
             0, _translate("MainWindow", "Video Recording Wait"))
         self.VideoWaitSelection.setItemText(1, _translate("MainWindow", "15"))
@@ -4299,35 +4309,6 @@ class Ui_MainWindow(object):
             "MainWindow", "Error: Please select video sync scope above."))
         self.tabWidget.setTabText(self.tabWidget.indexOf(
             self.tab_3), _translate("MainWindow", "Sync"))
-
-        # portion for the tag_table
-        self.table_tag.setSortingEnabled(1)  # allows for the sorting in the columns
-        self.table_tag.setSortingEnabled(1)
-        # portion needed for the accordion view
-        self.tree = QtWidgets.QTreeWidget()
-        self.tree.setHeaderHidden(True)
-        self.sections = []
-        self.define_sections()
-        self.add_sections()
-
-        # portion
-        self.VideoStatOnButton.clicked.connect(self.toggleButtons)
-        self.VideoStatusOffButton.clicked.connect(self.toggleButtons)
-        self.ScreenshotStatOnButton.clicked.connect(self.toggleButtons)
-        self.ScreenshotStatOffButton.clicked.connect(self.toggleButtons)
-        self.SystemCallOnButton.clicked.connect(self.toggleButtons)
-        self.SystemCallOffButton.clicked.connect(self.toggleButtons)
-        self.WindowHistoryOnButton.clicked.connect(self.toggleButtons)
-        self.WindowHistoryOffButton.clicked.connect(self.toggleButtons)
-        self.KeyStrokeStatOnButton.clicked.connect(self.toggleButtons)
-        self.KeyStrokeStatOffButton.clicked.connect(self.toggleButtons)
-        self.MouseActOnButton.clicked.connect(self.toggleButtons)
-        self.MouseActOffButton.clicked.connect(self.toggleButtons)
-        self.NetworkActivityDataOnButton.clicked.connect(self.toggleButtons)
-        self.NetworkActivityDataOffButton.clicked.connect(self.toggleButtons)
-        self.ProcessStatOnButton.clicked.connect(self.toggleButtons)
-        self.ProcessStatOffButton.clicked.connect(self.toggleButtons)
-        self.tag_add_button.clicked.connect(self.add_row)
 
     def add_bar_graph(self):
         set0 = QBarSet('Screenshot')

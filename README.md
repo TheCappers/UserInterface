@@ -16,16 +16,15 @@ triggers and creation of custom widgets.
 
 When editing the ui within QT, simply save, and run:
 ```
-_pyuic5 AvertUI.ui -o avert.py_
+_pyuic5 AvertUI.ui -o entername.py
 ```
 
-This converts the `AvertUI.ui` file to a **python executable** and from there run the main and address 
-the result or errors that are brought up. 
-
-### Configuration View, Accordion (HomePage), and Tag Tab in Detailed View
-
-This repo holds the `AvertUI.ui` file produced using QT Designer as well as the 
-Python executable, `avert.py` which has no additional code to it. This means that the code
-included within William's branch which I merged was removed due to it being overwritten 
-everytime the avert.ui file was modified and saved. All additonal code was added into the main.py 
-executable which houses the needed items to run the UI. 
+This converts the `AvertUI.ui` file to a **python executable** which you can copy and paste towards avert.py. You need 
+to copy and paste these changes because if you run 
+```
+_pyuic5 AvertUI.ui -o avert.py
+```
+It will overwrite all the work that has been added manually by code. Code was added manually by different members of the 
+team and thus any changes to the UI must be copy and pasted. Once you copy and paste your UI changes in to avert.py. Make 
+any behavioral coding within **main.py**. 
+ 

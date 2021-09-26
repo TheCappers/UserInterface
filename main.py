@@ -60,6 +60,7 @@ class AvertApp(QtWidgets.QMainWindow, avert.Ui_MainWindow):
         self.ProcessStatOnButton.clicked.connect(self.toggleButtons)
         self.ProcessStatOffButton.clicked.connect(self.toggleButtons)
         self.tag_add_button.clicked.connect(self.add_row)
+        self.universalRecord.clicked.connect(self.universalButton)
 
 
 
@@ -262,6 +263,51 @@ class AvertApp(QtWidgets.QMainWindow, avert.Ui_MainWindow):
         self.table_tag.setItem(row_position, 1, rest_item)
         self.table_tag.setItem(row_position, 2, check_item)
 
+    def universalButton(self):
+        '''
+        change the text and checked from the press on the universal record button
+        will check and uncheck the config buttons
+        '''
+        if self.universalRecord.isChecked(): # if on
+            self.universalRecord.setText('Record On')
+
+            # check all the on buttons and uncheck the offs
+            self.VideoStatOnButton.setChecked(1)  # check the button we clicked
+            self.VideoStatusOffButton.setChecked(0)  # check false the off button incase it is checked
+            self.ScreenshotStatOnButton.setChecked(1)  # check the button we clicked
+            self.ScreenshotStatOffButton.setChecked(0)  # check false the off button incase it is checked
+            self.SystemCallOnButton.setChecked(1)  # check the button we clicked
+            self.SystemCallOffButton.setChecked(0)  # check false the off button incase it is checked
+            self.WindowHistoryOnButton.setChecked(1)  # check the button we clicked
+            self.WindowHistoryOffButton.setChecked(0)  # check false the off button incase it is checked
+            self.KeyStrokeStatOnButton.setChecked(1)  # check the button we clicked
+            self.KeyStrokeStatOffButton.setChecked(0)  # check false the off button incase it is checked
+            self.MouseActOnButton.setChecked(1)  # check the button we clicked
+            self.MouseActOffButton.setChecked(0)  # check false the off button incase it is checked
+            self.NetworkActivityDataOnButton.setChecked(1)  # check the button we clicked
+            self.NetworkActivityDataOffButton.setChecked(0)  # check false the off button incase it is checked
+            self.ProcessStatOnButton.setChecked(1)  # check the button we clicked
+            self.ProcessStatOffButton.setChecked(0)  # check false the off button incase it is checked
+        else: # if off
+            self.universalRecord.setText('Record Off')
+
+            # check all the off buttons and uncheck ons
+            self.VideoStatOnButton.setChecked(0)  # check off the on button
+            self.VideoStatusOffButton.setChecked(1)  # check on the off button
+            self.ScreenshotStatOnButton.setChecked(0)  # check off the on button
+            self.ScreenshotStatOffButton.setChecked(1)  # check on the off button
+            self.SystemCallOnButton.setChecked(0)  # check off the on button
+            self.SystemCallOffButton.setChecked(1)  # check on the off button
+            self.WindowHistoryOnButton.setChecked(0)  # check off the on button
+            self.WindowHistoryOffButton.setChecked(1)  # check on the off button
+            self.KeyStrokeStatOnButton.setChecked(0)  # check off the on button
+            self.KeyStrokeStatOffButton.setChecked(1)  # check on the off button
+            self.MouseActOnButton.setChecked(0)  # check off the on button
+            self.MouseActOffButton.setChecked(1)  # check on the off button
+            self.NetworkActivityDataOnButton.setChecked(0)  # check off the on button
+            self.NetworkActivityDataOffButton.setChecked(1)  # check on the off button
+            self.ProcessStatOnButton.setChecked(0)  # check off the on button
+            self.ProcessStatOffButton.setChecked(1)  # check on the off button
 
 def main():
     app = QApplication(sys.argv)
