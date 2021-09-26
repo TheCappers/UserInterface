@@ -16,7 +16,7 @@ triggers and creation of custom widgets.
 
 When editing the ui within QT, simply save, and run:
 ```
-_pyuic5 AvertUI.ui -o avert.py_
+pyuic5 AvertUI.ui -o avert.py
 ```
 
 This converts the `AvertUI.ui` file to a **python executable** and from there run the main and address 
