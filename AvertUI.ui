@@ -382,7 +382,7 @@
                     </property>
                     <property name="text">
                      <string>Date and Time</string>
-                    </property>
+                    </property>universal
                    </widget>
                   </item>
                   <item row="17" column="1">
