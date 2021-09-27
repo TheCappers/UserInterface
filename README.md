@@ -16,13 +16,13 @@ triggers and creation of custom widgets.
 
 When editing the ui within QT, simply save, and run:
 ```
-_pyuic5 AvertUI.ui -o entername.py
+pyuic5 AvertUI.ui -o somename.py
 ```
 
 This converts the `AvertUI.ui` file to a **python executable** which you can copy and paste towards avert.py. You need 
 to copy and paste these changes because if you run 
 ```
-_pyuic5 AvertUI.ui -o avert.py
+pyuic5 AvertUI.ui -o avert.py
 ```
 It will overwrite all the work that has been added manually by code. Code was added manually by different members of the 
 team and thus any changes to the UI must be copy and pasted. Once you copy and paste your UI changes in to avert.py. Make 
