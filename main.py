@@ -1,8 +1,7 @@
 from PyQt5 import QtCore, QtWidgets
 
-from accordion_floating import Ui_Form
-from avert import Ui_MainWindow
-
+from view.accordion_floating import Ui_Form
+from view.avert import Ui_MainWindow
 import sys
 
 

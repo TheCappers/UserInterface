@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from components import addition_for_synctab, bar_graph, pics_for_detailedview
+from view.components import addition_for_synctab, bar_graph, pics_for_detailedview
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1649,7 +1649,7 @@ class Ui_MainWindow(object):
         self.label_94 = QtWidgets.QLabel(self.frame_12)
         self.label_94.setMaximumSize(QtCore.QSize(301, 241))
         self.label_94.setText("")
-        self.label_94.setPixmap(QtGui.QPixmap("assets/pie-chart-too-few-slices.png"))
+        self.label_94.setPixmap(QtGui.QPixmap("view/assets/pie-chart-too-few-slices.png"))
         self.label_94.setObjectName("label_94")
         self.gridLayout_15.addWidget(self.label_94, 0, 0, 1, 1)
         self.gridLayout_34.addWidget(self.frame_12, 1, 0, 1, 2)
