@@ -32,7 +32,7 @@ class MouseRecorder(RecordedData):
     def start(self):
         self.__listener.start()
 
-    # stop method goes here (stops the listener)
+    # stop method goes here (stotypeps the listener)
     def stop(self):
         self.__listener.stop()
 
