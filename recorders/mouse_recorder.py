@@ -10,15 +10,17 @@ class MouseRecorder(RecordedData):
             on_move=self.__on_move,
             on_click=self.__on_click,
             on_scroll=self.__on_scroll)
+        self.mouse_movement = {"position": (0,0), "clicked": False}
 
     def __on_move(self, x, y):
-        print('Pointer moved to {0}'.format(
-            (x, y)))
+        self.mouse_movement['position'] = (x,y)
+        print(self.mouse_movement)
 
     def __on_click(self, x, y, button, pressed):
-        print('{0} at {1}'.format(
-            'Pressed' if pressed else 'Released',
-            (x, y)))
+        if pressed:
+            self.mouse_movement['clicked'] = True
+        else:
+            self.mouse_movement['clicked'] = False
 
     def __on_scroll(self, x, y, dx, dy):
         print('Scrolled {0} at {1}'.format(
@@ -33,3 +35,9 @@ class MouseRecorder(RecordedData):
     def stop(self):
         self.__listener.stop()
 
+r = RecordedData()
+m = MouseRecorder()
+r.recorded_data['type'] = "mouse_movement"
+r.recorded_data['data'] = m.mouse_movement
+
+print(r.recorded_data)

@@ -3,8 +3,9 @@ all:
 
 clean:
 	(rm -rf __pycache__)
-	(cd components; rm -rf __pycache__; cd ..)
-	(cd configuration; rm -rf __pycache__; cd ..)
-	(cd controller; rm -rf __pycache__; cd ..)
-	(cd view; rm -rf __pycache__; cd ..)
-	(cd view/components; rm -rf __pycache__; cd ../..)
+	(rm -rf configuration/__pycache__)
+	(rm -rf controller/__pycache__)
+	(rm -rf recorders/__pycache__)
+	(rm -rf view/__pycache__)
+	(rm -rf view/components/__pycache__)
+	(rm -rf view/assets/__pycache__)

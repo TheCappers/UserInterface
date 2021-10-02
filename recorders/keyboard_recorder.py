@@ -6,25 +6,18 @@ from recorders.recorded_data import RecordedData
 class KeyboardRecorder(RecordedData):
 		def __init__(self, isRecord):
 			self.isRecord = isRecord
-			if self.isRecord:
-				print("true")
-				self.startKeyboardRecording()
-			else:
-				print("nope")
-				self.stopKeyboardRecording()
+			self.listener = keyboard.Listener(
+				on_press=self.on_press,
+				on_release=self.on_release
+			)
 
 		def startKeyboardRecording(self):
 			# ...or, in a non-blocking fashion:
-			listener = keyboard.Listener(
-    		on_press=self.on_press,
-   			on_release=self.on_release)
-			listener.start()
+			self.listener.start()
 			print('start keyboard recordig')
 
 		def stopKeyboardRecording(self):
-			listener.stop(
-				StopException = True
-			)
+			self.listener.stop()
 			print('stop keyboard recording')
 
 		def on_press(self, key):
