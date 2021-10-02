@@ -23,7 +23,7 @@ class RecordedData:
         # gets computer time
         now = datetime.now()
         # dd/mm/YY H:M:S
-        dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+        dt_string = now.strftime("%H:%M:%S %m/%d/%Y")
         print(dt_string) 
 
         

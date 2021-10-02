@@ -1,8 +1,9 @@
 from pynput import keyboard
 from pynput.keyboard import Key, Controller
+from recorders.recorded_data import RecordedData
 
 
-class KeyboardRecorder:
+class KeyboardRecorder(RecordedData):
 		def __init__(self, isRecord):
 			self.isRecord = isRecord
 			if self.isRecord:
