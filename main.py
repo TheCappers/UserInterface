@@ -3,6 +3,10 @@ from PyQt5 import QtCore, QtWidgets
 from view.accordion_floating import Ui_Form
 from view.avert import Ui_MainWindow
 import sys
+from pynput.keyboard import Key, Controller
+from controller.controller import Controller_
+
+
 
 
 class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -173,6 +177,8 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.NetworkActivityDataOffButton.setChecked(1)  # check on the off button
             self.ProcessStatOnButton.setChecked(0)  # check off the on button
             self.ProcessStatOffButton.setChecked(1)  # check on the off button
+    print('a')
+    Controller_()
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
