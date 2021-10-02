@@ -1,7 +1,7 @@
 from pynput import keyboard
 from pynput.keyboard import Key, Controller
-from recorders.recorded_data import RecordedData
-
+from recorded_data import RecordedData
+import time
 
 class KeyboardRecorder(RecordedData):
 		def __init__(self, isRecord):
@@ -10,6 +10,7 @@ class KeyboardRecorder(RecordedData):
 				on_press=self.on_press,
 				on_release=self.on_release
 			)
+			self.keystroke = 'h'
 
 		def startKeyboardRecording(self):
 			# ...or, in a non-blocking fashion:
@@ -22,12 +23,13 @@ class KeyboardRecorder(RecordedData):
 
 		def on_press(self, key):
 				try:
+						self.keystroke = key.char
 						print('alphanumeric key {0} pressed'.format(
 								key.char))
-						self.get_timestamp()
 				except AttributeError:
 						print('special key {0} pressed'.format(
 								key))
+						self.keystroke = key
 
 		def on_release(self, key):
 				print('{0} released'.format(
@@ -35,3 +37,18 @@ class KeyboardRecorder(RecordedData):
 				if key == keyboard.Key.esc:
 						# Stop listener
 						return False
+
+
+r = RecordedData()
+k = KeyboardRecorder(True)
+"""
+k.startKeyboardRecording()
+time.sleep(4)
+k.stopKeyboardRecording()"""
+r.recorded_data['name'] = "keystroke"
+"""m.start()
+time.sleep(2)
+m.stop()"""
+r.recorded_data['data'] = k.keystroke
+print(r.recorded_data['name'])
+print(r.recorded_data['data'])
