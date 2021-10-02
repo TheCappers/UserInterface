@@ -35,3 +35,9 @@ class MouseRecorder(RecordedData):
     def stop(self):
         self.__listener.stop()
 
+r = RecordedData()
+m = MouseRecorder()
+r.recorded_data['type'] = "mouse_movement"
+r.recorded_data['data'] = m.mouse_movement
+
+print(r.recorded_data)
