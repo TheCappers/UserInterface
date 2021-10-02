@@ -1,9 +1,10 @@
 from pynput import mouse
-
+from recorders.recorded_data import RecordedData
 '''
 Sets up listener. To start the listener invoke start() and to stop it invoke stop()
 '''
-class MouseRecorder:
+class MouseRecorder(RecordedData):
+
     def __init__(self):
         self.__listener = mouse.Listener(
             on_move=self.__on_move,
