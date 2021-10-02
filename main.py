@@ -1,1 +1,190 @@
-Z
+from PyQt5 import QtCore, QtWidgets
+
+from view.accordion_floating import Ui_Form
+from view.avert import Ui_MainWindow
+import sys
+
+
+class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
+    def __init__(self):
+        super(AvertApp, self).__init__()
+        self.setupUi(self)
+
+        # portion for the tag_table
+        self.table_tag.setSortingEnabled(1)  # allows for the sorting in the columns
+
+        # automatic on button checked
+        self.VideoStatOnButton.clicked.connect(self.toggleButtons)
+        self.VideoStatusOffButton.clicked.connect(self.toggleButtons)
+        self.ScreenshotStatOnButton.clicked.connect(self.toggleButtons)
+        self.ScreenshotStatOffButton.clicked.connect(self.toggleButtons)
+        self.SystemCallOnButton.clicked.connect(self.toggleButtons)
+        self.SystemCallOffButton.clicked.connect(self.toggleButtons)
+        self.WindowHistoryOnButton.clicked.connect(self.toggleButtons)
+        self.WindowHistoryOffButton.clicked.connect(self.toggleButtons)
+        self.KeyStrokeStatOnButton.clicked.connect(self.toggleButtons)
+        self.KeyStrokeStatOffButton.clicked.connect(self.toggleButtons)
+        self.MouseActOnButton.clicked.connect(self.toggleButtons)
+        self.MouseActOffButton.clicked.connect(self.toggleButtons)
+        self.NetworkActivityDataOnButton.clicked.connect(self.toggleButtons)
+        self.NetworkActivityDataOffButton.clicked.connect(self.toggleButtons)
+        self.ProcessStatOnButton.clicked.connect(self.toggleButtons)
+        self.ProcessStatOffButton.clicked.connect(self.toggleButtons)
+        self.tag_add_button.clicked.connect(self.add_row)
+        self.universalRecord.clicked.connect(self.universalButton)
+
+
+
+    # button toggle method
+    '''
+    Author: David Amparan Date: 9/7/2021
+    Purpose: Allow recording status buttons (on and off) as a toggle buttons
+    meaning when one is pressed it stays down and when the other is pressed it stays down 
+    while the other one pops up
+    '''
+
+    def toggleButtons(self):  # called upon by button automatically will know which button
+        if self.sender().objectName().__contains__("Video") and self.sender().objectName().__contains__('On'):
+            self.VideoStatOnButton.setChecked(1)  # check the button we clicked
+            self.VideoStatusOffButton.setChecked(0)  # check false the off button incase it is checked
+
+        if self.sender().objectName().__contains__("Video") and self.sender().objectName().__contains__('Off'):
+            self.VideoStatOnButton.setChecked(0)  # check off the on button
+            self.VideoStatusOffButton.setChecked(1)  # check on the off button
+
+        if self.sender().objectName().__contains__("Screenshot") and self.sender().objectName().__contains__('On'):
+            self.ScreenshotStatOnButton.setChecked(1)  # check the button we clicked
+            self.ScreenshotStatOffButton.setChecked(0)  # check false the off button incase it is checked
+
+        if self.sender().objectName().__contains__("Screenshot") and self.sender().objectName().__contains__('Off'):
+            self.ScreenshotStatOnButton.setChecked(0)  # check off the on button
+            self.ScreenshotStatOffButton.setChecked(1)  # check on the off button
+
+        if self.sender().objectName().__contains__("Sys") and self.sender().objectName().__contains__('On'):
+            self.SystemCallOnButton.setChecked(1)  # check the button we clicked
+            self.SystemCallOffButton.setChecked(0)  # check false the off button incase it is checked
+
+        if self.sender().objectName().__contains__("Sys") and self.sender().objectName().__contains__('Off'):
+            self.SystemCallOnButton.setChecked(0)  # check off the on button
+            self.SystemCallOffButton.setChecked(1)  # check on the off button
+
+        if self.sender().objectName().__contains__("Win") and self.sender().objectName().__contains__('On'):
+            self.WindowHistoryOnButton.setChecked(1)  # check the button we clicked
+            self.WindowHistoryOffButton.setChecked(0)  # check false the off button incase it is checked
+
+        if self.sender().objectName().__contains__("Win") and self.sender().objectName().__contains__('Off'):
+            self.WindowHistoryOnButton.setChecked(0)  # check off the on button
+            self.WindowHistoryOffButton.setChecked(1)  # check on the off button
+
+        if self.sender().objectName().__contains__("KeyStroke") and self.sender().objectName().__contains__('On'):
+            self.KeyStrokeStatOnButton.setChecked(1)  # check the button we clicked
+            self.KeyStrokeStatOffButton.setChecked(0)  # check false the off button incase it is checked
+
+        if self.sender().objectName().__contains__("KeyStroke") and self.sender().objectName().__contains__('Off'):
+            self.KeyStrokeStatOnButton.setChecked(0)  # check off the on button
+            self.KeyStrokeStatOffButton.setChecked(1)  # check on the off button
+
+        if self.sender().objectName().__contains__("Mouse") and self.sender().objectName().__contains__('On'):
+            self.MouseActOnButton.setChecked(1)  # check the button we clicked
+            self.MouseActOffButton.setChecked(0)  # check false the off button incase it is checked
+
+        if self.sender().objectName().__contains__("Mouse") and self.sender().objectName().__contains__('Off'):
+            self.MouseActOnButton.setChecked(0)  # check off the on button
+            self.MouseActOffButton.setChecked(1)  # check on the off button
+
+        if self.sender().objectName().__contains__("Network") and self.sender().objectName().__contains__('On'):
+            self.NetworkActivityDataOnButton.setChecked(1)  # check the button we clicked
+            self.NetworkActivityDataOffButton.setChecked(0)  # check false the off button incase it is checked
+
+        if self.sender().objectName().__contains__("Network") and self.sender().objectName().__contains__('Off'):
+            self.NetworkActivityDataOnButton.setChecked(0)  # check off the on button
+            self.NetworkActivityDataOffButton.setChecked(1)  # check on the off button
+
+        if self.sender().objectName().__contains__("Process") and self.sender().objectName().__contains__('On'):
+            self.ProcessStatOnButton.setChecked(1)  # check the button we clicked
+            self.ProcessStatOffButton.setChecked(0)  # check false the off button incase it is checked
+
+        if self.sender().objectName().__contains__("Process") and self.sender().objectName().__contains__('Off'):
+            self.ProcessStatOnButton.setChecked(0)  # check off the on button
+            self.ProcessStatOffButton.setChecked(1)  # check on the off button
+
+
+    def add_row(self):  # add a row when the button add is selected
+        """
+        create new row in the qwidget table within tag area of
+        detailed view
+        :return: none
+        """
+        row_position = self.table_tag.rowCount()  # the total rows
+
+        check_item = QtWidgets.QTableWidgetItem()
+        check_item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
+        check_item.setCheckState(QtCore.Qt.Unchecked)
+        rest_item = QtWidgets.QTableWidgetItem()
+        rest_item.setFlags(QtCore.Qt.ItemIsSelectable)
+
+        self.table_tag.insertRow(row_position)
+        self.table_tag.setItem(row_position, 0, check_item)
+        self.table_tag.setItem(row_position, 1, rest_item)
+        self.table_tag.setItem(row_position, 2, check_item)
+
+    def universalButton(self):
+        '''
+        change the text and checked from the press on the universal record button
+        will check and uncheck the config buttons
+        '''
+        if self.universalRecord.isChecked(): # if on
+            self.universalRecord.setText('Record On')
+
+            # check all the on buttons and uncheck the offs
+            self.VideoStatOnButton.setChecked(1)  # check the button we clicked
+            self.VideoStatusOffButton.setChecked(0)  # check false the off button incase it is checked
+            self.ScreenshotStatOnButton.setChecked(1)  # check the button we clicked
+            self.ScreenshotStatOffButton.setChecked(0)  # check false the off button incase it is checked
+            self.SystemCallOnButton.setChecked(1)  # check the button we clicked
+            self.SystemCallOffButton.setChecked(0)  # check false the off button incase it is checked
+            self.WindowHistoryOnButton.setChecked(1)  # check the button we clicked
+            self.WindowHistoryOffButton.setChecked(0)  # check false the off button incase it is checked
+            self.KeyStrokeStatOnButton.setChecked(1)  # check the button we clicked
+            self.KeyStrokeStatOffButton.setChecked(0)  # check false the off button incase it is checked
+            self.MouseActOnButton.setChecked(1)  # check the button we clicked
+            self.MouseActOffButton.setChecked(0)  # check false the off button incase it is checked
+            self.NetworkActivityDataOnButton.setChecked(1)  # check the button we clicked
+            self.NetworkActivityDataOffButton.setChecked(0)  # check false the off button incase it is checked
+            self.ProcessStatOnButton.setChecked(1)  # check the button we clicked
+            self.ProcessStatOffButton.setChecked(0)  # check false the off button incase it is checked
+        else: # if off
+            self.universalRecord.setText('Record Off')
+
+            # check all the off buttons and uncheck ons
+            self.VideoStatOnButton.setChecked(0)  # check off the on button
+            self.VideoStatusOffButton.setChecked(1)  # check on the off button
+            self.ScreenshotStatOnButton.setChecked(0)  # check off the on button
+            self.ScreenshotStatOffButton.setChecked(1)  # check on the off button
+            self.SystemCallOnButton.setChecked(0)  # check off the on button
+            self.SystemCallOffButton.setChecked(1)  # check on the off button
+            self.WindowHistoryOnButton.setChecked(0)  # check off the on button
+            self.WindowHistoryOffButton.setChecked(1)  # check on the off button
+            self.KeyStrokeStatOnButton.setChecked(0)  # check off the on button
+            self.KeyStrokeStatOffButton.setChecked(1)  # check on the off button
+            self.MouseActOnButton.setChecked(0)  # check off the on button
+            self.MouseActOffButton.setChecked(1)  # check on the off button
+            self.NetworkActivityDataOnButton.setChecked(0)  # check off the on button
+            self.NetworkActivityDataOffButton.setChecked(1)  # check on the off button
+            self.ProcessStatOnButton.setChecked(0)  # check off the on button
+            self.ProcessStatOffButton.setChecked(1)  # check on the off button
+
+def main():
+    app = QtWidgets.QApplication(sys.argv)
+    form = AvertApp()
+    form.show()
+
+    Form = QtWidgets.QWidget()
+    form2 = Ui_Form()
+    form2.setupUi(Form)
+    Form.show()
+    app.exec()
+
+
+if __name__ == '__main__':
+    main()
