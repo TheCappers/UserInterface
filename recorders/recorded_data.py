@@ -14,14 +14,13 @@ class RecordedData:
     def get_ip_address(self):
         hostname = socket.gethostname()
         local_ip = socket.gethostbyname(hostname)
-        print(local_ip)
+        return local_ip
 
     def get_mac_addres(self):
-        print(get_mac())
+        return get_mac()
     
     def get_timestamp(self):
         # gets computer time
         now = datetime.now()
         # dd/mm/YY H:M:S
-        dt_string = now.strftime("%H:%M:%S %m/%d/%Y")
-        print(dt_string) 
+        return now.strftime("%H:%M:%S %m/%d/%Y")

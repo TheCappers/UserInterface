@@ -22,15 +22,16 @@ class KeyboardRecorder(RecordedData):
 			print('start keyboard recordig')
 
 		def stopKeyboardRecording(self):
-			"""listener.stop(
+			listener.stop(
 				StopException = True
-			)"""
+			)
 			print('stop keyboard recording')
 
 		def on_press(self, key):
 				try:
 						print('alphanumeric key {0} pressed'.format(
 								key.char))
+						self.get_timestamp()
 				except AttributeError:
 						print('special key {0} pressed'.format(
 								key))
