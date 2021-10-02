@@ -25,9 +25,3 @@ class RecordedData:
         # dd/mm/YY H:M:S
         dt_string = now.strftime("%H:%M:%S %m/%d/%Y")
         print(dt_string) 
-
-        
-rd = RecordedData()
-rd.get_ip_address()
-rd.get_mac_addres()
-rd.get_timestamp()
