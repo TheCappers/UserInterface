@@ -4,10 +4,12 @@ from datetime import datetime
 
 class RecordedData:
     def __init__(self):
-        self.ip_address = ""
-        self.mac_address = ""
-        self.timestamp = ""
-        self.name = ""
+        """ Attributes """
+        # self.ip_address = ""
+        # self.mac_address = ""
+        # self.timestamp = ""
+        # self.name = ""
+        """ Attributes """
 
     def get_ip_address(self):
         hostname = socket.gethostname()
