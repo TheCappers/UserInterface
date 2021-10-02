@@ -8,7 +8,6 @@ from controller.controller import Controller_
 
 
 
-
 class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(AvertApp, self).__init__()
@@ -177,8 +176,8 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.NetworkActivityDataOffButton.setChecked(1)  # check on the off button
             self.ProcessStatOnButton.setChecked(0)  # check off the on button
             self.ProcessStatOffButton.setChecked(1)  # check on the off button
-    print('a')
     Controller_()
+
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
