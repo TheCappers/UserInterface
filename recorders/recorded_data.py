@@ -20,13 +20,17 @@ class RecordedData:
 
     def get_mac_address(self):
         mac = get_mac()
-        return ':'.join(("%012X" % mac)[i:i+2] for i in range(0, 12, 2))
-
+        return ':'.join(("%012X" % mac)[i:i+2] for i in range(0, 12, 2)) 
+    
     def get_timestamp(self):
         # gets computer time
         now = datetime.now()
         # dd/mm/YY H:M:S
         return now.strftime("%H:%M:%S %m/%d/%Y")
-
+    
     def get_recorded_data(self):
         return self.recorded_data
+
+
+# R = RecordedData()
+# print(R.get_mac_address())
