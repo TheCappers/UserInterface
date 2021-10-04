@@ -62,10 +62,15 @@ class DataBase:
                 self.__delete_one(self.keystroke_collection, post)
             if post.get('name') == "Mouse_Action":
                 self.__delete_one(self.mouse_collection, post)
-
-
+                
 """
 post_1 = {
+    "name": "Mouse_Action",
+    "Keystroke": "H",
+    "Date": "9/11/2021",
+    "IP Address": "1.2.3.4",
+}post_1 = {
+    "_id": "77",
     "name": "Mouse_Action",
     "Keystroke": "H",
     "Date": "9/11/2021",
@@ -99,12 +104,11 @@ updated_post = {"name": "Keystroke"}
 db = DataBase()
 
 db.query_db("post", post_1, "")
-db.query_db("post", post_1)
-db.query_db("post", post_2)
-db.query_db("post", post_3)
+db.query_db("post", post_2, "")
+db.query_db("post", post_3, "")
 db.query_db("post", post_x, "")
 
-# find subject to change
+find subject to change
 print(db.query_db("find", post_1, ""))
 print(db.query_db("find", post_2, ""))
 print(db.query_db("find", post_3, ""))

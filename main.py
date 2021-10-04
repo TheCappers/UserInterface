@@ -1,11 +1,12 @@
 from PyQt5 import QtCore, QtWidgets
-
 from view.accordion_floating import Ui_Form
 from view.avert import Ui_MainWindow
 import sys
-from pynput.keyboard import Key, Controller
-from controller.controller import Controller_
+import time
+from controller import controller
 
+# global values
+control = controller.Controller()
 
 
 class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -36,7 +37,8 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tag_add_button.clicked.connect(self.add_row)
         self.universalRecord.clicked.connect(self.universalButton)
 
-
+        # threshold changing
+        self.StorageInValue.textEdited.connect(self.thresholdChange)
 
     # button toggle method
     '''
@@ -111,7 +113,6 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.ProcessStatOnButton.setChecked(0)  # check off the on button
             self.ProcessStatOffButton.setChecked(1)  # check on the off button
 
-
     def add_row(self):  # add a row when the button add is selected
         """
         create new row in the qwidget table within tag area of
@@ -132,11 +133,13 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.table_tag.setItem(row_position, 2, check_item)
 
     def universalButton(self):
-        '''
-        change the text and checked from the press on the universal record button
-        will check and uncheck the config buttons
-        '''
-        if self.universalRecord.isChecked(): # if on
+        if self.universalRecord.isChecked():  # if on
+            control.universalRecording(True)
+            '''
+             change the text and checked from the press on the universal record button
+             will check and uncheck the config buttons
+             GUI CHANGES
+             '''
             self.universalRecord.setText('Record On')
 
             # check all the on buttons and uncheck the offs
@@ -156,10 +159,16 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.NetworkActivityDataOffButton.setChecked(0)  # check false the off button incase it is checked
             self.ProcessStatOnButton.setChecked(1)  # check the button we clicked
             self.ProcessStatOffButton.setChecked(0)  # check false the off button incase it is checked
-        else: # if off
+        else:  # if off
+            control.universalRecording(False)
+            '''
+             change the text and checked from the press on the universal record button
+             will check and uncheck the config buttons
+             GUI CHANGES
+             '''
             self.universalRecord.setText('Record Off')
-
             # check all the off buttons and uncheck ons
+
             self.VideoStatOnButton.setChecked(0)  # check off the on button
             self.VideoStatusOffButton.setChecked(1)  # check on the off button
             self.ScreenshotStatOnButton.setChecked(0)  # check off the on button
@@ -176,7 +185,14 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.NetworkActivityDataOffButton.setChecked(1)  # check on the off button
             self.ProcessStatOnButton.setChecked(0)  # check off the on button
             self.ProcessStatOffButton.setChecked(1)  # check on the off button
-    Controller_()
+
+    def thresholdChange(self):
+        if self.StorageInValue.text() == '':  # in case empty
+            full = control.storageRecording(70)  # set to default as user inputs full number
+        else:
+            full = control.storageRecording(float(self.StorageInValue.text()))  # send the value
+            if full:
+                QtWidgets.QMessageBox.about(self, 'Storage Alert', 'Storage is full')
 
 
 def main():
