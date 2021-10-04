@@ -47,6 +47,19 @@ class MouseRecorder(RecordedData):
     def terminate(self):
         self.__listener.stop()
 
+    def insert_to_db(self):
+        r = RecordedData()
+        post_1 = {
+            "name": "Mouse_Action",
+            "coordinate": self.mouse_movement['position'],
+            "click": self.mouse_movement['clicked'],
+            "date": r.recorded_data['timestamp'],
+            "ip_address": r.recorded_data['ip_address'],
+            "mac_address": r.recorded_data['mac_address']
+        }
+        db = DataBase()
+        db.query_db("post", post_1, "")
+
 
 # This is for getting full recording data
 # r = RecordedData()
