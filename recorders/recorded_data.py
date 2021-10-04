@@ -1,6 +1,7 @@
 import socket
 from uuid import getnode as get_mac
 from datetime import datetime
+from Database.Database import DataBase
 
 class RecordedData:
     def __init__(self):
@@ -30,6 +31,15 @@ class RecordedData:
     
     def get_recorded_data(self):
         return self.recorded_data
+    
+    def save_recorded_data(self, data_dict):
+      print(data_dict)
+      self.recorded_data.update(data_dict)
+      print(self.recorded_data)
+      DataBase().db_query("post", self.recorded_data, "")
+      print(data_dict)
+      print(DataBase().query_db("find", self.recorded_data, "")) # for checking purpose
+      return
 
 
 # R = RecordedData()
