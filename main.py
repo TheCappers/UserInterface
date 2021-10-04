@@ -37,7 +37,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tag_add_button.clicked.connect(self.add_row)
         self.universalRecord.clicked.connect(self.universalButton)
 
-        #threshold changing
+        # threshold changing
         self.StorageInValue.textEdited.connect(self.thresholdChange)
 
     # button toggle method
@@ -187,12 +187,12 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.ProcessStatOffButton.setChecked(1)  # check on the off button
 
     def thresholdChange(self):
-        if self.StorageInValue.text() == '': #in case empty
-            full = control.storageRecording(60)  # set to default as user inputs full number
+        if self.StorageInValue.text() == '':  # in case empty
+            full = control.storageRecording(70)  # set to default as user inputs full number
         else:
-            full = control.storageRecording(float(self.StorageInValue.text())) # send the value
-        print(full)
-
+            full = control.storageRecording(float(self.StorageInValue.text()))  # send the value
+            if full:
+                QtWidgets.QMessageBox.about(self, 'Storage Alert', 'Storage is full')
 
 
 def main():

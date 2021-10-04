@@ -9,9 +9,10 @@ from recorders import keyboard_recorder, mouse_recorder
 keyboard = keyboard_recorder.KeyboardRecorder(True)
 mouse = mouse_recorder.MouseRecorder()
 
+
 class Configuration:
     def __init__(self):  # configurator constructor
-        self.__threshold = 90  # interpret as percent
+        self.__threshold = 70  # interpret as percent
         # can be affected by all gui recording buttons checkmarks etc\
         self.__universal_on = True  # automatically on
         self.__keystroke_on = True
@@ -40,24 +41,25 @@ class Configuration:
     def setUniversalOn(self, universal_value):  # applies default values
         self.__universal_on = universal_value
         print('From Config: ', self.__universal_on)
+
         if universal_value:
             self.setKeystroke(True)
             self.setMouseAction(True)
             # recorders
-            keyboard.isRecord(universal_value)  # updating recording value
+            keyboard.isRecord = universal_value  # updating recording value
             keyboard.startKeyboardRecording()
             mouse.start()
         else:
             self.setKeystroke(False)
             self.setMouseAction(False)
             # recorders
-            keyboard.isRecord(universal_value)  # updating recording value
+            keyboard.isRecord = universal_value  # updating recording value
             keyboard.stopKeyboardRecording()
             mouse.stop()
 
     def setKeystroke(self, keystroke_value):
         self.__keystroke_on = keystroke_value
-        keyboard.isRecord(keystroke_value) # updating recording value
+        keyboard.isRecord = keystroke_value  # updating recording value
         # controlling the recorder
         if keystroke_value:
             keyboard.startKeyboardRecording()
@@ -84,8 +86,4 @@ class Configuration:
         else:
             return False  # all good nothing going on
         # probably do not need this
-        '''
-        else:
-            self.setMouseAction(hist[0])
-            self.setKeystroke(hist[1])
-        '''
+
