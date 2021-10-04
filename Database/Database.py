@@ -1,5 +1,5 @@
-import pymongo
 from pymongo import MongoClient
+from bson.objectid import ObjectId
 
 
 class DataBase:
@@ -13,6 +13,7 @@ class DataBase:
 
     # done
     def __insert_post(self, collection, post):
+        post.update({"_id": ObjectId().__str__()})
         collection.insert_one(post)
 
     def __find_one(self, collection, post):
@@ -61,10 +62,9 @@ class DataBase:
                 self.__delete_one(self.keystroke_collection, post)
             if post.get('name') == "Mouse_Action":
                 self.__delete_one(self.mouse_collection, post)
-
+                
 """
 post_1 = {
-    "_id": "77",
     "name": "Mouse_Action",
     "Keystroke": "H",
     "Date": "9/11/2021",
@@ -91,18 +91,29 @@ post_3 = {
     "IP Address": "1.2.3.4",
 }
 
+post_x = {
+    "_id": "99",
+    "name": "Keystroke",
+    "Keystroke": "Manny",
+    "Date": "9/11/2380923874276",
+    "IP Address": "1.2.3fgfdjshakdf.4",
+}
+
 updated_post = {"name": "Keystroke"}
 
 db = DataBase()
-db.query_db("post", post_1)
-db.query_db("post", post_2)
-db.query_db("post", post_3)
+
+db.query_db("post", post_1, "")
+db.query_db("post", post_2, "")
+db.query_db("post", post_3, "")
+db.query_db("post", post_x, "")
 
 find subject to change
 print(db.query_db("find", post_1, ""))
 print(db.query_db("find", post_2, ""))
 print(db.query_db("find", post_3, ""))
 print()
+
 # find all subject to change
 print(db.query_db("find_all", post_1, ""))
 print()
