@@ -32,5 +32,5 @@ class RecordedData:
         return self.recorded_data
 
 
-R = RecordedData()
-print(R.get_mac_address())
+# R = RecordedData()
+# print(R.get_mac_address())
