@@ -8,34 +8,45 @@ Sets up listener. To start the listener invoke start() and to stop it invoke sto
 class MouseRecorder(RecordedData):
 
     def __init__(self):
+        self.autorecording = True
         self.__listener = mouse.Listener(
             on_move=self.__on_move,
             on_click=self.__on_click,
             on_scroll=self.__on_scroll)
+        self.__listener.start()
         self.mouse_movement = {"position": (0,0), "clicked": False}
 
     def __on_move(self, x, y):
         self.mouse_movement['position'] = (x,y)
-        print(self.mouse_movement)
+        if self.autorecording:
+            print(self.mouse_movement)
 
     def __on_click(self, x, y, button, pressed):
-        if pressed:
-            self.mouse_movement['clicked'] = True
-        else:
-            self.mouse_movement['clicked'] = False
+        if self.autorecording:
+            if pressed:
+                self.mouse_movement['clicked'] = True
+            else:
+                self.mouse_movement['clicked'] = False
 
     def __on_scroll(self, x, y, dx, dy):
-        print('Scrolled {0} at {1}'.format(
-            'down' if dy < 0 else 'up',
-            (x, y)))
+        if self.autorecording:
+            print('Scrolled {0} at {1}'.format(
+                'down' if dy < 0 else 'up',
+                (x, y)))
 
-    # start method goes here to 
     def start(self):
-        self.__listener.start()
+        if self.autorecording:
+           return 
+        self.autorecording = True
 
-    # stop method goes here (stops the listener)
     def stop(self):
+        if not self.autorecording:
+            return 
+        self.autorecording = False
+
+    def terminate(self):
         self.__listener.stop()
+
 
 # This is for getting full recording data
 # r = RecordedData()
