@@ -3,7 +3,7 @@ from uuid import getnode as get_mac
 from datetime import datetime
 from Database.Database import DataBase
 
-class RecordedData:
+class RecordedData(object):
     def __init__(self):
         """ Attributes """
         # self.ip_address = ""          #172.21.0.0
@@ -12,7 +12,7 @@ class RecordedData:
         # self.name = ""                #keystroke
         # self.collection = ""          #
         """ Attributes """
-        self.recorded_data = {"ip_address": '', "mac_address": '', 'timestamp': '', "name": 'mouse_action', "data": {}}
+        self._recorded_data = {"ip_address": '', "mac_address": '', 'timestamp': '', "name": '', "data": {}}
 
     def get_ip_address(self):
         hostname = socket.gethostname()
@@ -30,8 +30,11 @@ class RecordedData:
         return now.strftime("%H:%M:%S %m/%d/%Y")
     
     def get_recorded_data(self):
-        return self.recorded_data
-    
+        self._recorded_data['ip_address'] = self.get_ip_address()
+        self._recorded_data['mac_address'] = self.get_mac_address()
+        self._recorded_data['timestamp'] = self.get_timestamp()
+        return self._recorded_data
+
     def save_recorded_data(self, data_dict):
       print(data_dict)
       self.recorded_data.update(data_dict)
@@ -40,7 +43,6 @@ class RecordedData:
       print(data_dict)
       print(DataBase().query_db("find", self.recorded_data, "")) # for checking purpose
       return
-
 
 # R = RecordedData()
 # print(R.get_mac_address())

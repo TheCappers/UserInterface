@@ -8,57 +8,67 @@ Sets up listener. To start the listener invoke start() and to stop it invoke sto
 class MouseRecorder(RecordedData):
 
     def __init__(self):
-        self.autorecording = True
-        self.__listener = mouse.Listener(
-            on_move=self.__on_move,
-            on_click=self.__on_click,
-            on_scroll=self.__on_scroll)
-        self.__listener.start()
-        self.mouse_movement = {"position": (0,0), "clicked": False}
+        RecordedData.__init__(self)
+        self._autorecording = True
+        
+        self._mouse_action = self.get_recorded_data()
+        self._mouse_action['name'] = 'Mouse_Action'
+        self._mouse_action['data'] = {"position": (0,0), "clicked": False, "scroll": 0, "button": ''}
 
-    def __on_move(self, x, y):
-        self.mouse_movement['position'] = (x,y)
-        if self.autorecording:
-            print(self.mouse_movement)
+        self._mock_db = []
 
-    def __on_click(self, x, y, button, pressed):
-        if self.autorecording:
+        self._mock = False
+
+        self._db = DataBase()
+
+        self._listener = mouse.Listener(
+            on_move=self._on_move,
+            on_click=self._on_click,
+            on_scroll=self._on_scroll)
+        self._listener.start()
+
+    def _on_move(self, x, y):
+        if self._autorecording:
+            self._mouse_action['data']['position'] = (x,y)
+            self.insert_to_db()
+
+    def _on_click(self, x, y, button, pressed):
+        if self._autorecording:
             if pressed:
-                self.mouse_movement['clicked'] = True
+                self._mouse_action['data']['clicked'] = True
+                self._mouse_action['data']['button'] = button
             else:
-                self.mouse_movement['clicked'] = False
+                self._mouse_action['data']['clicked'] = False
+                self._mouse_action['data']['button'] = ''
+            self.insert_to_db()
 
-    def __on_scroll(self, x, y, dx, dy):
-        if self.autorecording:
-            print('Scrolled {0} at {1}'.format(
-                'down' if dy < 0 else 'up',
-                (x, y)))
+    def _on_scroll(self, x, y, dx, dy):
+        if self._autorecording:
+            self._mouse_action['data']['scroll'] = dy
+            self.insert_to_db()
 
     def start(self):
-        if self.autorecording:
+        if self._autorecording:
            return 
-        self.autorecording = True
+        self._autorecording = True
 
     def stop(self):
-        if not self.autorecording:
+        if not self._autorecording:
             return 
-        self.autorecording = False
+        self._autorecording = False
 
     def terminate(self):
-        self.__listener.stop()
+        self._listener.stop()
 
     def insert_to_db(self):
-        r = RecordedData()
-        post_1 = {
-            "name": "Mouse_Action",
-            "coordinate": self.mouse_movement['position'],
-            "click": self.mouse_movement['clicked'],
-            "date": r.recorded_data['timestamp'],
-            "ip_address": r.recorded_data['ip_address'],
-            "mac_address": r.recorded_data['mac_address']
-        }
-        db = DataBase()
-        db.query_db("post", post_1, "")
+        if not self._mock:
+            self._db.query_db("post", self._mouse_action, "")
+        else:
+            self._mock_db.append(self._mouse_action)
+
+    def print_mock_db(self):
+        if self.mock:
+            print("first value stored: {0}\nstored items: {1}".format(self._mock_db[-1], len(self._mock_db)))
 
 
 # This is for getting full recording data
