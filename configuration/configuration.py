@@ -86,4 +86,3 @@ class Configuration:
         else:
             return False  # all good nothing going on
         # probably do not need this
-
