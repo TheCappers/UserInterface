@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 from view.components import addition_for_synctab, bar_graph, pics_for_detailedview
 
-from view.components import resulttable
+from view.components import result_table
 
 table_result = None
 
@@ -291,11 +291,11 @@ class Ui_MainWindow(object):
         self.label_9.setFont(font)
         self.label_9.setObjectName("label_9")
         self.verticalLayout_3.addWidget(self.label_9)
-        # self.avert_result_table = self.resulttable.ResultTable(self.avert_table)
+        # self.avert_result_table = self.result_table.ResultTable(self.avert_table)
         """ origanl self.avert_result_table = QtWidgets.QTableWidget(self.avert_table)"""
         global table_result
         table_result = QtWidgets.QTableWidget(self.avert_table)
-        table_result = resulttable.ResultTable(table_result)
+        table_result = result_table.ResultTable(table_result)
         """ self.avert_result_table.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.avert_result_table.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.avert_result_table.setAlternatingRowColors(True)
