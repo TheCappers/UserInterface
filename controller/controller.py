@@ -24,11 +24,19 @@ class Controller:
         return
 
     def view(self, item):  # here is where we would connect to database to view an item in avert
-        return item
+        if item is None:
+            data = self.db.query_db("All")
+            print(data)
+            return data
 
-    def searchDB(self, item):  # here is where we would connect to database to pull up results
-        # logic for how it will be viewed
-        return
+        item = item.strip()
+        item = item.title()
+        item = item.replace(" ", "_")
+
+        data = self.db.query_db(item)
+        print(data)
+        return data
+
 
     def annotationAdd(self, annot, item): # here we update the item in the DB with an annotation
         return
