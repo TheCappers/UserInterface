@@ -12,6 +12,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 from view.components import addition_for_synctab, bar_graph, pics_for_detailedview
 
+from view.components import resulttable
+
+table_result = None
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -287,8 +291,12 @@ class Ui_MainWindow(object):
         self.label_9.setFont(font)
         self.label_9.setObjectName("label_9")
         self.verticalLayout_3.addWidget(self.label_9)
-        self.avert_result_table = QtWidgets.QTableWidget(self.avert_table)
-        self.avert_result_table.setFrameShape(QtWidgets.QFrame.NoFrame)
+        # self.avert_result_table = self.resulttable.ResultTable(self.avert_table)
+        """ origanl self.avert_result_table = QtWidgets.QTableWidget(self.avert_table)"""
+        global table_result
+        table_result = QtWidgets.QTableWidget(self.avert_table)
+        table_result = resulttable.ResultTable(table_result)
+        """ self.avert_result_table.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.avert_result_table.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.avert_result_table.setAlternatingRowColors(True)
         self.avert_result_table.setRowCount(12)
@@ -492,8 +500,8 @@ class Ui_MainWindow(object):
         self.avert_result_table.horizontalHeader().setSortIndicatorShown(True)
         self.avert_result_table.horizontalHeader().setStretchLastSection(True)
         self.avert_result_table.verticalHeader().setVisible(True)
-        self.avert_result_table.verticalHeader().setHighlightSections(True)
-        self.verticalLayout_3.addWidget(self.avert_result_table)
+        self.avert_result_table.verticalHeader().setHighlightSections(True) """
+        self.verticalLayout_3.addWidget(table_result.getTable())
         self.frame_14 = QtWidgets.QFrame(self.avert_table)
         self.frame_14.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_14.setFrameShadow(QtWidgets.QFrame.Plain)
@@ -3377,7 +3385,7 @@ class Ui_MainWindow(object):
         self.label_16.setText(_translate("MainWindow", "Type"))
         self.label_22.setText(_translate("MainWindow", "Process"))
         self.label_9.setText(_translate("MainWindow", "AVERT RESULT"))
-        self.avert_result_table.setSortingEnabled(True)
+        """ self.avert_result_table.setSortingEnabled(True)
         item = self.avert_result_table.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Select"))
         item = self.avert_result_table.horizontalHeaderItem(1)
@@ -3512,7 +3520,7 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "89:28:B2:C6:55:19"))
         item = self.avert_result_table.item(11, 5)
         item.setText(_translate("MainWindow", "A sample artifact"))
-        self.avert_result_table.setSortingEnabled(__sortingEnabled)
+        self.avert_result_table.setSortingEnabled(__sortingEnabled) """
         self.pushButton_14.setText(_translate("MainWindow", "Export"))
         self.pushButton_15.setText(_translate("MainWindow", "Delete"))
         self.pushButton_16.setText(_translate("MainWindow", "Add Selected to Script Creation"))
