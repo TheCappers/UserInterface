@@ -47,6 +47,14 @@ class RecordedData(object):
     def insert_to_db(self, post_data):
         DataBase().query_db("post", post_data, "")
 
+    def save_recorded_data(self, data_dict):
+        print(data_dict)
+        self.recorded_data.update(data_dict)
+        print(self.recorded_data)
+        DataBase().db_query("post", self.recorded_data, "")
+        print(data_dict)
+        print(DataBase().query_db("find", self.recorded_data, "")) # for checking purpose
+        return
 
 # R = RecordedData()
 # print(R.get_mac_address())
