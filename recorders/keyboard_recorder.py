@@ -39,8 +39,7 @@ class KeyboardRecorder(RecordedData):
 				if self.checkrecording():
 					self._keystroke_data['data'] = format(key)
 					self.insert_to_db(self._keystroke_data)
-					print('special key {0} pressed'.format(
-									key))
+					# print(format(key))
 
 		def on_release(self, key):
 				print('{0} released'.format(
