@@ -12,7 +12,7 @@ class RecordedData(object):
         # self.name = ""                #keystroke
         # self.collection = ""          #
         """ Attributes """
-        self._recorded_data = {"ip_address": '', "mac_address": '', 'timestamp': '', "name": '', "data": {}}
+        self._recorded_data = {"ip_address": '', "mac_address": '', 'timestamp': '', "name": '', "data": {}, "tag": [], "annotation": []}
 
     def get_ip_address(self):
         hostname = socket.gethostname()
