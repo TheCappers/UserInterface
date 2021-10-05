@@ -36,7 +36,12 @@ class MouseRecorder(RecordedData):
         if self.__autorecording:
             if pressed:
                 self.__mouse_action['data']['clicked'] = True
-                self.__mouse_action['data']['button'] = button
+                if button.left:
+                    self.__mouse_action['data']['button'] = "left"
+                elif button.right:
+                    self.__mouse_action['data']['button'] = "right"
+                else:
+                    self.__mouse_action['data']['button'] = "middle"
             else:
                 self.__mouse_action['data']['clicked'] = False
                 self.__mouse_action['data']['button'] = ''
