@@ -3,7 +3,7 @@ from uuid import getnode as get_mac
 from datetime import datetime
 from Database.Database import DataBase
 
-class RecordedData:
+class RecordedData(object):
     def __init__(self):
         """ Attributes """
         # self.ip_address = ""          #172.21.0.0
@@ -12,7 +12,7 @@ class RecordedData:
         # self.name = ""                #keystroke
         # self.collection = ""          #
         """ Attributes """
-        self.recorded_data = {"ip_address": self.get_ip_address(), "mac_address": self.get_mac_address(), 'timestamp': self.get_timestamp()}
+        self._recorded_data = {"ip_address": '', "mac_address": '', 'timestamp': '', "name": '', "data": {}, "tag": [], "annotation": []}
 
     def get_ip_address(self):
         hostname = socket.gethostname()
@@ -30,16 +30,22 @@ class RecordedData:
         return now.strftime("%H:%M:%S %m/%d/%Y")
     
     def get_recorded_data(self):
-        return self.recorded_data
-    
+        self._recorded_data['ip_address'] = self.get_ip_address()
+        self._recorded_data['mac_address'] = self.get_mac_address()
+        self._recorded_data['timestamp'] = self.get_timestamp()
+        return self._recorded_data
+
     def save_recorded_data(self, data_dict):
-      print(data_dict)
-      self.recorded_data.update(data_dict)
-      print(self.recorded_data)
-      DataBase().db_query("post", self.recorded_data, "")
-      print(data_dict)
-      print(DataBase().query_db("find", self.recorded_data, "")) # for checking purpose
-      return
+        print(data_dict)
+        self._recorded_data.update(data_dict)
+        print(self._recorded_data)
+        DataBase().db_query("post", self._recorded_data, "")
+        print(data_dict)
+        print(DataBase().query_db("find", self._recorded_data, "")) # for checking purpose
+        return
+		
+    def insert_to_db(self, post_data):
+        DataBase().query_db("post", post_data, "")
 
 
 # R = RecordedData()

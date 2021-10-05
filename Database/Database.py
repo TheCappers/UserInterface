@@ -1,5 +1,5 @@
-import pymongo
 from pymongo import MongoClient
+from bson.objectid import ObjectId
 
 
 class DataBase:
@@ -7,48 +7,66 @@ class DataBase:
     def __init__(self):
         db_server_url = 'mongodb://localhost:27017/'
         client = MongoClient(db_server_url)
-        db = client['AVERT']
-        self.keystroke_collection = db["keystroke_collection"]
-        self.mouse_collection = db["mouse_collection"]
+        self.db = client['AVERT']
+        self.keystroke_collection = self.db["keystroke_collection"]
+        self.mouse_collection = self.db["mouse_collection"]
 
-    # done
     def __insert_post(self, collection, post):
+        post.update({"_id": ObjectId().__str__()})
         collection.insert_one(post)
 
-    def __find_one(self, collection, post):
-        return collection.find_one({"_id": post.get("_id")})
+    # returns list based on the searched post in all... Will be reworked for multiple filters
+    def __find(self, target):
+        db_list = []
+        for data_type in self.db.list_collection_names():
+            for entry in self.db[data_type].find(target):
+                db_list.append(entry)
+        return db_list
 
-    def __find_all(self, collection):
-        for entry in collection.find():
-            print(entry)
-        return collection.find()
+    # returns list of everything based on that type.
+    def __get_type(self, collection):
+        db_list = []
+        for entry in collection.find({}):
+            db_list.append(entry)
+        return db_list
 
+    # return a list of items in the database.
+    def __get_all(self):
+        db_list = []
+        for data_type in self.db.list_collection_names():
+            for entry in self.db[data_type].find({}):
+                db_list.append(entry)
+        return db_list
+
+    # updated an item based on unique id
     def __update_one(self, collection, post, updated_post):
-        # db.collection.update_one({"_id": 2}, { "$set": {"name": "yes"} })
         collection.update_one({"_id": post.get("_id")}, {"$set": updated_post})
 
+    # deletes an item based on unique id
     def __delete_one(self, collection, post):
-        # db.collection.delete_one({"_id": 2})
         collection.delete_one({"_id": post.get("_id")})
 
     def query_db(self, query, post, target):
+        # returns a list of all items on the database
+        if query == "all":
+            return self.__get_all()
+
+        # returns list of data based on everything that has been filtered
+        if query == "find":
+            return self.__find(target)
+
         if query == "post":
             if post.get('name') == "Keystroke":
                 self.__insert_post(self.keystroke_collection, post)
             if post.get('name') == "Mouse_Action":
                 self.__insert_post(self.mouse_collection, post)
 
-        if query == "find":
-            if post.get('name') == "Keystroke":
-                return self.__find_one(self.keystroke_collection, post)
-            if post.get('name') == "Mouse_Action":
-                return self.__find_one(self.mouse_collection, post)
-
-        if query == "find_all":
-            if post.get('name') == "Keystroke":
-                return self.__find_all(self.keystroke_collection)
-            if post.get('name') == "Mouse_Action":
-                return self.__find_all(self.mouse_collection)
+        # returns a list all based on data type e.g. Keystroke or Mouse_Action
+        if query == "get_type":
+            if target == "Keystroke":
+                return self.__get_type(self.keystroke_collection)
+            if target == "Mouse_Action":
+                return self.__get_type(self.mouse_collection)
 
         if query == "update":
             if post.get('name') == "Keystroke":
@@ -62,58 +80,33 @@ class DataBase:
             if post.get('name') == "Mouse_Action":
                 self.__delete_one(self.mouse_collection, post)
 
-"""
-post_1 = {
-    "_id": "77",
-    "name": "Mouse_Action",
-    "Keystroke": "H",
-    "Date": "9/11/2021",
-    "IP Address": "1.2.3.4",
-}post_1 = {
-    "_id": "77",
-    "name": "Mouse_Action",
-    "Keystroke": "H",
-    "Date": "9/11/2021",
-    "IP Address": "1.2.3.4",
-}
-post_2 = {
-    "_id": "27",
-    "name": "Mouse_Action",
-    "Keystroke": "H",
-    "Date": "9/11/2021",
-    "IP Address": "1.2.3.4",
-}
-post_3 = {
-    "_id": "77",
-    "name": "Keystroke",
-    "Keystroke": "H",
-    "Date": "9/11/2021",
-    "IP Address": "1.2.3.4",
-}
 
-updated_post = {"name": "Keystroke"}
+# post_1 = {'_id': '615b8dee3f96615d6166ead6', 'name': 'Mouse_Action', 'Keystroke': 'H', 'Date': '9/11/2021', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': 'David'}
 
-db = DataBase()
-db.query_db("post", post_1)
-db.query_db("post", post_2)
-db.query_db("post", post_3)
+# db = DataBase()
 
-find subject to change
-print(db.query_db("find", post_1, ""))
-print(db.query_db("find", post_2, ""))
-print(db.query_db("find", post_3, ""))
-print()
-# find all subject to change
-print(db.query_db("find_all", post_1, ""))
-print()
-print(db.query_db("find_all", post_3, ""))
-print()
-db.query_db("update", post_2, updated_post)
-print(db.query_db("find", post_2, ""))
-print()
-db.query_db("delete", post_2, "")
-print()
-print(db.query_db("find_all", post_1, ""))
-print()
-print(db.query_db("find_all", post_3, ""))
-"""
+# insert data to the database
+# db.query_db("post", post_1, "")
+
+# return a list of all items in the database
+# list_all = db.query_db("all", "", "")
+# for entry in list_all:
+#     print(entry)
+
+# updates the an entry based on the updated post. Can be one or two columns
+# updated_post = {"Tag": ["Manny", "Likes", "Chips"]}
+# db.query_db("update", post_1, updated_post)
+
+# find everything based on a filter e.g. Tag = Manny
+# temp_list = db.query_db("find", "", {"Tag": "Manny"})
+# for entry in temp_list:
+#     print(entry)
+
+# return a list of all items in the a collection from the database
+# all_list = db.query_db("get_type", "", "Keystroke")
+# for entry in all_list:
+#     print(entry)
+
+# deletes a selected item (Post_X) from the database
+# post_x = {'_id': '615b8dee3f96615d6166ead6', 'name': 'Mouse_Action', 'Keystroke': 'H', 'Date': '9/11/2021', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': 'David'}
+# db.query_db("delete", post_x, "")
