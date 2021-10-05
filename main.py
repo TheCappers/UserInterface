@@ -7,7 +7,7 @@ from controller import controller
 
 # global values
 control = controller.Controller()
-
+attain = []
 
 class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
