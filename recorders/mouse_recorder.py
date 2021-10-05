@@ -3,7 +3,8 @@ from recorders.recorded_data import RecordedData
 
 from Database.Database import DataBase
 '''
-Sets up listener. To start the listener invoke start() and to stop it invoke stop()
+Sets up listener. To start the listener create a mouse_recorder.
+To stop querying the database call stop(), to keep querying the database call start()  
 '''
 
 
