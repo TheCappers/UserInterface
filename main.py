@@ -40,6 +40,9 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # threshold changing
         self.StorageInValue.textEdited.connect(self.thresholdChange)
 
+        # search button being activated
+        self.search_button.clicked.connect(self.searchPressed)
+
     # button toggle method
     '''
     Author: David Amparan Date: 9/7/2021
@@ -188,11 +191,16 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def thresholdChange(self):
         if self.StorageInValue.text() == '':  # in case empty
-            full = control.storageRecording(70)  # set to default as user inputs full number
+            control.storageRecording(70)  # set to default as user inputs full number
         else:
             full = control.storageRecording(float(self.StorageInValue.text()))  # send the value
             if full:
                 QtWidgets.QMessageBox.about(self, 'Storage Alert', 'Storage is full')
+
+    def searchPressed(self):  # once search is pressed we must search the given data
+        # attain the the value in the search box
+        search = self.search_expression_bar.text()  # attain the text
+        #attained = control.searchDB(search)
 
 
 def main():
