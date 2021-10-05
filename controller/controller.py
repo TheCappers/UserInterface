@@ -34,16 +34,15 @@ class Controller:
 
     def view(self, item):  # here is where we would connect to database to view an item in avert
         if item == '':
-            data = self.db.query_db('find_all', {'name': 'Mouse_Action'}, '')
-            print(data)
-            #return data
+            data = self.db.query_db('all', '', '')
+            # return data
 
-        if item.lower() == 'keystrokes' or item.lower() == 'mouse action':
-            data = self.db.query_db('find_all', {'name': 'Keystroke'}, '')
+        elif item.lower() == 'keystrokes' or item.lower() == 'keystroke':
+            data = self.db.query_db('get_type', '', 'Keystroke')  # gets the keystroke collection
         else:
-            data = self.db.query_db('find_all', {'name': 'Mouse_Action'}, '')
-        print(data)
-        #return data
+            data = self.db.query_db('get_type', '', 'Mouse_Action')  # gets the mouse collection
+
+        return data
 
 
     def annotationAdd(self, annot, item): # here we update the item in the DB with an annotation

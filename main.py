@@ -200,7 +200,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def searchPressed(self):  # once search is pressed we must search the given data
         # attain the the value in the search box
         search = self.search_expression_bar.text()  # attain the text
-        #attained = control.searchDB(search)
+        attain = control.view(search)
 
 
 def main():
