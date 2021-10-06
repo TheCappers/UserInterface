@@ -4,7 +4,6 @@ from view.avert import Ui_MainWindow
 import sys
 from controller import controller
 
-
 # global values
 control = controller.Controller()
 attain = []
@@ -39,6 +38,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.ProcessStatOffButton.clicked.connect(self.toggleButtons)
         self.tag_add_button.clicked.connect(self.add_row)
         self.universalRecord.clicked.connect(self.universalButton)
+        self.pushButton_18.clicked.connect(self.add_annotation)
 
         # threshold changing
         self.StorageInValue.textEdited.connect(self.thresholdChange)
@@ -122,6 +122,29 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.sender().objectName().__contains__("Process") and self.sender().objectName().__contains__('Off'):
             self.ProcessStatOnButton.setChecked(0)  # check off the on button
             self.ProcessStatOffButton.setChecked(1)  # check on the off button
+    
+    def add_annotation(self):  # add a row when the button add is selected
+        """
+        create new row in the qwidget table within tag area of
+        detailed view
+        :return: none
+        """
+        row_position = self.annotation_table.rowCount()  # the total rows
+
+        rest_item = QtWidgets.QTableWidgetItem()
+        rest_item.setFlags(QtCore.Qt.ItemIsSelectable)
+        rest_item1 = QtWidgets.QTableWidgetItem()
+        rest_item1.setFlags(QtCore.Qt.ItemIsSelectable)
+        rest_item2 = QtWidgets.QTableWidgetItem()
+        rest_item2.setFlags(QtCore.Qt.ItemIsSelectable)
+        rest_item2.setText(self.annotation_text.toPlainText())
+
+
+        self.annotation_table.insertRow(row_position)
+        self.annotation_table.setItem(row_position, 0, rest_item)
+        self.annotation_table.setItem(row_position, 1, rest_item1)
+        self.annotation_table.setItem(row_position, 2, rest_item2)
+
 
     def add_row(self):  # add a row when the button add is selected
         """
