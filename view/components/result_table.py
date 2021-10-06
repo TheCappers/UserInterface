@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from main import attain as dbList
-from view.avert import selected
+# from main import attain as dbList
+# from view.avert import selected
 
 class ResultTable:
 
@@ -215,7 +215,9 @@ class ResultTable:
 
 	def populateTableMouseAction(self):
 			# global attain
-			newAttain = dbList[selected]
+			global attain 
+			global selected
+			newAttain = attain[selected]
 			self.avert_result_table.setRowCount(len(newAttain))
 			_translate = QtCore.QCoreApplication.translate
 			
