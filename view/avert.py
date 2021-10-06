@@ -15,6 +15,7 @@ from view.components import result_table
 table_result = None
 clicks = []
 selected = None
+attain = []
 
 
 class Ui_MainWindow(object):
@@ -483,7 +484,7 @@ class Ui_MainWindow(object):
         self.label_44.setObjectName("label_44")
         self.formLayout_2.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.label_44)
         self.gridLayout_26.addWidget(self.descriptionvideo_info, 0, 1, 1, 1)
-        self.description_tab.addTab(self.descriptionvideo_tab, "")
+        # self.description_tab.addTab(self.descriptionvideo_tab, "")
         self.descriptionstillscreenshot_tab = QtWidgets.QWidget()
         self.descriptionstillscreenshot_tab.setObjectName("descriptionstillscreenshot_tab")
         self.gridLayout_27 = QtWidgets.QGridLayout(self.descriptionstillscreenshot_tab)
@@ -553,7 +554,7 @@ class Ui_MainWindow(object):
         self.label_45.setObjectName("label_45")
         self.formLayout_3.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.label_45)
         self.gridLayout_27.addWidget(self.frame, 0, 1, 1, 1)
-        self.description_tab.addTab(self.descriptionstillscreenshot_tab, "")
+        # self.description_tab.addTab(self.descriptionstillscreenshot_tab, "")
         self.descriptionsystemcall_tab = QtWidgets.QWidget()
         self.descriptionsystemcall_tab.setObjectName("descriptionsystemcall_tab")
         self.gridLayout_25 = QtWidgets.QGridLayout(self.descriptionsystemcall_tab)
@@ -641,7 +642,7 @@ class Ui_MainWindow(object):
         self.label_53.setObjectName("label_53")
         self.formLayout_7.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.label_53)
         self.gridLayout_25.addWidget(self.frame_5, 0, 0, 1, 1)
-        self.description_tab.addTab(self.descriptionsystemcall_tab, "")
+        # self.description_tab.addTab(self.descriptionsystemcall_tab, "")
         self.descriptionprocess_tab = QtWidgets.QWidget()
         self.descriptionprocess_tab.setObjectName("descriptionprocess_tab")
         self.formLayout_4 = QtWidgets.QFormLayout(self.descriptionprocess_tab)
@@ -845,7 +846,7 @@ class Ui_MainWindow(object):
         self.label_54.setObjectName("label_54")
         self.formLayout_5.setWidget(14, QtWidgets.QFormLayout.FieldRole, self.label_54)
         self.formLayout_4.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.frame_8)
-        self.description_tab.addTab(self.descriptionprocess_tab, "")
+        # self.description_tab.addTab(self.descriptionprocess_tab, "")
         self.descriptionwindowhistory_tab = QtWidgets.QWidget()
         self.descriptionwindowhistory_tab.setObjectName("descriptionwindowhistory_tab")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.descriptionwindowhistory_tab)
@@ -965,8 +966,10 @@ class Ui_MainWindow(object):
         self.label_76.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.label_76.setObjectName("label_76")
         self.formLayout_6.setWidget(11, QtWidgets.QFormLayout.FieldRole, self.label_76)
-        self.verticalLayout_5.addWidget(self.frame_10, 0, QtCore.Qt.AlignLeft | QtCore.Qt.AlignTop)
-        self.description_tab.addTab(self.descriptionwindowhistory_tab, "")
+
+        self.verticalLayout_5.addWidget(self.frame_10, 0, QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
+        # self.description_tab.addTab(self.descriptionwindowhistory_tab, "")
+
         self.descriptionnetwork_tab = QtWidgets.QWidget()
         self.descriptionnetwork_tab.setObjectName("descriptionnetwork_tab")
         self.gridLayout_33 = QtWidgets.QGridLayout(self.descriptionnetwork_tab)
@@ -1052,7 +1055,7 @@ class Ui_MainWindow(object):
         self.gridLayout_32.addWidget(self.listWidget_2, 0, 0, 1, 1)
         self.toolBox.addItem(self.network_3, "")
         self.gridLayout_33.addWidget(self.toolBox, 0, 0, 1, 1)
-        self.description_tab.addTab(self.descriptionnetwork_tab, "")
+        # self.description_tab.addTab(self.descriptionnetwork_tab, "")
         self.descriptionmouse_tab = QtWidgets.QWidget()
         self.descriptionmouse_tab.setObjectName("descriptionmouse_tab")
         self.formLayout_9 = QtWidgets.QFormLayout(self.descriptionmouse_tab)
@@ -1154,7 +1157,7 @@ class Ui_MainWindow(object):
         self.label_85.setObjectName("label_85")
         self.formLayout_8.setWidget(5, QtWidgets.QFormLayout.FieldRole, self.label_85)
         self.formLayout_9.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.frame_6)
-        self.description_tab.addTab(self.descriptionmouse_tab, "")
+        # self.description_tab.addTab(self.descriptionmouse_tab, "")
         self.descriptionkeystroke_tab = QtWidgets.QWidget()
         self.descriptionkeystroke_tab.setObjectName("descriptionkeystroke_tab")
         self.formLayout_11 = QtWidgets.QFormLayout(self.descriptionkeystroke_tab)
@@ -1196,8 +1199,8 @@ class Ui_MainWindow(object):
         self.label_87.setObjectName("label_87")
         self.formLayout_10.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.label_87)
         self.formLayout_11.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.frame_7)
-        self.description_tab.addTab(self.descriptionkeystroke_tab, "")
-        self.gridLayout_24.addWidget(self.description_tab, 0, 0, 1, 1)
+        # self.description_tab.addTab(self.descriptionkeystroke_tab, "")
+        # self.gridLayout_24.addWidget(self.description_tab, 0, 0, 1, 1)
         self.DetailedViewTab.addTab(self.tab_134, "")
         self.AnnotationTab = QtWidgets.QWidget()
         self.AnnotationTab.setObjectName("AnnotationTab")
@@ -3875,7 +3878,6 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Sync"))
         self.menuAVERT.setTitle(_translate("MainWindow", "AVERT"))
 
-        #  this is when you click result table
         table_result.avert_result_table.cellClicked.connect(self.exportRow)
 
     def updateTable(self, attain):
@@ -3893,7 +3895,26 @@ class Ui_MainWindow(object):
         if index not in clicks:
             clicks.append(index)
             selected = index
+            self.changeDetailView(selected)
             print(selected)
         else:
             clicks.remove(index)
             selected = None
+
+    def updateTable(self, attain1):
+        global attain
+        global table_result
+        attain = attain1
+        table_result.printwhatv()
+        table_result.populateTable(attain)
+        # self.verticalLayout_3.addWidget(table_result.getTable()) si jala
+        # print(attain)
+    
+    def changeDetailView(self, selected):
+        _translate = QtCore.QCoreApplication.translate
+        global attain
+        curdata = attain[selected]
+        item = self.tableWidget_38.item(0, 0)
+        item.setText(_translate("MainWindow", curdata['ip_address']))
+        item = self.tableWidget_38.item(0, 1)
+        item.setText(_translate("MainWindow", curdata['mac_address']))
