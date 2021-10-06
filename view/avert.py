@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from view.components import addition_for_synctab, bar_graph, pics_for_detailedview
-from view.components import result_table
+from view.components import result_table, annotation_table
 
 table_result = None
 clicks = []
@@ -1209,7 +1209,7 @@ class Ui_MainWindow(object):
         annotation_table = annotation_table.AnnotationTable()
         annotation_table.startTable(QtWidgets.QTableWidget(self.AnnotationTab))
         
-        self.verticalLayout_6.addWidget(self.annotation_table)
+        self.verticalLayout_6.addWidget(annotation_table.getTable())
         self.annotation_text = QtWidgets.QTextEdit(self.AnnotationTab)
         self.annotation_text.setObjectName("annotation_text")
         self.verticalLayout_6.addWidget(self.annotation_text)
@@ -3412,28 +3412,7 @@ class Ui_MainWindow(object):
                                         _translate("MainWindow", "Keystroke"))
         self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(self.tab_134),
                                         _translate("MainWindow", "Description"))
-        self.annotation_table.setSortingEnabled(True)
-        item = self.annotation_table.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Video1"))
-        item = self.annotation_table.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Timestamp"))
-        item = self.annotation_table.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "IP Address"))
-        item = self.annotation_table.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "MAC Address"))
-        item = self.annotation_table.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "Annotation"))
-        __sortingEnabled = self.annotation_table.isSortingEnabled()
-        self.annotation_table.setSortingEnabled(False)
-        item = self.annotation_table.item(0, 0)
-        item.setText(_translate("MainWindow", "10-06-26 02:31:29,573"))
-        item = self.annotation_table.item(0, 1)
-        item.setText(_translate("MainWindow", "192.111.222.16"))
-        item = self.annotation_table.item(0, 2)
-        item.setText(_translate("MainWindow", "89:28:B2:C6:55:19"))
-        item = self.annotation_table.item(0, 3)
-        item.setText(_translate("MainWindow", "Lorem Ipsum"))
-        self.annotation_table.setSortingEnabled(__sortingEnabled)
+        
         self.annotation_text.setPlaceholderText(_translate("MainWindow", "Annotation"))
         self.pushButton_18.setText(_translate("MainWindow", "Add"))
         self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(self.AnnotationTab),

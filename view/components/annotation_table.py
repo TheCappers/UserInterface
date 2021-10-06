@@ -31,8 +31,32 @@ class AnnotationTable:
         self.annotation_table.setItem(0, 3, item)
         self.annotation_table.horizontalHeader().setDefaultSectionSize(200)
         self.annotation_table.horizontalHeader().setStretchLastSection(True)
+
+        _translate = QtCore.QCoreApplication.translate
+        self.annotation_table.setSortingEnabled(True)
+        item = self.annotation_table.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Video1"))
+        item = self.annotation_table.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Timestamp"))
+        item = self.annotation_table.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "IP Address"))
+        item = self.annotation_table.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "MAC Address"))
+        item = self.annotation_table.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Annotation"))
+        __sortingEnabled = self.annotation_table.isSortingEnabled()
+        self.annotation_table.setSortingEnabled(False)
+        item = self.annotation_table.item(0, 0)
+        item.setText(_translate("MainWindow", "10-06-26 02:31:29,573"))
+        item = self.annotation_table.item(0, 1)
+        item.setText(_translate("MainWindow", "192.111.222.16"))
+        item = self.annotation_table.item(0, 2)
+        item.setText(_translate("MainWindow", "89:28:B2:C6:55:19"))
+        item = self.annotation_table.item(0, 3)
+        item.setText(_translate("MainWindow", "Lorem Ipsum"))
+        self.annotation_table.setSortingEnabled(__sortingEnabled)
         
-		return annotation_table
+        return annotation_table
 
     def getTable(self):
         return self.annotation_table
