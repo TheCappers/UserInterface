@@ -8,14 +8,13 @@ from controller import controller
 control = controller.Controller()
 attain = []
 clicks = []
-selected = None
+selected = 0
 
 
 class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(AvertApp, self).__init__()
         self.setupUi(self)
-
         # portion for the tag_table
         self.table_tag.setSortingEnabled(1)  # allows for the sorting in the columns
 
@@ -49,6 +48,10 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # export button being activated
         self.exportButton.clicked.connect(self.exportPressed)
+
+        
+        self.table_result.avert_result_table.cellClicked.connect(self.annotationTest)
+
 
 
     # button toggle method
@@ -230,6 +233,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def searchPressed(self):  # once search is pressed we must search the given data
         # attain the the value in the search box
+        global attain
         search = self.search_expression_bar.text()  # attain the text
         attain = control.view(search)
         self.updateTable(attain)
@@ -238,11 +242,26 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # print(attain)
         # ResultTable().populateTable(self, attain)
 
+    def annotationTest(self):
+        print('hello')
+        global selected, attain
+        print(selected)
+        self.annotation_table.display_annotation(attain[selected])
+        print('after hello')
+        # if index not in clicks:
+        #     clicks.append(index)
+        #     selected = index
+        #     print(selected)
+        # else:
+        #     clicks.remove(index)
+        #     selected = None
+
     def deleteTag(self, index):
         info = attain[index]
         info = info['tag']
 
     def exportPressed(self, index):
+        global selected
         if index not in clicks:
             clicks.append(index)
             selected = index
