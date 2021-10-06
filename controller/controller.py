@@ -1,6 +1,6 @@
 from configuration import configuration
 from Database import Database
-
+import os
 '''
 post_1 = {
     "name": "Mouse_Action",
@@ -31,7 +31,16 @@ class Controller:
         return full  # send to view
 
     def export(self, item):  # here is where we would use the database to export
-        return
+        desk_top = os.path.join(os.environ["HOME"], "Desktop")
+        dd_dir = desk_top+"/Downloads"
+        if not os.path.exists(dd_dir):
+            os.makedirs(dd_dir)
+
+        db_entries = self.db.query_db("find", "", item)
+        file_name = db_entries[0].get("name") + "_" + db_entries[0].get("_id") + ".txt"
+        with open(os.path.join(dd_dir, file_name), 'w') as file:
+            for entry in db_entries:
+                file.write(str(entry))
 
     def view(self, item):  # here is where we would connect to database to view an item in avert
         if item == '':
