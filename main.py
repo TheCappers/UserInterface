@@ -134,7 +134,9 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         rest_item1.setFlags(QtCore.Qt.ItemIsSelectable)
         rest_item2 = QtWidgets.QTableWidgetItem()
         rest_item2.setFlags(QtCore.Qt.ItemIsSelectable)
-        rest_item2.setText(self.annotation_text.getText())
+        rest_item2.setText("Yeet!")
+        # rest_item2.setText(self.annotation_text.getText())
+        # self.anno
 
 
         self.annotation_table.insertRow(row_position)
