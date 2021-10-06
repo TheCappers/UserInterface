@@ -45,6 +45,9 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # search button being activated
         self.search_button.clicked.connect(self.searchPressed)
 
+        # export button being activated
+        self.exportButton.clicked.connect(self.exportPressed)
+
     # button toggle method
     '''
     Author: David Amparan Date: 9/7/2021
@@ -208,6 +211,10 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # table_result.populateTable(attain)
         # print(attain)
         # ResultTable().populateTable(self, attain)
+
+    def exportPressed(self):
+        print('Export')
+        return
 
 
 def main():
