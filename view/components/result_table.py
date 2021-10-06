@@ -90,10 +90,36 @@ class ResultTable:
 
 	def populateTable(self, attain):
 			# global attain
-			print(attain)
+			print(len(attain))
+			self.avert_result_table.setRowCount(len(attain))
+			_translate = QtCore.QCoreApplication.translate
+			i = 0
 			for val in attain:
-				# self.avert_result_table
-				print(val)
+				# print(val)
+				item = QtWidgets.QTableWidgetItem()
+				item.setCheckState(QtCore.Qt.Unchecked)
+				self.avert_result_table.setItem(i, 0, item)
+				item = QtWidgets.QTableWidgetItem()
+				self.avert_result_table.setItem(i, 1, item)
+				item = QtWidgets.QTableWidgetItem()
+				self.avert_result_table.setItem(i, 2, item)
+				item = QtWidgets.QTableWidgetItem()
+				self.avert_result_table.setItem(i, 3, item)
+				item = QtWidgets.QTableWidgetItem()
+				self.avert_result_table.setItem(i, 4, item)
+				item = QtWidgets.QTableWidgetItem()
+				self.avert_result_table.setItem(i, 5, item)
+				item = self.avert_result_table.item(i, 1)
+				item.setText(_translate("MainWindow", val['_id']))
+				item = self.avert_result_table.item(i, 2)
+				item.setText(_translate("MainWindow", val['ip_address']))
+				item = self.avert_result_table.item(i, 3)
+				item.setText(_translate("MainWindow", val['mac_address']))
+				item = self.avert_result_table.item(i, 4)
+				item.setText(_translate("MainWindow", val["timestamp"]))
+				item = self.avert_result_table.item(i, 5)
+				item.setText(_translate("MainWindow", val["_id"]))
+				i =+ 1
 			return
 
 	def printwhatv(self):
