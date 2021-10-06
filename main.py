@@ -2,11 +2,13 @@ from PyQt5 import QtCore, QtWidgets
 from view.accordion_floating import Ui_Form
 from view.avert import Ui_MainWindow
 import sys
-import time
 from controller import controller
 
 # global values
 control = controller.Controller()
+attain = []
+clicks = []
+selected = None
 
 
 class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -43,6 +45,10 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # search button being activated
         self.search_button.clicked.connect(self.searchPressed)
+
+        # export button being activated
+        self.exportButton.clicked.connect(self.exportPressed)
+
 
     # button toggle method
     '''
@@ -224,7 +230,26 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def searchPressed(self):  # once search is pressed we must search the given data
         # attain the the value in the search box
         search = self.search_expression_bar.text()  # attain the text
-        #attained = control.searchDB(search)
+        attain = control.view(search)
+        self.updateTable(attain)
+
+        # table_result.populateTable(attain)
+        # print(attain)
+        # ResultTable().populateTable(self, attain)
+
+    def deleteTag(self, index):
+        info = attain[index]
+        info = info['tag']
+
+    def exportPressed(self, index):
+        if index not in clicks:
+            clicks.append(index)
+            selected = index
+            print(selected)
+        else:
+            clicks.remove(index)
+            selected = None
+        # print(self.table_tag.itemClicked)
 
 
 def main():
