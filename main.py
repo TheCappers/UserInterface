@@ -123,18 +123,33 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         detailed view
         :return: none
         """
-        row_position = self.tableWidget_39.rowCount()  # the total rows
+        row_position = self.annotation_table.rowCount()  # the total rows
 
-        check_item = QtWidgets.QTableWidgetItem()
-        check_item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
-        check_item.setCheckState(QtCore.Qt.Unchecked)
+        # check_item = QtWidgets.QTableWidgetItem()
+        # check_item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
+        # check_item.setCheckState(QtCore.Qt.Unchecked)
         rest_item = QtWidgets.QTableWidgetItem()
         rest_item.setFlags(QtCore.Qt.ItemIsSelectable)
+        rest_item1 = QtWidgets.QTableWidgetItem()
+        rest_item1.setFlags(QtCore.Qt.ItemIsSelectable)
+        rest_item2 = QtWidgets.QTableWidgetItem()
+        rest_item2.setFlags(QtCore.Qt.ItemIsSelectable)
+        rest_item2.setText(self.annotation_text.getText())
 
-        self.tableWidget_39.insertRow(row_position)
-        self.tableWidget_39.setItem(row_position, 0, check_item)
-        self.tableWidget_39.setItem(row_position, 1, rest_item)
-        self.tableWidget_39.setItem(row_position, 2, check_item)
+
+        self.annotation_table.insertRow(row_position)
+        self.annotation_table.setItem(row_position, 0, rest_item)
+        self.annotation_table.setItem(row_position, 1, rest_item1)
+        self.annotation_table.setItem(row_position, 2, rest_item2)
+
+        # item = self.annotation_table.item(0, 0)
+        # item.setText(_translate("MainWindow", "10-06-26 02:31:29,573"))
+        # item = self.annotation_table.item(0, 1)
+        # item.setText(_translate("MainWindow", "192.111.222.16"))
+        # item = self.annotation_table.item(0, 2)
+        # item.setText(_translate("MainWindow", "89:28:B2:C6:55:19"))
+        # item = self.annotation_table.item(0, 3)
+        # item.setText(_translate("MainWindow", "Lorem Ipsum"))
 
     def add_row(self):  # add a row when the button add is selected
         """
