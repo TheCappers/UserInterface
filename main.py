@@ -38,6 +38,10 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.ProcessStatOffButton.clicked.connect(self.toggleButtons)
         self.tag_add_button.clicked.connect(self.add_row)
         self.universalRecord.clicked.connect(self.universalButton)
+        
+        
+        if selected:
+            self.display_annotation()
         self.pushButton_18.clicked.connect(self.add_annotation)
 
         # threshold changing
@@ -122,7 +126,38 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.sender().objectName().__contains__("Process") and self.sender().objectName().__contains__('Off'):
             self.ProcessStatOnButton.setChecked(0)  # check off the on button
             self.ProcessStatOffButton.setChecked(1)  # check on the off button
-    
+            
+            
+    def display_annotation(self):
+        self.annotation_table.setRowCount(len(attain))
+        _translate = QtCore.QCoreApplication.translate
+        i = 0
+        #global selected
+        #time
+        #ip
+        #mac
+        #annotation
+        item = QtWidgets.QTableWidgetItem()
+        item.setText("TimeStamp")
+        self.annotation_table.setItem(i, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.annotation_table.setItem(i, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.annotation_table.setItem(i, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.annotation_table.setItem(i, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        item = self.annotation_table.item(i, 0)
+        item.setText(_translate("MainWindow", selected['timestamp']))
+        item = self.annotation_table.item(i, 1)
+        item.setText(_translate("MainWindow", selected['ip_address']))
+        item = self.annotation_table.item(i, 2)
+        item.setText(_translate("MainWindow", selected['mac_address']))
+        item = self.annotation_table.item(i, 3)
+        item.setText(_translate("MainWindow", self.annotation_text.toPlainText()))
+        item = self.annotation_table.item(i, 4)
+        return
+
     def add_annotation(self):  # add a row when the button add is selected
         """
         create new row in the qwidget table within tag area of
