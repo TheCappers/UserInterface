@@ -61,7 +61,10 @@ class AnnotationTable:
     def getTable(self):
         return self.annotation_table
 
-    def display_annotation(self,selected):
+    def display_annotation(self):
+        global selected
+        global attain
+        selected = attain[selected]
         self.annotation_table.setRowCount(len(selected['annotation']))
         _translate = QtCore.QCoreApplication.translate
         i = 0
