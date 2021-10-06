@@ -127,6 +127,8 @@ class ResultTable:
 						item.setText(_translate("MainWindow", "Mouse Click"))
 					else:
 						item.setText(_translate("MainWindow", "Mouse Movement"))
+				elif val['name'] == "Keystroke":
+					item.setText(_translate("MainWindow", "Key Pressed"))
 				i = i + 1
 			return
 
