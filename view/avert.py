@@ -3370,7 +3370,7 @@ class Ui_MainWindow(object):
         item = self.tableWidget_39.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow", "MAC Address"))
         item = self.tableWidget_39.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "Description"))
+        item.setText(_translate("MainWindow", "Annotation"))
         __sortingEnabled = self.tableWidget_39.isSortingEnabled()
         self.tableWidget_39.setSortingEnabled(False)
         item = self.tableWidget_39.item(0, 0)

@@ -1,15 +1,13 @@
 from PyQt5 import QtCore, QtWidgets
 from view.accordion_floating import Ui_Form
 from view.avert import Ui_MainWindow
-from view.components.result_table import ResultTable
 import sys
 import time
 from controller import controller
 
-
 # global values
 control = controller.Controller()
-attain = []
+
 
 class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -38,15 +36,13 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.ProcessStatOffButton.clicked.connect(self.toggleButtons)
         self.tag_add_button.clicked.connect(self.add_row)
         self.universalRecord.clicked.connect(self.universalButton)
+        self.pushButton_18.clicked.connect(self.add_annotation)
 
         # threshold changing
         self.StorageInValue.textEdited.connect(self.thresholdChange)
 
         # search button being activated
         self.search_button.clicked.connect(self.searchPressed)
-
-        # export button being activated
-        self.exportButton.clicked.connect(self.exportPressed)
 
     # button toggle method
     '''
@@ -120,6 +116,25 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.sender().objectName().__contains__("Process") and self.sender().objectName().__contains__('Off'):
             self.ProcessStatOnButton.setChecked(0)  # check off the on button
             self.ProcessStatOffButton.setChecked(1)  # check on the off button
+    
+    def add_annotation(self):  # add a row when the button add is selected
+        """
+        create new row in the qwidget table within tag area of
+        detailed view
+        :return: none
+        """
+        row_position = self.table_tag.rowCount()  # the total rows
+
+        check_item = QtWidgets.QTableWidgetItem()
+        check_item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
+        check_item.setCheckState(QtCore.Qt.Unchecked)
+        rest_item = QtWidgets.QTableWidgetItem()
+        rest_item.setFlags(QtCore.Qt.ItemIsSelectable)
+
+        self.table_widget_39.insertRow(row_position)
+        self.table_widget_39.setItem(row_position, 0, check_item)
+        self.table_widget_39.setItem(row_position, 1, rest_item)
+        self.table_widget_39.setItem(row_position, 2, check_item)
 
     def add_row(self):  # add a row when the button add is selected
         """
@@ -202,19 +217,10 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             if full:
                 QtWidgets.QMessageBox.about(self, 'Storage Alert', 'Storage is full')
 
-
     def searchPressed(self):  # once search is pressed we must search the given data
         # attain the the value in the search box
         search = self.search_expression_bar.text()  # attain the text
-        attain = control.view(search)
-        self.updateTable(attain)
-        # table_result.populateTable(attain)
-        # print(attain)
-        # ResultTable().populateTable(self, attain)
-
-    def exportPressed(self):
-        print('Export')
-        return
+        #attained = control.searchDB(search)
 
 
 def main():
