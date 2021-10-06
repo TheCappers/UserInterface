@@ -131,10 +131,10 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         rest_item = QtWidgets.QTableWidgetItem()
         rest_item.setFlags(QtCore.Qt.ItemIsSelectable)
 
-        self.table_widget_39.insertRow(row_position)
-        self.table_widget_39.setItem(row_position, 0, check_item)
-        self.table_widget_39.setItem(row_position, 1, rest_item)
-        self.table_widget_39.setItem(row_position, 2, check_item)
+        self.tableWidget_39.insertRow(row_position)
+        self.tableWidget_39.setItem(row_position, 0, check_item)
+        self.tableWidget_39.setItem(row_position, 1, rest_item)
+        self.tableWidget_39.setItem(row_position, 2, check_item)
 
     def add_row(self):  # add a row when the button add is selected
         """
