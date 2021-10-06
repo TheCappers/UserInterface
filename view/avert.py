@@ -12,9 +12,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 from view.components import addition_for_synctab, bar_graph, pics_for_detailedview
 
+# from main import attain
 from view.components import result_table
 
 table_result = None
+clicks = []
+selected = None
+attain = []
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -3793,6 +3797,8 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Sync"))
         self.menuAVERT.setTitle(_translate("MainWindow", "AVERT"))
 		
+            #  this is when you click result table
+        table_result.avert_result_table.cellClicked.connect(self.exportRow)
 
     def updateTable(self, attain):
         global table_result
@@ -3800,4 +3806,35 @@ class Ui_MainWindow(object):
         table_result.populateTable(attain)
         # self.verticalLayout_3.addWidget(table_result.getTable()) si jala
         # print(attain)
-				
+
+    def getResultTable(self):
+        global table_result
+        return table_result
+
+    def exportRow(self, index):
+        if index not in clicks:
+            clicks.append(index)
+            selected = index
+            self.changeDetailView(selected)
+            print(selected)
+        else:
+            clicks.remove(index)
+            selected = None
+
+    def updateTable(self, attain1):
+        global attain
+        global table_result
+        attain = attain1
+        table_result.printwhatv()
+        table_result.populateTable(attain)
+        # self.verticalLayout_3.addWidget(table_result.getTable()) si jala
+        # print(attain)
+    
+    def changeDetailView(self, selected):
+        _translate = QtCore.QCoreApplication.translate
+        global attain
+        curdata = attain[selected]
+        item = self.tableWidget_38.item(0, 0)
+        item.setText(_translate("MainWindow", curdata['ip_address']))
+        item = self.tableWidget_38.item(0, 1)
+        item.setText(_translate("MainWindow", curdata['mac_address']))
