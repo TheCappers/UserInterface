@@ -39,9 +39,6 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tag_add_button.clicked.connect(self.add_row)
         self.universalRecord.clicked.connect(self.universalButton)
         
-        
-        if selected:
-            self.display_annotation()
         self.pushButton_18.clicked.connect(self.add_annotation)
 
         # threshold changing

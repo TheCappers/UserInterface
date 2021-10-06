@@ -3838,6 +3838,7 @@ class Ui_MainWindow(object):
 
         #  this is when you click result table
         table_result.avert_result_table.cellClicked.connect(self.exportRow)
+        table_result.avert_result_table.cellClicked.connect(annotation_table.display_annotation(attain[selected]))
 
     def updateTable(self, attain):
         global table_result
