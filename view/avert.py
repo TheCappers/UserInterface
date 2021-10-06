@@ -1153,7 +1153,7 @@ class Ui_MainWindow(object):
         self.formLayout_10.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.label_87)
         self.formLayout_11.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.frame_7)
         # self.description_tab.addTab(self.descriptionkeystroke_tab, "")
-        self.gridLayout_24.addWidget(self.description_tab, 0, 0, 1, 1)
+        # self.gridLayout_24.addWidget(self.description_tab, 0, 0, 1, 1)
         self.DetailedViewTab.addTab(self.tab_134, "")
         self.AnnotationTab = QtWidgets.QWidget()
         self.AnnotationTab.setObjectName("AnnotationTab")
