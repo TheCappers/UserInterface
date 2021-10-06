@@ -87,7 +87,6 @@ class ResultTable:
 	def getTable(self):
 			return self.avert_result_table
 
-
 	def populateTable(self, attain):
 			# global attain
 			print(len(attain))
