@@ -121,10 +121,12 @@ class ResultTable:
 				item = self.avert_result_table.item(i, 4)
 				item.setText(_translate("MainWindow", val["mac_address"]))
 				item = self.avert_result_table.item(i, 5)
-				if val['clicked']:
-					item.setText(_translate("MainWindow", "Mouse Click"))
-				else: 
-					item.setText(_translate("MainWindow", "Mouse Movement"))
+				if val['name'] == "Mouse_Action":
+					mouse = val['data']
+					if mouse['clicked']:
+						item.setText(_translate("MainWindow", "Mouse Click"))
+					else:
+						item.setText(_translate("MainWindow", "Mouse Movement"))
 				i = i + 1
 			return
 
