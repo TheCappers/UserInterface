@@ -137,7 +137,7 @@ class ResultTable:
 	def printwhatv(self):
 		print("whatever")
 
-	def startTableMouseAction(self):
+	def startTableMouseAction(self, avert_result_table):
 		# avert_result_table = QtWidgets.QTableWidget(table_result)
 		self.avert_result_table = avert_result_table
 		self.avert_result_table.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -213,10 +213,8 @@ class ResultTable:
 
 		# return avert_result_table
 
-	def populateTableMouseAction(self):
+	def populateTableMouseAction(self, attain, selected):
 			# global attain
-			global attain 
-			global selected
 			newAttain = attain[selected]
 			self.avert_result_table.setRowCount(len(newAttain))
 			_translate = QtCore.QCoreApplication.translate

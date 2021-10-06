@@ -15,6 +15,7 @@ from view.components import result_table
 table_result = None
 clicks = []
 selected = None
+atain = []
 
 
 class Ui_MainWindow(object):
@@ -388,6 +389,9 @@ class Ui_MainWindow(object):
         self.gridLayout_24 = QtWidgets.QGridLayout(self.tab_134)
         self.gridLayout_24.setObjectName("gridLayout_24")
         self.description_tab = QtWidgets.QTabWidget(self.tab_134)
+        global table_result
+        table_result = result_table.ResultTable()
+        table_result.startTableMouseAction(QtWidgets.QTableWidget(self.avert_table))
         self.description_tab.setMaximumSize(QtCore.QSize(16777215, 500))
         self.description_tab.setFocusPolicy(QtCore.Qt.NoFocus)
         self.description_tab.setAutoFillBackground(False)
@@ -3878,10 +3882,19 @@ class Ui_MainWindow(object):
         #  this is when you click result table
         table_result.avert_result_table.cellClicked.connect(self.exportRow)
 
-    def updateTable(self, attain):
+    def updateTable(self, attain1):
+        global attain
         global table_result
+        attain = attain1
         table_result.printwhatv()
         table_result.populateTable(attain)
+        # self.verticalLayout_3.addWidget(table_result.getTable()) si jala
+        # print(attain)
+
+    def updateTableMouseAction(self, index):
+        global table_result
+        table_result.printwhatv()
+        table_result.populateTableMouseAction(self.attain, index)
         # self.verticalLayout_3.addWidget(table_result.getTable()) si jala
         # print(attain)
 
@@ -3893,6 +3906,7 @@ class Ui_MainWindow(object):
         if index not in clicks:
             clicks.append(index)
             selected = index
+            self.updateTableMouseAction(index=index)
             print(selected)
         else:
             clicks.remove(index)
