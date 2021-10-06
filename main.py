@@ -123,7 +123,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         detailed view
         :return: none
         """
-        row_position = self.table_tag.rowCount()  # the total rows
+        row_position = self.tableWidget_39.rowCount()  # the total rows
 
         check_item = QtWidgets.QTableWidgetItem()
         check_item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
