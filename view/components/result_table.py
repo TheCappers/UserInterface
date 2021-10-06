@@ -110,16 +110,19 @@ class ResultTable:
 				item = QtWidgets.QTableWidgetItem()
 				self.avert_result_table.setItem(i, 5, item)
 				item = self.avert_result_table.item(i, 1)
-				item.setText(_translate("MainWindow", val['_id']))
+				item.setText(_translate("MainWindow", val['timestamp']))
 				item = self.avert_result_table.item(i, 2)
-				item.setText(_translate("MainWindow", val['ip_address']))
+				if val['name'] == "Mouse_Action":
+					item.setText(_translate("MainWindow", "Mouse Action"))
+				elif val['name'] == "Keystroke":
+					item.setText(_translate("MainWindow", "Keystroke"))
 				item = self.avert_result_table.item(i, 3)
-				item.setText(_translate("MainWindow", val['mac_address']))
+				item.setText(_translate("MainWindow", val['ip_address']))
 				item = self.avert_result_table.item(i, 4)
-				item.setText(_translate("MainWindow", val["timestamp"]))
+				item.setText(_translate("MainWindow", val["mac_address"]))
 				item = self.avert_result_table.item(i, 5)
 				item.setText(_translate("MainWindow", val["_id"]))
-				i =+ 1
+				i = i + 1
 			return
 
 	def printwhatv(self):
