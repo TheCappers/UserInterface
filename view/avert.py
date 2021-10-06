@@ -291,9 +291,15 @@ class Ui_MainWindow(object):
         self.label_9.setFont(font)
         self.label_9.setObjectName("label_9")
         self.verticalLayout_3.addWidget(self.label_9)
+        
+				# global table_result
+        # table_result = QtWidgets.QTableWidget(self.avert_table)
+        # table_result = result_table.ResultTable(table_result)
+
         global table_result
-        table_result = QtWidgets.QTableWidget(self.avert_table)
-        table_result = result_table.ResultTable(table_result)
+        table_result = result_table.ResultTable()
+        table_result.startTable(QtWidgets.QTableWidget(self.avert_table))
+
         self.verticalLayout_3.addWidget(table_result.getTable())
         self.frame_14 = QtWidgets.QFrame(self.avert_table)
         self.frame_14.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -3786,3 +3792,12 @@ class Ui_MainWindow(object):
         self.process_pushButton.setText(_translate("MainWindow", "Cancel Process Sync"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Sync"))
         self.menuAVERT.setTitle(_translate("MainWindow", "AVERT"))
+		
+
+    def updateTable(self, attain):
+        global table_result
+        table_result.printwhatv()
+        table_result.populateTable(attain)
+        # self.verticalLayout_3.addWidget(table_result.getTable()) si jala
+        # print(attain)
+				

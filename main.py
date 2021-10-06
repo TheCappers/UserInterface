@@ -1,9 +1,11 @@
 from PyQt5 import QtCore, QtWidgets
 from view.accordion_floating import Ui_Form
 from view.avert import Ui_MainWindow
+from view.components.result_table import ResultTable
 import sys
 import time
 from controller import controller
+
 
 # global values
 control = controller.Controller()
@@ -197,10 +199,15 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             if full:
                 QtWidgets.QMessageBox.about(self, 'Storage Alert', 'Storage is full')
 
+
     def searchPressed(self):  # once search is pressed we must search the given data
         # attain the the value in the search box
         search = self.search_expression_bar.text()  # attain the text
         attain = control.view(search)
+        self.updateTable(attain)
+        # table_result.populateTable(attain)
+        # print(attain)
+        # ResultTable().populateTable(self, attain)
 
 
 def main():
