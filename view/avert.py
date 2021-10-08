@@ -36,9 +36,9 @@ class Ui_MainWindow():
 
 
         """tab_1 start"""
+        self.tab_1 = QtWidgets.QWidget()
+        self.tab_1.setObjectName("tab_1")
         """
-        # self.tab_1 = QtWidgets.QWidget()
-        # self.tab_1.setObjectName("tab_1")
         # self.gridLayout_19 = QtWidgets.QGridLayout(self.tab_1)
         # self.gridLayout_19.setObjectName("gridLayout_19")
         # self.scrollArea = QtWidgets.QScrollArea(self.tab_1)
@@ -2197,9 +2197,9 @@ class Ui_MainWindow():
         self.verticalLayout_4.addWidget(self.toolBox_14)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents_3)
         # self.gridLayout_19.addWidget(self.scrollArea, 0, 0, 1, 1)
-        # self.tabWidget.addTab(self.tab_1, "")
 
 				"""
+        self.tabWidget.addTab(self.tab_1, "HOME")
 
 
         """tab_1 end"""
