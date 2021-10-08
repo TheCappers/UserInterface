@@ -43,6 +43,7 @@ class Ui_MainWindow():
 
 
         """tab_2 start"""
+        """
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
         self.gridLayout_53 = QtWidgets.QGridLayout(self.tab_2)
@@ -520,6 +521,7 @@ class Ui_MainWindow():
         self.scrollArea_4.setWidget(self.scrollAreaWidgetContents_5)
         self.gridLayout_53.addWidget(self.scrollArea_4, 0, 0, 1, 1)
         # self.tabWidget.addTab(self.tab_2, "")
+        """
         """tab_2 end"""
 
         self.tab_3 = QtWidgets.QWidget()
@@ -1056,9 +1058,10 @@ class Ui_MainWindow():
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
 
-      
-        self.StorageThreshLabel.setText(_translate("MainWindow", "Storage Threshold"))
-        self.StorageTitle.setText(_translate("MainWindow", "Storage"))
+        """tab_2 start"""
+        """
+        # self.StorageThreshLabel.setText(_translate("MainWindow", "Storage Threshold"))
+        # self.StorageTitle.setText(_translate("MainWindow", "Storage"))
         self.StorageInValue.setPlaceholderText(_translate("MainWindow", "Enter Percent"))
         self.VideoStatOnButton.setText(_translate("MainWindow", "On"))
         self.VideoStatusOffButton.setText(_translate("MainWindow", "Off"))
@@ -1117,6 +1120,8 @@ class Ui_MainWindow():
         self.ProcessStatOnButton.setText(_translate("MainWindow", "On"))
         self.ProcessStatOffButton.setText(_translate("MainWindow", "Off"))
         # self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Configuration"))
+        """
+				"""tab_2 configuration tab END"""
         self.fromIPlabel_label.setText(_translate("MainWindow", "From Analyst\'s IP Address:"))
         self.fromMAClabel_label.setText(_translate("MainWindow", "From Analyst\'s MAC Address:"))
         self.fromMACval_label.setText(_translate("MainWindow", "3D-9F-1A-82-2C-0E"))

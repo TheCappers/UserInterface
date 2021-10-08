@@ -20,6 +20,8 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # self.table_tag.setSortingEnabled(1)  # allows for the sorting in the columns
 
         # automatic on button checked
+        """tab_2 buttons. configuration tab"""
+        """
         self.VideoStatOnButton.clicked.connect(self.toggleButtons)
         self.VideoStatusOffButton.clicked.connect(self.toggleButtons)
         self.ScreenshotStatOnButton.clicked.connect(self.toggleButtons)
@@ -36,18 +38,24 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.NetworkActivityDataOffButton.clicked.connect(self.toggleButtons)
         self.ProcessStatOnButton.clicked.connect(self.toggleButtons)
         self.ProcessStatOffButton.clicked.connect(self.toggleButtons)
-        # self.tag_add_button.clicked.connect(self.add_row)
-        # self.universalRecord.clicked.connect(self.universalButton)
-        # self.pushButton_18.clicked.connect(self.add_annotation)
-
         # threshold changing
         self.StorageInValue.textEdited.connect(self.thresholdChange)
+        """
+        
+
+
+
+        """tab_1 buttons. home tab START"""
+				# self.tag_add_button.clicked.connect(self.add_row)
+        # self.universalRecord.clicked.connect(self.universalButton)
+        # self.pushButton_18.clicked.connect(self.add_annotation)
 
         # search button being activated
         # self.search_button.clicked.connect(self.searchPressed)
 
         # export button being activated
         # self.exportButton.clicked.connect(self.exportPressed)
+        """tab_1 buttons. home tab END"""
 
 
     # button toggle method
