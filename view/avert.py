@@ -11,6 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from view.components import addition_for_synctab, bar_graph, pics_for_detailedview
 from view.components import result_table
+from view.home_tab.home import Home
 
 table_result = None
 clicks = []
@@ -36,8 +37,10 @@ class Ui_MainWindow():
 
 
         """tab_1 start"""
-        self.tab_1 = QtWidgets.QWidget()
-        self.tab_1.setObjectName("tab_1")
+        hometab = Home()
+        self.tab_1 = hometab.get_tab()
+        # self.tab_1 = QtWidgets.QWidget()
+        # self.tab_1.setObjectName("tab_1")
         """
         # self.gridLayout_19 = QtWidgets.QGridLayout(self.tab_1)
         # self.gridLayout_19.setObjectName("gridLayout_19")
