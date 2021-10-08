@@ -22,22 +22,19 @@ class AnnotationTable:
         self.annotation_table.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
         self.annotation_table.setHorizontalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.annotation_table.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.annotation_table.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.annotation_table.setItem(0, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.annotation_table.setItem(0, 3, item)
-        self.annotation_table.horizontalHeader().setDefaultSectionSize(200)
-        self.annotation_table.horizontalHeader().setStretchLastSection(True)
 
-        _translate = QtCore.QCoreApplication.translate
+        self.annotation_table.horizontalHeader().setCascadingSectionResizes(True)
+        self.annotation_table.horizontalHeader().setDefaultSectionSize(200)
+        self.annotation_table.horizontalHeader().setHighlightSections(False)
+        self.annotation_table.horizontalHeader().setSortIndicatorShown(True)
+        self.annotation_table.horizontalHeader().setStretchLastSection(True)
+        self.annotation_table.verticalHeader().setVisible(True)
+        self.annotation_table.verticalHeader().setHighlightSections(True)
         self.annotation_table.setSortingEnabled(True)
-        item = self.annotation_table.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Video1"))
+
+
         item = self.annotation_table.horizontalHeaderItem(0)
+        _translate = QtCore.QCoreApplication.translate
         item.setText(_translate("MainWindow", "Timestamp"))
         item = self.annotation_table.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "IP Address"))
@@ -45,17 +42,6 @@ class AnnotationTable:
         item.setText(_translate("MainWindow", "MAC Address"))
         item = self.annotation_table.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Annotation"))
-        __sortingEnabled = self.annotation_table.isSortingEnabled()
-        self.annotation_table.setSortingEnabled(False)
-        item = self.annotation_table.item(0, 0)
-        item.setText(_translate("MainWindow", "10-06-26 02:31:29,573"))
-        item = self.annotation_table.item(0, 1)
-        item.setText(_translate("MainWindow", "192.111.222.16"))
-        item = self.annotation_table.item(0, 2)
-        item.setText(_translate("MainWindow", "89:28:B2:C6:55:19"))
-        item = self.annotation_table.item(0, 3)
-        item.setText(_translate("MainWindow", "Lorem Ipsum"))
-        self.annotation_table.setSortingEnabled(__sortingEnabled)
 
         return annotation_table
 
@@ -64,8 +50,11 @@ class AnnotationTable:
 
     def display_annotation(self, selected):
         print(selected)
+        print("SELECTED")
         if selected:
-            self.annotation_table.setRowCount(len(selected['annotation']))
+            #self.annotation_table.setRowCount(len(selected['annotation']))
+
+            self.annotation_table.setRowCount(2)
             _translate = QtCore.QCoreApplication.translate
             i = 0
             #global selected
@@ -73,18 +62,33 @@ class AnnotationTable:
             # ip
             # mac
             # annotation
-            for j in range(3):
+            time = selected['timestamp']
+            ip = selected ['ip_address']
+            mac = selected ['mac_address']
+
+            #for j in selected['annotatselected['annotation']ion']:
+            for j in range(2):
+                print(i)
                 item = QtWidgets.QTableWidgetItem()
-                item.setText("TimeStamp")
                 self.annotation_table.setItem(i, 0, item)
+                item = self.annotation_table.item(i, 0)
+                item.setText(_translate("MainWindow", time))
                 # self.annotation_table.setText("hello")
                 item = QtWidgets.QTableWidgetItem()
                 self.annotation_table.setItem(i, 1, item)
+                item = self.annotation_table.item(i, 1)
+                item.setText(_translate("MainWindow", ip))
+
                 item = QtWidgets.QTableWidgetItem()
                 self.annotation_table.setItem(i, 2, item)
+                item = self.annotation_table.item(i, 2)
+                item.setText(_translate("MainWindow", mac))
+
                 item = QtWidgets.QTableWidgetItem()
                 self.annotation_table.setItem(i, 3, item)
-                item = QtWidgets.QTableWidgetItem()
+                item = self.annotation_table.item(i, 3)
+                item.setText(_translate("MainWindow", "annotation of the artifact would go here"))
+                #item.setText(_translate("MainWindow", 'timestamp'))
                 # item = self.annotation_table.item(i, 0)
                 i += 1
             # print(selected['timestamp'])

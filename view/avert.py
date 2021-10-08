@@ -1208,7 +1208,7 @@ class Ui_MainWindow(object):
         global annotation_table
         annotation_table = annotation_table.AnnotationTable()
         annotation_table.startTable(QtWidgets.QTableWidget(self.AnnotationTab))
-        
+
         self.verticalLayout_6.addWidget(annotation_table.getTable())
         self.annotation_text = QtWidgets.QTextEdit(self.AnnotationTab)
         self.annotation_text.setObjectName("annotation_text")
@@ -3412,7 +3412,7 @@ class Ui_MainWindow(object):
                                         _translate("MainWindow", "Keystroke"))
         self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(self.tab_134),
                                         _translate("MainWindow", "Description"))
-        
+
         self.annotation_text.setPlaceholderText(_translate("MainWindow", "Annotation"))
         self.pushButton_18.setText(_translate("MainWindow", "Add"))
         self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(self.AnnotationTab),
@@ -3840,7 +3840,7 @@ class Ui_MainWindow(object):
         table_result.avert_result_table.cellClicked.connect(self.exportRow)
         self.table_result = table_result
         self.annotation_table = annotation_table
-        
+
 #     def updateAnnotationTable(self,attain):
 #         global annotation_table
 #         annotation_table.display_annotation(attain[selected])
