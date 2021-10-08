@@ -4,7 +4,6 @@ from view.components import addition_for_synctab, bar_graph, pics_for_detailedvi
 
 class Home:
 	def __init__(self):
-		self.x = ''
 		self.tab_1 = QtWidgets.QWidget()
 		self.tab_1.setObjectName("tab_1")
 		self.gridLayout_19 = QtWidgets.QGridLayout(self.tab_1)
