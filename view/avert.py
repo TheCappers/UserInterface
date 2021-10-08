@@ -13,6 +13,7 @@ from view.components import addition_for_synctab, bar_graph, pics_for_detailedvi
 from view.components import result_table
 from view.home_tab.home import Home
 from view.configuration_tab.configuration import Configuration
+from view.sync_tab.sync import Sync
 
 table_result = None
 clicks = []
@@ -51,6 +52,9 @@ class Ui_MainWindow():
 
 
         """tab_3 start"""
+        synctab = Sync()
+        self.tab_3 = synctab.get_tab()
+        self.tabWidget.addTab(self.tab_3, "Sync")
         """
         self.tab_3 = QtWidgets.QWidget()
         self.tab_3.setObjectName("tab_3")
