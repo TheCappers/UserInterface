@@ -51,10 +51,11 @@ class AnnotationTable:
     def display_annotation(self, selected):
         print(selected)
         print("SELECTED")
-        if selected:
-            #self.annotation_table.setRowCount(len(selected['annotation']))
 
-            self.annotation_table.setRowCount(2)
+        if selected:
+            self.annotation_table.setRowCount(len(selected['annotation']))
+
+            #/self.annotation_table.setRowCount(2)
             _translate = QtCore.QCoreApplication.translate
             i = 0
             #global selected
@@ -66,9 +67,8 @@ class AnnotationTable:
             ip = selected ['ip_address']
             mac = selected ['mac_address']
 
-            #for j in selected['annotatselected['annotation']ion']:
-            for j in range(2):
-                #print(i)
+
+            for annotation in selected['annotation']:
                 item = QtWidgets.QTableWidgetItem()
                 self.annotation_table.setItem(i, 0, item)
                 item = self.annotation_table.item(i, 0)
@@ -87,17 +87,4 @@ class AnnotationTable:
                 item = QtWidgets.QTableWidgetItem()
                 self.annotation_table.setItem(i, 3, item)
                 item = self.annotation_table.item(i, 3)
-                item.setText(_translate("MainWindow", "annotation of the artifact would go here"))
-                #item.setText(_translate("MainWindow", 'timestamp'))
-                # item = self.annotation_table.item(i, 0)
-                i += 1
-            # print(selected['timestamp'])
-            # item.setText(str(selected['timestamp']))
-            # item = self.annotation_table.item(i, 1)
-            # item.setText(_translate("MainWindow", selected['ip_address']))
-            # item = self.annotation_table.item(i, 2)
-            # item.setText(_translate("MainWindow", selected['mac_address']))
-            # item = self.annotation_table.item(i, 3)
-            # item.setText(_translate(
-            #     "MainWindow", self.annotation_text.toPlainText()))
-            # item = self.annotation_table.item(i, 4)
+                item.setText(_translate("MainWindow", annotation))

@@ -50,7 +50,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.exportButton.clicked.connect(self.exportPressed)
 
 
-        self.table_result.avert_result_table.cellClicked.connect(self.annotationTest)
+        self.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)
 
 
 
@@ -127,27 +127,39 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.ProcessStatOnButton.setChecked(0)  # check off the on button
             self.ProcessStatOffButton.setChecked(1)  # check on the off button
 
-    def add_annotation(self):  # add a row when the button add is selected
+    def add_annotation(self,index):  # add a row when the button add is selected
         """
         create new row in the qwidget table within tag area of
         detailed view
         :return: none
         """
-        row_position = self.annotation_table.rowCount()  # the total rows
+        global attain,selected
+        print(index)
+        index = self.table_result.getIndexSelected()
 
+        #table = self.annotation_table.getTable()
+        #row_position = self.annotation_table.getTable().rowCount()  # the total rows
+
+        """
         rest_item = QtWidgets.QTableWidgetItem()
         rest_item.setFlags(QtCore.Qt.ItemIsSelectable)
         rest_item1 = QtWidgets.QTableWidgetItem()
         rest_item1.setFlags(QtCore.Qt.ItemIsSelectable)
-        rest_item2 = QtWidgets.QTableWidgetItem()
-        rest_item2.setFlags(QtCore.Qt.ItemIsSelectable)
-        rest_item2.setText(self.annotation_text.toPlainText())
+        annotation = QtWidgets.QTableWidgetItem()
+        annotation.setFlags(QtCore.Qt.ItemIsSelectable)
+        annotation.setText(self.annotation_text.toPlainText())
 
 
-        self.annotation_table.insertRow(row_position)
-        self.annotation_table.setItem(row_position, 0, rest_item)
-        self.annotation_table.setItem(row_position, 1, rest_item1)
-        self.annotation_table.setItem(row_position, 2, rest_item2)
+        table.insertRow(row_position)
+        table.setItem(row_position, 0, rest_item)
+        table.setItem(row_position, 1, rest_item1)
+        #table.setItem(row_position, 2, rest_item2)
+        table.setItem(row_position, 3, annotation)
+        """
+
+        attain[index]['annotation'].append(self.annotation_text.toPlainText())
+        self.annotationDisplay(self.table_result.getIndexSelected())
+
 
 
     def add_row(self):  # add a row when the button add is selected
@@ -242,18 +254,10 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # print(attain)
         # ResultTable().populateTable(self, attain)
 
-    def annotationTest(self,index):
-        #print('hello')
+    def annotationDisplay(self,index):
+        self.table_result.setIndexSelected(index)
         global attain
         self.annotation_table.display_annotation(attain[index])
-        #print('after hello')
-        # if index not in clicks:
-        #     clicks.append(index)
-        #     selected = index
-        #     print(selected)
-        # else:
-        #     clicks.remove(index)
-        #     selected = None
 
     def deleteTag(self, index):
         info = attain[index]
