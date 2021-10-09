@@ -131,14 +131,12 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         """
         Add an annotation to the selected artifact
         """
-        global attain
+        global attain, control
         index = self.table_result.getIndexSelected()
 
-        attain[index]['annotation'].append(self.annotation_text.toPlainText())
-
-        #TODO: if annotation_text empty, don't add.
-
-        self.annotationDisplay(self.table_result.getIndexSelected())
+        if len(self.annotation_text.toPlainText().strip()):
+            control.annotationAdd(self.annotation_text.toPlainText(), attain[index])
+            self.annotationDisplay(self.table_result.getIndexSelected())
 
 
 
