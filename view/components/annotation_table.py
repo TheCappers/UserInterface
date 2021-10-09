@@ -68,7 +68,7 @@ class AnnotationTable:
 
             #for j in selected['annotatselected['annotation']ion']:
             for j in range(2):
-                print(i)
+                #print(i)
                 item = QtWidgets.QTableWidgetItem()
                 self.annotation_table.setItem(i, 0, item)
                 item = self.annotation_table.item(i, 0)

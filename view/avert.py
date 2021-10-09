@@ -3857,6 +3857,7 @@ class Ui_MainWindow(object):
         return table_result
 
     def exportRow(self, index):
+        global selected
         if index not in clicks:
             clicks.append(index)
             selected = index

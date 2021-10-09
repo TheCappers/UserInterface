@@ -37,7 +37,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.ProcessStatOffButton.clicked.connect(self.toggleButtons)
         self.tag_add_button.clicked.connect(self.add_row)
         self.universalRecord.clicked.connect(self.universalButton)
-        
+
         self.pushButton_18.clicked.connect(self.add_annotation)
 
         # threshold changing
@@ -49,7 +49,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # export button being activated
         self.exportButton.clicked.connect(self.exportPressed)
 
-        
+
         self.table_result.avert_result_table.cellClicked.connect(self.annotationTest)
 
 
@@ -58,7 +58,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     '''
     Author: David Amparan Date: 9/7/2021
     Purpose: Allow recording status buttons (on and off) as a toggle buttons
-    meaning when one is pressed it stays down and when the other is pressed it stays down 
+    meaning when one is pressed it stays down and when the other is pressed it stays down
     while the other one pops up
     '''
 
@@ -126,7 +126,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.sender().objectName().__contains__("Process") and self.sender().objectName().__contains__('Off'):
             self.ProcessStatOnButton.setChecked(0)  # check off the on button
             self.ProcessStatOffButton.setChecked(1)  # check on the off button
-            
+
     def add_annotation(self):  # add a row when the button add is selected
         """
         create new row in the qwidget table within tag area of
@@ -242,12 +242,11 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # print(attain)
         # ResultTable().populateTable(self, attain)
 
-    def annotationTest(self):
-        print('hello')
-        global selected, attain
-        print(selected)
-        self.annotation_table.display_annotation(attain[selected])
-        print('after hello')
+    def annotationTest(self,index):
+        #print('hello')
+        global attain
+        self.annotation_table.display_annotation(attain[index])
+        #print('after hello')
         # if index not in clicks:
         #     clicks.append(index)
         #     selected = index
