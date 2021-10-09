@@ -49,31 +49,21 @@ class AnnotationTable:
         return self.annotation_table
 
     def display_annotation(self, selected):
-        print(selected)
-        print("SELECTED")
-
+        #Display all annotations from the last selected element
         if selected:
             self.annotation_table.setRowCount(len(selected['annotation']))
-
-            #/self.annotation_table.setRowCount(2)
             _translate = QtCore.QCoreApplication.translate
-            i = 0
-            #global selected
-            # time
-            # ip
-            # mac
-            # annotation
+
             time = selected['timestamp']
             ip = selected ['ip_address']
             mac = selected ['mac_address']
-
-
+            i=0
             for annotation in selected['annotation']:
                 item = QtWidgets.QTableWidgetItem()
                 self.annotation_table.setItem(i, 0, item)
                 item = self.annotation_table.item(i, 0)
                 item.setText(_translate("MainWindow", time))
-                # self.annotation_table.setText("hello")
+
                 item = QtWidgets.QTableWidgetItem()
                 self.annotation_table.setItem(i, 1, item)
                 item = self.annotation_table.item(i, 1)
@@ -88,3 +78,5 @@ class AnnotationTable:
                 self.annotation_table.setItem(i, 3, item)
                 item = self.annotation_table.item(i, 3)
                 item.setText(_translate("MainWindow", annotation))
+
+                i+=1

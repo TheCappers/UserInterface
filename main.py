@@ -129,35 +129,15 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def add_annotation(self,index):  # add a row when the button add is selected
         """
-        create new row in the qwidget table within tag area of
-        detailed view
-        :return: none
+        Add an annotation to the selected artifact
         """
-        global attain,selected
-        print(index)
+        global attain
         index = self.table_result.getIndexSelected()
 
-        #table = self.annotation_table.getTable()
-        #row_position = self.annotation_table.getTable().rowCount()  # the total rows
-
-        """
-        rest_item = QtWidgets.QTableWidgetItem()
-        rest_item.setFlags(QtCore.Qt.ItemIsSelectable)
-        rest_item1 = QtWidgets.QTableWidgetItem()
-        rest_item1.setFlags(QtCore.Qt.ItemIsSelectable)
-        annotation = QtWidgets.QTableWidgetItem()
-        annotation.setFlags(QtCore.Qt.ItemIsSelectable)
-        annotation.setText(self.annotation_text.toPlainText())
-
-
-        table.insertRow(row_position)
-        table.setItem(row_position, 0, rest_item)
-        table.setItem(row_position, 1, rest_item1)
-        #table.setItem(row_position, 2, rest_item2)
-        table.setItem(row_position, 3, annotation)
-        """
-
         attain[index]['annotation'].append(self.annotation_text.toPlainText())
+
+        #TODO: if annotation_text empty, don't add.
+
         self.annotationDisplay(self.table_result.getIndexSelected())
 
 
