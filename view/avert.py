@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from view.components import addition_for_synctab, bar_graph, pics_for_detailedview
-from view.components import result_table
+from view.components import result_table, annotation_table
 
 table_result = None
 clicks = []
@@ -1206,31 +1206,13 @@ class Ui_MainWindow(object):
         self.AnnotationTab.setObjectName("AnnotationTab")
         self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.AnnotationTab)
         self.verticalLayout_6.setObjectName("verticalLayout_6")
-        self.annotation_table = QtWidgets.QTableWidget(self.AnnotationTab)
-        self.annotation_table.setRowCount(1)
-        self.annotation_table.setObjectName("annotation_table")
-        self.annotation_table.setColumnCount(4)
-        item = QtWidgets.QTableWidgetItem()
-        self.annotation_table.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.annotation_table.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.annotation_table.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.annotation_table.setHorizontalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.annotation_table.setHorizontalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.annotation_table.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.annotation_table.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.annotation_table.setItem(0, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.annotation_table.setItem(0, 3, item)
-        self.annotation_table.horizontalHeader().setDefaultSectionSize(200)
-        self.annotation_table.horizontalHeader().setStretchLastSection(True)
-        self.verticalLayout_6.addWidget(self.annotation_table)
+        """ ANNNOTATIONTA """
+
+        global annotation_table
+        annotation_table = annotation_table.AnnotationTable()
+        annotation_table.startTable(QtWidgets.QTableWidget(self.AnnotationTab))
+
+        self.verticalLayout_6.addWidget(annotation_table.getTable())
         self.annotation_text = QtWidgets.QTextEdit(self.AnnotationTab)
         self.annotation_text.setObjectName("annotation_text")
         self.verticalLayout_6.addWidget(self.annotation_text)
@@ -3433,28 +3415,7 @@ class Ui_MainWindow(object):
                                         _translate("MainWindow", "Keystroke"))
         self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(self.tab_134),
                                         _translate("MainWindow", "Description"))
-        self.annotation_table.setSortingEnabled(True)
-        item = self.annotation_table.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Video1"))
-        item = self.annotation_table.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Timestamp"))
-        item = self.annotation_table.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "IP Address"))
-        item = self.annotation_table.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "MAC Address"))
-        item = self.annotation_table.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "Annotation"))
-        __sortingEnabled = self.annotation_table.isSortingEnabled()
-        self.annotation_table.setSortingEnabled(False)
-        item = self.annotation_table.item(0, 0)
-        item.setText(_translate("MainWindow", "10-06-26 02:31:29,573"))
-        item = self.annotation_table.item(0, 1)
-        item.setText(_translate("MainWindow", "192.111.222.16"))
-        item = self.annotation_table.item(0, 2)
-        item.setText(_translate("MainWindow", "89:28:B2:C6:55:19"))
-        item = self.annotation_table.item(0, 3)
-        item.setText(_translate("MainWindow", "Lorem Ipsum"))
-        self.annotation_table.setSortingEnabled(__sortingEnabled)
+
         self.annotation_text.setPlaceholderText(_translate("MainWindow", "Annotation"))
         self.pushButton_18.setText(_translate("MainWindow", "Add"))
         self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(self.AnnotationTab),
@@ -3879,6 +3840,12 @@ class Ui_MainWindow(object):
         self.menuAVERT.setTitle(_translate("MainWindow", "AVERT"))
 
         table_result.avert_result_table.cellClicked.connect(self.exportRow)
+        self.table_result = table_result
+        self.annotation_table = annotation_table
+
+#     def updateAnnotationTable(self,attain):
+#         global annotation_table
+#         annotation_table.display_annotation(attain[selected])
 
     def updateTable(self, attain):
         global table_result
@@ -3892,6 +3859,7 @@ class Ui_MainWindow(object):
         return table_result
 
     def exportRow(self, index):
+        global selected
         if index not in clicks:
             clicks.append(index)
             selected = index

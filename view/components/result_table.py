@@ -4,9 +4,15 @@ class ResultTable:
 
 	def __init__(self):
 		self.avert_result_table = ""
+		self.indexSelected = 0
 		#global table_result
-	
 
+
+	def setIndexSelected(self,index):
+		self.indexSelected = index
+
+	def getIndexSelected(self):
+		return self.indexSelected
 
 	def startTable(self, avert_result_table):
 		# avert_result_table = QtWidgets.QTableWidget(table_result)

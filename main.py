@@ -8,14 +8,13 @@ from controller import controller
 control = controller.Controller()
 attain = []
 clicks = []
-selected = None
+selected = 0
 
 
 class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(AvertApp, self).__init__()
         self.setupUi(self)
-
         # portion for the tag_table
         self.table_tag.setSortingEnabled(1)  # allows for the sorting in the columns
 
@@ -38,6 +37,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.ProcessStatOffButton.clicked.connect(self.toggleButtons)
         self.tag_add_button.clicked.connect(self.add_row)
         self.universalRecord.clicked.connect(self.universalButton)
+
         self.pushButton_18.clicked.connect(self.add_annotation)
 
         # threshold changing
@@ -50,11 +50,15 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.exportButton.clicked.connect(self.exportPressed)
 
 
+        self.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)
+
+
+
     # button toggle method
     '''
     Author: David Amparan Date: 9/7/2021
     Purpose: Allow recording status buttons (on and off) as a toggle buttons
-    meaning when one is pressed it stays down and when the other is pressed it stays down 
+    meaning when one is pressed it stays down and when the other is pressed it stays down
     while the other one pops up
     '''
 
@@ -122,28 +126,20 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.sender().objectName().__contains__("Process") and self.sender().objectName().__contains__('Off'):
             self.ProcessStatOnButton.setChecked(0)  # check off the on button
             self.ProcessStatOffButton.setChecked(1)  # check on the off button
-    
-    def add_annotation(self):  # add a row when the button add is selected
+
+    def add_annotation(self,index):  # add a row when the button add is selected
         """
-        create new row in the qwidget table within tag area of
-        detailed view
-        :return: none
+        Add an annotation to the selected artifact
         """
-        row_position = self.annotation_table.rowCount()  # the total rows
+        global attain
+        index = self.table_result.getIndexSelected()
 
-        rest_item = QtWidgets.QTableWidgetItem()
-        rest_item.setFlags(QtCore.Qt.ItemIsSelectable)
-        rest_item1 = QtWidgets.QTableWidgetItem()
-        rest_item1.setFlags(QtCore.Qt.ItemIsSelectable)
-        rest_item2 = QtWidgets.QTableWidgetItem()
-        rest_item2.setFlags(QtCore.Qt.ItemIsSelectable)
-        rest_item2.setText(self.annotation_text.toPlainText())
+        attain[index]['annotation'].append(self.annotation_text.toPlainText())
 
+        #TODO: if annotation_text empty, don't add.
 
-        self.annotation_table.insertRow(row_position)
-        self.annotation_table.setItem(row_position, 0, rest_item)
-        self.annotation_table.setItem(row_position, 1, rest_item1)
-        self.annotation_table.setItem(row_position, 2, rest_item2)
+        self.annotationDisplay(self.table_result.getIndexSelected())
+
 
 
     def add_row(self):  # add a row when the button add is selected
@@ -229,6 +225,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def searchPressed(self):  # once search is pressed we must search the given data
         # attain the the value in the search box
+        global attain
         search = self.search_expression_bar.text()  # attain the text
         attain = control.view(search)
         self.updateTable(attain)
@@ -237,11 +234,17 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # print(attain)
         # ResultTable().populateTable(self, attain)
 
+    def annotationDisplay(self,index):
+        self.table_result.setIndexSelected(index)
+        global attain
+        self.annotation_table.display_annotation(attain[index])
+
     def deleteTag(self, index):
         info = attain[index]
         info = info['tag']
 
     def exportPressed(self, index):
+        global selected
         if index not in clicks:
             clicks.append(index)
             selected = index
