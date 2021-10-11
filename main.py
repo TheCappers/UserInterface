@@ -57,7 +57,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         """
 
 
-        self.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)
+        # self.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)
 
 
 
