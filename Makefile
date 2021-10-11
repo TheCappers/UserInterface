@@ -13,3 +13,4 @@ clean:
 	(rm -rf view/home_tab/__pycache__)
 	(rm -rf view/sync_tab/__pycache__)
 	(rm -rf view/assets/__pycache__)
+	(rm -rf .idea)

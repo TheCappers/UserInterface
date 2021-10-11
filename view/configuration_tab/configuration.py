@@ -542,8 +542,6 @@ class Configuration:
 		self.ProcessStatLabel.setText(_translate("MainWindow", "Automatic Process Recording Default Status"))
 		self.ProcessTitle.setText(_translate("MainWindow", "Process"))
 		self.ProcessStatOnButton.setText(_translate("MainWindow", "On"))
-		self.ProcessStatOffButton.setText(_translate("MainWindow", "Off"))
-		# self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Configuration"))
 	
 
 	def get_tab(self):

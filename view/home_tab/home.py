@@ -1,6 +1,5 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
-from view.components import result_table
-from view.components import addition_for_synctab, bar_graph, pics_for_detailedview
+from PyQt5 import QtWidgets, QtCore, QtGui
+from view.components import result_table, annotation_table, bar_graph
 
 class Home:
 	def __init__(self):
@@ -1177,31 +1176,13 @@ class Home:
 		self.AnnotationTab.setObjectName("AnnotationTab")
 		self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.AnnotationTab)
 		self.verticalLayout_6.setObjectName("verticalLayout_6")
-		self.annotation_table = QtWidgets.QTableWidget(self.AnnotationTab)
-		self.annotation_table.setRowCount(1)
-		self.annotation_table.setObjectName("annotation_table")
-		self.annotation_table.setColumnCount(4)
-		item = QtWidgets.QTableWidgetItem()
-		self.annotation_table.setVerticalHeaderItem(0, item)
-		item = QtWidgets.QTableWidgetItem()
-		self.annotation_table.setHorizontalHeaderItem(0, item)
-		item = QtWidgets.QTableWidgetItem()
-		self.annotation_table.setHorizontalHeaderItem(1, item)
-		item = QtWidgets.QTableWidgetItem()
-		self.annotation_table.setHorizontalHeaderItem(2, item)
-		item = QtWidgets.QTableWidgetItem()
-		self.annotation_table.setHorizontalHeaderItem(3, item)
-		item = QtWidgets.QTableWidgetItem()
-		self.annotation_table.setItem(0, 0, item)
-		item = QtWidgets.QTableWidgetItem()
-		self.annotation_table.setItem(0, 1, item)
-		item = QtWidgets.QTableWidgetItem()
-		self.annotation_table.setItem(0, 2, item)
-		item = QtWidgets.QTableWidgetItem()
-		self.annotation_table.setItem(0, 3, item)
-		self.annotation_table.horizontalHeader().setDefaultSectionSize(200)
-		self.annotation_table.horizontalHeader().setStretchLastSection(True)
-		self.verticalLayout_6.addWidget(self.annotation_table)
+		""" ANNNOTATIONTA """
+
+		global annotation_table
+		annotation_table = annotation_table.AnnotationTable()
+		annotation_table.startTable(QtWidgets.QTableWidget(self.AnnotationTab))
+
+		self.verticalLayout_6.addWidget(annotation_table.getTable())
 		self.annotation_text = QtWidgets.QTextEdit(self.AnnotationTab)
 		self.annotation_text.setObjectName("annotation_text")
 		self.verticalLayout_6.addWidget(self.annotation_text)
@@ -2163,11 +2144,11 @@ class Home:
 		self.toolBox_14.addItem(self.log_accordion_16, "")
 		self.verticalLayout_4.addWidget(self.toolBox_14)
 		self.scrollArea.setWidget(self.scrollAreaWidgetContents_3)
+		self.gridLayout_19.addWidget(self.scrollArea, 0, 0, 1, 1)
 
 		_translate = QtCore.QCoreApplication.translate
+		
 
-
-		self.gridLayout_19.addWidget(self.scrollArea, 0, 0, 1, 1)
 		self.label_10.setText(_translate("MainWindow", "Search"))
 		self.search_expression_bar.setPlaceholderText(_translate("MainWindow", "Search Expression"))
 		self.label_8.setText(_translate("MainWindow", "Tag"))
@@ -2223,9 +2204,9 @@ class Home:
 		item.setText(_translate("MainWindow", "AA:BB:CCC"))
 		self.tableWidget_38.setSortingEnabled(__sortingEnabled)
 		self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(self.tab_133),
-		                                _translate("MainWindow", "User Profile"))
+																		_translate("MainWindow", "User Profile"))
 		self.label_88.setText(_translate("MainWindow",
-		                                 "<html><head/><body><p><img src=\":/pics_for_detailedview/video_detailedview.png\"/></p></body></html>"))
+																		"<html><head/><body><p><img src=\":/pics_for_detailedview/video_detailedview.png\"/></p></body></html>"))
 		self.descriptionvideo_timestamp_label.setText(_translate("MainWindow", "Timestamp:"))
 		self.label_41.setText(_translate("MainWindow", "10-6-26 02:31:29"))
 		self.descriptionvideo_timestamp_label_2.setText(_translate("MainWindow", "Video Size:"))
@@ -2235,9 +2216,9 @@ class Home:
 		self.descriptionvideo_timestamp_label_4.setText(_translate("MainWindow", "Video Frame Rate:"))
 		self.label_44.setText(_translate("MainWindow", "24fps"))
 		self.description_tab.setTabText(self.description_tab.indexOf(self.descriptionvideo_tab),
-		                                _translate("MainWindow", "Video"))
+																		_translate("MainWindow", "Video"))
 		self.label_89.setText(_translate("MainWindow",
-		                                 "<html><head/><body><p><img src=\":/pics_for_detailedview/stillscreenshot_detailedview.jpg\"/></p></body></html>"))
+																		"<html><head/><body><p><img src=\":/pics_for_detailedview/stillscreenshot_detailedview.jpg\"/></p></body></html>"))
 		self.descriptionvideo_timestamp_label_7.setText(_translate("MainWindow", "Timestamp:"))
 		self.label_47.setText(_translate("MainWindow", "10-6-26 02:31:29"))
 		self.descriptionvideo_timestamp_label_6.setText(_translate("MainWindow", "Still Screenshot Size:"))
@@ -2245,10 +2226,10 @@ class Home:
 		self.descriptionvideo_timestamp_label_5.setText(_translate("MainWindow", "Still Screenshot Format:"))
 		self.label_45.setText(_translate("MainWindow", "PNG"))
 		self.description_tab.setTabText(self.description_tab.indexOf(self.descriptionstillscreenshot_tab),
-		                                _translate("MainWindow", "Still Screenshot"))
+																		_translate("MainWindow", "Still Screenshot"))
 		self.descriptionvideo_timestamp_label_8.setText(_translate("MainWindow", "Timestamp:"))
 		self.label_49.setText(_translate("MainWindow", "10-6-26 02:31:29"))
-		# self.descriptionvideo_timestamp_label_10.setText(_translate("MainWindow", "System Call Name:"))
+		self.descriptionvideo_timestamp_label_10.setText(_translate("MainWindow", "System Call Name:"))
 		self.label_50.setText(_translate("MainWindow", "systcall_getdents"))
 		self.descriptionvideo_timestamp_label_9.setText(_translate("MainWindow", "System Call Argument:"))
 		self.label_48.setText(_translate("MainWindow", "None"))
@@ -2257,7 +2238,7 @@ class Home:
 		self.descriptionvideo_timestamp_label_13.setText(_translate("MainWindow", "System Call Type:"))
 		self.label_53.setText(_translate("MainWindow", "Process Control"))
 		self.description_tab.setTabText(self.description_tab.indexOf(self.descriptionsystemcall_tab),
-		                                _translate("MainWindow", "System Call"))
+																		_translate("MainWindow", "System Call"))
 		self.descriptionvideo_timestamp_label_23.setText(_translate("MainWindow", "No. of Thread:"))
 		self.label_63.setText(_translate("MainWindow", "5"))
 		self.descriptionvideo_timestamp_label_26.setText(_translate("MainWindow", "CPU Percentage:"))
@@ -2289,7 +2270,7 @@ class Home:
 		self.descriptionvideo_timestamp_label_14.setText(_translate("MainWindow", "Parent Process Name:"))
 		self.label_54.setText(_translate("MainWindow", "455"))
 		self.description_tab.setTabText(self.description_tab.indexOf(self.descriptionprocess_tab),
-		                                _translate("MainWindow", "Process"))
+																		_translate("MainWindow", "Process"))
 		self.descriptionvideo_timestamp_label_42.setText(_translate("MainWindow", "Window Placement Command:"))
 		self.label_68.setText(_translate("MainWindow", "10-6-26 02:31:29"))
 		self.descriptionvideo_timestamp_label_36.setText(_translate("MainWindow", "Minimized:"))
@@ -2315,7 +2296,7 @@ class Home:
 		self.descriptionvideo_timestamp_label_35.setText(_translate("MainWindow", "Window Destruction Time:"))
 		self.label_76.setText(_translate("MainWindow", "10-6-26 02:35:29"))
 		self.description_tab.setTabText(self.description_tab.indexOf(self.descriptionwindowhistory_tab),
-		                                _translate("MainWindow", "Window History"))
+																		_translate("MainWindow", "Window History"))
 		__sortingEnabled = self.listWidget_4.isSortingEnabled()
 		self.listWidget_4.setSortingEnabled(False)
 		item = self.listWidget_4.item(0)
@@ -2352,7 +2333,7 @@ class Home:
 		item.setText(_translate("MainWindow", "[Coloring Rule String: eth[0] & 1]"))
 		self.listWidget_4.setSortingEnabled(__sortingEnabled)
 		self.toolBox.setItemText(self.toolBox.indexOf(self.network_1), _translate("MainWindow",
-		                                                                          "Frame 107: 121 bytes on wire (968 bits), 121 bytes captured (968 bits) on interface en0, id 0"))
+																																							"Frame 107: 121 bytes on wire (968 bits), 121 bytes captured (968 bits) on interface en0, id 0"))
 		__sortingEnabled = self.listWidget_3.isSortingEnabled()
 		self.listWidget_3.setSortingEnabled(False)
 		item = self.listWidget_3.item(0)
@@ -2363,18 +2344,18 @@ class Home:
 		item.setText(_translate("MainWindow", "Type: Unknown (0x7373)"))
 		self.listWidget_3.setSortingEnabled(__sortingEnabled)
 		self.toolBox.setItemText(self.toolBox.indexOf(self.network_2), _translate("MainWindow",
-		                                                                          "Ethernet II, Src: 86:ef:16:75:3c:23 (86:ef:16:75:3c:23), Dst: Broadcast(ff:ff:ff:ff:ff:ff)"))
+																																							"Ethernet II, Src: 86:ef:16:75:3c:23 (86:ef:16:75:3c:23), Dst: Broadcast(ff:ff:ff:ff:ff:ff)"))
 		__sortingEnabled = self.listWidget_2.isSortingEnabled()
 		self.listWidget_2.setSortingEnabled(False)
 		item = self.listWidget_2.item(0)
 		item.setText(
-		    _translate("MainWindow", "Data: 121100000043f5cb114103ac1b368f8013380a496e868dc52e97008cbead8ae5402c46ef…"))
+				_translate("MainWindow", "Data: 121100000043f5cb114103ac1b368f8013380a496e868dc52e97008cbead8ae5402c46ef…"))
 		item = self.listWidget_2.item(1)
 		item.setText(_translate("MainWindow", "[Length: 107]"))
 		self.listWidget_2.setSortingEnabled(__sortingEnabled)
 		self.toolBox.setItemText(self.toolBox.indexOf(self.network_3), _translate("MainWindow", "Data (107 Bytes)"))
 		self.description_tab.setTabText(self.description_tab.indexOf(self.descriptionnetwork_tab),
-		                                _translate("MainWindow", "Network Packet"))
+																		_translate("MainWindow", "Network Packet"))
 		self.descriptionvideo_timestamp_label_41.setText(_translate("MainWindow", "Timestamp:"))
 		self.label_80.setText(_translate("MainWindow", "10-6-26 02:31:29"))
 		self.descriptionvideo_timestamp_label_43.setText(_translate("MainWindow", "Button:"))
@@ -2388,41 +2369,20 @@ class Home:
 		self.descriptionvideo_timestamp_label_45.setText(_translate("MainWindow", "Window Focus:"))
 		self.label_85.setText(_translate("MainWindow", "terminal"))
 		self.description_tab.setTabText(self.description_tab.indexOf(self.descriptionmouse_tab),
-		                                _translate("MainWindow", "Mouse Action"))
+																		_translate("MainWindow", "Mouse Action"))
 		self.descriptionvideo_timestamp_label_47.setText(_translate("MainWindow", "Timestamp:"))
 		self.label_86.setText(_translate("MainWindow", "10-6-26 02:31:29"))
 		self.descriptionvideo_timestamp_label_46.setText(_translate("MainWindow", "Keypress:"))
 		self.label_87.setText(_translate("MainWindow", "f"))
 		self.description_tab.setTabText(self.description_tab.indexOf(self.descriptionkeystroke_tab),
-		                                _translate("MainWindow", "Keystroke"))
+																		_translate("MainWindow", "Keystroke"))
 		self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(self.tab_134),
-		                                _translate("MainWindow", "Description"))
-		self.annotation_table.setSortingEnabled(True)
-		item = self.annotation_table.verticalHeaderItem(0)
-		item.setText(_translate("MainWindow", "Video1"))
-		item = self.annotation_table.horizontalHeaderItem(0)
-		item.setText(_translate("MainWindow", "Timestamp"))
-		item = self.annotation_table.horizontalHeaderItem(1)
-		item.setText(_translate("MainWindow", "IP Address"))
-		item = self.annotation_table.horizontalHeaderItem(2)
-		item.setText(_translate("MainWindow", "MAC Address"))
-		item = self.annotation_table.horizontalHeaderItem(3)
-		item.setText(_translate("MainWindow", "Annotation"))
-		__sortingEnabled = self.annotation_table.isSortingEnabled()
-		self.annotation_table.setSortingEnabled(False)
-		item = self.annotation_table.item(0, 0)
-		item.setText(_translate("MainWindow", "10-06-26 02:31:29,573"))
-		item = self.annotation_table.item(0, 1)
-		item.setText(_translate("MainWindow", "192.111.222.16"))
-		item = self.annotation_table.item(0, 2)
-		item.setText(_translate("MainWindow", "89:28:B2:C6:55:19"))
-		item = self.annotation_table.item(0, 3)
-		item.setText(_translate("MainWindow", "Lorem Ipsum"))
-		self.annotation_table.setSortingEnabled(__sortingEnabled)
+																		_translate("MainWindow", "Description"))
+
 		self.annotation_text.setPlaceholderText(_translate("MainWindow", "Annotation"))
 		self.pushButton_18.setText(_translate("MainWindow", "Add"))
 		self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(self.AnnotationTab),
-		                                _translate("MainWindow", "Annotation"))
+																		_translate("MainWindow", "Annotation"))
 		self.table_tag.setSortingEnabled(True)
 		item = self.table_tag.horizontalHeaderItem(0)
 		item.setText(_translate("MainWindow", "Select"))
@@ -2440,7 +2400,7 @@ class Home:
 		self.tag_delete_button.setText(_translate("MainWindow", "Delete"))
 		self.DetailedViewTab.setTabText(self.DetailedViewTab.indexOf(self.tags_tab), _translate("MainWindow", "Tags"))
 		self.toolBox_14.setItemText(self.toolBox_14.indexOf(self.detailed_view_accordion_20),
-		                            _translate("MainWindow", "Detailed View of Selected Artifact"))
+																_translate("MainWindow", "Detailed View of Selected Artifact"))
 		self.radioButton_2.setText(_translate("MainWindow", "Bar Graph"))
 		self.radioButton_4.setText(_translate("MainWindow", "Timeline"))
 		self.radioButton.setText(_translate("MainWindow", "Pie Chart"))
@@ -2452,9 +2412,9 @@ class Home:
 		self.label_92.setText(_translate("MainWindow", "Visualization Result"))
 		self.label_93.setText(_translate("MainWindow", "Pie Chart Title"))
 		self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(self.pie_chart),
-		                                   _translate("MainWindow", "Pie Chart"))
+																			_translate("MainWindow", "Pie Chart"))
 		self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(self.bar_graph),
-		                                   _translate("MainWindow", "Bar Graph"))
+																			_translate("MainWindow", "Bar Graph"))
 		self.label_35.setText(_translate("MainWindow", "Artifact Key"))
 		__sortingEnabled = self.listWidget.isSortingEnabled()
 		self.listWidget.setSortingEnabled(False)
@@ -2486,11 +2446,11 @@ class Home:
 		self.label_34.setText(_translate("MainWindow", "TIck Interval Value"))
 		self.label_5.setText(_translate("MainWindow", "Visualization Result"))
 		self.label_7.setText(_translate("MainWindow", "Timeline Title"))
-		# self.pushButton_2.setText(_translate("MainWindow", "+"))
+		self.pushButton_2.setText(_translate("MainWindow", "+"))
 		self.pushButton_3.setText(_translate("MainWindow", "-"))
 		self.label_40.setText(_translate("MainWindow", "Zoom"))
 		self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(self.timeline),
-		                                   _translate("MainWindow", "Timeline"))
+																			_translate("MainWindow", "Timeline"))
 		self.visualization_table.setSortingEnabled(False)
 		item = self.visualization_table.verticalHeaderItem(0)
 		item.setText(_translate("MainWindow", "1"))
@@ -2526,9 +2486,9 @@ class Home:
 		self.plainTextEdit.setPlaceholderText(_translate("MainWindow", "Annotation"))
 		self.pushButton_4.setText(_translate("MainWindow", "Add"))
 		self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(self.annotation),
-		                                   _translate("MainWindow", "Annotation"))
+																			_translate("MainWindow", "Annotation"))
 		self.toolBox_14.setItemText(self.toolBox_14.indexOf(self.visualization_accordion_20),
-		                            _translate("MainWindow", "Visualization"))
+																_translate("MainWindow", "Visualization"))
 		item = self.table_tag_2.horizontalHeaderItem(0)
 		item.setText(_translate("MainWindow", "Select"))
 		item = self.table_tag_2.horizontalHeaderItem(1)
@@ -2559,7 +2519,7 @@ class Home:
 		self.plainTextEdit_7.setPlainText(_translate("MainWindow", "Export Script"))
 		self.plainTextEdit_4.setPlainText(_translate("MainWindow", "Generate Script Preview Window"))
 		self.toolBox_14.setItemText(self.toolBox_14.indexOf(self.script_accordion_16),
-		                            _translate("MainWindow", "Script"))
+																_translate("MainWindow", "Script"))
 		self.history_table.setSortingEnabled(True)
 		item = self.history_table.horizontalHeaderItem(0)
 		item.setText(_translate("MainWindow", "Select"))
@@ -2638,7 +2598,7 @@ class Home:
 		self.history_table.setSortingEnabled(__sortingEnabled)
 		self.pushButton_13.setText(_translate("MainWindow", "Apply Expression"))
 		self.toolBox_14.setItemText(self.toolBox_14.indexOf(self.history_accordion_16),
-		                            _translate("MainWindow", "History"))
+																_translate("MainWindow", "History"))
 		self.tableWidget_40.setSortingEnabled(True)
 		item = self.tableWidget_40.verticalHeaderItem(0)
 		item.setText(_translate("MainWindow", "1"))
@@ -2714,8 +2674,7 @@ class Home:
 		item.setText(_translate("MainWindow", "Captured"))
 		self.tableWidget_40.setSortingEnabled(__sortingEnabled)
 		self.toolBox_14.setItemText(self.toolBox_14.indexOf(self.log_accordion_16),
-																_translate("MainWindow", "Log Content"))
-		
-		
+																_translate("MainWindow", "Log Content"))		
+
 	def get_tab(self):
 		return self.tab_1
