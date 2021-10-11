@@ -3,3 +3,6 @@ PyQt5-Qt5==5.15.2
 PyQt5-sip==12.9.0
 PyQtChart==5.15.4
 PyQtChart-Qt5==5.15.2
+pymongo==3.12.0
+pynput==1.7.3
+six==1.16.0

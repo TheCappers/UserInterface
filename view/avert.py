@@ -41,12 +41,10 @@ class Ui_MainWindow():
         self.tabWidget.addTab(self.tab_1.get_tab(), "HOME")
         """tab_1 end"""
 
-
         """tab_2 start"""
         self.tab_2 = Configuration()
         self.tabWidget.addTab(self.tab_2.get_tab(), "Configuration")
         """tab_2 end"""
-
 
         """tab_3 start"""
         self.tab_3 = Sync()

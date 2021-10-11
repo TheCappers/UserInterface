@@ -51,9 +51,14 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.NetworkActivityDataOnButton.clicked.connect(self.toggleButtons)
         self.NetworkActivityDataOffButton.clicked.connect(self.toggleButtons)
         self.ProcessStatOnButton.clicked.connect(self.toggleButtons)
+
         # threshold changing
         self.StorageInValue.textEdited.connect(self.thresholdChange)
         """
+
+
+        self.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)
+
 
 
     # button toggle method
