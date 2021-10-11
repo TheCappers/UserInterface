@@ -1,4 +1,9 @@
 from recorders.recorded_data import RecordedData
+import subprocess
+"""
+image_file = "screenshot.png"
+subprocess.call(["scrot", "--delay", "5", image_file, "-c"])
+"""
 
 class ScreenshotRecorder(RecordedData):
 		def __init__(self, isAutoRecord):
