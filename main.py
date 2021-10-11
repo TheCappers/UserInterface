@@ -15,9 +15,26 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(AvertApp, self).__init__()
         self.setupUi(self)
+
+        """used in tab 1"""
+        """COMMENTING OUT UI MODIFICATION"""
+        """
         # portion for the tag_table
         self.table_tag.setSortingEnabled(1)  # allows for the sorting in the columns
+        self.ProcessStatOffButton.clicked.connect(self.toggleButtons)
+        self.tag_add_button.clicked.connect(self.add_row)
+        self.universalRecord.clicked.connect(self.universalButton)
+        self.pushButton_18.clicked.connect(self.add_annotation)
+        # search button being activated
+        self.search_button.clicked.connect(self.searchPressed)
+        # export button being activated
+        self.exportButton.clicked.connect(self.exportPressed)
+        self.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)
+        """
 
+        """used in tab 2"""
+        """COMMENTING OUT UI MODIFICATION"""
+        """
         # automatic on button checked
         self.VideoStatOnButton.clicked.connect(self.toggleButtons)
         self.VideoStatusOffButton.clicked.connect(self.toggleButtons)
@@ -34,20 +51,10 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.NetworkActivityDataOnButton.clicked.connect(self.toggleButtons)
         self.NetworkActivityDataOffButton.clicked.connect(self.toggleButtons)
         self.ProcessStatOnButton.clicked.connect(self.toggleButtons)
-        self.ProcessStatOffButton.clicked.connect(self.toggleButtons)
-        self.tag_add_button.clicked.connect(self.add_row)
-        self.universalRecord.clicked.connect(self.universalButton)
-
-        self.pushButton_18.clicked.connect(self.add_annotation)
 
         # threshold changing
         self.StorageInValue.textEdited.connect(self.thresholdChange)
-
-        # search button being activated
-        self.search_button.clicked.connect(self.searchPressed)
-
-        # export button being activated
-        self.exportButton.clicked.connect(self.exportPressed)
+        """
 
 
         self.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)

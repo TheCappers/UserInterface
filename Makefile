@@ -9,4 +9,8 @@ clean:
 	(rm -rf recorders/__pycache__)
 	(rm -rf view/__pycache__)
 	(rm -rf view/components/__pycache__)
+	(rm -rf view/configuration_tab/__pycache__)
+	(rm -rf view/home_tab/__pycache__)
+	(rm -rf view/sync_tab/__pycache__)
 	(rm -rf view/assets/__pycache__)
+	(rm -rf .idea)
