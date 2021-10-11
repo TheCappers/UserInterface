@@ -1,5 +1,6 @@
 import socket
 from uuid import getnode as get_mac
+import os
 from datetime import datetime
 from Database.Database import DataBase
 
@@ -15,8 +16,7 @@ class RecordedData(object):
         self._recorded_data = {"ip_address": '', "mac_address": '', 'timestamp': '', "name": '', "data": {}, "tag": [], "annotation": []}
 
     def get_ip_address(self):
-        hostname = socket.gethostname()
-        local_ip = socket.gethostbyname(hostname)
+        local_ip = os.popen('ip addr show eth0 | grep "\<inet\>" | awk \'{ print $2 }\' | awk -F "/" \'{ print $1 }\'').read().strip()
         return local_ip
 
     def get_mac_address(self):
