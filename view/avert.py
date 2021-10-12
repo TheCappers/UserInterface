@@ -39,6 +39,7 @@ class Ui_MainWindow():
         """tab_1 start"""
         self.tab_1 = Home()
         self.tabWidget.addTab(self.tab_1.get_tab(), "HOME")
+        self.tab_1.table_result.avert_result_table.cellClicked.connect(self.exportRow)
         """tab_1 end"""
 
         """tab_2 start"""
@@ -81,18 +82,15 @@ class Ui_MainWindow():
 
 
         """COMMENTING OUT UI MODIFICATION"""
-        """table_result.avert_result_table.cellClicked.connect(self.exportRow)"""
-        self.table_result = table_result
-        self.annotation_table = annotation_table
+
 
 #     def updateAnnotationTable(self,attain):
-#         global annotation_table
+#         global annotation_table    global table_result
 #         annotation_table.display_annotation(attain[selected])
 
     def updateTable(self, attain):
-        global table_result
-        table_result.printwhatv()
-        table_result.populateTable(attain)
+        self.tab_1.table_result.printwhatv()
+        self.tab_1.table_result.populateTable(attain)
         # self.verticalLayout_3.addWidget(table_result.getTable()) si jala
         # print(attain)
 
@@ -113,18 +111,17 @@ class Ui_MainWindow():
 
     def updateTable(self, attain1):
         global attain
-        global table_result
         attain = attain1
-        table_result.printwhatv()
-        table_result.populateTable(attain)
+        self.tab_1.table_result.printwhatv()
+        self.tab_1.table_result.populateTable(attain)
         # self.verticalLayout_3.addWidget(table_result.getTable()) si jala
         # print(attain)
-    
+
     def changeDetailView(self, selected):
         _translate = QtCore.QCoreApplication.translate
         global attain
         curdata = attain[selected]
-        item = self.tableWidget_38.item(0, 0)
+        item = self.tab_1.tableWidget_38.item(0, 0)
         item.setText(_translate("MainWindow", curdata['ip_address']))
-        item = self.tableWidget_38.item(0, 1)
+        item = self.tab_1.tableWidget_38.item(0, 1)
         item.setText(_translate("MainWindow", curdata['mac_address']))

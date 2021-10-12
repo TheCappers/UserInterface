@@ -271,6 +271,8 @@ class Home:
 		global table_result
 		table_result = result_table.ResultTable()
 		table_result.startTable(QtWidgets.QTableWidget(self.avert_table))
+		self.table_result = table_result
+
 
 		self.verticalLayout_3.addWidget(table_result.getTable())
 		self.frame_14 = QtWidgets.QFrame(self.avert_table)
@@ -1181,6 +1183,7 @@ class Home:
 		global annotation_table
 		annotation_table = annotation_table.AnnotationTable()
 		annotation_table.startTable(QtWidgets.QTableWidget(self.AnnotationTab))
+		self.annotation_table = annotation_table
 
 		self.verticalLayout_6.addWidget(annotation_table.getTable())
 		self.annotation_text = QtWidgets.QTextEdit(self.AnnotationTab)
@@ -2147,7 +2150,7 @@ class Home:
 		self.gridLayout_19.addWidget(self.scrollArea, 0, 0, 1, 1)
 
 		_translate = QtCore.QCoreApplication.translate
-		
+
 
 		self.label_10.setText(_translate("MainWindow", "Search"))
 		self.search_expression_bar.setPlaceholderText(_translate("MainWindow", "Search Expression"))
@@ -2674,7 +2677,7 @@ class Home:
 		item.setText(_translate("MainWindow", "Captured"))
 		self.tableWidget_40.setSortingEnabled(__sortingEnabled)
 		self.toolBox_14.setItemText(self.toolBox_14.indexOf(self.log_accordion_16),
-																_translate("MainWindow", "Log Content"))		
+																_translate("MainWindow", "Log Content"))
 
 	def get_tab(self):
 		return self.tab_1
