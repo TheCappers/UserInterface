@@ -34,27 +34,27 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         """used in tab 2"""
         """COMMENTING OUT UI MODIFICATION"""
-        """
+
         # automatic on button checked
-        self.VideoStatOnButton.clicked.connect(self.toggleButtons)
-        self.VideoStatusOffButton.clicked.connect(self.toggleButtons)
-        self.ScreenshotStatOnButton.clicked.connect(self.toggleButtons)
-        self.ScreenshotStatOffButton.clicked.connect(self.toggleButtons)
-        self.SystemCallOnButton.clicked.connect(self.toggleButtons)
-        self.SystemCallOffButton.clicked.connect(self.toggleButtons)
-        self.WindowHistoryOnButton.clicked.connect(self.toggleButtons)
-        self.WindowHistoryOffButton.clicked.connect(self.toggleButtons)
-        self.KeyStrokeStatOnButton.clicked.connect(self.toggleButtons)
-        self.KeyStrokeStatOffButton.clicked.connect(self.toggleButtons)
-        self.MouseActOnButton.clicked.connect(self.toggleButtons)
-        self.MouseActOffButton.clicked.connect(self.toggleButtons)
-        self.NetworkActivityDataOnButton.clicked.connect(self.toggleButtons)
-        self.NetworkActivityDataOffButton.clicked.connect(self.toggleButtons)
-        self.ProcessStatOnButton.clicked.connect(self.toggleButtons)
+        self.tab_2.VideoStatOnButton.clicked.connect(self.toggleButtons)
+        self.tab_2.VideoStatusOffButton.clicked.connect(self.toggleButtons)
+        self.tab_2.ScreenshotStatOnButton.clicked.connect(self.toggleButtons)
+        self.tab_2.ScreenshotStatOffButton.clicked.connect(self.toggleButtons)
+        self.tab_2.SystemCallOnButton.clicked.connect(self.toggleButtons)
+        self.tab_2.SystemCallOffButton.clicked.connect(self.toggleButtons)
+        self.tab_2.WindowHistoryOnButton.clicked.connect(self.toggleButtons)
+        self.tab_2.WindowHistoryOffButton.clicked.connect(self.toggleButtons)
+        self.tab_2.KeyStrokeStatOnButton.clicked.connect(self.toggleButtons)
+        self.tab_2.KeyStrokeStatOffButton.clicked.connect(self.toggleButtons)
+        self.tab_2.MouseActOnButton.clicked.connect(self.toggleButtons)
+        self.tab_2.MouseActOffButton.clicked.connect(self.toggleButtons)
+        self.tab_2.NetworkActivityDataOnButton.clicked.connect(self.toggleButtons)
+        self.tab_2.NetworkActivityDataOffButton.clicked.connect(self.toggleButtons)
+        self.tab_2.ProcessStatOnButton.clicked.connect(self.toggleButtons)
 
         # threshold changing
-        self.StorageInValue.textEdited.connect(self.thresholdChange)
-        """
+        self.tab_2.StorageInValue.textEdited.connect(self.thresholdChange)
+
 
 
         # self.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)
