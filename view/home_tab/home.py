@@ -93,67 +93,99 @@ class Home:
 
 		""" FILTER START """
 
-
-
 		""" CHECKBOXES    """
-
 		self.checkBox_all_artifacts = QtWidgets.QCheckBox(self.search_filters)
 		self.checkBox_all_artifacts.setText("")
 		self.checkBox_all_artifacts.setObjectName("checkBox_all_artifacts")
 		self.gridLayout_2.addWidget(self.checkBox_all_artifacts, 5, 1, 1, 1)
+		self.label_all_artifacts = QtWidgets.QLabel(self.search_filters)
+		font = QtGui.QFont()
+		self.label_all_artifacts.setFont(font)
+		self.label_all_artifacts.setObjectName("label_all_artifacts")
+		self.gridLayout_2.addWidget(self.label_all_artifacts, 5, 0, 1, 1)
 
 		self.checkBox_screenshot = QtWidgets.QCheckBox(self.search_filters)
 		self.checkBox_screenshot.setText("")
 		self.checkBox_screenshot.setObjectName("checkBox_screenshot")
 		self.gridLayout_2.addWidget(self.checkBox_screenshot, 6, 1, 1, 1)
+		self.label_screenshot = QtWidgets.QLabel(self.search_filters)
+		self.label_screenshot.setObjectName("label_screenshot")
+		self.gridLayout_2.addWidget(self.label_screenshot, 6, 0, 1, 1)
 
 		self.checkBox_video = QtWidgets.QCheckBox(self.search_filters)
 		self.checkBox_video.setText("")
 		self.checkBox_video.setObjectName("checkBox_video")
 		self.gridLayout_2.addWidget(self.checkBox_video, 7, 1, 1, 1)
+		self.label_video = QtWidgets.QLabel(self.search_filters)
+		self.label_video.setObjectName("label_video")
+		self.gridLayout_2.addWidget(self.label_video, 7, 0, 1, 1)
 
 		self.checkBox_network = QtWidgets.QCheckBox(self.search_filters)
 		self.checkBox_network.setText("")
 		self.checkBox_network.setObjectName("checkBox_network")
 		self.gridLayout_2.addWidget(self.checkBox_network, 8, 1, 1, 1)
+		self.label_network = QtWidgets.QLabel(self.search_filters)
+		self.label_network.setObjectName("label_network")
+		self.gridLayout_2.addWidget(self.label_network, 8, 0, 1, 1)
 
 		self.checkBox_process = QtWidgets.QCheckBox(self.search_filters)
 		self.checkBox_process.setText("")
 		self.checkBox_process.setObjectName("checkBox_process")
 		self.gridLayout_2.addWidget(self.checkBox_process, 9, 1, 1, 1)
+		self.label_process = QtWidgets.QLabel(self.search_filters)
+		self.label_process.setObjectName("label_process")
+		self.gridLayout_2.addWidget(self.label_process, 9, 0, 1, 1)
 
 		self.checkBox_keystroke = QtWidgets.QCheckBox(self.search_filters)
 		self.checkBox_keystroke.setText("")
 		self.checkBox_keystroke.setObjectName("checkBox_keystroke")
 		self.gridLayout_2.addWidget(self.checkBox_keystroke, 10, 1, 1, 1)
+		self.label_keystroke = QtWidgets.QLabel(self.search_filters)
+		self.label_keystroke.setObjectName("label_keystroke")
+		self.gridLayout_2.addWidget(self.label_keystroke, 10, 0, 1, 1)
 
 		self.checkBox_mouse_action = QtWidgets.QCheckBox(self.search_filters)
 		self.checkBox_mouse_action.setText("")
 		self.checkBox_mouse_action.setObjectName("checkBox_mouse_action")
 		self.gridLayout_2.addWidget(self.checkBox_mouse_action, 11, 1, 1, 1)
+		self.label_mouse_action = QtWidgets.QLabel(self.search_filters)
+		self.label_mouse_action.setObjectName("label_mouse_action")
+		self.gridLayout_2.addWidget(self.label_mouse_action, 11, 0, 1, 1)
 
 		self.checkBox_windowHistory = QtWidgets.QCheckBox(self.search_filters)
 		self.checkBox_windowHistory.setText("")
 		self.checkBox_windowHistory.setObjectName("checkBox_windowHistory")
 		self.gridLayout_2.addWidget(self.checkBox_windowHistory, 12, 1, 1, 1)
+		self.label_window_history = QtWidgets.QLabel(self.search_filters)
+		self.label_window_history.setObjectName("label_window_history")
+		self.gridLayout_2.addWidget(self.label_window_history, 12, 0, 1, 1)
 
 		self.checkBox_system_call = QtWidgets.QCheckBox(self.search_filters)
 		self.checkBox_system_call.setText("")
 		self.checkBox_system_call.setObjectName("checkBox_system_call")
 		self.gridLayout_2.addWidget(self.checkBox_system_call, 13, 1, 1, 1)
+		self.label_system_call = QtWidgets.QLabel(self.search_filters)
+		self.label_system_call.setObjectName("label_system_call")
+		self.gridLayout_2.addWidget(self.label_system_call, 13, 0, 1, 1)
 
 		self.checkBox_history = QtWidgets.QCheckBox(self.search_filters)
 		self.checkBox_history.setText("")
 		self.checkBox_history.setObjectName("checkBox_history")
 		self.gridLayout_2.addWidget(self.checkBox_history, 14, 1, 1, 1)
+		self.label_history = QtWidgets.QLabel(self.search_filters)
+		self.label_history.setObjectName("label_history")
+		self.gridLayout_2.addWidget(self.label_history, 14, 0, 1, 1)
 
 		self.checkBox_log = QtWidgets.QCheckBox(self.search_filters)
 		self.checkBox_log.setText("")
 		self.checkBox_log.setObjectName("checkBox_log")
 		self.gridLayout_2.addWidget(self.checkBox_log, 15, 1, 1, 1)
-
+		self.label_log = QtWidgets.QLabel(self.search_filters)
+		self.label_log.setObjectName("label_log")
+		self.gridLayout_2.addWidget(self.label_log, 15, 0, 1, 1)
 
 		""" CHECKBOXES END """
+
 		self.search_filters = QtWidgets.QFrame(self.home_top_view)
 		self.search_filters.setMinimumSize(QtCore.QSize(250, 0))
 		self.search_filters.setMaximumSize(QtCore.QSize(250, 16777215))
@@ -166,16 +198,6 @@ class Home:
 		self.label_start_date.setObjectName("label_start_date")
 		self.gridLayout_2.addWidget(self.label_start_date, 17, 0, 1, 1)
 
-
-		self.label_window_history = QtWidgets.QLabel(self.search_filters)
-		self.label_window_history.setObjectName("label_window_history")
-		self.gridLayout_2.addWidget(self.label_window_history, 12, 0, 1, 1)
-		self.label_network = QtWidgets.QLabel(self.search_filters)
-		self.label_network.setObjectName("label_network")
-		self.gridLayout_2.addWidget(self.label_network, 8, 0, 1, 1)
-		self.label_system_call = QtWidgets.QLabel(self.search_filters)
-		self.label_system_call.setObjectName("label_system_call")
-		self.gridLayout_2.addWidget(self.label_system_call, 13, 0, 1, 1)
 		self.comboBox_3 = QtWidgets.QComboBox(self.search_filters)
 		self.comboBox_3.setMaximumSize(QtCore.QSize(150, 20))
 		self.comboBox_3.setObjectName("comboBox_3")
@@ -187,17 +209,12 @@ class Home:
 		self.label_start_time = QtWidgets.QLabel(self.search_filters)
 		self.label_start_time.setObjectName("label_start_time")
 		self.gridLayout_2.addWidget(self.label_start_time, 18, 0, 1, 1)
-		self.label_keystroke = QtWidgets.QLabel(self.search_filters)
-		self.label_keystroke.setObjectName("label_keystroke")
-		self.gridLayout_2.addWidget(self.label_keystroke, 10, 0, 1, 1)
+
 		self.label_ip_address = QtWidgets.QLabel(self.search_filters)
 		self.label_ip_address.setMaximumSize(QtCore.QSize(100, 16777215))
 		self.label_ip_address.setObjectName("label_ip_address")
 		self.gridLayout_2.addWidget(self.label_ip_address, 2, 0, 1, 1)
 
-		self.label_mouse_action = QtWidgets.QLabel(self.search_filters)
-		self.label_mouse_action.setObjectName("label_mouse_action")
-		self.gridLayout_2.addWidget(self.label_mouse_action, 11, 0, 1, 1)
 		self.label_date_time = QtWidgets.QLabel(self.search_filters)
 		self.label_date_time.setMaximumSize(QtCore.QSize(16777215, 80))
 		self.label_date_time.setStyleSheet("")
@@ -211,9 +228,7 @@ class Home:
 		self.label_user_profile.setMaximumSize(QtCore.QSize(16777215, 12))
 		self.label_user_profile.setObjectName("label_user_profile")
 		self.gridLayout_2.addWidget(self.label_user_profile, 1, 0, 1, 1)
-		self.label_video = QtWidgets.QLabel(self.search_filters)
-		self.label_video.setObjectName("label_video")
-		self.gridLayout_2.addWidget(self.label_video, 7, 0, 1, 1)
+
 		self.label_end_date = QtWidgets.QLabel(self.search_filters)
 		self.label_end_date.setObjectName("label_end_date")
 		self.gridLayout_2.addWidget(self.label_end_date, 19, 0, 1, 1)
@@ -224,12 +239,7 @@ class Home:
 		self.timeEdit = QtWidgets.QTimeEdit(self.search_filters)
 		self.timeEdit.setObjectName("timeEdit")
 		self.gridLayout_2.addWidget(self.timeEdit, 18, 1, 1, 1)
-		self.label_history = QtWidgets.QLabel(self.search_filters)
-		self.label_history.setObjectName("label_history")
-		self.gridLayout_2.addWidget(self.label_history, 14, 0, 1, 1)
-		self.label_log = QtWidgets.QLabel(self.search_filters)
-		self.label_log.setObjectName("label_log")
-		self.gridLayout_2.addWidget(self.label_log, 15, 0, 1, 1)
+
 		self.label_filters = QtWidgets.QLabel(self.search_filters)
 		self.label_filters.setMaximumSize(QtCore.QSize(16777215, 80))
 		self.label_filters.setStyleSheet("")
@@ -254,14 +264,6 @@ class Home:
 		self.comboBox_4.addItem("")
 		self.comboBox_4.addItem("")
 		self.gridLayout_2.addWidget(self.comboBox_4, 2, 1, 1, 1)
-		self.label_all_artifacts = QtWidgets.QLabel(self.search_filters)
-		font = QtGui.QFont()
-		self.label_all_artifacts.setFont(font)
-		self.label_all_artifacts.setObjectName("label_all_artifacts")
-		self.gridLayout_2.addWidget(self.label_all_artifacts, 5, 0, 1, 1)
-		self.label_screenshot = QtWidgets.QLabel(self.search_filters)
-		self.label_screenshot.setObjectName("label_screenshot")
-		self.gridLayout_2.addWidget(self.label_screenshot, 6, 0, 1, 1)
 
 		self.timeEdit_2 = QtWidgets.QTimeEdit(self.search_filters)
 		self.timeEdit_2.setObjectName("timeEdit_2")
@@ -278,9 +280,7 @@ class Home:
 		self.label_type.setMaximumSize(QtCore.QSize(16777215, 15))
 		self.label_type.setObjectName("label_type")
 		self.gridLayout_2.addWidget(self.label_type, 4, 0, 1, 1)
-		self.label_process = QtWidgets.QLabel(self.search_filters)
-		self.label_process.setObjectName("label_process")
-		self.gridLayout_2.addWidget(self.label_process, 9, 0, 1, 1)
+
 		self.gridLayout_70.addWidget(self.search_filters, 1, 0, 1, 1)
 
 		""" FILTERS END """
