@@ -93,7 +93,67 @@ class Home:
 
 		""" FILTER START """
 
+		self.search_filters = QtWidgets.QFrame(self.home_top_view)
+		self.search_filters.setMinimumSize(QtCore.QSize(250, 0))
+		self.search_filters.setMaximumSize(QtCore.QSize(250, 16777215))
+		self.search_filters.setFrameShape(QtWidgets.QFrame.NoFrame)
+		self.search_filters.setObjectName("search_filters")
+
+		self.gridLayout_2 = QtWidgets.QGridLayout(self.search_filters)
+		self.gridLayout_2.setVerticalSpacing(7)
+		self.gridLayout_2.setObjectName("gridLayout_2")
+
+		self.label_filters = QtWidgets.QLabel(self.search_filters)
+		self.label_filters.setMaximumSize(QtCore.QSize(16777215, 80))
+		self.label_filters.setStyleSheet("")
+		self.label_filters.setObjectName("label_filters")
+
+		self.label_value_filter = QtWidgets.QLabel(self.search_filters)
+		self.label_value_filter.setMaximumSize(QtCore.QSize(16777215, 12))
+		self.label_value_filter.setObjectName("label_value_filter")
+		self.gridLayout_2.addWidget(self.label_value_filter, 0, 1, 1, 1)
+
+		self.label_user_profile = QtWidgets.QLabel(self.search_filters)
+		self.label_user_profile.setMaximumSize(QtCore.QSize(16777215, 12))
+		self.label_user_profile.setObjectName("label_user_profile")
+		self.gridLayout_2.addWidget(self.label_user_profile, 1, 0, 1, 1)
+
+		self.label_ip_address = QtWidgets.QLabel(self.search_filters)
+		self.label_ip_address.setMaximumSize(QtCore.QSize(100, 16777215))
+		self.label_ip_address.setObjectName("label_ip_address")
+		self.gridLayout_2.addWidget(self.label_ip_address, 2, 0, 1, 1)
+		self.ip_dropdown = QtWidgets.QComboBox(self.search_filters)
+		self.ip_dropdown.setMaximumSize(QtCore.QSize(150, 20))
+		self.ip_dropdown.setObjectName("ip_dropdown")
+		self.ip_dropdown.addItem("goodbye")
+		self.ip_dropdown.addItem("")
+		self.ip_dropdown.addItem("")
+		self.gridLayout_2.addWidget(self.ip_dropdown, 2, 1, 1, 1)
+
+		self.label_mac_address = QtWidgets.QLabel(self.search_filters)
+		self.label_mac_address.setMaximumSize(QtCore.QSize(100, 16777215))
+		self.label_mac_address.setObjectName("label_mac_address")
+		self.gridLayout_2.addWidget(self.label_mac_address, 3, 0, 1, 1)
+		self.mac_dropdown = QtWidgets.QComboBox(self.search_filters)
+		self.mac_dropdown.setMaximumSize(QtCore.QSize(150, 20))
+		self.mac_dropdown.setObjectName("mac_dropdown")
+		self.mac_dropdown.addItem("hello")
+		self.mac_dropdown.addItem("")
+		self.mac_dropdown.addItem("")
+		self.gridLayout_2.addWidget(self.mac_dropdown, 3, 1, 1, 1)
+
+		self.label_type = QtWidgets.QLabel(self.search_filters)
+		self.label_type.setMaximumSize(QtCore.QSize(16777215, 15))
+		self.label_type.setObjectName("label_type")
+		self.gridLayout_2.addWidget(self.label_type, 4, 0, 1, 1)
+
+		self.label_value_type = QtWidgets.QLabel(self.search_filters)
+		self.label_value_type.setObjectName("label_2")
+		self.gridLayout_2.addWidget(self.label_value_type, 4, 1, 1, 1)
+
+
 		""" CHECKBOXES    """
+
 		self.checkBox_all_artifacts = QtWidgets.QCheckBox(self.search_filters)
 		self.checkBox_all_artifacts.setText("")
 		self.checkBox_all_artifacts.setObjectName("checkBox_all_artifacts")
@@ -186,100 +246,44 @@ class Home:
 
 		""" CHECKBOXES END """
 
-		self.search_filters = QtWidgets.QFrame(self.home_top_view)
-		self.search_filters.setMinimumSize(QtCore.QSize(250, 0))
-		self.search_filters.setMaximumSize(QtCore.QSize(250, 16777215))
-		self.search_filters.setFrameShape(QtWidgets.QFrame.NoFrame)
-		self.search_filters.setObjectName("search_filters")
-		self.gridLayout_2 = QtWidgets.QGridLayout(self.search_filters)
-		self.gridLayout_2.setVerticalSpacing(7)
-		self.gridLayout_2.setObjectName("gridLayout_2")
-		self.label_start_date = QtWidgets.QLabel(self.search_filters)
-		self.label_start_date.setObjectName("label_start_date")
-		self.gridLayout_2.addWidget(self.label_start_date, 17, 0, 1, 1)
-
-		self.comboBox_3 = QtWidgets.QComboBox(self.search_filters)
-		self.comboBox_3.setMaximumSize(QtCore.QSize(150, 20))
-		self.comboBox_3.setObjectName("comboBox_3")
-		self.comboBox_3.addItem("")
-		self.comboBox_3.addItem("")
-		self.comboBox_3.addItem("")
-		self.gridLayout_2.addWidget(self.comboBox_3, 3, 1, 1, 1)
-
-		self.label_start_time = QtWidgets.QLabel(self.search_filters)
-		self.label_start_time.setObjectName("label_start_time")
-		self.gridLayout_2.addWidget(self.label_start_time, 18, 0, 1, 1)
-
-		self.label_ip_address = QtWidgets.QLabel(self.search_filters)
-		self.label_ip_address.setMaximumSize(QtCore.QSize(100, 16777215))
-		self.label_ip_address.setObjectName("label_ip_address")
-		self.gridLayout_2.addWidget(self.label_ip_address, 2, 0, 1, 1)
-
 		self.label_date_time = QtWidgets.QLabel(self.search_filters)
 		self.label_date_time.setMaximumSize(QtCore.QSize(16777215, 80))
 		self.label_date_time.setStyleSheet("")
 		self.label_date_time.setObjectName("label_date_time")
 		self.gridLayout_2.addWidget(self.label_date_time, 16, 0, 1, 1)
-		self.dateEdit = QtWidgets.QDateEdit(self.search_filters)
-		self.dateEdit.setObjectName("dateEdit")
-		self.gridLayout_2.addWidget(self.dateEdit, 17, 1, 1, 1)
-
-		self.label_user_profile = QtWidgets.QLabel(self.search_filters)
-		self.label_user_profile.setMaximumSize(QtCore.QSize(16777215, 12))
-		self.label_user_profile.setObjectName("label_user_profile")
-		self.gridLayout_2.addWidget(self.label_user_profile, 1, 0, 1, 1)
-
-		self.label_end_date = QtWidgets.QLabel(self.search_filters)
-		self.label_end_date.setObjectName("label_end_date")
-		self.gridLayout_2.addWidget(self.label_end_date, 19, 0, 1, 1)
-		self.label_end_time = QtWidgets.QLabel(self.search_filters)
-		self.label_end_time.setObjectName("label_end_time")
-		self.gridLayout_2.addWidget(self.label_end_time, 20, 0, 1, 1)
-
-		self.timeEdit = QtWidgets.QTimeEdit(self.search_filters)
-		self.timeEdit.setObjectName("timeEdit")
-		self.gridLayout_2.addWidget(self.timeEdit, 18, 1, 1, 1)
-
-		self.label_filters = QtWidgets.QLabel(self.search_filters)
-		self.label_filters.setMaximumSize(QtCore.QSize(16777215, 80))
-		self.label_filters.setStyleSheet("")
-		self.label_filters.setObjectName("label_filters")
 		self.gridLayout_2.addWidget(self.label_filters, 0, 0, 1, 1)
 		self.label_value_date_time = QtWidgets.QLabel(self.search_filters)
 		self.label_value_date_time.setStyleSheet("")
 		self.label_value_date_time.setObjectName("label_value_date_time")
 		self.gridLayout_2.addWidget(self.label_value_date_time, 16, 1, 1, 1)
 
-		self.label_mac_address = QtWidgets.QLabel(self.search_filters)
-		self.label_mac_address.setMaximumSize(QtCore.QSize(100, 16777215))
-		self.label_mac_address.setObjectName("label_mac_address")
-		self.gridLayout_2.addWidget(self.label_mac_address, 3, 0, 1, 1)
-		self.dateEdit_2 = QtWidgets.QDateEdit(self.search_filters)
-		self.dateEdit_2.setObjectName("dateEdit_2")
-		self.gridLayout_2.addWidget(self.dateEdit_2, 19, 1, 1, 1)
-		self.comboBox_4 = QtWidgets.QComboBox(self.search_filters)
-		self.comboBox_4.setMaximumSize(QtCore.QSize(150, 20))
-		self.comboBox_4.setObjectName("comboBox_4")
-		self.comboBox_4.addItem("")
-		self.comboBox_4.addItem("")
-		self.comboBox_4.addItem("")
-		self.gridLayout_2.addWidget(self.comboBox_4, 2, 1, 1, 1)
+		self.label_start_date = QtWidgets.QLabel(self.search_filters)
+		self.label_start_date.setObjectName("label_start_date")
+		self.gridLayout_2.addWidget(self.label_start_date, 17, 0, 1, 1)
+		self.start_date_widget = QtWidgets.QDateEdit(self.search_filters)
+		self.start_date_widget.setObjectName("dateEdit")
+		self.gridLayout_2.addWidget(self.start_date_widget, 17, 1, 1, 1)
 
-		self.timeEdit_2 = QtWidgets.QTimeEdit(self.search_filters)
-		self.timeEdit_2.setObjectName("timeEdit_2")
-		self.gridLayout_2.addWidget(self.timeEdit_2, 20, 1, 1, 1)
+		self.label_start_time = QtWidgets.QLabel(self.search_filters)
+		self.label_start_time.setObjectName("label_start_time")
+		self.gridLayout_2.addWidget(self.label_start_time, 18, 0, 1, 1)
+		self.start_time_widget = QtWidgets.QTimeEdit(self.search_filters)
+		self.start_time_widget.setObjectName("timeEdit")
+		self.gridLayout_2.addWidget(self.start_time_widget, 18, 1, 1, 1)
 
-		self.label_value_type = QtWidgets.QLabel(self.search_filters)
-		self.label_value_type.setObjectName("label_2")
-		self.gridLayout_2.addWidget(self.label_value_type, 4, 1, 1, 1)
-		self.label_value_filter = QtWidgets.QLabel(self.search_filters)
-		self.label_value_filter.setMaximumSize(QtCore.QSize(16777215, 12))
-		self.label_value_filter.setObjectName("label_value_filter")
-		self.gridLayout_2.addWidget(self.label_value_filter, 0, 1, 1, 1)
-		self.label_type = QtWidgets.QLabel(self.search_filters)
-		self.label_type.setMaximumSize(QtCore.QSize(16777215, 15))
-		self.label_type.setObjectName("label_type")
-		self.gridLayout_2.addWidget(self.label_type, 4, 0, 1, 1)
+		self.label_end_date = QtWidgets.QLabel(self.search_filters)
+		self.label_end_date.setObjectName("label_end_date")
+		self.gridLayout_2.addWidget(self.label_end_date, 19, 0, 1, 1)
+		self.end_date_widget = QtWidgets.QDateEdit(self.search_filters)
+		self.end_date_widget.setObjectName("end_date_widget")
+		self.gridLayout_2.addWidget(self.end_date_widget, 19, 1, 1, 1)
+
+		self.end_time_widget = QtWidgets.QTimeEdit(self.search_filters)
+		self.end_time_widget.setObjectName("end_time_widget")
+		self.gridLayout_2.addWidget(self.end_time_widget, 20, 1, 1, 1)
+		self.label_end_time = QtWidgets.QLabel(self.search_filters)
+		self.label_end_time.setObjectName("label_end_time")
+		self.gridLayout_2.addWidget(self.label_end_time, 20, 0, 1, 1)
 
 		self.gridLayout_70.addWidget(self.search_filters, 1, 0, 1, 1)
 
@@ -305,7 +309,6 @@ class Home:
 		table_result = result_table.ResultTable()
 		table_result.startTable(QtWidgets.QTableWidget(self.avert_table))
 		self.table_result = table_result
-
 
 		self.verticalLayout_3.addWidget(table_result.getTable())
 		self.frame_14 = QtWidgets.QFrame(self.avert_table)
@@ -2194,9 +2197,9 @@ class Home:
 		self.universalRecord.setText(_translate("MainWindow", "Record On"))
 
 
-		self.comboBox_3.setItemText(0, _translate("MainWindow", "7D:93:74:82:7B:71"))
-		self.comboBox_3.setItemText(1, _translate("MainWindow", "7D:93:74:82:7B:71"))
-		self.comboBox_3.setItemText(2, _translate("MainWindow", "7D:93:74:82:7B:71"))
+		self.mac_dropdown.setItemText(0, _translate("MainWindow", "7D:93:74:82:7B:71"))
+		self.mac_dropdown.setItemText(1, _translate("MainWindow", "7D:93:74:82:7B:71"))
+		self.mac_dropdown.setItemText(2, _translate("MainWindow", "7D:93:74:82:7B:71"))
 
 		self.label_filters.setText(_translate("MainWindow", "Filters"))
 		self.label_value_filter.setText(_translate("MainWindow", "Value"))
@@ -2229,9 +2232,9 @@ class Home:
 		self.label_end_time.setText(_translate("MainWindow", "End Time"))
 
 
-		self.comboBox_4.setItemText(0, _translate("MainWindow", "195.273.25.4"))
-		self.comboBox_4.setItemText(1, _translate("MainWindow", "195.273.25.4"))
-		self.comboBox_4.setItemText(2, _translate("MainWindow", "195.273.25.4"))
+		self.ip_dropdown.setItemText(0, _translate("MainWindow", "195.273.25.4"))
+		self.ip_dropdown.setItemText(1, _translate("MainWindow", "195.273.25.4"))
+		self.ip_dropdown.setItemText(2, _translate("MainWindow", "195.273.25.4"))
 
 		self.label_9.setText(_translate("MainWindow", "AVERT RESULT"))
 		self.exportButton.setText(_translate("MainWindow", "Export"))
