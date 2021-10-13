@@ -25,6 +25,18 @@ class Controller:
     def keyboardRecording(self, signal):
         self.config.setKeystroke(signal)
 
+    def systemCallRecording(self, signal):
+        return
+
+    def windowHistoryRecording(self, signal):
+        return
+
+    def screenshotRecording(self, signal):
+        return
+
+    def processRecording(self, signal):
+        return
+
     def storageRecording(self, amount):
         self.config.setThreshold(amount)
         full = self.config.storage_alert()

@@ -17,6 +17,11 @@ class Configuration:
         self.__universal_on = True  # automatically on
         self.__keystroke_on = True
         self.__mouse_action_on = True
+        '''
+        Here we add the new records values
+        '''
+
+
         # here we can include more attributes for other items.
         # include artifact recorders start actions
 
@@ -34,6 +39,18 @@ class Configuration:
 
     def getMouseActionOn(self):
         return self.__mouse_action_on
+
+    def getSystemCallOn(self):
+        return
+
+    def getScreenshotOn(self):
+        return
+
+    def getWindowHistory(self):
+        return
+
+    def getProcessOn(self):
+        return
 
     def setThreshold(self, threshold_value):
         self.__threshold = threshold_value
@@ -73,6 +90,21 @@ class Configuration:
             mouse.start()
         else:
             mouse.stop()
+
+    def setSystemCalls(self, sys_call_value):
+        return
+
+    def setScreenshot(self, screenshot_value):
+        return
+
+    def setWindowHistory(self, window_history_value):
+        return
+
+    def setProcess(self, process_value):
+        return
+
+    def manualScreenshot(self, manuel_value):
+        return
 
     def storage_alert(self):  # return value to send error
         total, used, free = shutil.disk_usage("/")
