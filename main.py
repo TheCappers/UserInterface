@@ -20,11 +20,11 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         """COMMENTING OUT UI MODIFICATION"""
 
         # portion for the tag_table
-        self.tab_1.table_tag.setSortingEnabled(1)  # allows for the sorting in the columns
+        self.tab_1.detailed_view_accordion.table_tag.setSortingEnabled(1)  # allows for the sorting in the columns
         self.tab_2.ProcessStatOffButton.clicked.connect(self.toggleButtons)
-        self.tab_1.tag_add_button.clicked.connect(self.add_row)
+        self.tab_1.detailed_view_accordion.tag_add_button.clicked.connect(self.add_row)
         self.tab_1.universalRecord.clicked.connect(self.universalButton)
-        self.tab_1.pushButton_18.clicked.connect(self.add_annotation)
+        self.tab_1.detailed_view_accordion.pushButton_18.clicked.connect(self.add_annotation)
         # search button being activated
         self.tab_1.search_button.clicked.connect(self.searchPressed)
         # export button being activated
@@ -141,8 +141,8 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         global attain, control
         index = self.tab_1.table_result.getIndexSelected()
 
-        if len(self.tab_1.annotation_text.toPlainText().strip()):
-            control.annotationAdd(self.tab_1.annotation_text.toPlainText(), attain[index])
+        if len(self.tab_1.detailed_view_accordion.annotation_text.toPlainText().strip()):
+            control.annotationAdd(self.tab_1.detailed_view_accordion.annotation_text.toPlainText(), attain[index])
             self.annotationDisplay(self.tab_1.table_result.getIndexSelected())
 
 
@@ -153,7 +153,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         detailed view
         :return: none
         """
-        row_position = self.tab_1.table_tag.rowCount()  # the total rows
+        row_position = self.tab_1.detailed_view_accordion.table_tag.rowCount()  # the total rows
 
         check_item = QtWidgets.QTableWidgetItem()
         check_item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
@@ -161,10 +161,10 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         rest_item = QtWidgets.QTableWidgetItem()
         rest_item.setFlags(QtCore.Qt.ItemIsSelectable)
 
-        self.tab_1.table_tag.insertRow(row_position)
-        self.tab_1.table_tag.setItem(row_position, 0, check_item)
-        self.tab_1.table_tag.setItem(row_position, 1, rest_item)
-        self.tab_1.table_tag.setItem(row_position, 2, check_item)
+        self.tab_1.detailed_view_accordion.table_tag.insertRow(row_position)
+        self.tab_1.detailed_view_accordion.table_tag.setItem(row_position, 0, check_item)
+        self.tab_1.detailed_view_accordion.table_tag.setItem(row_position, 1, rest_item)
+        self.tab_1.detailed_view_accordion.table_tag.setItem(row_position, 2, check_item)
 
     def universalButton(self):
         if self.tab_1.universalRecord.isChecked():  # if on
@@ -242,7 +242,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def annotationDisplay(self,index):
         self.tab_1.table_result.setIndexSelected(index)
         global attain
-        self.tab_1.annotation_table.display_annotation(attain[index])
+        self.tab_1.detailed_view_accordion.annotation_table.display_annotation(attain[index])
 
     def deleteTag(self, index):
         info = attain[index]

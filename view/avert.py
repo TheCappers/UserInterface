@@ -121,7 +121,7 @@ class Ui_MainWindow():
         _translate = QtCore.QCoreApplication.translate
         global attain
         curdata = attain[selected]
-        item = self.tab_1.tableWidget_38.item(0, 0)
+        item = self.tab_1.detailed_view_accordion.tableWidget_38.item(0, 0)
         item.setText(_translate("MainWindow", curdata['ip_address']))
-        item = self.tab_1.tableWidget_38.item(0, 1)
+        item = self.tab_1.detailed_view_accordion.tableWidget_38.item(0, 1)
         item.setText(_translate("MainWindow", curdata['mac_address']))
