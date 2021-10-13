@@ -157,7 +157,7 @@ class Home:
 		self.gridLayout_2.addWidget(self.label_value_type, 4, 1, 1, 1)
 
 
-		""" CHECKBOXES    """
+		"""  FILTER CHECKBOXES    """
 
 		self.checkBox_all_artifacts = QtWidgets.QCheckBox(self.search_filters)
 		self.checkBox_all_artifacts.setText("")
@@ -249,7 +249,7 @@ class Home:
 		self.label_log.setObjectName("label_log")
 		self.gridLayout_2.addWidget(self.label_log, 15, 0, 1, 1)
 
-		""" CHECKBOXES END """
+		""" FILTER CHECKBOXES END """
 
 		self.label_date_time = QtWidgets.QLabel(self.search_filters)
 		self.label_date_time.setMaximumSize(QtCore.QSize(16777215, 80))
@@ -337,7 +337,7 @@ class Home:
 		self.gridLayout_70.addWidget(self.avert_table, 1, 1, 1, 2)
 		self.verticalLayout_4.addWidget(self.home_top_view)
 
-		""" Accordions Start"""
+		""" Accordions Start """
 
 		self.toolBox_accordion = QtWidgets.QToolBox(self.scrollAreaWidgetContents_3)
 		sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
