@@ -236,10 +236,10 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def thresholdChange(self):
         if self.tab_2.StorageInValue.text() == '':  # in case empty
             control.storageRecording(70)  # set to default as user inputs full number
-        else:
-            full = control.storageRecording(float(self.StorageInValue.text()))  # send the value
-            if full:
-                QtWidgets.QMessageBox.about(self, 'Storage Alert', 'Storage is full')
+       # else:
+        #    full = control.storageRecording(float(self.StorageInValue.text()))  # send the value
+         #   if full:
+          #      QtWidgets.QMessageBox.about(self, 'Storage Alert', 'Storage is full')
 
     def searchPressed(self):  # once search is pressed we must search the given data
         # attain the the value in the search box
