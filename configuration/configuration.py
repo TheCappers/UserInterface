@@ -3,11 +3,12 @@ Will apply logical configuration settings as
 given by the user
 '''
 import shutil
-from recorders import keyboard_recorder, mouse_recorder
+from recorders import keyboard_recorder, mouse_recorder, screenshot_recorder
 
 # global recorders
 keyboard = keyboard_recorder.KeyboardRecorder(True)
 mouse = mouse_recorder.MouseRecorder()
+screenshot = screenshot_recorder.ScreenshotRecorder()
 
 
 class Configuration:
@@ -17,6 +18,7 @@ class Configuration:
         self.__universal_on = True  # automatically on
         self.__keystroke_on = True
         self.__mouse_action_on = True
+        self.__screenshot_on = True
         '''
         Here we add the new records values
         '''
@@ -66,6 +68,7 @@ class Configuration:
             keyboard.isRecord = universal_value  # updating recording value
             keyboard.startKeyboardRecording()
             mouse.start()
+            screenshot.start()
         else:
             self.setKeystroke(False)
             self.setMouseAction(False)
@@ -73,6 +76,7 @@ class Configuration:
             keyboard.isRecord = universal_value  # updating recording value
             keyboard.stopKeyboardRecording()
             mouse.stop()
+            screenshot.stop()
 
     def setKeystroke(self, keystroke_value):
         self.__keystroke_on = keystroke_value
