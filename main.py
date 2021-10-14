@@ -31,6 +31,19 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.exportButton.clicked.connect(self.exportPressed)
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)
 
+        # portion for the Filters on home tab
+        self.tab_1.checkBox_all_artifacts.stateChanged.connect(self.clickedCheckbox)
+        self.tab_1.checkBox_screenshot.stateChanged.connect(self.clickedCheckbox)
+        self.tab_1.checkBox_video.stateChanged.connect(self.clickedCheckbox)
+        self.tab_1.checkBox_network.stateChanged.connect(self.clickedCheckbox)
+        self.tab_1.checkBox_process.stateChanged.connect(self.clickedCheckbox)
+        self.tab_1.checkBox_keystroke.stateChanged.connect(self.clickedCheckbox)
+        self.tab_1.checkBox_mouse_action.stateChanged.connect(self.clickedCheckbox)
+        self.tab_1.checkBox_windowHistory.stateChanged.connect(self.clickedCheckbox)
+        self.tab_1.checkBox_system_call.stateChanged.connect(self.clickedCheckbox)
+        self.tab_1.checkBox_history.stateChanged.connect(self.clickedCheckbox)
+        self.tab_1.checkBox_log.stateChanged.connect(self.clickedCheckbox)
+
 
         """used in tab 2"""
         """COMMENTING OUT UI MODIFICATION"""
@@ -258,6 +271,32 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             clicks.remove(index)
             selected = None
         # print(self.table_tag.itemClicked)
+
+    def clickedCheckbox(self):
+        global attain
+        if self.tab_1.checkBox_all_artifacts.isChecked():
+            attain = control.view('')  # empty string for all data
+            self.updateTable(attain)
+
+        if self.tab_1.checkBox_keystroke.isChecked():
+            attain = control.view('Keystroke')  # keystroke collection
+            self.updateTable(attain)
+
+        if self.tab_1.checkBox_mouse_action.isChecked():
+            attain = control.view('Mouse Action')
+            self.updateTable(attain)
+        '''
+        ALL OTHER ARTIFACTS FOLLOW THIS PATTERN
+    
+        if self.tab_1.checkBox_ARTIFACT_NAME.isChecked():
+            attain = control.view('ARTIFACT_NAME')   
+            self.updateTable(attain)
+        '''
+
+
+
+
+
 
 
 def main():
