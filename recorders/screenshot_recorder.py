@@ -1,10 +1,15 @@
 from recorders.recorded_data import RecordedData
 import numpy
-import cv2
+
+import os
+import sys
+import time
+from PIL import ImageGrab
+from PIL import Image
+from matplotlib import pyplot as plt
 
 from pynput import mouse
 from pynput import keyboard
-import mss
 
 class ScreenshotRecorder(RecordedData):
 		def __init__(self):
@@ -13,7 +18,7 @@ class ScreenshotRecorder(RecordedData):
 			self._screenshot_data = self.get_recorded_data()
 			self._screenshot_data['name'] = "Screenshot"
 			self._screenshot_data['data'] = []
-			self.image = []
+			self.image = None
 
 			"""
 			self.listener = keyboard.Listener(
@@ -60,7 +65,7 @@ class ScreenshotRecorder(RecordedData):
 			if self.isAutoRecord:
 				if pressed:
 					print('Mouse clicked at ({0}, {1}) with {2}'.format(x, y, button))
-					self.viewScreenshot()
+					#test view self.viewScreenshot()
 				else:
 					print('Mouse released at ({0}, {1}) with {2}'.format(x, y, button))
 
@@ -84,15 +89,11 @@ class ScreenshotRecorder(RecordedData):
 			print('stop screenshot recording')
 
 		def takeScreenshot(self):
-			with mss.mss() as sct:
-				# The screen part to capture
-				monitor = sct.monitors[1]
-				# Get raw pixels from the screen, save it to a Numpy array
-				self.image = numpy.array(sct.grab(monitor))
+			self.image = numpy.array(ImageGrab.grab())
 
 		def viewScreenshot(self):
-			while("Screen Capturing"):
-				cv2.imshow("OpenCV/Numpy normal", self.image)
-				if cv2.waitKey(25) & 0xFF == ord("q"):
-					cv2.destroyAllWindows()
-					break
+			viewable = Image.fromarray(self.image)
+			#plt.imshow(viewable, interpolation='nearest')
+			viewable.show()
+			#viewable.save('screenshot.png')
+			#viewable.show()
