@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 class DescriptionKeystroke:
-    def __init__(self) -> None:
+    def __init__(self, selected) -> None:
         self.descriptionkeystroke_tab = QtWidgets.QWidget()
         self.descriptionkeystroke_tab.setObjectName(
             "descriptionkeystroke_tab")
@@ -64,10 +64,10 @@ class DescriptionKeystroke:
         _translate = QtCore.QCoreApplication.translate
         self.descriptionvideo_timestamp_label_47.setText(
             _translate("MainWindow", "Timestamp:"))
-        self.label_86.setText(_translate("MainWindow", "10-6-26 02:31:29"))
+        self.label_86.setText(_translate("MainWindow", selected['timestamp']))
         self.descriptionvideo_timestamp_label_46.setText(
             _translate("MainWindow", "Keypress:"))
-        self.label_87.setText(_translate("MainWindow", "f"))
+        self.label_87.setText(_translate("MainWindow", '\'' + selected['data'] + '\''))
 
     def get_tab(self):
         return self.descriptionkeystroke_tab

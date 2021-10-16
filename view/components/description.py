@@ -32,11 +32,11 @@ class Description:
         self.description_tab.removeTab(0)
         name = ''
         if selected['name'] == 'Keystroke':
-            self.tab_1 = DescriptionKeystroke()
+            self.tab_1 = DescriptionKeystroke(selected)
             name = 'Keystroke'
 
         elif selected['name'] == 'Mouse_Action':
-            self.tab_1 = DescriptionMouse()
+            self.tab_1 = DescriptionMouse(selected)
             name = 'Mouse Action'
 
         self.description_tab.addTab(self.tab_1.get_tab(), name)
