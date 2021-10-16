@@ -89,7 +89,7 @@ class ScreenshotRecorder(RecordedData):
 
 		def takeScreenshot(self):
 			self.image = numpy.array(ImageGrab.grab())
-			self._screenshot_data['data'] = self.img
+			self._screenshot_data['data'] = self.image
 
 		def viewScreenshot(self):
 			viewable = Image.fromarray(self.image)
