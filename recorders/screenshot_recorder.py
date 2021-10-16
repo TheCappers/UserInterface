@@ -54,8 +54,7 @@ class ScreenshotRecorder(RecordedData):
 
 		def on_press(self, key):
 			if self.isAutoRecord:
-				img = self.takeScreenshot()
-				print(img)
+				self.takeScreenshot()
 
 		def on_release(self, key):
 			if self.isAutoRecord:
@@ -90,6 +89,7 @@ class ScreenshotRecorder(RecordedData):
 
 		def takeScreenshot(self):
 			self.image = numpy.array(ImageGrab.grab())
+			self._screenshot_data['data'] = self.img
 
 		def viewScreenshot(self):
 			viewable = Image.fromarray(self.image)
@@ -97,3 +97,5 @@ class ScreenshotRecorder(RecordedData):
 			viewable.show()
 			#viewable.save('screenshot.png')
 			#viewable.show()
+		def insert_to_db(self):
+			self.__db.query_db("post", self._screenshot_data, "")
