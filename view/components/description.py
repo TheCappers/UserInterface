@@ -23,81 +23,23 @@ class Description:
         self.description_tab.setUsesScrollButtons(False)
         self.description_tab.setObjectName("description_tab")
 
-        """Description Video"""
-        self.descriptionvideo_tab = DescriptionVideo()
-        # self.description_tab.addTab(self.descriptionvideo_tab.get_tab(), "")
-
-        """Description Screenshot"""
-        self.descriptionstillscreenshot_tab = DescriptionScreenshot()
-        # self.description_tab.addTab(self.descriptionstillscreenshot_tab.get_tab(), "")
-
-        """Description System Call"""
-        self.descriptionsystemcall_tab = DescriptionSystemCall()
-        # self.description_tab.addTab(self.descriptionsystemcall_tab.get_tab(), "")
-
-        """Description Process"""
-        self.descriptionprocess_tab = DescriptionProcess()
-        # self.description_tab.addTab(self.descriptionprocess_tab.get_tab(), "")
-
-        """Description Window History"""
-        self.descriptionwindowhistory_tab = DescriptionHistory()
-        # self.description_tab.addTab(self.descriptionwindowhistory_tab.get_tab(), "")
-
-        """Description Network"""
-        self.descriptionnetwork_tab = DescriptionNetwork()
-        # self.description_tab.addTab(self.descriptionnetwork_tab.get_tab(), "")
-
-        """Description Mouse"""
-        self.descriptionmouse_tab = DescriptionMouse()
-        # self.description_tab.addTab(self.descriptionmouse_tab.get_tab(), "")
-
-        """Description Keystroke"""
-        self.descriptionkeystroke_tab = DescriptionKeystroke()
-        # self.description_tab.addTab(self.descriptionkeystroke_tab.get_tab(), "")
-
         self.gridLayout_24.addWidget(self.description_tab, 0, 0, 1, 1)
-
-        _translate = QtCore.QCoreApplication.translate
-        
-        self.description_tab.setTabText(
-            self.description_tab.indexOf(
-                self.descriptionstillscreenshot_tab.get_tab()), _translate(
-                "MainWindow", "Still Screenshot"))
-        
-        self.description_tab.setTabText(
-            self.description_tab.indexOf(
-                self.descriptionsystemcall_tab.get_tab()), _translate(
-                "MainWindow", "System Call"))
-        
-        self.description_tab.setTabText(
-            self.description_tab.indexOf(
-                self.descriptionprocess_tab.get_tab()), _translate(
-                "MainWindow", "Process"))
-        
-        self.description_tab.setTabText(
-            self.description_tab.indexOf(
-                self.descriptionwindowhistory_tab.get_tab()), _translate(
-                "MainWindow", "Window History"))
-        
-        self.description_tab.setTabText(
-            self.description_tab.indexOf(
-                self.descriptionnetwork_tab.get_tab()), _translate(
-                "MainWindow", "Network Packet"))
-        
-        self.description_tab.setTabText(
-            self.description_tab.indexOf(
-                self.descriptionmouse_tab.get_tab()), _translate(
-                "MainWindow", "Mouse Action"))
-        
-        self.description_tab.setTabText(
-            self.description_tab.indexOf(
-                self.descriptionkeystroke_tab.get_tab()), _translate(
-                "MainWindow", "Keystroke"))
-
-        self.description_tab.setTabText(
-            self.description_tab.indexOf(
-                self.descriptionvideo_tab.get_tab()), _translate(
-                "MainWindow", "Video"))
 
     def get_tab(self):
         return self.tab_134
+
+    def display_tab(self, selected):
+        self.description_tab.removeTab(0)
+        name = ''
+        if selected['name'] == 'Keystroke':
+            self.tab_1 = DescriptionKeystroke(selected)
+            name = 'Keystroke'
+
+        elif selected['name'] == 'Mouse_Action':
+            self.tab_1 = DescriptionMouse(selected)
+            name = 'Mouse Action'
+
+        self.description_tab.addTab(self.tab_1.get_tab(), name)
+
+        
+        
