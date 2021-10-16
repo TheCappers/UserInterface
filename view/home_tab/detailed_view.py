@@ -74,8 +74,10 @@ class DetailedView:
         self.gridLayout_23.addWidget(self.scrollArea_54, 0, 0, 1, 1)
 
         self.DetailedViewTab.addTab(self.tab_133, "")
+
         self.tab_134 = Description()
         self.DetailedViewTab.addTab(self.tab_134.get_tab(), "")
+        
         self.AnnotationTab = QtWidgets.QWidget()
         self.AnnotationTab.setObjectName("AnnotationTab")
         self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.AnnotationTab)

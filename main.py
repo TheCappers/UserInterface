@@ -3,6 +3,7 @@ from view.accordion_floating import Ui_Form
 from view.avert import Ui_MainWindow
 import sys
 from controller import controller
+from view.components.description import Description
 
 # global values
 control = controller.Controller()
@@ -29,7 +30,9 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.search_button.clicked.connect(self.searchPressed)
         # export button being activated
         self.tab_1.exportButton.clicked.connect(self.exportPressed)
+        # result table cell clicked
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)
+        self.tab_1.table_result.avert_result_table.cellClicked.connect(self.descriptionDisplay)
 
         # portion for the Filters on home tab
         self.tab_1.checkBox_all_artifacts.stateChanged.connect(self.clickedCheckbox)
@@ -256,6 +259,12 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.table_result.setIndexSelected(index)
         global attain
         self.tab_1.detailed_view_accordion.annotation_table.display_annotation(attain[index])
+
+    def descriptionDisplay(self, index):
+        self.tab_1.table_result.setIndexSelected(index)
+        global attain
+        self.tab_1.detailed_view_accordion.tab_134.display_tab(attain[index])
+        
 
     def deleteTag(self, index):
         info = attain[index]
