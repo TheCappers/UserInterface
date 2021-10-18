@@ -9,7 +9,7 @@ from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder
 keyboard = keyboard_recorder.KeyboardRecorder(True)
 mouse = mouse_recorder.MouseRecorder()
 systemcal = systemcall_recorder.SytemsCallRecorder()
-systemcal.setRecorder(True)
+# systemcal.systemcallrecorder_start()
 
 
 

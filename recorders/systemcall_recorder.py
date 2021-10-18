@@ -50,6 +50,11 @@ class SytemsCallRecorder(RecordedData, t.Thread):
 				i += 1 # checking counter
 				# self.syscall_thread.join()
 
+	def systemcallrecorder_start(self):
+		self.setRecorder(True)
+
+	def systemcallrecorder_end(self):
+		self.setRecorder(False)
 
 	def reset_entrydata(self):
 		self._systemcall_data = self.get_recorded_data()
