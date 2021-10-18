@@ -67,6 +67,7 @@ class Configuration:
         if universal_value:
             self.setKeystroke(True)
             self.setMouseAction(True)
+            self.setScreenshot(True)
             # recorders
             keyboard.isRecord = universal_value  # updating recording value
             keyboard.startKeyboardRecording()
@@ -75,6 +76,7 @@ class Configuration:
         else:
             self.setKeystroke(False)
             self.setMouseAction(False)
+            self.setScreenshot(False)
             # recorders
             keyboard.isRecord = universal_value  # updating recording value
             keyboard.stopKeyboardRecording()

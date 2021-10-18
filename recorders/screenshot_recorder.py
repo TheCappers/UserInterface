@@ -1,4 +1,5 @@
 from recorders.recorded_data import RecordedData
+from Database.Database import DataBase
 import numpy
 
 import os
@@ -6,10 +7,10 @@ import sys
 import time
 from PIL import ImageGrab
 from PIL import Image
-from matplotlib import pyplot as plt
 
 from pynput import mouse
 from pynput import keyboard
+import datetime
 
 class ScreenshotRecorder(RecordedData):
 		def __init__(self):
@@ -17,31 +18,9 @@ class ScreenshotRecorder(RecordedData):
 			self.isAutoRecord = True
 			self._screenshot_data = self.get_recorded_data()
 			self._screenshot_data['name'] = "Screenshot"
-			self._screenshot_data['data'] = []
+			self._screenshot_data['data'] = ''
 			self.image = None
-
-			"""
-			self.listener = keyboard.Listener(
-				on_press=self.on_press
-			)
-			self.startScreenshotRecording()
-			#self.lock = Lock()
-			self.isRecording = True
-			self.listener.start()
-
-			self.__listener = mouse.Listener(
-	            on_move=self._on_move,
-	            on_click=self._on_click,
-	            on_scroll=self._on_scroll)
-	        self.__listener.start()
-
-			def _on_move(self, x, y):
-		        if self.__autorecording:
-		            self.__mouse_action['data']['position'] = (x, y)
-		            self.insert_to_db()
-			"""
-
-
+			self.__db = DataBase()
 
 			# Setup the listener threads
 			self.keyboard_listener = keyboard.Listener(on_press=self.on_press, on_release=self.on_release)
@@ -63,6 +42,7 @@ class ScreenshotRecorder(RecordedData):
 		def on_click(self, x, y, button, pressed):
 			if self.isAutoRecord:
 				if pressed:
+					self.takeScreenshot()
 					print('Mouse clicked at ({0}, {1}) with {2}'.format(x, y, button))
 					#test view self.viewScreenshot()
 				else:
@@ -88,14 +68,15 @@ class ScreenshotRecorder(RecordedData):
 			print('stop screenshot recording')
 
 		def takeScreenshot(self):
-			self.image = numpy.array(ImageGrab.grab())
-			self._screenshot_data['data'] = self.image
+			date_time = str(datetime.datetime.now().strftime("%Y-%m-%d~%H:%M:%S"))
+			self.image = ImageGrab.grab()
+			self._screenshot_data['data'] = "Images/" + date_time + '.png'
+			self.image.save(self._screenshot_data['data'])
+			self.insert_to_db()
 
 		def viewScreenshot(self):
-			viewable = Image.fromarray(self.image)
-			#plt.imshow(viewable, interpolation='nearest')
-			viewable.show()
-			#viewable.save('screenshot.png')
-			#viewable.show()
+			os.system("xdg-open " + self._screenshot_data['data'])
+			time.sleep(3)
+
 		def insert_to_db(self):
 			self.__db.query_db("post", self._screenshot_data, "")
