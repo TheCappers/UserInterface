@@ -43,7 +43,7 @@ class RecordedData(object):
     #     print(data_dict)
     #     print(DataBase().query_db("find", self._recorded_data, "")) # for checking purpose
     #     return
-		
+
     def insert_to_db(self, post_data):
         DataBase().query_db("post", post_data, "")
 
