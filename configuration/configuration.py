@@ -3,12 +3,15 @@ Will apply logical configuration settings as
 given by the user
 '''
 import shutil
-from recorders import keyboard_recorder, mouse_recorder, screenshot_recorder
+from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, screenshot_recorder
 
 # global recorders
 keyboard = keyboard_recorder.KeyboardRecorder(True)
 mouse = mouse_recorder.MouseRecorder()
+systemcal = systemcall_recorder.SytemsCallRecorder()
+# systemcal.systemcallrecorder_start()
 screenshot = screenshot_recorder.ScreenshotRecorder()
+
 
 
 class Configuration:

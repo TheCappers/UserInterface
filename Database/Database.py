@@ -10,6 +10,10 @@ class DataBase:
         self.db = client['AVERT']
         self.keystroke_collection = self.db["keystroke_collection"]
         self.mouse_collection = self.db["mouse_collection"]
+        self.screenshot_collection = self.db["screenshot_collection"]
+        self.process_collection = self.db["process_collection"]
+        self.windows_collection = self.db["windows_collection"]
+        self.syscall_collection = self.db["syscall_collection"]
 
     def __insert_post(self, collection, post):
         post.update({"_id": ObjectId().__str__()})
@@ -60,6 +64,14 @@ class DataBase:
                 self.__insert_post(self.keystroke_collection, post)
             if post.get('name') == "Mouse_Action":
                 self.__insert_post(self.mouse_collection, post)
+            if post.get('name') == "Screenshot":
+                self.__insert_post(self.screenshot_collection, post)
+            if post.get('name') == "Process":
+                self.__insert_post(self.process_collection, post)
+            if post.get('name') == "Window_History":
+                self.__insert_post(self.windows_collection, post)
+            if post.get('name') == "System_Call":
+                self.__insert_post(self.syscall_collection, post)
 
         # returns a list all based on data type e.g. Keystroke or Mouse_Action
         if query == "get_type":
@@ -67,18 +79,42 @@ class DataBase:
                 return self.__get_type(self.keystroke_collection)
             if target == "Mouse_Action":
                 return self.__get_type(self.mouse_collection)
+            if target == "Screenshot":
+                return self.__get_type(self.screenshot_collection)
+            if target == "Process":
+                return self.__get_type(self.process_collection)
+            if target == "Window_History":
+                return self.__get_type(self.windows_collection)
+            if target == "System_Call":
+                return self.__get_type(self.syscall_collection)
 
         if query == "update":
             if post.get('name') == "Keystroke":
                 self.__update_one(self.keystroke_collection, post, target)
             if post.get('name') == "Mouse_Action":
                 self.__update_one(self.mouse_collection, post, target)
+            if post.get('name') == "Screenshot":
+                self.__update_one(self.screenshot_collection, post, target)
+            if post.get('name') == "Process":
+                self.__update_one(self.process_collection, post, target)
+            if post.get('name') == "Window_History":
+                self.__update_one(self.windows_collection, post, target)
+            if post.get('name') == "System_Call":
+                self.__update_one(self.syscall_collection, post, target)
 
         if query == "delete":
             if post.get('name') == "Keystroke":
                 self.__delete_one(self.keystroke_collection, post)
             if post.get('name') == "Mouse_Action":
                 self.__delete_one(self.mouse_collection, post)
+            if post.get('name') == "Screenshot":
+                self.__delete_one(self.screenshot_collection, post)
+            if post.get('name') == "Process":
+                self.__delete_one(self.process_collection, post)
+            if post.get('name') == "Window_History":
+                self.__delete_one(self.windows_collection, post)
+            if post.get('name') == "System_Call":
+                self.__delete_one(self.syscall_collection, post)
 
 
 # post_1 = {'_id': '615b8dee3f96615d6166ead6', 'name': 'Mouse_Action', 'Keystroke': 'H', 'Date': '9/11/2021', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': 'David'}

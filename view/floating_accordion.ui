@@ -281,7 +281,7 @@
       </property>
      </item>
     </widget>
-    <widget class="QCheckBox" name="checkBox">
+    <widget class="QCheckBox" name="ScreenshotCheck">
      <property name="geometry">
       <rect>
        <x>410</x>
@@ -303,7 +303,7 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QCheckBox" name="checkBox_2">
+    <widget class="QCheckBox" name="VIdeoCheck">
      <property name="geometry">
       <rect>
        <x>410</x>
@@ -325,7 +325,7 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QCheckBox" name="checkBox_3">
+    <widget class="QCheckBox" name="ProcessCheck">
      <property name="geometry">
       <rect>
        <x>410</x>
@@ -347,7 +347,7 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QCheckBox" name="checkBox_4">
+    <widget class="QCheckBox" name="KeystrokeCheck">
      <property name="geometry">
       <rect>
        <x>410</x>
@@ -369,7 +369,7 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QCheckBox" name="checkBox_5">
+    <widget class="QCheckBox" name="MouseCheck">
      <property name="geometry">
       <rect>
        <x>410</x>
@@ -391,7 +391,7 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QCheckBox" name="checkBox_6">
+    <widget class="QCheckBox" name="WindowCheck">
      <property name="geometry">
       <rect>
        <x>410</x>
@@ -413,7 +413,7 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QCheckBox" name="checkBox_7">
+    <widget class="QCheckBox" name="SystemCheck">
      <property name="geometry">
       <rect>
        <x>410</x>
@@ -435,7 +435,7 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QCheckBox" name="checkBox_8">
+    <widget class="QCheckBox" name="NetworkCheck">
      <property name="geometry">
       <rect>
        <x>410</x>

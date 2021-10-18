@@ -16,7 +16,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 from PyQt5 import QtCore, QtGui, QtWidgets, QtChart
 
-class Ui_Form(object):
+
+class Ui_Form():
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(1005, 479)
@@ -305,6 +306,7 @@ class Ui_Form(object):
         self.toolBox.setItemText(self.toolBox.indexOf(self.page), _translate("Form", "Recording Floating Control Bar"))
 
 
+'''
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
@@ -313,3 +315,4 @@ if __name__ == "__main__":
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec_())
+'''
