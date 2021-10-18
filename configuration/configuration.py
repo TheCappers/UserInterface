@@ -12,6 +12,7 @@ systemcal = systemcall_recorder.SytemsCallRecorder()
 systemcal.setRecorder(True)
 
 
+
 class Configuration:
     def __init__(self):  # configurator constructor
         self.__threshold = 70  # interpret as percent

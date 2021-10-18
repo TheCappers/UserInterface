@@ -10,6 +10,7 @@ control = controller.Controller()
 attain = []
 clicks = []
 selected = 0
+universal_btn_state = 1
 
 
 class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -25,6 +26,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_2.ProcessStatOffButton.clicked.connect(self.toggleButtons)
         self.tab_1.detailed_view_accordion.tag_add_button.clicked.connect(self.add_tag)
         self.tab_1.universalRecord.clicked.connect(self.universalButton)
+        self.tab_2.universalRecord.clicked.connect(self.universalButton)
         self.tab_1.detailed_view_accordion.pushButton_18.clicked.connect(self.add_annotation)
         # search button being activated
         self.tab_1.search_button.clicked.connect(self.searchPressed)
@@ -179,7 +181,9 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
     def universalButton(self):
-        if self.tab_1.universalRecord.isChecked():  # if on
+        global universal_btn_state
+        if not universal_btn_state:
+            universal_btn_state = 1
             control.universalRecording(True)
             '''
              change the text and checked from the press on the universal record button
@@ -187,6 +191,9 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
              GUI CHANGES
              '''
             self.tab_1.universalRecord.setText('Record On')
+            self.tab_1.universalRecord.setChecked(1)
+            self.tab_2.universalRecord.setText('Record On')
+            self.tab_2.universalRecord.setChecked(1)
 
             # check all the on buttons and uncheck the offs
             self.tab_2.VideoStatOnButton.setChecked(1)  # check the button we clicked
@@ -206,6 +213,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.tab_2.ProcessStatOnButton.setChecked(1)  # check the button we clicked
             self.tab_2.ProcessStatOffButton.setChecked(0)  # check false the off button incase it is checked
         else:  # if off
+            universal_btn_state = 0
             control.universalRecording(False)
             '''
              change the text and checked from the press on the universal record button
@@ -213,6 +221,9 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
              GUI CHANGES
              '''
             self.tab_1.universalRecord.setText('Record Off')
+            self.tab_1.universalRecord.setChecked(0)
+            self.tab_2.universalRecord.setText('Record Off')
+            self.tab_2.universalRecord.setChecked(0)
             # check all the off buttons and uncheck ons
 
             self.tab_2.VideoStatOnButton.setChecked(0)  # check off the on button
