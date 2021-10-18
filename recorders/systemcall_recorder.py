@@ -9,7 +9,7 @@ class SytemsCallRecorder(RecordedData, t.Thread):
 		RecordedData.__init__(self)
 		self.reset_entrydata()
 		self.willRecord = False
-		# self.syscall_thread = t.Thread()
+		self.syscall_thread = t.Thread()
 
 
 	def setRecorder(self, bool_record):
@@ -84,7 +84,3 @@ class SytemsCallRecorder(RecordedData, t.Thread):
 		elif systemcall in ['pipe', 'shmget', 'mmap']:
 			return 'Communication'
 
-
-# scr = SytemsCallRecorder()
-# scr.setRecorder(True)
-# scr.start()
