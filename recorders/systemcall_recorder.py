@@ -11,12 +11,7 @@ class SytemsCallRecorder(RecordedData, t.Thread):
 		def __init__(self, ):
 			RecordedData.__init__(self)
 			t.Thread.__init__(self)
-			self._systemcall_data = self.get_recorded_data()
-			self._systemcall_data['name'] = "System_Call"
-			self._systemcall_data['data']['systemcall_name'] = ''
-			self._systemcall_data['data']['systemcall_argument'] = []
-			self._systemcall_data['data']['systemcall_returnval'] = ''
-			self._systemcall_data['data']['systemcall_calltype'] = ''
+			self.reset_entrydata()
 			self.willRecord = False
 			self.isAutoRecord = False # get this value from config class
 			# self.setRecorder()
@@ -43,11 +38,8 @@ class SytemsCallRecorder(RecordedData, t.Thread):
 					now = datetime.now()
 					start_formatted = (now+timedelta(seconds=-1)).strftime("%m/%d/%Y %H:%M:%S")
 					end_formatted = now.strftime("%m/%d/%Y %H:%M:%S")
-					# print(start_formatted)
-					# print(end_formatted)
 					# cmd = "sudo ausearch -ts " + start_formatted + " -te " + end_formatted + " -i"
-					cmd = "sudo ausearch -ts " + start_formatted + " -te " + end_formatted + " -i"
-					# cmd = "sudo ausearch -ts 10/16/2021 14:52:39 -te 10/16/2021 15:00:40 -i"
+					cmd = "sudo ausearch -ts " + start_formatted + " -te " + end_formatted + " -i -m SYSCALL"
 					print(cmd)
 					output = s.Popen(cmd, shell=True, stdout=s.PIPE, stderr=s.PIPE)
 					# print(output.stderr)
@@ -97,21 +89,3 @@ class SytemsCallRecorder(RecordedData, t.Thread):
 				return 'Information Maintenance'
 			elif systemcall in ['pipe', 'shmget', 'mmap']:
 				return 'Communication'
-
-		def startKeyboardRecording(self):
-			# ...or, in a non-blocking fashion:
-			if self.isAutoRecord:
-					return
-			self.isAutoRecord = True
-			print('start system call recordig')
-
-		def stopKeyboardRecording(self):
-			if not self.isAutoRecord:
-					return
-			self.isAutoRecord = False
-			print('stop system call recording')
-
-
-
-# kr.isAutoRecord = False
-# kr.stopKeyboardRecording()
