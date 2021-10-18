@@ -2,9 +2,9 @@ from pynput import mouse
 from recorders.recorded_data import RecordedData
 
 from Database.Database import DataBase
+
 '''
-Sets up listener. To start the listener create a mouse_recorder.
-To stop querying the database call stop(), to keep querying the database call start()  
+Sets up listener. To start the listener invoke start() and to stop it invoke stop()
 '''
 
 
@@ -76,3 +76,32 @@ class MouseRecorder(RecordedData):
         if self.__mock:
             print("first value stored: {0}\nstored items: {1}".format(
                 self.__mock_db[-1], len(self.__mock_db)))
+
+# This is for getting full recording data
+# r = RecordedData()
+# m = MouseRecorder()
+# r.recorded_data['type'] = "mouse_movement"
+# r.recorded_data['data'] = m.mouse_movement
+
+# print(r.recorded_data)
+
+# Schema for sending the data (keystroke)
+# post_1 = {
+#     "name": "Keystroke",
+#     "Keystroke": "H",
+#     "Date": "9/11/2021",
+#     "IP Address": "1.2.3.4",
+# }
+# Schema for sending the data (mouse action)
+# post_2 = {
+#     "name": "Mouse_Action",
+#     "coordinate": (200,402),
+#     "click": True,
+#     "date": "9/11/2021",
+#     "ip_address": "1.2.3.4",
+#     "mac_address": "39:0f:b2:29:48"
+# }
+
+# db = DataBase()
+# db.query_db("post", post_1, "")
+# print(db.query_db("find", post_1, ""))
