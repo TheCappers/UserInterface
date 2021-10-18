@@ -1,6 +1,8 @@
 from PyQt5 import QtWidgets, QtCore
-from view.components import annotation_table
+from view.components import annotation_table, tag_table
 from view.components.description import Description
+
+global tag_table
 
 
 class DetailedView:
@@ -77,7 +79,8 @@ class DetailedView:
 
         self.tab_134 = Description()
         self.DetailedViewTab.addTab(self.tab_134.get_tab(), "")
-        
+
+        ''' ANNOTATION TAB  '''
         self.AnnotationTab = QtWidgets.QWidget()
         self.AnnotationTab.setObjectName("AnnotationTab")
         self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.AnnotationTab)
@@ -99,151 +102,20 @@ class DetailedView:
             self.pushButton_18, 0, QtCore.Qt.AlignLeft)
         self.DetailedViewTab.addTab(self.AnnotationTab, "")
 
+        ''' TAGS TAB '''
         self.tags_tab = QtWidgets.QWidget()
         self.tags_tab.setObjectName("tags_tab")
         self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.tags_tab)
         self.verticalLayout_7.setObjectName("verticalLayout_7")
-        self.table_tag = QtWidgets.QTableWidget(self.tags_tab)
-        self.table_tag.setFocusPolicy(QtCore.Qt.StrongFocus)
-        self.table_tag.setAcceptDrops(False)
-        self.table_tag.setEditTriggers(
-            QtWidgets.QAbstractItemView.NoEditTriggers)
-        self.table_tag.setAlternatingRowColors(True)
-        self.table_tag.setSelectionBehavior(
-            QtWidgets.QAbstractItemView.SelectRows)
-        self.table_tag.setCornerButtonEnabled(True)
-        self.table_tag.setRowCount(8)
-        self.table_tag.setObjectName("table_tag")
-        self.table_tag.setColumnCount(4)
-        item = QtWidgets.QTableWidgetItem()
-        self.table_tag.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.table_tag.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.table_tag.setHorizontalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.table_tag.setHorizontalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setCheckState(QtCore.Qt.Unchecked)
-        self.table_tag.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable |
-                      QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
-        self.table_tag.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable)
-        self.table_tag.setItem(0, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable |
-                      QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
-        self.table_tag.setItem(0, 3, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setCheckState(QtCore.Qt.Unchecked)
-        self.table_tag.setItem(1, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable |
-                      QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
-        self.table_tag.setItem(1, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable)
-        self.table_tag.setItem(1, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable |
-                      QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
-        self.table_tag.setItem(1, 3, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setCheckState(QtCore.Qt.Unchecked)
-        self.table_tag.setItem(2, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable |
-                      QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
-        self.table_tag.setItem(2, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable)
-        self.table_tag.setItem(2, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable |
-                      QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
-        self.table_tag.setItem(2, 3, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setCheckState(QtCore.Qt.Unchecked)
-        self.table_tag.setItem(3, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable |
-                      QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
-        self.table_tag.setItem(3, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable)
-        self.table_tag.setItem(3, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable |
-                      QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
-        self.table_tag.setItem(3, 3, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setCheckState(QtCore.Qt.Unchecked)
-        self.table_tag.setItem(4, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable |
-                      QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
-        self.table_tag.setItem(4, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable)
-        self.table_tag.setItem(4, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable |
-                      QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
-        self.table_tag.setItem(4, 3, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setCheckState(QtCore.Qt.Unchecked)
-        self.table_tag.setItem(5, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable |
-                      QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
-        self.table_tag.setItem(5, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable)
-        self.table_tag.setItem(5, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable |
-                      QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
-        self.table_tag.setItem(5, 3, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setCheckState(QtCore.Qt.Unchecked)
-        self.table_tag.setItem(6, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable |
-                      QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
-        self.table_tag.setItem(6, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable)
-        self.table_tag.setItem(6, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable |
-                      QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
-        self.table_tag.setItem(6, 3, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setCheckState(QtCore.Qt.Unchecked)
-        self.table_tag.setItem(7, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable |
-                      QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
-        self.table_tag.setItem(7, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable)
-        self.table_tag.setItem(7, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable |
-                      QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
-        self.table_tag.setItem(7, 3, item)
-        self.table_tag.horizontalHeader().setCascadingSectionResizes(True)
-        self.table_tag.horizontalHeader().setDefaultSectionSize(200)
-        self.table_tag.horizontalHeader().setMinimumSectionSize(200)
-        self.table_tag.horizontalHeader().setSortIndicatorShown(True)
-        self.table_tag.horizontalHeader().setStretchLastSection(True)
-        self.table_tag.verticalHeader().setVisible(False)
-        self.table_tag.verticalHeader().setCascadingSectionResizes(True)
-        self.table_tag.verticalHeader().setSortIndicatorShown(True)
-        self.verticalLayout_7.addWidget(self.table_tag)
+
+        ''' TAG TABLE '''
+        global tag_table
+        tag_table = tag_table.TagTable()
+        tag_table.startTable(QtWidgets.QTableWidget(self.tags_tab))
+        self.tag_table = tag_table
+
+        ''' TAG TABLE START '''
+        self.verticalLayout_7.addWidget(tag_table.getTable())
         self.frame_11 = QtWidgets.QFrame(self.tags_tab)
         self.frame_11.setMinimumSize(QtCore.QSize(0, 50))
         self.frame_11.setMaximumSize(QtCore.QSize(400, 50))
@@ -253,16 +125,20 @@ class DetailedView:
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.frame_11)
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, -1)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.lineEdit_7 = QtWidgets.QLineEdit(self.frame_11)
-        self.lineEdit_7.setClearButtonEnabled(False)
-        self.lineEdit_7.setObjectName("lineEdit_7")
-        self.horizontalLayout_2.addWidget(self.lineEdit_7)
+
+        ''' ADD TAG TEXT BOX '''
+        self.tag_input = QtWidgets.QLineEdit(self.tags_tab)
+        self.tag_input.setClearButtonEnabled(False)
+        self.tag_input.setObjectName("tag_input")
+        self.horizontalLayout_2.addWidget(self.tag_input)
+
         self.tag_add_button = QtWidgets.QPushButton(self.frame_11)
         self.tag_add_button.setObjectName("tag_add_button")
         self.horizontalLayout_2.addWidget(self.tag_add_button)
         self.tag_delete_button = QtWidgets.QPushButton(self.frame_11)
         self.tag_delete_button.setObjectName("tag_delete_button")
         self.horizontalLayout_2.addWidget(self.tag_delete_button)
+
         self.verticalLayout_7.addWidget(self.frame_11)
         self.frame_9 = QtWidgets.QFrame(self.tags_tab)
         self.frame_9.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -310,19 +186,8 @@ class DetailedView:
             self.DetailedViewTab.indexOf(
                 self.AnnotationTab), _translate(
                 "MainWindow", "Annotation"))
-        self.table_tag.setSortingEnabled(True)
-        item = self.table_tag.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Select"))
-        item = self.table_tag.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "IP Address"))
-        item = self.table_tag.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "MAC Address "))
-        item = self.table_tag.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "Tag"))
-        __sortingEnabled = self.table_tag.isSortingEnabled()
-        self.table_tag.setSortingEnabled(False)
-        self.table_tag.setSortingEnabled(__sortingEnabled)
-        self.lineEdit_7.setPlaceholderText(_translate("MainWindow", "Tag"))
+
+        self.tag_input.setPlaceholderText(_translate("MainWindow", "Tag"))
         self.tag_add_button.setText(_translate("MainWindow", "Add"))
         self.tag_delete_button.setText(_translate("MainWindow", "Delete"))
         self.DetailedViewTab.setTabText(

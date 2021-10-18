@@ -5,7 +5,7 @@ class AnnotationTable:
 
     def __init__(self):
         self.annotation_table = ""
-        #global table_result
+        # global table_result
 
     def startTable(self, annotation_table):
         self.annotation_table = annotation_table
@@ -32,14 +32,16 @@ class AnnotationTable:
         self.annotation_table.verticalHeader().setHighlightSections(True)
         self.annotation_table.setSortingEnabled(True)
 
-
         item = self.annotation_table.horizontalHeaderItem(0)
         _translate = QtCore.QCoreApplication.translate
         item.setText(_translate("MainWindow", "Timestamp"))
+
         item = self.annotation_table.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "IP Address"))
+
         item = self.annotation_table.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow", "MAC Address"))
+
         item = self.annotation_table.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Annotation"))
 
@@ -49,15 +51,15 @@ class AnnotationTable:
         return self.annotation_table
 
     def display_annotation(self, selected):
-        #Display all annotations from the last selected element
+        # Display all annotations from the last selected element
         if selected:
             self.annotation_table.setRowCount(len(selected['annotation']))
             _translate = QtCore.QCoreApplication.translate
 
             time = selected['timestamp']
-            ip = selected ['ip_address']
-            mac = selected ['mac_address']
-            i=0
+            ip = selected['ip_address']
+            mac = selected['mac_address']
+            i = 0
             for annotation in selected['annotation']:
                 item = QtWidgets.QTableWidgetItem()
                 self.annotation_table.setItem(i, 0, item)
@@ -79,4 +81,4 @@ class AnnotationTable:
                 item = self.annotation_table.item(i, 3)
                 item.setText(_translate("MainWindow", annotation))
 
-                i+=1
+                i += 1

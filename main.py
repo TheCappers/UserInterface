@@ -21,9 +21,9 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         """COMMENTING OUT UI MODIFICATION"""
 
         # portion for the tag_table
-        self.tab_1.detailed_view_accordion.table_tag.setSortingEnabled(1)  # allows for the sorting in the columns
+        #self.tab_1.detailed_view_accordion.tag_table.setSortingEnabled(1)  # allows for the sorting in the columns
         self.tab_2.ProcessStatOffButton.clicked.connect(self.toggleButtons)
-        self.tab_1.detailed_view_accordion.tag_add_button.clicked.connect(self.add_row)
+        self.tab_1.detailed_view_accordion.tag_add_button.clicked.connect(self.add_tag)
         self.tab_1.universalRecord.clicked.connect(self.universalButton)
         self.tab_1.detailed_view_accordion.pushButton_18.clicked.connect(self.add_annotation)
         # search button being activated
@@ -32,6 +32,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.exportButton.clicked.connect(self.exportPressed)
         # result table cell clicked
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)
+        self.tab_1.table_result.avert_result_table.cellClicked.connect(self.tagDisplay)
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.descriptionDisplay)
 
         # portion for the Filters on home tab
@@ -79,8 +80,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
     # button toggle method
     '''
-    Author: David Amparan Date: 9/7/2021
-    Purpose: Allow recording status buttons (on and off) as a toggle buttons
+    Allow recording status buttons (on and off) as a toggle buttons
     meaning when one is pressed it stays down and when the other is pressed it stays down
     while the other one pops up
     '''
@@ -163,24 +163,20 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
 
-    def add_row(self):  # add a row when the button add is selected
+    def add_tag(self):  # add a row when the button add is selected
         """
         create new row in the qwidget table within tag area of
         detailed view
         :return: none
         """
-        row_position = self.tab_1.detailed_view_accordion.table_tag.rowCount()  # the total rows
+        global attain, control
+        index = self.tab_1.table_result.getIndexSelected()
 
-        check_item = QtWidgets.QTableWidgetItem()
-        check_item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
-        check_item.setCheckState(QtCore.Qt.Unchecked)
-        rest_item = QtWidgets.QTableWidgetItem()
-        rest_item.setFlags(QtCore.Qt.ItemIsSelectable)
+        if len(self.tab_1.detailed_view_accordion.tag_input.text().strip()):
+            control.tagAdd(self.tab_1.detailed_view_accordion.tag_input.text(), attain[index])
+            self.tagDisplay(self.tab_1.table_result.getIndexSelected())
+            self.tab_1.detailed_view_accordion.tag_input.setText('')
 
-        self.tab_1.detailed_view_accordion.table_tag.insertRow(row_position)
-        self.tab_1.detailed_view_accordion.table_tag.setItem(row_position, 0, check_item)
-        self.tab_1.detailed_view_accordion.table_tag.setItem(row_position, 1, rest_item)
-        self.tab_1.detailed_view_accordion.table_tag.setItem(row_position, 2, check_item)
 
     def universalButton(self):
         if self.tab_1.universalRecord.isChecked():  # if on
@@ -255,10 +251,15 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # print(attain)
         # ResultTable().populateTable(self, attain)
 
-    def annotationDisplay(self,index):
+    def annotationDisplay(self, index):
         self.tab_1.table_result.setIndexSelected(index)
         global attain
         self.tab_1.detailed_view_accordion.annotation_table.display_annotation(attain[index])
+
+    def tagDisplay(self, index):  # display the tags for selected
+        self.tab_1.table_result.setIndexSelected(index)
+        global attain
+        self.tab_1.detailed_view_accordion.tag_table.display_tag(attain[index])
 
     def descriptionDisplay(self, index):
         self.tab_1.table_result.setIndexSelected(index)
@@ -301,13 +302,14 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             attain = control.view('ARTIFACT_NAME')   
             self.updateTable(attain)
         '''
-
-
-
-
-
-
-
+'''
+*** FLOATING ACCORDING CLASS FOR BEHAVIOR ***
+class floatingAccord(QtWidgets.QWidget):
+    def __init__(self, form):
+        super(floatingAccord, self).__init__()
+        ui = Ui_Form()
+        ui.setupUi(form)
+'''
 def main():
     app = QtWidgets.QApplication(sys.argv)
     form = AvertApp()
@@ -318,7 +320,6 @@ def main():
     form2.setupUi(Form)
     Form.show()
     app.exec()
-
 
 if __name__ == '__main__':
     main()

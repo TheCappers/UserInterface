@@ -75,7 +75,6 @@ class Controller:
         old = item['tag']  # the old tags
         old.append(tag)
         update_post = {'tag': old}  # create the target to update
-        return update_post
         self.db.query_db('update', item, update_post)  # update with database
         return self.db.query_db('find', '', {'_id': item['_id']})
 
