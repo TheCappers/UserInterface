@@ -83,8 +83,3 @@ class SytemsCallRecorder(RecordedData, t.Thread):
 			return 'Information Maintenance'
 		elif systemcall in ['pipe', 'shmget', 'mmap']:
 			return 'Communication'
-
-
-# scr = SytemsCallRecorder()
-# scr.setRecorder(True)
-# scr.start()
