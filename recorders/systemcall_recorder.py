@@ -40,7 +40,7 @@ class SytemsCallRecorder(RecordedData, t.Thread):
 				cmd = "sudo ausearch -ts " + start_formatted + " -te " + end_formatted + " -i -m SYSCALL"
 				output = s.Popen(cmd, shell=True, stdout=s.PIPE, stderr=s.PIPE)
 				for line in output.stdout.readlines():
-					print(line)
+					# print(line)
 					self.reset_entrydata()
 					curline = line.decode().split()
 					if curline[0] == 'type=SYSCALL':
