@@ -3,15 +3,20 @@ Will apply logical configuration settings as
 given by the user
 '''
 import shutil
-from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, screenshot_recorder
+from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, process_recorder, window_recorder
 
 # global recorders
 keyboard = keyboard_recorder.KeyboardRecorder(True)
 mouse = mouse_recorder.MouseRecorder()
-systemcal = systemcall_recorder.SytemsCallRecorder()
-# systemcal.systemcallrecorder_start()
-screenshot = screenshot_recorder.ScreenshotRecorder()
+system_call = systemcall_recorder.SytemsCallRecorder()
+#system_call.systemcallrecorder_start()
+window_history = window_recorder.WindowRecorder()
+#window_history.start()
+process = process_recorder.ProcessRecorder()
+#process.start()
 
+
+# screenshot =
 
 
 class Configuration:
@@ -21,11 +26,13 @@ class Configuration:
         self.__universal_on = True  # automatically on
         self.__keystroke_on = True
         self.__mouse_action_on = True
-        self.__screenshot_on = True
+        self.__process_on = True
+        self.__system_call_on = True
+        self.__window_history_on = True
+        # self.__screenshot_on = True
         '''
         Here we add the new records values
         '''
-
 
         # here we can include more attributes for other items.
         # include artifact recorders start actions
@@ -46,24 +53,23 @@ class Configuration:
         return self.__mouse_action_on
 
     def getSystemCallOn(self):
-        return
+        return self.__system_call_on
 
     def getScreenshotOn(self):
         return
 
     def getWindowHistory(self):
-        return
+        return self.__window_history_on
 
     def getProcessOn(self):
-        return
+        return self.__process_on
 
     def setThreshold(self, threshold_value):
         self.__threshold = threshold_value
 
     def setUniversalOn(self, universal_value):  # applies default values
         self.__universal_on = universal_value
-        print('From Config: ', self.__universal_on)
-
+        # ('From Config: ', self.__universal_on)
         if universal_value:
             self.setKeystroke(True)
             self.setMouseAction(True)
@@ -83,6 +89,7 @@ class Configuration:
             mouse.stop()
             screenshot.stop()
 
+
     def setKeystroke(self, keystroke_value):
         self.__keystroke_on = keystroke_value
         keyboard.isRecord = keystroke_value  # updating recording value
@@ -100,17 +107,32 @@ class Configuration:
         else:
             mouse.stop()
 
-    def setSystemCalls(self, sys_call_value):
-        return
+    def setSystemCall(self, sys_call_value):
+        self.__system_call_on = sys_call_value
+        # controlling the recording tool
+        if sys_call_value:
+            system_call.systemcallrecorder_start()
+        else:
+            system_call.systemcallrecorder_end()
 
     def setScreenshot(self, screenshot_value):
         return
 
     def setWindowHistory(self, window_history_value):
-        return
+        self.__window_history_on = window_history_value
+        # controlling the recording tool
+        if window_history_value:
+            window_history.start()
+        else:
+            window_history.stop()
 
     def setProcess(self, process_value):
-        return
+        self.__process_on = process_value
+        # controlling the recording tool
+        if process_value:
+            process.start()
+        else:
+            process.stop()
 
     def manualScreenshot(self, manuel_value):
         return
