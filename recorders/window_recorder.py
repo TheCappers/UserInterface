@@ -1,8 +1,10 @@
-from recorders.recorded_data import RecorderData
+from recorders.recorded_data import RecordedData
 from Database.Database import DataBase
 import threading
+import os
 
-class WindowRecorder(RecorderData):
+
+class WindowRecorder(RecordedData):
 
     def __init__(self):
         RecordedData.__init__(self)
@@ -32,7 +34,7 @@ class WindowRecorder(RecorderData):
                 i += 1
 
             # CREATE A LIST WITH JUST THE WINDOWS NAMES
-            windows.append(window[start_index : len(window) - 1])
+            self.windows.append(window[start_index: len(window) - 1])
 
         # INSERT ONE BY ONE INTO DATABASE
         for window in self.windows:
@@ -48,6 +50,3 @@ class WindowRecorder(RecorderData):
     def stop(self):
         self.isAutoRecord = False
         self.__listener.join()
-
-
-

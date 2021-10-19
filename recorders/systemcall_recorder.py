@@ -17,11 +17,11 @@ class SytemsCallRecorder(RecordedData, t.Thread):
 			self.syscall_thread = t.Thread(target=self.run)
 			print("==== SYSTEM CALL RECORDING STARTING =====")
 			self.willRecord = True
-			s.Popen('service auditd start', shell=True, stdout=s.PIPE, stderr=s.PIPE)
+			s.Popen('sudo service auditd start', shell=True, stdout=s.PIPE, stderr=s.PIPE)
 			self.syscall_thread.start()
 		else:
 			print("==== SYSTEM CALL RECORDING ENDING =====")
-			s.Popen('service auditd stop', shell=True, stdout=s.PIPE, stderr=s.PIPE)
+			s.Popen('sudo service auditd stop', shell=True, stdout=s.PIPE, stderr=s.PIPE)
 			self.willRecord = False
 			self.syscall_thread.join()
 
@@ -37,17 +37,18 @@ class SytemsCallRecorder(RecordedData, t.Thread):
 				end_formatted = now.strftime("%m/%d/%Y %H:%M:%S")
 				# cmd = "ausearch -ts 10/17/2021 17:00:00 -te 10/17/2021 17:30:00 -i"
 				# cmd = "sudo ausearch -ts " + start_formatted + " -te " + end_formatted + " -i"
-				cmd = "ausearch -ts " + start_formatted + " -te " + end_formatted + " -i -m SYSCALL"
+				cmd = "sudo ausearch -ts " + start_formatted + " -te " + end_formatted + " -i -m SYSCALL"
 				output = s.Popen(cmd, shell=True, stdout=s.PIPE, stderr=s.PIPE)
 				for line in output.stdout.readlines():
+					# print(line)
 					self.reset_entrydata()
 					curline = line.decode().split()
 					if curline[0] == 'type=SYSCALL':
 						self.sysCallHandler(curline)
-						print(self._systemcall_data)
+						#print(self._systemcall_data)
 						self.insert_to_db(self._systemcall_data)
 				sleep(1)
-				i += 1 # checking counter
+				# i += 1 # checking counter
 				# self.syscall_thread.join()
 
 	def systemcallrecorder_start(self):
