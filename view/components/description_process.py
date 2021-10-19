@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 class DescriptionProcess:
-    def __init__(self) -> None:
+    def __init__(self, selected) -> None:
         self.descriptionprocess_tab = QtWidgets.QWidget()
         self.descriptionprocess_tab.setObjectName("descriptionprocess_tab")
         self.formLayout_4 = QtWidgets.QFormLayout(
@@ -316,7 +316,7 @@ class DescriptionProcess:
         _translate = QtCore.QCoreApplication.translate
         self.descriptionvideo_timestamp_label_keystroke.setText(
             _translate("MainWindow", "No. of Thread:"))
-        self.label_63.setText(_translate("MainWindow", "5"))
+        self.label_63.setText(_translate("MainWindow", selected['num_threads']))
         self.descriptionvideo_timestamp_label_26.setText(
             _translate("MainWindow", "CPU Percentage:"))
         self.label_64.setText(_translate("MainWindow", "12.4%"))

@@ -24,13 +24,13 @@ class KeyboardRecorder(RecordedData):
 					return
 			self.isAutoRecord = True
 			#self.listener.join()
-			print('start keyboard recordig')
+			#print('start keyboard recordig')
 
 		def stopKeyboardRecording(self):
 			if not self.isAutoRecord:
 					return
 			self.isAutoRecord = False
-			print('stop keyboard recording')
+			#print('stop keyboard recording')
 
 		def checkrecording(self):
 			return self.isAutoRecord
