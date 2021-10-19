@@ -150,7 +150,7 @@ class ProcessInterface:
         self.tableWidget_41.horizontalHeader().setSortIndicatorShown(True)
         self.tableWidget_41.horizontalHeader().setStretchLastSection(True)
         self.tableWidget_41.verticalHeader().setVisible(False)
-        self.populate_table(self.tableWidget_41)
+        ProcessInterface.populate_table(self.tableWidget_41)
 
     def populate_table(tableWidget_41):
         _translate = QtCore.QCoreApplication.translate
