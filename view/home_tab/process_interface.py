@@ -79,7 +79,7 @@ class ProcessInterface:
     def start_table(self, process_table):
         self.tableWidget_41 = QtWidgets.QTableWidget(process_table)
         self.tableWidget_41.setGeometry(QtCore.QRect(0, 0, 1118, 428))
-        self.tableWidget_41.setShowGrid(True)
+        self.tableWidget_41.setShowGrid(False)
         self.tableWidget_41.setObjectName("tableWidget_41")
         self.tableWidget_41.setColumnCount(2)
         self.tableWidget_41.setRowCount(14)
