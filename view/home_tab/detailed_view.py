@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets, QtCore
 from view.components import annotation_table, tag_table
 from view.components.description import Description
+from view.home_tab import process_interface
 
 global tag_table
 
@@ -79,6 +80,14 @@ class DetailedView:
 
         self.tab_134 = Description()
         self.DetailedViewTab.addTab(self.tab_134.get_tab(), "")
+
+        '''
+        testing
+        '''
+        self.widget_2 = QtWidgets.QWidget(self.tab_134.get_tab())
+        self.widget_2.setObjectName("widget_2")
+        #self.tab_134.gridLayout_24.addWidget(self.widget_2, 0, 0, 1, 1)
+
 
         ''' ANNOTATION TAB  '''
         self.AnnotationTab = QtWidgets.QWidget()
@@ -169,11 +178,14 @@ class DetailedView:
         item.setText(_translate("MainWindow", "AA:BB:CCC"))
         self.tableWidget_38.setSortingEnabled(__sortingEnabled)
 
+        process = process_interface.ProcessInterface()
+        process.start_table(self.tab_134.get_tab())
+
         self.DetailedViewTab.setTabText(
             self.DetailedViewTab.indexOf(
                 self.tab_133), _translate(
                 "MainWindow", "User Profile"))
-
+    
         self.DetailedViewTab.setTabText(
             self.DetailedViewTab.indexOf(
                 self.tab_134.get_tab()), _translate(
