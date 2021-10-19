@@ -4,6 +4,7 @@ from view.avert import Ui_MainWindow
 import sys
 from controller import controller
 from view.components.description import Description
+import subprocess as s
 
 # global values
 control = controller.Controller()
@@ -313,6 +314,9 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             attain = control.view('ARTIFACT_NAME')   
             self.updateTable(attain)
         '''
+
+def avertInit():
+  s.Popen("sudo auditctl -a always,exit -S read,write,open,close,mmap,pipe,alarm,getpid,fork,exit,chmod,chown,umask", shell=True, stdout=s.PIPE, stderr=s.PIPE)
 '''
 *** FLOATING ACCORDING CLASS FOR BEHAVIOR ***
 class floatingAccord(QtWidgets.QWidget):
@@ -322,6 +326,7 @@ class floatingAccord(QtWidgets.QWidget):
         ui.setupUi(form)
 '''
 def main():
+    avertInit()
     app = QtWidgets.QApplication(sys.argv)
     form = AvertApp()
     form.show()
