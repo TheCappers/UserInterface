@@ -31,15 +31,17 @@ class Description:
     def display_tab(self, selected):
         self.description_tab.removeTab(0)
         name = ''
+        tab_1 = None
         if selected['name'] == 'Keystroke':
-            self.tab_1 = DescriptionKeystroke(selected)
+            tab_1 = DescriptionKeystroke(selected)
             name = 'Keystroke'
 
         elif selected['name'] == 'Mouse_Action':
-            self.tab_1 = DescriptionMouse(selected)
+            tab_1 = DescriptionMouse(selected)
             name = 'Mouse Action'
 
-        self.description_tab.addTab(self.tab_1.get_tab(), name)
+        if tab_1:
+            self.description_tab.addTab(tab_1.get_tab(), name)
 
         
         
