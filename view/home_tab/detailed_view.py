@@ -178,6 +178,9 @@ class DetailedView:
         item.setText(_translate("MainWindow", "AA:BB:CCC"))
         self.tableWidget_38.setSortingEnabled(__sortingEnabled)
 
+        process = process_interface.ProcessInterface()
+        process.start_table(self.tab_134.get_tab())
+
         self.DetailedViewTab.setTabText(
             self.DetailedViewTab.indexOf(
                 self.tab_133), _translate(
