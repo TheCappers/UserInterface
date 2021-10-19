@@ -22,8 +22,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         """COMMENTING OUT UI MODIFICATION"""
 
         # portion for the tag_table
-        #self.tab_1.detailed_view_accordion.tag_table.setSortingEnabled(1)  # allows for the sorting in the columns
-        self.tab_2.ProcessStatOffButton.clicked.connect(self.toggleButtons)
+        # self.tab_1.detailed_view_accordion.tag_table.setSortingEnabled(1)  # allows for the sorting in the columns
         self.tab_1.detailed_view_accordion.tag_add_button.clicked.connect(self.add_tag)
         self.tab_1.universalRecord.clicked.connect(self.universalButton)
         self.tab_2.universalRecord.clicked.connect(self.universalButton)
@@ -50,7 +49,6 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.checkBox_history.stateChanged.connect(self.clickedCheckbox)
         self.tab_1.checkBox_log.stateChanged.connect(self.clickedCheckbox)
 
-
         """used in tab 2"""
         """COMMENTING OUT UI MODIFICATION"""
 
@@ -70,17 +68,11 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_2.NetworkActivityDataOnButton.clicked.connect(self.toggleButtons)
         self.tab_2.NetworkActivityDataOffButton.clicked.connect(self.toggleButtons)
         self.tab_2.ProcessStatOnButton.clicked.connect(self.toggleButtons)
+        self.tab_2.ProcessStatOffButton.clicked.connect(self.toggleButtons)
 
         # threshold changing
         self.tab_2.StorageInValue.textEdited.connect(self.thresholdChange)
 
-
-
-        # self.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)
-
-
-
-    # button toggle method
     '''
     Allow recording status buttons (on and off) as a toggle buttons
     meaning when one is pressed it stays down and when the other is pressed it stays down
@@ -88,9 +80,11 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     '''
 
     def toggleButtons(self):  # called upon by button automatically will know which button
+        global control  # individual button on and off
+
         if self.sender().objectName().__contains__("Video") and self.sender().objectName().__contains__('On'):
             self.tab_2.VideoStatOnButton.setChecked(1)  # check the button we clicked
-            self.tab_2.VideoStatusOffButton.setChecked(0)  # check false the off button incase it is checked
+            self.tab_2.VideoStatusOffButton.setChecked(0)  # check false the off button in case it is checked
 
         if self.sender().objectName().__contains__("Video") and self.sender().objectName().__contains__('Off'):
             self.tab_2.VideoStatOnButton.setChecked(0)  # check off the on button
@@ -107,34 +101,42 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.sender().objectName().__contains__("Sys") and self.sender().objectName().__contains__('On'):
             self.tab_2.SystemCallOnButton.setChecked(1)  # check the button we clicked
             self.tab_2.SystemCallOffButton.setChecked(0)  # check false the off button incase it is checked
+            #control.systemCallRecording(True)
 
         if self.sender().objectName().__contains__("Sys") and self.sender().objectName().__contains__('Off'):
             self.tab_2.SystemCallOnButton.setChecked(0)  # check off the on button
             self.tab_2.SystemCallOffButton.setChecked(1)  # check on the off button
+            #control.systemCallRecording(False)
 
         if self.sender().objectName().__contains__("Win") and self.sender().objectName().__contains__('On'):
             self.tab_2.WindowHistoryOnButton.setChecked(1)  # check the button we clicked
             self.tab_2.WindowHistoryOffButton.setChecked(0)  # check false the off button incase it is checked
+            #control.windowHistoryRecording(True)
 
         if self.sender().objectName().__contains__("Win") and self.sender().objectName().__contains__('Off'):
             self.tab_2.WindowHistoryOnButton.setChecked(0)  # check off the on button
             self.tab_2.WindowHistoryOffButton.setChecked(1)  # check on the off button
+            #control.windowHistoryRecording(False)
 
         if self.sender().objectName().__contains__("KeyStroke") and self.sender().objectName().__contains__('On'):
             self.tab_2.KeyStrokeStatOnButton.setChecked(1)  # check the button we clicked
-            self.tab_2.KeyStrokeStatOffButton.setChecked(0)  # check false the off button incase it is checked
+            self.tab_2.KeyStrokeStatOffButton.setChecked(0)  # check false the off button in case it is checked
+            control.keyboardRecording(True)
 
         if self.sender().objectName().__contains__("KeyStroke") and self.sender().objectName().__contains__('Off'):
             self.tab_2.KeyStrokeStatOnButton.setChecked(0)  # check off the on button
             self.tab_2.KeyStrokeStatOffButton.setChecked(1)  # check on the off button
+            control.keyboardRecording(False)
 
         if self.sender().objectName().__contains__("Mouse") and self.sender().objectName().__contains__('On'):
             self.tab_2.MouseActOnButton.setChecked(1)  # check the button we clicked
-            self.tab_2.MouseActOffButton.setChecked(0)  # check false the off button incase it is checked
+            self.tab_2.MouseActOffButton.setChecked(0)  # check false the off button in case it is checked
+            control.mouseActionRecording(True)
 
         if self.sender().objectName().__contains__("Mouse") and self.sender().objectName().__contains__('Off'):
             self.tab_2.MouseActOnButton.setChecked(0)  # check off the on button
             self.tab_2.MouseActOffButton.setChecked(1)  # check on the off button
+            control.mouseActionRecording(False)
 
         if self.sender().objectName().__contains__("Network") and self.sender().objectName().__contains__('On'):
             self.tab_2.NetworkActivityDataOnButton.setChecked(1)  # check the button we clicked
@@ -146,13 +148,15 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         if self.sender().objectName().__contains__("Process") and self.sender().objectName().__contains__('On'):
             self.tab_2.ProcessStatOnButton.setChecked(1)  # check the button we clicked
-            self.tab_2.ProcessStatOffButton.setChecked(0)  # check false the off button incase it is checked
+            self.tab_2.ProcessStatOffButton.setChecked(0)  # check false the off button in case it is checked
+            #control.processRecording(True)
 
         if self.sender().objectName().__contains__("Process") and self.sender().objectName().__contains__('Off'):
             self.tab_2.ProcessStatOnButton.setChecked(0)  # check off the on button
             self.tab_2.ProcessStatOffButton.setChecked(1)  # check on the off button
+            #control.processRecording(False)
 
-    def add_annotation(self,index):  # add a row when the button add is selected
+    def add_annotation(self, index):  # add a row when the button add is selected
         """
         Add an annotation to the selected artifact
         """
@@ -162,8 +166,6 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if len(self.tab_1.detailed_view_accordion.annotation_text.toPlainText().strip()):
             control.annotationAdd(self.tab_1.detailed_view_accordion.annotation_text.toPlainText(), attain[index])
             self.annotationDisplay(self.tab_1.table_result.getIndexSelected())
-
-
 
     def add_tag(self):  # add a row when the button add is selected
         """
@@ -178,7 +180,6 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             control.tagAdd(self.tab_1.detailed_view_accordion.tag_input.text(), attain[index])
             self.tagDisplay(self.tab_1.table_result.getIndexSelected())
             self.tab_1.detailed_view_accordion.tag_input.setText('')
-
 
     def universalButton(self):
         global universal_btn_state
@@ -212,6 +213,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.tab_2.NetworkActivityDataOffButton.setChecked(0)  # check false the off button incase it is checked
             self.tab_2.ProcessStatOnButton.setChecked(1)  # check the button we clicked
             self.tab_2.ProcessStatOffButton.setChecked(0)  # check false the off button incase it is checked
+
         else:  # if off
             universal_btn_state = 0
             control.universalRecording(False)
@@ -246,10 +248,11 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def thresholdChange(self):
         if self.tab_2.StorageInValue.text() == '':  # in case empty
             control.storageRecording(70)  # set to default as user inputs full number
-       # else:
-        #    full = control.storageRecording(float(self.StorageInValue.text()))  # send the value
-         #   if full:
-          #      QtWidgets.QMessageBox.about(self, 'Storage Alert', 'Storage is full')
+
+    # else:
+    #    full = control.storageRecording(float(self.StorageInValue.text()))  # send the value
+    #   if full:
+    #      QtWidgets.QMessageBox.about(self, 'Storage Alert', 'Storage is full')
 
     def searchPressed(self):  # once search is pressed we must search the given data
         # attain the the value in the search box
@@ -276,7 +279,6 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.table_result.setIndexSelected(index)
         global attain
         self.tab_1.detailed_view_accordion.tab_134.display_tab(attain[index])
-        
 
     def deleteTag(self, index):
         info = attain[index]
@@ -313,6 +315,8 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             attain = control.view('ARTIFACT_NAME')   
             self.updateTable(attain)
         '''
+
+
 '''
 *** FLOATING ACCORDING CLASS FOR BEHAVIOR ***
 class floatingAccord(QtWidgets.QWidget):
@@ -321,6 +325,8 @@ class floatingAccord(QtWidgets.QWidget):
         ui = Ui_Form()
         ui.setupUi(form)
 '''
+
+
 def main():
     app = QtWidgets.QApplication(sys.argv)
     form = AvertApp()
@@ -331,6 +337,7 @@ def main():
     form2.setupUi(Form)
     Form.show()
     app.exec()
+
 
 if __name__ == '__main__':
     main()
