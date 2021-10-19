@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets, QtCore
 from view.components import annotation_table, tag_table
 from view.components.description import Description
+from view.home_tab import process_interface
 
 global tag_table
 
@@ -174,6 +175,8 @@ class DetailedView:
                 self.tab_133), _translate(
                 "MainWindow", "User Profile"))
 
+        process_interface.ProcessInterface()
+    
         self.DetailedViewTab.setTabText(
             self.DetailedViewTab.indexOf(
                 self.tab_134.get_tab()), _translate(
