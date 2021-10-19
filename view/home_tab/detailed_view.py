@@ -86,7 +86,7 @@ class DetailedView:
         '''
         self.widget_2 = QtWidgets.QWidget(self.tab_134.get_tab())
         self.widget_2.setObjectName("widget_2")
-        self.tab_134.gridLayout_24.addWidget(self.widget_2, 0, 0, 1, 1)
+        #self.tab_134.gridLayout_24.addWidget(self.widget_2, 0, 0, 1, 1)
 
 
         ''' ANNOTATION TAB  '''
