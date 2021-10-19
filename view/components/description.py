@@ -23,7 +23,7 @@ class Description:
         self.description_tab.setUsesScrollButtons(False)
         self.description_tab.setObjectName("description_tab")
 
-        #self.gridLayout_24.addWidget(self.description_tab, 0, 0, 1, 1)
+        self.gridLayout_24.addWidget(self.description_tab, 0, 0, 1, 1)
 
     def get_tab(self):
         return self.tab_134
