@@ -150,9 +150,9 @@ class ProcessInterface:
         self.tableWidget_41.horizontalHeader().setSortIndicatorShown(True)
         self.tableWidget_41.horizontalHeader().setStretchLastSection(True)
         self.tableWidget_41.verticalHeader().setVisible(False)
-        ProcessInterface.populate_table(self.tableWidget_41)
+        self.populate_table(self.tableWidget_41)
 
-    def populate_table(tableWidget_41):
+    def populate_table(self, tableWidget_41):
         _translate = QtCore.QCoreApplication.translate
         __sortingEnabled = tableWidget_41.isSortingEnabled()
         tableWidget_41.setSortingEnabled(False)
