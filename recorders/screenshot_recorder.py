@@ -70,6 +70,9 @@ class ScreenshotRecorder(RecordedData):
 		def takeScreenshot(self):
 			date_time = str(datetime.datetime.now().strftime("%Y-%m-%d~%H:%M:%S"))
 			self.image = ImageGrab.grab()
+			isExist = os.path.exists("Images")
+			if not isExist:
+				os.mkdir("Images")
 			self._screenshot_data['data'] = "Images/" + date_time + '.png'
 			self.image.save(self._screenshot_data['data'])
 			self.insert_to_db()
