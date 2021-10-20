@@ -11,15 +11,18 @@ class WindowRecorder(RecordedData):
         self.isAutoRecord = True
         self.windows = []
         self.__window_data = self.get_recorded_data()
-        self.__window_data['name'] = "Window"
+        self.__window_data['name'] = "Window_History"
         self.__window_data['data'] = ''
         self.__listener = threading.Thread()
+        self.start()
 
     def _window_cap(self):
         # GET WINDOWS OPEN AND PUT THEM ON A LIST
+        print("ENTERED")
         capture = os.popen("wmctrl -l").read()
         capture = capture.split("\n")
-
+        del capture[-1]
+        print(capture)
         # EXTRACT THE WINDOW NAME FROM THE RESULT
         for window in capture:
             i = 0
@@ -34,18 +37,20 @@ class WindowRecorder(RecordedData):
                 i += 1
 
             # CREATE A LIST WITH JUST THE WINDOWS NAMES
-            self.windows.append(window[start_index: len(window) - 1])
-
+            self.windows.append(window[start_index: len(window)])
+            print(self.windows)
         # INSERT ONE BY ONE INTO DATABASE
         for window in self.windows:
             self.__window_data['data'] = window
+            print(self.__window_data)
             self.insert_to_db(self.__window_data)
 
     def start(self):
+        print("RUNNING")
         self.__listener = threading.Thread(target=self._window_cap)
         if not self.isAutoRecord:
             self.isAutoRecord = True
-            self.__listener.start()
+        self.__listener.start()
 
     def stop(self):
         self.isAutoRecord = False
