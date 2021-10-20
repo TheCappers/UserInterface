@@ -37,7 +37,8 @@ class Description:
             name = 'Keystroke'
 
         elif selected['name'] == 'Mouse_Action':
-            tab_1 = DescriptionMouse(selected)
+            # tab_1 = DescriptionMouse(selected)
+            tab_1 = DescriptionProcess(selected)
             name = 'Mouse Action'
 
         if tab_1:

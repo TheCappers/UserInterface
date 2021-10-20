@@ -316,7 +316,7 @@ class DescriptionProcess:
         _translate = QtCore.QCoreApplication.translate
         self.descriptionvideo_timestamp_label_keystroke.setText(
             _translate("MainWindow", "No. of Thread:"))
-        self.label_63.setText(_translate("MainWindow", selected['num_threads']))
+        self.label_63.setText(_translate("MainWindow", 5))
         self.descriptionvideo_timestamp_label_26.setText(
             _translate("MainWindow", "CPU Percentage:"))
         self.label_64.setText(_translate("MainWindow", "12.4%"))
