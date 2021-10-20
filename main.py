@@ -36,6 +36,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.tagDisplay)
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.descriptionDisplay)
+        #self.tab_1.table_result.avert_result_table.cellClicked.connect(self.exportPressed)
 
         # portion for the Filters on home tab
         self.tab_1.checkBox_all_artifacts.stateChanged.connect(self.clickedCheckbox)
@@ -286,11 +287,14 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         info = info['tag']
 
     def exportPressed(self, index):
-        global selected
+        global selected, attain
+        index = self.tab_1.table_result.getIndexSelected()
         if index not in clicks:
             clicks.append(index)
             selected = index
             print(selected)
+            exporter = attain[selected]
+            control.export(exporter)
         else:
             clicks.remove(index)
             selected = None
