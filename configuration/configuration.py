@@ -3,7 +3,7 @@ Will apply logical configuration settings as
 given by the user
 '''
 import shutil
-from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, process_recorder, window_recorder
+from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, process_recorder, window_recorder,screenshot_recorder
 
 # global recorders
 keyboard = keyboard_recorder.KeyboardRecorder(True)
@@ -13,6 +13,7 @@ system_call = systemcall_recorder.SytemsCallRecorder()
 window_history = window_recorder.WindowRecorder()
 #window_history.start()
 process = process_recorder.ProcessRecorder()
+screenshot = screenshot_recorder.ScreenshotRecorder()
 #process.start()
 
 

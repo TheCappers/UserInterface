@@ -18,13 +18,13 @@ class ScreenshotRecorder(RecordedData):
 			self.isAutoRecord = True
 			self._screenshot_data = self.get_recorded_data()
 			self._screenshot_data['name'] = "Screenshot"
-			self._screenshot_data['data'] = ''
+			self._screenshot_data['data'] = {'path': "", 'size' : "", 'type' : ""}
 			self.image = None
 			self.__db = DataBase()
 
 			# Setup the listener threads
 			self.keyboard_listener = keyboard.Listener(on_press=self.on_press, on_release=self.on_release)
-			self.mouse_listener = mouse.Listener(on_click=self.on_click, on_scroll=self.on_scroll)
+			self.mouse_listener = mouse.Listener(on_click=self.on_click)
 
 			# Start the threads and join them so the script doesn't end early
 			self.keyboard_listener.start()
@@ -44,13 +44,6 @@ class ScreenshotRecorder(RecordedData):
 				if pressed:
 					self.takeScreenshot()
 					print('Mouse clicked at ({0}, {1}) with {2}'.format(x, y, button))
-					#test view self.viewScreenshot()
-				else:
-					print('Mouse released at ({0}, {1}) with {2}'.format(x, y, button))
-
-		def on_scroll(self, x, y, dx, dy):
-			if self.isAutoRecord:
-				print('Mouse scrolled at ({0}, {1})({2}, {3})'.format(x, y, dx, dy))
 
 
 		def start(self):
@@ -73,12 +66,18 @@ class ScreenshotRecorder(RecordedData):
 			isExist = os.path.exists("Images")
 			if not isExist:
 				os.mkdir("Images")
-			self._screenshot_data['data'] = "Images/" + date_time + '.png'
-			self.image.save(self._screenshot_data['data'])
+			self._screenshot_data['data']['path'] = "Images/" + date_time + '.png'
+			self.image.save(self._screenshot_data['data']['path'])
+			file_size = os.path.getsize(self._screenshot_data['data']['path'])
+			file_type = os.path.splitext(self._screenshot_data['data']['path'])
+
+			self._screenshot_data['data']['size'] = file_size
+			self._screenshot_data['data']['type'] = file_type
+			print(file_type[-1])
 			self.insert_to_db()
 
 		def viewScreenshot(self):
-			os.system("xdg-open " + self._screenshot_data['data'])
+			os.system("xdg-open " + self._screenshot_data['data']['path'])
 			time.sleep(3)
 
 		def insert_to_db(self):
