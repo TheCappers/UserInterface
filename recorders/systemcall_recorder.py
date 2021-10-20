@@ -4,61 +4,48 @@ from time import sleep
 import threading as t
 from datetime import datetime, timedelta
 
-class SytemsCallRecorder(RecordedData, t.Thread):
+class SytemsCallRecorder(RecordedData):
 	def __init__(self, ):
 		RecordedData.__init__(self)
+		self.__autorecording = True
+		self._systemcall_data = self.get_recorded_data()
 		self.reset_entrydata()
 		self.willRecord = False
 		self.syscall_thread = t.Thread()
 
 
-	def setRecorder(self, bool_record):
-		if bool_record:
-			self.syscall_thread = t.Thread(target=self.run)
-			print("==== SYSTEM CALL RECORDING STARTING =====")
-			self.willRecord = True
-			s.Popen('sudo service auditd start', shell=True, stdout=s.PIPE, stderr=s.PIPE)
-			self.syscall_thread.start()
-		else:
-			print("==== SYSTEM CALL RECORDING ENDING =====")
-			s.Popen('sudo service auditd stop', shell=True, stdout=s.PIPE, stderr=s.PIPE)
-			self.willRecord = False
-			self.syscall_thread.join()
+	def startRecord(self):
+		while self.__autorecording:
+			now = datetime.now()
+			start_formatted = (now+timedelta(seconds=-1)).strftime("%m/%d/%Y %H:%M:%S")
+			end_formatted = now.strftime("%m/%d/%Y %H:%M:%S")
+			cmd = "sudo ausearch -ts " + start_formatted + " -te " + end_formatted + " -i -m SYSCALL"
+			output = s.Popen(cmd, shell=True, stdout=s.PIPE, stderr=s.PIPE)
+			for line in output.stdout.readlines():
+				# print(line)
+				self.reset_entrydata()
+				curline = line.decode().split()
+				if curline[0] == 'type=SYSCALL':
+					self.sysCallHandler(curline)
+					self.insert_to_db(self._systemcall_data)
+			sleep(1)
 
-
-	def run(self):
-		while True:
-			i = 0
-			while self.willRecord:
-				# self.syscall_thread = t.Thread()
-				# self.syscall_thread.start()
-				now = datetime.now()
-				start_formatted = (now+timedelta(seconds=-1)).strftime("%m/%d/%Y %H:%M:%S")
-				end_formatted = now.strftime("%m/%d/%Y %H:%M:%S")
-				# cmd = "ausearch -ts 10/17/2021 17:00:00 -te 10/17/2021 17:30:00 -i"
-				# cmd = "sudo ausearch -ts " + start_formatted + " -te " + end_formatted + " -i"
-				cmd = "sudo ausearch -ts " + start_formatted + " -te " + end_formatted + " -i -m SYSCALL"
-				output = s.Popen(cmd, shell=True, stdout=s.PIPE, stderr=s.PIPE)
-				for line in output.stdout.readlines():
-					# print(line)
-					self.reset_entrydata()
-					curline = line.decode().split()
-					if curline[0] == 'type=SYSCALL':
-						self.sysCallHandler(curline)
-						#print(self._systemcall_data)
-						self.insert_to_db(self._systemcall_data)
-				sleep(1)
-				# i += 1 # checking counter
-				# self.syscall_thread.join()
 
 	def systemcallrecorder_start(self):
-		self.setRecorder(True)
+		self.syscall_thread = t.Thread(target=self.startRecord)
+		print("==== SYSTEM CALL RECORDING STARTING =====")
+		self.__autorecording = True
+		s.Popen('sudo service auditd start', shell=True, stdout=s.PIPE, stderr=s.PIPE)
+		self.syscall_thread.start()
+
 
 	def systemcallrecorder_end(self):
-		self.setRecorder(False)
+		print("==== SYSTEM CALL RECORDING ENDING =====")
+		# s.Popen('sudo service auditd stop', shell=True, stdout=s.PIPE, stderr=s.PIPE)
+		self.__autorecording = False
+
 
 	def reset_entrydata(self):
-		self._systemcall_data = self.get_recorded_data()
 		self._systemcall_data['name'] = "System_Call"
 		self._systemcall_data['data']['systemcall_name'] = ''
 		self._systemcall_data['data']['systemcall_argument'] = []

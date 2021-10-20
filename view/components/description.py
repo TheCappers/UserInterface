@@ -48,6 +48,10 @@ class Description:
             tab_1 = DescriptionScreenshot(selected)
             name = 'Screenshot'
             
+        elif selected['name'] == 'System_Call':
+            tab_1 = DescriptionSystemCall(selected)
+            name = 'System Call'
+
         if tab_1:
             self.description_tab.addTab(tab_1.get_tab(), name)
 

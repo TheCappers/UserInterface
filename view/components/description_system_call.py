@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 class DescriptionSystemCall:
-    def __init__(self) -> None:
+    def __init__(self, selected) -> None:
         self.descriptionsystemcall_tab = QtWidgets.QWidget()
         self.descriptionsystemcall_tab.setObjectName(
             "descriptionsystemcall_tab")
@@ -130,22 +130,22 @@ class DescriptionSystemCall:
         _translate = QtCore.QCoreApplication.translate
         self.descriptionvideo_timestamp_label_8.setText(
             _translate("MainWindow", "Timestamp:"))
-        self.label_49.setText(_translate("MainWindow", "10-6-26 02:31:29"))
+        self.label_49.setText(_translate("MainWindow", selected['timestamp']))
         self.descriptionvideo_timestamp_label_10.setText(
             _translate("MainWindow", "System Call Name:"))
         self.label_50.setText(
             _translate(
                 "MainWindow",
-                "systcall_getdents"))
+                selected['data']['systemcall_name']))
         self.descriptionvideo_timestamp_label_9.setText(
             _translate("MainWindow", "System Call Argument:"))
-        self.label_48.setText(_translate("MainWindow", "None"))
+        self.label_48.setText(_translate("MainWindow", selected['data']['systemcall_name']))
         self.descriptionvideo_timestamp_label_user_profile.setText(
             _translate("MainWindow", "System Call Return Value:"))
-        self.label_52.setText(_translate("MainWindow", "d_type"))
+        self.label_52.setText(_translate("MainWindow", selected['data']['systemcall_returnval']))
         self.descriptionvideo_timestamp_label_filters.setText(
             _translate("MainWindow", "System Call Type:"))
-        self.label_53.setText(_translate("MainWindow", "Process Control"))
+        self.label_53.setText(_translate("MainWindow", selected['data']['systemcall_calltype']))
 
     def get_tab(self):
         return self.descriptionsystemcall_tab

@@ -102,17 +102,17 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.sender().objectName().__contains__("Sys") and self.sender().objectName().__contains__('On'):
             self.tab_2.SystemCallOnButton.setChecked(1)  # check the button we clicked
             self.tab_2.SystemCallOffButton.setChecked(0)  # check false the off button incase it is checked
-            #control.systemCallRecording(True)
+            control.systemCallRecording(True)
 
         if self.sender().objectName().__contains__("Sys") and self.sender().objectName().__contains__('Off'):
             self.tab_2.SystemCallOnButton.setChecked(0)  # check off the on button
             self.tab_2.SystemCallOffButton.setChecked(1)  # check on the off button
-            #control.systemCallRecording(False)
+            control.systemCallRecording(False)
 
         if self.sender().objectName().__contains__("Win") and self.sender().objectName().__contains__('On'):
             self.tab_2.WindowHistoryOnButton.setChecked(1)  # check the button we clicked
             self.tab_2.WindowHistoryOffButton.setChecked(0)  # check false the off button incase it is checked
-            #control.windowHistoryRecording(True)
+            # control.windowHistoryRecording(True)
 
         if self.sender().objectName().__contains__("Win") and self.sender().objectName().__contains__('Off'):
             self.tab_2.WindowHistoryOnButton.setChecked(0)  # check off the on button
