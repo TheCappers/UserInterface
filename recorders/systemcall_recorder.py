@@ -34,8 +34,7 @@ class SytemsCallRecorder(RecordedData):
 	def systemcallrecorder_start(self):
 		self.syscall_thread = t.Thread(target=self.startRecord)
 		print("==== SYSTEM CALL RECORDING STARTING =====")
-		if not self.__autorecording:
-			self.__autorecording = True
+		self.__autorecording = True
 		s.Popen('sudo service auditd start', shell=True, stdout=s.PIPE, stderr=s.PIPE)
 		self.syscall_thread.start()
 
@@ -43,9 +42,8 @@ class SytemsCallRecorder(RecordedData):
 	def systemcallrecorder_end(self):
 		print("==== SYSTEM CALL RECORDING ENDING =====")
 		# s.Popen('sudo service auditd stop', shell=True, stdout=s.PIPE, stderr=s.PIPE)
-		# self.willRecord = False
 		self.__autorecording = False
-		# self.syscall_thread.join()
+
 
 	def reset_entrydata(self):
 		self._systemcall_data['name'] = "System_Call"

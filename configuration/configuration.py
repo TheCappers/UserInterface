@@ -80,8 +80,12 @@ class Configuration:
             keyboard.startKeyboardRecording()
             mouse.start()
             screenshot.start()
+            self.setSystemCall(True)
+            self.setProcess(True)
         else:
             self.setKeystroke(False)
+            self.setProcess(False)
+            self.setSystemCall(False)
             self.setMouseAction(False)
             self.setScreenshot(False)
             # recorders
