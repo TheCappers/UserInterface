@@ -44,6 +44,10 @@ class Description:
             tab_1 = DescriptionProcess(selected)
             name = 'Process'
 
+        elif selected['name'] == 'Screenshot':
+            tab_1 = DescriptionScreenshot(selected)
+            name = 'Screenshot'
+            
         if tab_1:
             self.description_tab.addTab(tab_1.get_tab(), name)
 
