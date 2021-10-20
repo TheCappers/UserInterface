@@ -313,52 +313,53 @@ class DescriptionProcess:
         self.formLayout_4.setWidget(
             0, QtWidgets.QFormLayout.LabelRole, self.frame_8)
 
+        process_dictionary = selected['data']
         _translate = QtCore.QCoreApplication.translate
         self.descriptionvideo_timestamp_label_keystroke.setText(
             _translate("MainWindow", "No. of Thread:"))
-        self.label_63.setText(_translate("MainWindow", 5))
+        self.label_63.setText(_translate("MainWindow", str(process_dictionary['num_threads'])))
         self.descriptionvideo_timestamp_label_26.setText(
             _translate("MainWindow", "CPU Percentage:"))
-        self.label_64.setText(_translate("MainWindow", "12.4%"))
+        self.label_64.setText(_translate("MainWindow", str(process_dictionary['cpu_usage'])))
         self.descriptionvideo_timestamp_label_history.setText(
             _translate("MainWindow", "Process Privileges:"))
-        self.label_66.setText(_translate("MainWindow", "root"))
+        self.label_66.setText(_translate("MainWindow", str(process_dictionary['process_privileges'])))
         self.descriptionvideo_timestamp_label_mouse_action.setText(
             _translate("MainWindow", "Process Priority:"))
-        self.label_65.setText(_translate("MainWindow", "88"))
+        self.label_65.setText(_translate("MainWindow", str(process_dictionary['process_priority'])))
         self.descriptionvideo_timestamp_label_window_history.setText(
             _translate("MainWindow", "Process Type:"))
-        self.label_67.setText(_translate("MainWindow", "Foreground"))
+        self.label_67.setText(_translate("MainWindow", str(process_dictionary['process_type'])))
         self.descriptionvideo_timestamp_label_video.setText(
             _translate("MainWindow", "Start Time:"))
-        self.label_60.setText(_translate("MainWindow", "10-6-26 02:31:29"))
+        self.label_60.setText(_translate("MainWindow", process_dictionary['creation_time']))
         self.descriptionvideo_timestamp_label_network.setText(
             _translate("MainWindow", "Command:"))
-        self.label_58.setText(_translate("MainWindow", "init"))
+        self.label_58.setText(_translate("MainWindow", process_dictionary['command']))
         self.descriptionvideo_timestamp_label_process.setText(
             _translate("MainWindow", "Terminal:"))
-        self.label_61.setText(_translate("MainWindow", "shell"))
+        self.label_61.setText(_translate("MainWindow", process_dictionary['terminal']))
         self.descriptionvideo_timestamp_label_all_artifacts.setText(
             _translate("MainWindow", "Status:"))
-        self.label_56.setText(_translate("MainWindow", "idle"))
+        self.label_56.setText(_translate("MainWindow", process_dictionary['status']))
         self.descriptionvideo_timestamp_label_screenshot.setText(
             _translate("MainWindow", "Memory Usage"))
-        self.label_59.setText(_translate("MainWindow", "3.4MB"))
+        self.label_59.setText(_translate("MainWindow", str(process_dictionary['memory_usage'])))
         self.descriptionvideo_timestamp_label_mac_address.setText(
             _translate("MainWindow", "Timestamp:"))
-        self.label_55.setText(_translate("MainWindow", "10-6-26 02:31:29"))
+        self.label_55.setText(_translate("MainWindow", str(process_dictionary['creation_time'])))
         self.descriptionvideo_timestamp_label_type.setText(
             _translate("MainWindow", "User Name:"))
-        self.label_62.setText(_translate("MainWindow", "root"))
+        self.label_62.setText(_translate("MainWindow", process_dictionary['username']))
         self.descriptionvideo_timestamp_label_start_time.setText(
             _translate("MainWindow", "Process Name:"))
-        self.label_51.setText(_translate("MainWindow", "_windowserver"))
+        self.label_51.setText(_translate("MainWindow", process_dictionary['p_name']))
         self.descriptionvideo_timestamp_label_ip_address.setText(
             _translate("MainWindow", "Process ID:"))
-        self.label_57.setText(_translate("MainWindow", "45"))
+        self.label_57.setText(_translate("MainWindow", str(process_dictionary['pid'])))
         self.descriptionvideo_timestamp_label_value_filter.setText(
-            _translate("MainWindow", "Parent Process Name:"))
-        self.label_54.setText(_translate("MainWindow", "455"))
+            _translate("MainWindow", "Parent Process ID:"))
+        self.label_54.setText(_translate("MainWindow", str(process_dictionary['ppid'])))
 
     def get_tab(self):
         return self.descriptionprocess_tab

@@ -37,9 +37,12 @@ class Description:
             name = 'Keystroke'
 
         elif selected['name'] == 'Mouse_Action':
-            # tab_1 = DescriptionMouse(selected)
-            tab_1 = DescriptionProcess(selected)
+            tab_1 = DescriptionMouse(selected)
             name = 'Mouse Action'
+
+        elif selected['name'] == 'Process':
+            tab_1 = DescriptionProcess(selected)
+            name = 'Process'
 
         if tab_1:
             self.description_tab.addTab(tab_1.get_tab(), name)
