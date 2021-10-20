@@ -150,12 +150,12 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.sender().objectName().__contains__("Process") and self.sender().objectName().__contains__('On'):
             self.tab_2.ProcessStatOnButton.setChecked(1)  # check the button we clicked
             self.tab_2.ProcessStatOffButton.setChecked(0)  # check false the off button in case it is checked
-            #control.processRecording(True)
+            control.processRecording(True)
 
         if self.sender().objectName().__contains__("Process") and self.sender().objectName().__contains__('Off'):
             self.tab_2.ProcessStatOnButton.setChecked(0)  # check off the on button
             self.tab_2.ProcessStatOffButton.setChecked(1)  # check on the off button
-            #control.processRecording(False)
+            control.processRecording(False)
 
     def add_annotation(self, index):  # add a row when the button add is selected
         """

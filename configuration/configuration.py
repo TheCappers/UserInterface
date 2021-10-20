@@ -14,7 +14,7 @@ window_history = window_recorder.WindowRecorder()
 #window_history.start()
 process = process_recorder.ProcessRecorder()
 screenshot = screenshot_recorder.ScreenshotRecorder()
-#process.start()
+process.start()
 
 
 # screenshot =
