@@ -3,7 +3,7 @@ Will apply logical configuration settings as
 given by the user
 '''
 import shutil
-from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, process_recorder, window_recorder
+from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, process_recorder, window_recorder,screenshot_recorder
 
 # global recorders
 keyboard = keyboard_recorder.KeyboardRecorder(True)
@@ -13,6 +13,7 @@ system_call = systemcall_recorder.SytemsCallRecorder()
 window_history = window_recorder.WindowRecorder()
 #window_history.start()
 process = process_recorder.ProcessRecorder()
+screenshot = screenshot_recorder.ScreenshotRecorder()
 #process.start()
 
 
@@ -73,15 +74,22 @@ class Configuration:
         if universal_value:
             self.setKeystroke(True)
             self.setMouseAction(True)
-            #self.setProcess(True)
-            #self.setSystemCall(True)
-            #self.setWindowHistory(True)
+            self.setScreenshot(True)
+            # recorders
+            keyboard.isRecord = universal_value  # updating recording value
+            keyboard.startKeyboardRecording()
+            mouse.start()
+            screenshot.start()
         else:
             self.setKeystroke(False)
             self.setMouseAction(False)
-            #self.setProcess(False)
-            #self.setSystemCall(False)
-            #self.setWindowHistory(False)
+            self.setScreenshot(False)
+            # recorders
+            keyboard.isRecord = universal_value  # updating recording value
+            keyboard.stopKeyboardRecording()
+            mouse.stop()
+            screenshot.stop()
+
 
     def setKeystroke(self, keystroke_value):
         self.__keystroke_on = keystroke_value

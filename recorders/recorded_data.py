@@ -16,7 +16,7 @@ class RecordedData(object):
         self._recorded_data = {"ip_address": '', "mac_address": '', 'timestamp': '', "name": '', "data": {}, "tag": [], "annotation": []}
 
     def get_ip_address(self):
-        local_ip = os.popen('ip addr show eth0 | grep "\<inet\>" | awk \'{ print $2 }\' | awk -F "/" \'{ print $1 }\'').read().strip()
+        local_ip = socket.gethostbyname(socket.gethostname())
         return local_ip
 
     def get_mac_address(self):

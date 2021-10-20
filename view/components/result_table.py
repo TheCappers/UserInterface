@@ -118,10 +118,11 @@ class ResultTable:
             item = self.avert_result_table.item(i, 1)
             item.setText(_translate("MainWindow", val['timestamp']))
             item = self.avert_result_table.item(i, 2)
-            if val['name'] == "Mouse_Action":
-                item.setText(_translate("MainWindow", "Mouse Action"))
-            elif val['name'] == "Keystroke":
-                item.setText(_translate("MainWindow", "Keystroke"))
+            # if val['name'] == "Mouse_Action":
+            #     item.setText(_translate("MainWindow", "Mouse Action"))
+            # elif val['name'] == "Keystroke":
+            #     item.setText(_translate("MainWindow", "Keystroke"))
+            item.setText(_translate("MainWindow", val['name']))
             item = self.avert_result_table.item(i, 3)
             item.setText(_translate("MainWindow", val['ip_address']))
             item = self.avert_result_table.item(i, 4)
@@ -135,6 +136,8 @@ class ResultTable:
                     item.setText(_translate("MainWindow", "Mouse Movement"))
             elif val['name'] == "Keystroke":
                 item.setText(_translate("MainWindow", "Key Pressed"))
+            else:
+                item.setText(_translate("MainWindow", val['name']))
             i = i + 1
         return
 
