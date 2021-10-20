@@ -69,11 +69,10 @@ class ScreenshotRecorder(RecordedData):
 			self._screenshot_data['data']['path'] = "Images/" + date_time + '.png'
 			self.image.save(self._screenshot_data['data']['path'])
 			file_size = os.path.getsize(self._screenshot_data['data']['path'])
-			file_type = os.path.splitext(self._screenshot_data['data']['path'])
+			file_type = os.path.splitext(self._screenshot_data['data']['path'])[-1]
 
 			self._screenshot_data['data']['size'] = file_size
 			self._screenshot_data['data']['type'] = file_type
-			print(file_type[-1])
 			self.insert_to_db()
 
 		def viewScreenshot(self):
