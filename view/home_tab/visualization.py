@@ -11,6 +11,8 @@ class Visualization:
 		self.visualization_tabs = QtWidgets.QTabWidget(self.visualization_accordion)
 		self.visualization_tabs.setLayoutDirection(QtCore.Qt.LeftToRight)
 		self.visualization_tabs.setObjectName("visualization_tabs")
+		
+		''' Type tab '''
 		self.type = QtWidgets.QWidget()
 		self.type.setObjectName("type")
 		self.gridLayout = QtWidgets.QGridLayout(self.type)
@@ -55,6 +57,8 @@ class Visualization:
 		spacerItem4 = QtWidgets.QSpacerItem(466, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
 		self.gridLayout.addItem(spacerItem4, 0, 2, 1, 1)
 		self.visualization_tabs.addTab(self.type, "")
+		
+		''' Pie Chart Tab '''
 		self.pie_chart = QtWidgets.QWidget()
 		self.pie_chart.setObjectName("pie_chart")
 		self.gridLayout_10 = QtWidgets.QGridLayout(self.pie_chart)
@@ -118,6 +122,8 @@ class Visualization:
 		self.gridLayout_34.addWidget(self.frame_12, 1, 0, 1, 2)
 		self.gridLayout_10.addWidget(self.widget, 0, 0, 1, 1)
 		self.visualization_tabs.addTab(self.pie_chart, "")
+		
+		''' Bar Graph Tab '''
 		self.bar_graph = QtWidgets.QWidget()
 		self.bar_graph.setObjectName("bar_graph")
 		self.gridLayout_37 = QtWidgets.QGridLayout(self.bar_graph)
@@ -133,6 +139,8 @@ class Visualization:
 		self.Bar_Graph_Area_123.setWidget(bar_graph.add_bar_graph())
 		self.gridLayout_37.addWidget(self.Bar_Graph_Area_123, 0, 0, 1, 1)
 		self.visualization_tabs.addTab(self.bar_graph, "")
+		
+		''' Timeline Tab '''
 		self.timeline = QtWidgets.QWidget()
 		self.timeline.setObjectName("timeline")
 		self.gridLayout_11 = QtWidgets.QGridLayout(self.timeline)
