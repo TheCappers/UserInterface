@@ -54,7 +54,7 @@ class ProcessRecorder(RecordedData):
     # destroies thread
     def stop(self):
         self.__autorecording = False
-        self.__listener.join()
+        # self.__listener.join()
 
     def insert_to_db(self):
         self.__db.query_db("post", self.__process, "")

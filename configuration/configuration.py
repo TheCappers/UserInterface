@@ -9,11 +9,11 @@ from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, pr
 keyboard = keyboard_recorder.KeyboardRecorder(True)
 mouse = mouse_recorder.MouseRecorder()
 system_call = systemcall_recorder.SytemsCallRecorder()
-#system_call.systemcallrecorder_start()
+system_call.systemcallrecorder_start()
 window_history = window_recorder.WindowRecorder()
-#window_history.start()
+# window_history.start()
 process = process_recorder.ProcessRecorder()
-#process.start()
+# process.start()
 
 
 # screenshot =
@@ -103,6 +103,7 @@ class Configuration:
     def setSystemCall(self, sys_call_value):
         self.__system_call_on = sys_call_value
         # controlling the recording tool
+        # system_call.willRecord = sys_call_value
         if sys_call_value:
             system_call.systemcallrecorder_start()
         else:
