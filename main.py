@@ -95,10 +95,12 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.sender().objectName().__contains__("Screenshot") and self.sender().objectName().__contains__('On'):
             self.tab_2.ScreenshotStatOnButton.setChecked(1)  # check the button we clicked
             self.tab_2.ScreenshotStatOffButton.setChecked(0)  # check false the off button incase it is checked
+            control.screenshotRecording(True)
 
         if self.sender().objectName().__contains__("Screenshot") and self.sender().objectName().__contains__('Off'):
             self.tab_2.ScreenshotStatOnButton.setChecked(0)  # check off the on button
             self.tab_2.ScreenshotStatOffButton.setChecked(1)  # check on the off button
+            control.screenshotRecording(False)
 
         if self.sender().objectName().__contains__("Sys") and self.sender().objectName().__contains__('On'):
             self.tab_2.SystemCallOnButton.setChecked(1)  # check the button we clicked
@@ -313,6 +315,22 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.tab_1.checkBox_mouse_action.isChecked():
             attain = control.view('Mouse Action')
             self.updateTable(attain)
+
+        if self.tab_1.checkBox_system_call.isChecked():
+            attain = control.view('System Call')
+            self.update(attain)
+
+        if self.tab_1.checkBox_process.isChecked():
+            attain = control.view('Process')
+            self.update(attain)
+
+        if self.tab_1.checkBox_screenshot.isChecked():
+            attain = control.view('Screenshot')
+            self.update(attain)
+
+        if self.tab_1.checkBox_windowHistory.isChecked():
+            attain = control.view('Window History')
+            self.update(attain)
         '''
         ALL OTHER ARTIFACTS FOLLOW THIS PATTERN
     

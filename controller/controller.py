@@ -33,7 +33,7 @@ class Controller:
         self.__config.setWindowHistory(signal)
 
     def screenshotRecording(self, signal):
-        return
+        self.__config.setScreenshot(signal)
 
     def processRecording(self, signal):
         self.__config.setProcess(signal)
@@ -68,6 +68,9 @@ class Controller:
             data = self.__db.query_db('get_type', '', 'Window_History')
         elif item.lower() == 'System Call' or item.lower() == 'system call':
             data = self.__db.query_db('get_type', '', 'System_Call')
+        elif item.lower() == 'Screenshot' or item.lower() == 'screenshot' or item.lower() == 'screenshots' or item.lower() == 'Screenshots':
+            data = self.__db.query_db('get_type', '', 'Screenshot')
+
         return data
 
     # assume that the return given by y

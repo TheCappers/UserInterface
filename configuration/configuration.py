@@ -30,7 +30,7 @@ class Configuration:
         self.__process_on = True
         self.__system_call_on = True
         self.__window_history_on = True
-        # self.__screenshot_on = True
+        self.__screenshot_on = True
         '''
         Here we add the new records values
         '''
@@ -75,13 +75,13 @@ class Configuration:
             self.setKeystroke(True)
             self.setMouseAction(True)
             self.setScreenshot(True)
+            self.setSystemCall(True)
+            self.setProcess(True)
             # recorders
             keyboard.isRecord = universal_value  # updating recording value
             keyboard.startKeyboardRecording()
             mouse.start()
             screenshot.start()
-            self.setSystemCall(True)
-            self.setProcess(True)
         else:
             self.setKeystroke(False)
             self.setProcess(False)
@@ -122,7 +122,13 @@ class Configuration:
             system_call.systemcallrecorder_end()
 
     def setScreenshot(self, screenshot_value):
-        return
+        self.__screenshot_on = screenshot_value
+        # controlling the recording tool
+        # system_call.willRecord = sys_call_value
+        if screenshot_value:
+            screenshot.start()
+        else:
+            screenshot.stop()
 
     def setWindowHistory(self, window_history_value):
         self.__window_history_on = window_history_value
