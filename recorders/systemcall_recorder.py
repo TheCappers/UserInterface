@@ -78,4 +78,3 @@ class SytemsCallRecorder(RecordedData):
 			return 'Information Maintenance'
 		elif systemcall in ['pipe', 'shmget', 'mmap']:
 			return 'Communication'
-
