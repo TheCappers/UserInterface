@@ -52,6 +52,10 @@ class Description:
             tab_1 = DescriptionSystemCall(selected)
             name = 'System Call'
 
+        elif selected['name'] == 'Window_History':
+            tab_1 = DescriptionHistory(selected)
+            name = 'Window History'
+
         if tab_1:
             self.description_tab.addTab(tab_1.get_tab(), name)
 

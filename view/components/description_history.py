@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 class DescriptionHistory:
-    def __init__(self) -> None:
+    def __init__(self, selected) -> None:
         self.descriptionwindowhistory_tab = QtWidgets.QWidget()
         self.descriptionwindowhistory_tab.setObjectName(
             "descriptionwindowhistory_tab")
