@@ -44,6 +44,10 @@ class Description:
             tab_1 = DescriptionProcess(selected)
             name = 'Process'
 
+        elif selected['name'] == 'Screenshot':
+            tab_1 = DescriptionScreenshot(selected)
+            name = 'Screenshot'
+            
         elif selected['name'] == 'System_Call':
             tab_1 = DescriptionSystemCall(selected)
             name = 'System Call'

@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 class DescriptionScreenshot:
-    def __init__(self) -> None:
+    def __init__(self, selected) -> None:
         self.descriptionstillscreenshot_tab = QtWidgets.QWidget()
         self.descriptionstillscreenshot_tab.setObjectName(
             "descriptionstillscreenshot_tab")
@@ -24,6 +24,9 @@ class DescriptionScreenshot:
         self.label_89 = QtWidgets.QLabel(self.descriptionvideo_frame_2)
         self.label_89.setMinimumSize(QtCore.QSize(400, 379))
         self.label_89.setObjectName("label_89")
+        image = QtGui.QPixmap(selected['data']['path'])
+        image = image.scaledToWidth(500)
+        self.label_89.setPixmap(image)
         self.gridLayout_29.addWidget(self.label_89, 0, 0, 1, 1)
         self.gridLayout_27.addWidget(
             self.descriptionvideo_frame_2, 0, 0, 1, 1)
@@ -103,19 +106,19 @@ class DescriptionScreenshot:
         self.gridLayout_27.addWidget(self.frame, 0, 1, 1, 1)
 
         _translate = QtCore.QCoreApplication.translate
-        self.label_89.setText(
-            _translate(
-                "MainWindow",
-                "<html><head/><body><p><img src=\":/pics_for_detailedview/stillscreenshot_detailedview.jpg\"/></p></body></html>"))
+        # self.label_89.setText(
+        #     _translate(
+        #         "MainWindow",
+        #         "<html><head/><body><p><img src=\":/pics_for_detailedview/stillscreenshot_detailedview.jpg\"/></p></body></html>"))
         self.descriptionvideo_timestamp_label_7.setText(
             _translate("MainWindow", "Timestamp:"))
-        self.label_47.setText(_translate("MainWindow", "10-6-26 02:31:29"))
+        self.label_47.setText(_translate("MainWindow", selected['timestamp']))
         self.descriptionvideo_timestamp_label_6.setText(
             _translate("MainWindow", "Still Screenshot Size:"))
-        self.label_46.setText(_translate("MainWindow", "60MB"))
+        self.label_46.setText(_translate("MainWindow", str(selected['data']['size']) + "b"))
         self.descriptionvideo_timestamp_label_5.setText(
             _translate("MainWindow", "Still Screenshot Format:"))
-        self.label_45.setText(_translate("MainWindow", "PNG"))
+        self.label_45.setText(_translate("MainWindow", selected['data']['type'].upper()))
 
     def get_tab(self):
         return self.descriptionstillscreenshot_tab
