@@ -25,8 +25,8 @@ class DescriptionScreenshot:
         self.label_89.setMinimumSize(QtCore.QSize(400, 379))
         self.label_89.setObjectName("label_89")
         image = QtGui.QPixmap(selected['data']['path'])
-        image = image.scaled(200,200,QtCore.Qt.KeepAspectRatio)
-        self.label_89.setPixmap(QtGui.QPixmap(selected['data']['path']))
+        image = image.scaledToWidth(500)
+        self.label_89.setPixmap(image)
         self.gridLayout_29.addWidget(self.label_89, 0, 0, 1, 1)
         self.gridLayout_27.addWidget(
             self.descriptionvideo_frame_2, 0, 0, 1, 1)
