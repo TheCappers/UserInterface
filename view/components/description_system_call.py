@@ -139,7 +139,7 @@ class DescriptionSystemCall:
                 selected['data']['systemcall_name']))
         self.descriptionvideo_timestamp_label_9.setText(
             _translate("MainWindow", "System Call Argument:"))
-        self.label_48.setText(_translate("MainWindow", type(selected['data']['systemcall_argument'])))
+        self.label_48.setText(_translate("MainWindow", ', '.join(str(x) for x in selected['data']['systemcall_argument'])))
         self.descriptionvideo_timestamp_label_user_profile.setText(
             _translate("MainWindow", "System Call Return Value:"))
         self.label_52.setText(_translate("MainWindow", selected['data']['systemcall_returnval']))
