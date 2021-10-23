@@ -81,11 +81,6 @@ class Ui_MainWindow():
 
         """COMMENTING OUT UI MODIFICATION"""
 
-
-#     def updateAnnotationTable(self,attain):
-#         global annotation_table    global table_result
-#         annotation_table.display_annotation(attain[selected])
-
     def updateTable(self, attain):
         self.tab_1.table_result.printwhatv()
         self.tab_1.table_result.populateTable(attain)

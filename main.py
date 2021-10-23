@@ -266,8 +266,10 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         pressed = not pressed
         if pressed:
             state = QtCore.Qt.Unchecked
+            self.tab_1.select_button.setText("Select All")
         else:
             state = QtCore.Qt.Checked
+            self.tab_1.select_button.setText("Deselect All")
         for i in range(len(attain)):
             item = self.tab_1.table_result.avert_result_table.item(i, 0)
             item.setCheckState(state)
@@ -277,10 +279,6 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         search = self.tab_1.search_expression_bar.text()  # attain the text
         attain = control.view(search)
         self.updateTable(attain)
-
-        # table_result.populateTable(attain)
-        # print(attain)
-        # ResultTable().populateTable(self, attain)
 
     def annotationDisplay(self, index):
         self.tab_1.table_result.setIndexSelected(index)
