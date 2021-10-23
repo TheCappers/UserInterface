@@ -9,7 +9,7 @@ import subprocess as s
 # global values
 control = controller.Controller()
 attain = []
-all_selected = []
+all_selected = set()
 selected = 0
 universal_btn_state = 1
 pressed = True
@@ -165,13 +165,13 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def add_annotation(self, index):  # add a row when the button add is selected
         """
-        Add an annotation to the selected artifact
+        Add an annotation to the selected artifacts
         """
         global attain, control
-        index = self.tab_1.table_result.getIndexSelected()
 
-        if len(self.tab_1.detailed_view_accordion.annotation_text.toPlainText().strip()):
-            control.annotationAdd(self.tab_1.detailed_view_accordion.annotation_text.toPlainText(), attain[index])
+        if (len(self.tab_1.detailed_view_accordion.annotation_text.toPlainText().strip()) > 0):
+            for index in all_selected:
+                control.annotationAdd(self.tab_1.detailed_view_accordion.annotation_text.toPlainText(), attain[index])
             self.annotationDisplay(self.tab_1.table_result.getIndexSelected())
 
     def add_tag(self):  # add a row when the button add is selected
@@ -308,7 +308,6 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             all_selected.append(index)
             selected = index
             print(selected)
-            print("her")
             exporter = attain[selected]
             control.export(exporter)
         else:
@@ -317,15 +316,20 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # print(self.table_tag.itemClicked)
     def selectionChange(self, selected, deselected):
         global all_selected
+
         for i in selected.indexes():
             print('Selected Row = {0}, Column = {1}'.format(i.row(), i.column()))
             item = self.tab_1.table_result.avert_result_table.item(i.row(), 0)
             item.setCheckState(QtCore.Qt.Checked)
+            all_selected.add(i.row())
             #self.tab_1.table_result.avert_result_table.setItem(i.row(), 0, item)
         for i in deselected.indexes():
             print('Selected Row = {0}, Column = {1}'.format(i.row(), i.column()))
             item = self.tab_1.table_result.avert_result_table.item(i.row(), 0)
             item.setCheckState(QtCore.Qt.Unchecked)
+            if (i.row() in all_selected):
+                all_selected.remove(i.row())
+        print(all_selected)
             #self.tab_1.table_result.avert_result_table.setItem(i.row(), 0, item)
 
 
