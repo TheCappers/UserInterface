@@ -172,6 +172,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if (len(self.tab_1.detailed_view_accordion.annotation_text.toPlainText().strip()) > 0):
             for index in all_selected:
                 control.annotationAdd(self.tab_1.detailed_view_accordion.annotation_text.toPlainText(), attain[index])
+            print("Annotations Added")
             self.annotationDisplay(self.tab_1.table_result.getIndexSelected())
 
     def add_tag(self):  # add a row when the button add is selected
@@ -263,8 +264,11 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def selectAll(self):
         global pressed
+        global selected
+        global all_selected
         pressed = not pressed
         if pressed:
+            all_selected.clear()
             state = QtCore.Qt.Unchecked
             self.tab_1.select_button.setText("Select All")
         else:
@@ -273,6 +277,9 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         for i in range(len(attain)):
             item = self.tab_1.table_result.avert_result_table.item(i, 0)
             item.setCheckState(state)
+            if not pressed:
+                all_selected.add(i)
+
     def searchPressed(self):  # once search is pressed we must search the given data
         # attain the the value in the search box
         global attain
@@ -327,7 +334,6 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             item.setCheckState(QtCore.Qt.Unchecked)
             if (i.row() in all_selected):
                 all_selected.remove(i.row())
-        print(all_selected)
             #self.tab_1.table_result.avert_result_table.setItem(i.row(), 0, item)
 
 
