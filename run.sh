@@ -22,10 +22,6 @@ fi
 
 source "venv/bin/activate"
 pip install -r requirements.txt
-
-if [ ! systemctl is-active --quiet mongod ]
-then systemctl start mongod
-fi
-
+systemctl start mongod
 clear
 python3 main.py
