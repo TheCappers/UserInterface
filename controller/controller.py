@@ -56,22 +56,41 @@ class Controller:
                 file.write(str(entry))
 
     def view(self, item):  # here is where we would connect to database to view an item in avert
-        if item == '':  # gets the 'name' collection
+        print(item)
+        if item == '' or item.lower() == 'all':  # gets the 'name' collection
             data = self.__db.query_db('all', '', '')
-        elif item.lower() == 'keystrokes' or item.lower() == 'keystroke':
-            data = self.__db.query_db('get_type', '', 'Keystroke')
-        elif item.lower() == 'Mouse Action' or item.lower() == 'mouse' or item.lower() == 'mouse action':
-            data = self.__db.query_db('get_type', '', 'Mouse_Action')
-        elif item.lower() == 'process' or 'processes':
-            data = self.__db.query_db('get_type', '', 'Process')
-        elif item.lower() == 'Window History' or 'window history':
-            data = self.__db.query_db('get_type', '', 'Window_History')
-        elif item.lower() == 'System Call' or item.lower() == 'system call':
-            data = self.__db.query_db('get_type', '', 'System_Call')
-        elif item.lower() == 'Screenshot' or item.lower() == 'screenshot' or item.lower() == 'screenshots' or item.lower() == 'Screenshots':
-            data = self.__db.query_db('get_type', '', 'Screenshot')
+            print(True, ': All')
+            return data
 
-        return data
+        if item.lower() == 'keystrokes' or item.lower() == 'keystroke':
+            data = self.__db.query_db('get_type', '', 'Keystroke')
+            print(True, ': keystroke')
+            return data
+
+        if item.lower() == 'Mouse Action' or item.lower() == 'mouse' or item.lower() == 'mouse action':
+            data = self.__db.query_db('get_type', '', 'Mouse_Action')
+            print(True, ': Mouse Action')
+            return data
+
+        if item.lower() == 'process' or item.lower() == 'processes':
+            data = self.__db.query_db('get_type', '', 'Process')
+            print(True, ': process')
+            return data
+
+        if item.lower() == 'Window History' or item.lower() == 'window history':
+            data = self.__db.query_db('get_type', '', 'Window_History')
+            print(True, ': Window History')
+            return data
+
+        if item.lower() == 'System Call' or item.lower() == 'system call':
+            data = self.__db.query_db('get_type', '', 'System_Call')
+            print(True, ': System Call')
+            return data
+
+        if item.lower() == 'Screenshot' or item.lower() == 'screenshot' or item.lower() == 'screenshots':
+            data = self.__db.query_db('get_type', '', 'Screenshot')
+            print(True, ': Screen shot')
+            return data
 
     # assume that the return given by y
     def annotationAdd(self, annotation, item):  # here we update the item in the DB with an annotation

@@ -11,7 +11,6 @@ mouse = mouse_recorder.MouseRecorder()
 system_call = systemcall_recorder.SytemsCallRecorder()
 system_call.systemcallrecorder_start()
 window_history = window_recorder.WindowRecorder()
-# window_history.start()
 process = process_recorder.ProcessRecorder()
 screenshot = screenshot_recorder.ScreenshotRecorder()
 process.start()
@@ -77,22 +76,16 @@ class Configuration:
             self.setScreenshot(True)
             self.setSystemCall(True)
             self.setProcess(True)
+            self.setWindowHistory(True)
             # recorders
-            keyboard.isRecord = universal_value  # updating recording value
-            keyboard.startKeyboardRecording()
-            mouse.start()
-            screenshot.start()
         else:
             self.setKeystroke(False)
             self.setProcess(False)
             self.setSystemCall(False)
             self.setMouseAction(False)
             self.setScreenshot(False)
+            self.setWindowHistory(False)
             # recorders
-            keyboard.isRecord = universal_value  # updating recording value
-            keyboard.stopKeyboardRecording()
-            mouse.stop()
-            screenshot.stop()
 
 
     def setKeystroke(self, keystroke_value):

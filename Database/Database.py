@@ -14,6 +14,9 @@ class DataBase:
         self.process_collection = self.db["process_collection"]
         self.windows_collection = self.db["windows_collection"]
         self.syscall_collection = self.db["syscall_collection"]
+        self.video_collection = self.db["video_collection"]
+        self.network_collection = self.db["network_collection"]
+
 
     def __insert_post(self, collection, post):
         post.update({"_id": ObjectId().__str__()})
@@ -72,6 +75,10 @@ class DataBase:
                 self.__insert_post(self.windows_collection, post)
             if post.get('name') == "System_Call":
                 self.__insert_post(self.syscall_collection, post)
+            if post.get('name') == "Video":
+                self.__insert_post(self.video_collection, post)
+            if post.get('name') == "Network":
+                self.__insert_post(self.network_collection, post)
 
         # returns a list all based on data type e.g. Keystroke or Mouse_Action
         if query == "get_type":
@@ -87,6 +94,10 @@ class DataBase:
                 return self.__get_type(self.windows_collection)
             if target == "System_Call":
                 return self.__get_type(self.syscall_collection)
+            if target == "Video":
+                return self.__get_type(self.video_collection)
+            if target == "Network":
+                return self.__get_type(self.network_collection)
 
         if query == "update":
             if post.get('name') == "Keystroke":
@@ -101,6 +112,10 @@ class DataBase:
                 self.__update_one(self.windows_collection, post, target)
             if post.get('name') == "System_Call":
                 self.__update_one(self.syscall_collection, post, target)
+            if post.get('name') == "Video":
+                self.__update_one(self.video_collection, post, target)
+            if post.get('name') == "Network":
+                self.__update_one(self.network_collection, post, target)
 
         if query == "delete":
             if post.get('name') == "Keystroke":
@@ -115,6 +130,11 @@ class DataBase:
                 self.__delete_one(self.windows_collection, post)
             if post.get('name') == "System_Call":
                 self.__delete_one(self.syscall_collection, post)
+            if post.get('name') == "Video":
+                self.__delete_one(self.video_collection, post)
+            if post.get('name') == "Network":
+                self.__delete_one(self.network_collection, post)
+
 
 
 # post_1 = {'_id': '615b8dee3f96615d6166ead6', 'name': 'Mouse_Action', 'Keystroke': 'H', 'Date': '9/11/2021', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': 'David'}

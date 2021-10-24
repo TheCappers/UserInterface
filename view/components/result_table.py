@@ -96,7 +96,6 @@ class ResultTable:
 
     def populateTable(self, attain):
         # global attain
-        print(len(attain))
         self.avert_result_table.setRowCount(len(attain))
         _translate = QtCore.QCoreApplication.translate
         i = 0
