@@ -12,11 +12,8 @@ attain = []
 all_selected = set()
 selected = 0
 universal_btn_state = 1
-<<<<<<< HEAD
 pressed = True
-=======
 filter_used = False  # used to find if a filter has been selected already
->>>>>>> 2c3865301cd32f4e7ad1dd769086c8ac2d19b3e0
 
 
 class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -43,11 +40,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.tagDisplay)
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.descriptionDisplay)
-<<<<<<< HEAD
         self.tab_1.table_result.avert_result_table.selectionModel().selectionChanged.connect(self.selectionChange)
-=======
-        # self.tab_1.table_result.avert_result_table.cellClicked.connect(self.exportPressed)
->>>>>>> 2c3865301cd32f4e7ad1dd769086c8ac2d19b3e0
 
         # portion for the Filters on home tab
         self.tab_1.checkBox_all_artifacts.stateChanged.connect(self.clickedCheckbox)
