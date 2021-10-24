@@ -42,8 +42,7 @@ class KeyboardRecorder(RecordedData):
 					# print(format(key))
 
 		def on_release(self, key):
-				print('{0} released'.format(
-						key))
+				# print('{0} released'.format(key))
 				if key == keyboard.Key.esc:
 						# Stop listener
 						return False

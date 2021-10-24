@@ -12,6 +12,7 @@ attain = []
 clicks = []
 selected = 0
 universal_btn_state = 1
+filter_used = False  # used to find if a filter has been selected already
 
 
 class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -36,7 +37,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.tagDisplay)
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.descriptionDisplay)
-        #self.tab_1.table_result.avert_result_table.cellClicked.connect(self.exportPressed)
+        # self.tab_1.table_result.avert_result_table.cellClicked.connect(self.exportPressed)
 
         # portion for the Filters on home tab
         self.tab_1.checkBox_all_artifacts.stateChanged.connect(self.clickedCheckbox)
@@ -120,7 +121,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.sender().objectName().__contains__("Win") and self.sender().objectName().__contains__('Off'):
             self.tab_2.WindowHistoryOnButton.setChecked(0)  # check off the on button
             self.tab_2.WindowHistoryOffButton.setChecked(1)  # check on the off button
-            #control.windowHistoryRecording(False)
+            # control.windowHistoryRecording(False)
 
         if self.sender().objectName().__contains__("KeyStroke") and self.sender().objectName().__contains__('On'):
             self.tab_2.KeyStrokeStatOnButton.setChecked(1)  # check the button we clicked
@@ -265,10 +266,6 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         attain = control.view(search)
         self.updateTable(attain)
 
-        # table_result.populateTable(attain)
-        # print(attain)
-        # ResultTable().populateTable(self, attain)
-
     def annotationDisplay(self, index):
         self.tab_1.table_result.setIndexSelected(index)
         global attain
@@ -294,7 +291,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if index not in clicks:
             clicks.append(index)
             selected = index
-            print(selected)
+            # print(selected)
             exporter = attain[selected]
             control.export(exporter)
         else:
@@ -302,35 +299,53 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             selected = None
         # print(self.table_tag.itemClicked)
 
+    def updateAttain(self, checked):
+        global control
+        result = []
+        for i in checked:  # same order as array in clicked checkbox
+            if not i == 0:
+                result = result + control.view(i)
+        return result
+
     def clickedCheckbox(self):
         global attain
+        filters_checked = [0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0]  # go in order to see which are checked
+
         if self.tab_1.checkBox_all_artifacts.isChecked():
-            attain = control.view('')  # empty string for all data
-            self.updateTable(attain)
+            filters_checked[0] = ''
+        elif not self.tab_1.checkBox_all_artifacts.isChecked():
+            filters_checked[0] = 0
 
         if self.tab_1.checkBox_keystroke.isChecked():
-            attain = control.view('Keystroke')  # keystroke collection
-            self.updateTable(attain)
+            filters_checked[1] = 'Keystroke'
+        elif not self.tab_1.checkBox_keystroke.isChecked():
+            filters_checked[1] = 0
 
         if self.tab_1.checkBox_mouse_action.isChecked():
-            attain = control.view('Mouse Action')
-            self.updateTable(attain)
+            filters_checked[2] = 'Mouse Action'
+        elif not self.tab_1.checkBox_mouse_action.isChecked():
+            filters_checked[2] = 0
 
         if self.tab_1.checkBox_system_call.isChecked():
-            attain = control.view('System Call')
-            self.update(attain)
+            filters_checked[3] = 'System Call'
+        elif not self.tab_1.checkBox_system_call.isChecked():
+            filters_checked[3] = 0
 
         if self.tab_1.checkBox_process.isChecked():
-            attain = control.view('Process')
-            self.update(attain)
+            filters_checked[4] = 'Process'
+        elif not self.tab_1.checkBox_process.isChecked():
+            filters_checked[4] = 0
 
         if self.tab_1.checkBox_screenshot.isChecked():
-            attain = control.view('Screenshot')
-            self.update(attain)
+            filters_checked[5] = 'Screenshot'
+        elif not self.tab_1.checkBox_screenshot.isChecked():
+            filters_checked[5] = 0
 
         if self.tab_1.checkBox_windowHistory.isChecked():
-            attain = control.view('Window History')
-            self.update(attain)
+            filters_checked[6] = 'Window History'
+        elif not self.tab_1.checkBox_windowHistory.isChecked():
+            filters_checked[6] = 0
         '''
         ALL OTHER ARTIFACTS FOLLOW THIS PATTERN
     
@@ -338,10 +353,13 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             attain = control.view('ARTIFACT_NAME')   
             self.updateTable(attain)
         '''
-
+        attain = self.updateAttain(filters_checked)
+        self.updateTable(attain)
 
 def avertInit():
-  s.Popen("sudo auditctl -a always,exit -S read,write,open,close,mmap,pipe,alarm,getpid,fork,exit,chmod,chown,umask", shell=True, stdout=s.PIPE, stderr=s.PIPE)
+    s.Popen("sudo auditctl -a always,exit -S read,write,open,close,mmap,pipe,alarm,getpid,fork,exit,chmod,chown,umask",
+            shell=True, stdout=s.PIPE, stderr=s.PIPE)
+
 
 '''
 *** FLOATING ACCORDING CLASS FOR BEHAVIOR ***
@@ -368,3 +386,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    sys.exit()
