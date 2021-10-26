@@ -15,7 +15,7 @@ from view.configuration_tab.configuration import Configuration
 from view.sync_tab.sync import Sync
 
 table_result = None
-clicks = []
+all_selected = []
 selected = None
 attain = []
 
@@ -77,16 +77,9 @@ class Ui_MainWindow():
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
 
-
         self.menuAVERT.setTitle(_translate("MainWindow", "AVERT"))
 
-
         """COMMENTING OUT UI MODIFICATION"""
-
-
-#     def updateAnnotationTable(self,attain):
-#         global annotation_table    global table_result
-#         annotation_table.display_annotation(attain[selected])
 
     def updateTable(self, attain):
         self.tab_1.table_result.printwhatv()
@@ -100,13 +93,13 @@ class Ui_MainWindow():
 
     def exportRow(self, index):
         global selected
-        if index not in clicks:
-            clicks.append(index)
+        if index not in all_selected:
+            all_selected.append(index)
             selected = index
             self.changeDetailView(selected)
             print(selected)
         else:
-            clicks.remove(index)
+            all_selected.remove(index)
             selected = None
 
     def updateTable(self, attain1):

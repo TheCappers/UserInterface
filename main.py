@@ -9,9 +9,10 @@ import subprocess as s
 # global values
 control = controller.Controller()
 attain = []
-clicks = []
+all_selected = set()
 selected = 0
 universal_btn_state = 1
+pressed = True
 filter_used = False  # used to find if a filter has been selected already
 
 
@@ -31,13 +32,15 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.detailed_view_accordion.pushButton_18.clicked.connect(self.add_annotation)
         # search button being activated
         self.tab_1.search_button.clicked.connect(self.searchPressed)
+        # select all button
+        self.tab_1.select_button.clicked.connect(self.selectAll)
         # export button being activated
         self.tab_1.exportButton.clicked.connect(self.exportPressed)
         # result table cell clicked
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.tagDisplay)
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.descriptionDisplay)
-        # self.tab_1.table_result.avert_result_table.cellClicked.connect(self.exportPressed)
+        self.tab_1.table_result.avert_result_table.selectionModel().selectionChanged.connect(self.selectionChange)
 
         # portion for the Filters on home tab
         self.tab_1.checkBox_all_artifacts.stateChanged.connect(self.clickedCheckbox)
@@ -163,13 +166,14 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def add_annotation(self, index):  # add a row when the button add is selected
         """
-        Add an annotation to the selected artifact
+        Add an annotation to the selected artifacts
         """
         global attain, control
-        index = self.tab_1.table_result.getIndexSelected()
 
-        if len(self.tab_1.detailed_view_accordion.annotation_text.toPlainText().strip()):
-            control.annotationAdd(self.tab_1.detailed_view_accordion.annotation_text.toPlainText(), attain[index])
+        if (len(self.tab_1.detailed_view_accordion.annotation_text.toPlainText().strip()) > 0):
+            for index in all_selected:
+                control.annotationAdd(self.tab_1.detailed_view_accordion.annotation_text.toPlainText(), attain[index])
+            print("Annotations Added")
             self.annotationDisplay(self.tab_1.table_result.getIndexSelected())
 
     def add_tag(self):  # add a row when the button add is selected
@@ -259,6 +263,24 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     #   if full:
     #      QtWidgets.QMessageBox.about(self, 'Storage Alert', 'Storage is full')
 
+    def selectAll(self):
+        global pressed
+        global selected
+        global all_selected
+        pressed = not pressed
+        if pressed:
+            all_selected.clear()
+            state = QtCore.Qt.Unchecked
+            self.tab_1.select_button.setText("Select All")
+        else:
+            state = QtCore.Qt.Checked
+            self.tab_1.select_button.setText("Deselect All")
+        for i in range(len(attain)):
+            item = self.tab_1.table_result.avert_result_table.item(i, 0)
+            item.setCheckState(state)
+            if not pressed:
+                all_selected.add(i)
+
     def searchPressed(self):  # once search is pressed we must search the given data
         # attain the the value in the search box
         global attain
@@ -288,16 +310,33 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def exportPressed(self, index):
         global selected, attain
         index = self.tab_1.table_result.getIndexSelected()
-        if index not in clicks:
-            clicks.append(index)
+        if index not in all_selected:
+            all_selected.append(index)
             selected = index
             # print(selected)
             exporter = attain[selected]
             control.export(exporter)
         else:
-            clicks.remove(index)
+            all_selected.remove(index)
             selected = None
         # print(self.table_tag.itemClicked)
+    def selectionChange(self, selected, deselected):
+        global all_selected
+
+        for i in selected.indexes():
+            print('Selected Row = {0}, Column = {1}'.format(i.row(), i.column()))
+            item = self.tab_1.table_result.avert_result_table.item(i.row(), 0)
+            item.setCheckState(QtCore.Qt.Checked)
+            all_selected.add(i.row())
+            #self.tab_1.table_result.avert_result_table.setItem(i.row(), 0, item)
+        for i in deselected.indexes():
+            print('Selected Row = {0}, Column = {1}'.format(i.row(), i.column()))
+            item = self.tab_1.table_result.avert_result_table.item(i.row(), 0)
+            item.setCheckState(QtCore.Qt.Unchecked)
+            if (i.row() in all_selected):
+                all_selected.remove(i.row())
+            #self.tab_1.table_result.avert_result_table.setItem(i.row(), 0, item)
+
 
     def updateAttain(self, checked):
         global control
@@ -348,9 +387,9 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             filters_checked[6] = 0
         '''
         ALL OTHER ARTIFACTS FOLLOW THIS PATTERN
-    
+
         if self.tab_1.checkBox_ARTIFACT_NAME.isChecked():
-            attain = control.view('ARTIFACT_NAME')   
+            attain = control.view('ARTIFACT_NAME')
             self.updateTable(attain)
         '''
         attain = self.updateAttain(filters_checked)
