@@ -1,4 +1,4 @@
-all:
+all: venv
 	(python3 main.py)
 
 clean:
@@ -14,3 +14,9 @@ clean:
 	(rm -rf view/sync_tab/__pycache__)
 	(rm -rf view/assets/__pycache__)
 	(rm -rf .idea)
+
+venv:
+	test -d venv || ./run.sh
+
+strongclean: clean
+	(rm -rf venv)
