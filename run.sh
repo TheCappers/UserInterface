@@ -14,6 +14,10 @@ rm -rf .idea
 
 sudo apt update
 sudo apt install -y auditd wmctrl
+sudo apt-get install scrot
+sudo apt-get install python3-tk
+sudo apt-get install python3-dev
+
 
 if [ ! -d "venv/" ]
 then
