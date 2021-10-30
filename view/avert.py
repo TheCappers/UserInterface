@@ -75,7 +75,7 @@ class Ui_MainWindow():
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "AVERT"))
 
         self.menuAVERT.setTitle(_translate("MainWindow", "AVERT"))
 
@@ -96,7 +96,6 @@ class Ui_MainWindow():
             all_selected.append(index)
             selected = index
             self.changeDetailView(selected)
-            print(selected)
         else:
             all_selected.remove(index)
             selected = None
