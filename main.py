@@ -321,6 +321,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             selected = None
         # print(self.table_tag.itemClicked)
     def selectionChange(self, selected, deselected):
+        print("item selected in table")
         global all_selected
 
         for i in selected.indexes():

@@ -97,10 +97,12 @@ class Ui_MainWindow():
             all_selected.append(index)
             selected = index
             self.changeDetailView(selected)
-            print(selected)
+						# update script table
+            print(selected) #prints when an item is selected
         else:
             all_selected.remove(index)
             selected = None
+        self.tab_1.script_accordion.populateTable()
 
     def updateTable(self, attain1):
         global attain

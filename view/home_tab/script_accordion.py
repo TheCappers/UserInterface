@@ -163,3 +163,6 @@ class Script_Accordion:
 
 	def get_accordion(self):
 		return self.script_accordion
+
+	def populateTable(self):
+		print("populate table script !!!")
