@@ -23,7 +23,6 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         """used in tab 1"""
         """COMMENTING OUT UI MODIFICATION"""
-
         # portion for the tag_table
         # self.tab_1.detailed_view_accordion.tag_table.setSortingEnabled(1)  # allows for the sorting in the columns
         self.tab_1.detailed_view_accordion.tag_add_button.clicked.connect(self.add_tag)
@@ -37,12 +36,13 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # export button being activated
         self.tab_1.exportButton.clicked.connect(self.exportPressed)
         # result table cell clicked
-        self.tab_1.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)
-        self.tab_1.table_result.avert_result_table.cellClicked.connect(self.tagDisplay)
-        self.tab_1.table_result.avert_result_table.cellClicked.connect(self.descriptionDisplay)
-        self.tab_1.table_result.avert_result_table.selectionModel().selectionChanged.connect(self.selectionChange)
-
-        # portion for the Filters on home tab
+        self.avert_result_table = self.tab_1.table_result.avert_result_table
+        self.avert_result_table.cellClicked.connect(self.annotationDisplay)
+        self.avert_result_table.cellClicked.connect(self.tagDisplay)
+        self.avert_result_table.cellClicked.connect(self.descriptionDisplay)
+        self.avert_result_table.selectionModel().selectionChanged.connect(self.selectionChange)
+        self.avert_result_table.horizontalHeader().sectionClicked.connect(self.horizontalHeaderSort)
+        
         self.tab_1.checkBox_all_artifacts.stateChanged.connect(self.clickedCheckbox)
         self.tab_1.checkBox_screenshot.stateChanged.connect(self.clickedCheckbox)
         self.tab_1.checkBox_video.stateChanged.connect(self.clickedCheckbox)
@@ -258,11 +258,6 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.tab_2.StorageInValue.text() == '':  # in case empty
             control.storageRecording(70)  # set to default as user inputs full number
 
-    # else:
-    #    full = control.storageRecording(float(self.StorageInValue.text()))  # send the value
-    #   if full:
-    #      QtWidgets.QMessageBox.about(self, 'Storage Alert', 'Storage is full')
-
     def selectAll(self):
         global pressed
         global selected
@@ -313,29 +308,42 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if index not in all_selected:
             all_selected.append(index)
             selected = index
-            # print(selected)
             exporter = attain[selected]
             control.export(exporter)
         else:
             all_selected.remove(index)
             selected = None
-        # print(self.table_tag.itemClicked)
+
+    def horizontalHeaderSort(self, index):
+        global attain
+        if index == 1 or index == 5:
+            search_header = 'timestamp'
+        elif index == 2:
+            search_header = 'name'
+        elif index == 3:
+            search_header = 'ip_address'
+        elif index == 4:
+            search_header = 'mac_address'
+
+
+        self.avert_result_table.clearSelection()
+        attain = sorted(attain, key=lambda d: d[search_header])
+        self.updateTable(attain)
+
     def selectionChange(self, selected, deselected):
         global all_selected
 
         for i in selected.indexes():
-            print('Selected Row = {0}, Column = {1}'.format(i.row(), i.column()))
+            # print('Selected Row = {0}, Column = {1}'.format(i.row(), i.column()))
             item = self.tab_1.table_result.avert_result_table.item(i.row(), 0)
             item.setCheckState(QtCore.Qt.Checked)
             all_selected.add(i.row())
-            #self.tab_1.table_result.avert_result_table.setItem(i.row(), 0, item)
         for i in deselected.indexes():
-            print('Selected Row = {0}, Column = {1}'.format(i.row(), i.column()))
+            # print('Selected Row = {0}, Column = {1}'.format(i.row(), i.column()))
             item = self.tab_1.table_result.avert_result_table.item(i.row(), 0)
             item.setCheckState(QtCore.Qt.Unchecked)
             if (i.row() in all_selected):
                 all_selected.remove(i.row())
-            #self.tab_1.table_result.avert_result_table.setItem(i.row(), 0, item)
 
 
     def updateAttain(self, checked):
