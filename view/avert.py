@@ -93,21 +93,23 @@ class Ui_MainWindow():
 
     def exportRow(self, index):
         global selected
+        global attain
         if index not in all_selected:
             all_selected.append(index)
             selected = index
             self.changeDetailView(selected)
 						# update script table
             print(selected) #prints when an item is selected
+            self.tab_1.script_accordion.populateTable(attain[selected])
         else:
             all_selected.remove(index)
             selected = None
-        self.tab_1.script_accordion.populateTable(all_selected)
+        # self.tab_1.script_accordion.populateTable(all_selected)
 
     def updateTable(self, attain1):
         global attain
         attain = attain1
-        self.tab_1.table_result.printwhatv()
+        # self.tab_1.table_result.printwhatv()
         self.tab_1.table_result.populateTable(attain)
         # self.verticalLayout_3.addWidget(table_result.getTable()) si jala
         # print(attain)

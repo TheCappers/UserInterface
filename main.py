@@ -275,6 +275,8 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         else:
             state = QtCore.Qt.Checked
             self.tab_1.select_button.setText("Deselect All")
+            # print("select all pressed")
+            self.tab_1.script_accordion.populateTable(attain, True) #call the method in script_accordion.py
         for i in range(len(attain)):
             item = self.tab_1.table_result.avert_result_table.item(i, 0)
             item.setCheckState(state)

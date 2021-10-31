@@ -4,6 +4,7 @@ from view.components import result_table, annotation_table, bar_graph
 class Script_Accordion:
 	def __init__(self):
 		self.accordion = ""
+		self.script_item = []
 
 
 	def startAccordion(self):
@@ -289,12 +290,18 @@ class Script_Accordion:
 		__sortingEnabled = self.table.isSortingEnabled()
 		self.table.setSortingEnabled(False)
 		self.table.setSortingEnabled(__sortingEnabled)
-		
+
 
 	def get_accordion(self):
 		return self.accordion
 
-	def populateTable(self, selected_items):
-		self.accordion
-		print("populate table script !!!")
+	def populateTable(self, selected_items, selectAll=False):
+		if(selectAll):
+			print("select all was selected")
+			print(selected_items)
+		else:
+			print("nope")
+			print(selected_items)
+		
+		# self.accordion
 		print(selected_items)
