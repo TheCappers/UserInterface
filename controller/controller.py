@@ -32,8 +32,11 @@ class Controller:
     def windowHistoryRecording(self, signal):
         self.__config.setWindowHistory(signal)
 
-    def screenshotRecording(self, signal):
+    def Recording(self, signal):
         self.__config.setScreenshot(signal)
+
+    def videoRecording(self, signal):
+        self.__config.setVideo(signal)
 
     def processRecording(self, signal):
         self.__config.setProcess(signal)

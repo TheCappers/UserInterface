@@ -37,52 +37,66 @@ class VideoRecorder(RecordedData):
 
     def on_press(self, key):
         if self._video_started:
-            self._duration = 5
+            self._duration = 50
+            #self.takeVideo()
 
     def on_release(self, key):
         if self._video_started:
-            self._duration = 5
+            self._duration = 50 #half seconds?
+            #self.takeVideo()
 
     def on_click(self, x, y, button, pressed):
         if self._video_started:
             if pressed:
-                self._duration = 5
+                self._duration = 50
 
     def on_move(self, x, y):
         if self._video_started:
-            self._duration = 5
+            self._duration = 50
+            #self.takeVideo()
 
     def start(self):
         if self._video_started:
             return
 
+        print("start video")
         self._video_started = True
         self._start_time = str(datetime.datetime.now().strftime("%Y-%m-%d~%H:%M:%S"))
         isExist = os.path.exists("Videos")
         if not isExist:
             os.mkdir("Videos")
         self._video_data['data']['path'] = "Videos/" + self._start_time + '.mp4'
-        self._writer=imageio.get_writer(self._video_data['data']['path'], fps=self._frame_rate)
-        print("start video")
+        self._writer=imageio.get_writer(self._video_data['data']['path'], fps=15)
+        self.takeVideo()
 
     def stop(self):
         if not self._video_started:
             return
+        print("vidoe stopped")
         self._video_started = False
-        self.writer.close()
-        self.image.save(self._video_data['data']['path'])
-        file_size = os.path.getsize(self._video_data['data']['path'])
-        file_type = os.path.splitext(self._video_data['data']['path'])[-1]
-        self._video_data['data']['size'] = file_size
-        self._video_data['data']['type'] = file_type
+        self._writer.close()
+        #self.image.save(self._video_data['data']['path'])
+        #file_size = os.path.getsize(self._video_data['data']['path'])
+        #file_type = os.path.splitext(self._video_data['data']['path'])[-1]
+        #self._video_data['data']['size'] = file_size
+
+        #self._video_data['data']['type'] = file_type
         #TODO: self.insert_to_db()
         print('stop video recording')
+        self._isAutoRecord = False
 
     def takeVideo(self):
-        self.image = ImageGrab.grab()
-        for i in range(fps*duration):
+        #self.image = ImageGrab.grab()
+
+        self._duration = 50
+
+        while(self._duration>0):
+        #while(self._duration*selself._durationf._frame_rate > 0):
+            #print(self._duration)
             img = np.array(ImageGrab.grab())
-            self.writer.append_data(img)
+            self._writer.append_data(img)
+            self._duration-=1
+        print("video paused")
 
 
 '''
