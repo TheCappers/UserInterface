@@ -13,7 +13,8 @@ rm -rf view/assets/__pycache__
 rm -rf .idea
 
 sudo apt update
-sudo apt install -y auditd wmctrl
+sudo apt install -y auditd wmctrl scrot python3-tk python3-dev
+
 
 if [ ! -d "venv/" ]
 then

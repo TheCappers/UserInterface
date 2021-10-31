@@ -9,9 +9,10 @@ import subprocess as s
 # global values
 control = controller.Controller()
 attain = []
-clicks = []
+all_selected = set()
 selected = 0
 universal_btn_state = 1
+pressed = True
 filter_used = False  # used to find if a filter has been selected already
 
 
@@ -19,7 +20,8 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(AvertApp, self).__init__()
         self.setupUi(self)
-
+        self.floating_accordion = floatingAccord()
+        self.floating_accordion.show()
         """used in tab 1"""
         """COMMENTING OUT UI MODIFICATION"""
 
@@ -31,13 +33,25 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.detailed_view_accordion.pushButton_18.clicked.connect(self.add_annotation)
         # search button being activated
         self.tab_1.search_button.clicked.connect(self.searchPressed)
+        # select all button
+        self.tab_1.select_button.clicked.connect(self.selectAll)
         # export button being activated
         self.tab_1.exportButton.clicked.connect(self.exportPressed)
         # result table cell clicked
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.tagDisplay)
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.descriptionDisplay)
-        # self.tab_1.table_result.avert_result_table.cellClicked.connect(self.exportPressed)
+        self.tab_1.table_result.avert_result_table.selectionModel().selectionChanged.connect(self.selectionChange)
+
+        # portion for the floating accordion
+        self.floating_accordion.checkBox_Screenshot.clicked.connect(self.toggleButtons)
+        self.floating_accordion.checkBox_Video.clicked.connect(self.toggleButtons)
+        self.floating_accordion.checkBox_Network.clicked.connect(self.toggleButtons)
+        self.floating_accordion.checkBox_Process.clicked.connect(self.toggleButtons)
+        self.floating_accordion.checkBox_Keystroke.clicked.connect(self.toggleButtons)
+        self.floating_accordion.checkBox_Mouse_Action.clicked.connect(self.toggleButtons)
+        self.floating_accordion.checkBox_Window_History.clicked.connect(self.toggleButtons)
+        self.floating_accordion.checkBox_System_Call.clicked.connect(self.toggleButtons)
 
         # portion for the Filters on home tab
         self.tab_1.checkBox_all_artifacts.stateChanged.connect(self.clickedCheckbox)
@@ -85,91 +99,252 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def toggleButtons(self):  # called upon by button automatically will know which button
         global control  # individual button on and off
 
-        if self.sender().objectName().__contains__("Video") and self.sender().objectName().__contains__('On'):
-            self.tab_2.VideoStatOnButton.setChecked(1)  # check the button we clicked
-            self.tab_2.VideoStatusOffButton.setChecked(0)  # check false the off button in case it is checked
+        if self.sender().objectName().__contains__('Screenshot'):  # recording screenshot button hit
+            # first we check the checkboxes in the accordion
+            if self.sender().objectName().__contains__('checkBox'):
+                if self.sender().isChecked():
+                    self.floating_accordion.tableWidget.item(0, 1).setText('Recording')
+                    self.tab_2.ScreenshotStatOnButton.setChecked(1)
+                    self.tab_2.ScreenshotStatOffButton.setChecked(0)
+                    control.screenshotRecording(True)
 
-        if self.sender().objectName().__contains__("Video") and self.sender().objectName().__contains__('Off'):
-            self.tab_2.VideoStatOnButton.setChecked(0)  # check off the on button
-            self.tab_2.VideoStatusOffButton.setChecked(1)  # check on the off button
+                elif not self.sender().isChecked():
+                    self.floating_accordion.tableWidget.item(0, 1).setText('Stopped')
+                    self.tab_2.ScreenshotStatOnButton.setChecked(0)  # check off the on button
+                    self.tab_2.ScreenshotStatOffButton.setChecked(1)  # check on the off button
+                    control.screenshotRecording(False)
 
-        if self.sender().objectName().__contains__("Screenshot") and self.sender().objectName().__contains__('On'):
-            self.tab_2.ScreenshotStatOnButton.setChecked(1)  # check the button we clicked
-            self.tab_2.ScreenshotStatOffButton.setChecked(0)  # check false the off button incase it is checked
-            control.screenshotRecording(True)
+            else:  # anything else is a button
+                if self.sender().isChecked() and self.sender().objectName().__contains__('On'):  # hitting the one
+                    # button
+                    self.floating_accordion.tableWidget.item(0, 1).setText('Recording')
+                    self.floating_accordion.checkBox_Screenshot.setChecked(1)  # check it due to being off
+                    self.tab_2.ScreenshotStatOnButton.setChecked(1)
+                    self.tab_2.ScreenshotStatOffButton.setChecked(0)
+                    control.screenshotRecording(True)
 
-        if self.sender().objectName().__contains__("Screenshot") and self.sender().objectName().__contains__('Off'):
-            self.tab_2.ScreenshotStatOnButton.setChecked(0)  # check off the on button
-            self.tab_2.ScreenshotStatOffButton.setChecked(1)  # check on the off button
-            control.screenshotRecording(False)
+                elif self.sender().isChecked() and self.sender().objectName().__contains__('Off'):
+                    self.floating_accordion.tableWidget.item(0, 1).setText('Stopped')
+                    self.floating_accordion.checkBox_Screenshot.setChecked(0)  # check it due to being off
+                    self.tab_2.ScreenshotStatOnButton.setChecked(0)  # check off the on button
+                    self.tab_2.ScreenshotStatOffButton.setChecked(1)  # check on the off button
+                    control.screenshotRecording(False)
 
-        if self.sender().objectName().__contains__("Sys") and self.sender().objectName().__contains__('On'):
-            self.tab_2.SystemCallOnButton.setChecked(1)  # check the button we clicked
-            self.tab_2.SystemCallOffButton.setChecked(0)  # check false the off button incase it is checked
-            control.systemCallRecording(True)
+        if self.sender().objectName().__contains__('Video'):
+            if self.sender().objectName().__contains__('checkBox'):
+                if self.sender().isChecked():
+                    self.floating_accordion.tableWidget.item(1, 1).setText('Recording')
+                    self.tab_2.VideoStatOnButton.setChecked(1)
+                    self.tab_2.VideoStatusOffButton.setChecked(0)
+                    control.videoRecording(True)
 
-        if self.sender().objectName().__contains__("Sys") and self.sender().objectName().__contains__('Off'):
-            self.tab_2.SystemCallOnButton.setChecked(0)  # check off the on button
-            self.tab_2.SystemCallOffButton.setChecked(1)  # check on the off button
-            control.systemCallRecording(False)
+                elif not self.sender().isChecked():
+                    self.floating_accordion.tableWidget.item(1, 1).setText('Stopped')
+                    self.tab_2.VideoStatOnButton.setChecked(0)  # check off the on button
+                    self.tab_2.VideoStatusOffButton.setChecked(1)  # check on the off button
+                    control.videoRecording(False)
 
-        if self.sender().objectName().__contains__("Win") and self.sender().objectName().__contains__('On'):
-            self.tab_2.WindowHistoryOnButton.setChecked(1)  # check the button we clicked
-            self.tab_2.WindowHistoryOffButton.setChecked(0)  # check false the off button incase it is checked
-            # control.windowHistoryRecording(True)
+            else:  # anything else is a button
+                if self.sender().isChecked() and self.sender().objectName().__contains__('On'):  # hitting the one
+                    # button
+                    self.floating_accordion.tableWidget.item(1, 1).setText('Recording')
+                    self.floating_accordion.checkBox_Video.setChecked(1)  # check it due to being off
+                    self.tab_2.VideoStatOnButton.setChecked(1)
+                    self.tab_2.VideoStatusOffButton.setChecked(0)
+                    control.videoRecording(True)
 
-        if self.sender().objectName().__contains__("Win") and self.sender().objectName().__contains__('Off'):
-            self.tab_2.WindowHistoryOnButton.setChecked(0)  # check off the on button
-            self.tab_2.WindowHistoryOffButton.setChecked(1)  # check on the off button
-            # control.windowHistoryRecording(False)
+                elif self.sender().isChecked() and self.sender().objectName().__contains__('Off'):
+                    self.floating_accordion.tableWidget.item(1, 1).setText('Stopped')
+                    self.floating_accordion.checkBox_Video.setChecked(0)  # check it due to being off
+                    self.tab_2.VideoStatOnButton.setChecked(0)  # check off the on button
+                    self.tab_2.VideoStatusOffButton.setChecked(1)  # check on the off button
+                    control.videoRecording(False)
 
-        if self.sender().objectName().__contains__("KeyStroke") and self.sender().objectName().__contains__('On'):
-            self.tab_2.KeyStrokeStatOnButton.setChecked(1)  # check the button we clicked
-            self.tab_2.KeyStrokeStatOffButton.setChecked(0)  # check false the off button in case it is checked
-            control.keyboardRecording(True)
+        if self.sender().objectName().__contains__('Network'):
+            if self.sender().objectName().__contains__('checkBox'):
+                if self.sender().isChecked():
+                    self.floating_accordion.tableWidget.item(2, 1).setText('Recording')
+                    self.tab_2.NetworkActivityDataOnButton.setChecked(1)
+                    self.tab_2.NetworkActivityDataOffButton.setChecked(0)
+                    control.networkRecording(True)
 
-        if self.sender().objectName().__contains__("KeyStroke") and self.sender().objectName().__contains__('Off'):
-            self.tab_2.KeyStrokeStatOnButton.setChecked(0)  # check off the on button
-            self.tab_2.KeyStrokeStatOffButton.setChecked(1)  # check on the off button
-            control.keyboardRecording(False)
+                elif not self.sender().isChecked():
+                    self.floating_accordion.tableWidget.item(2, 1).setText('Stopped')
+                    self.tab_2.NetworkActivityDataOnButton.setChecked(0)  # check off the on button
+                    self.tab_2.NetworkActivityDataOffButton.setChecked(1)  # check on the off button
+                    control.networkRecording(False)
 
-        if self.sender().objectName().__contains__("Mouse") and self.sender().objectName().__contains__('On'):
-            self.tab_2.MouseActOnButton.setChecked(1)  # check the button we clicked
-            self.tab_2.MouseActOffButton.setChecked(0)  # check false the off button in case it is checked
-            control.mouseActionRecording(True)
+            else:  # anything else is a button
+                if self.sender().isChecked() and self.sender().objectName().__contains__('On'):  # hitting the one
+                    # button
+                    self.floating_accordion.tableWidget.item(2, 1).setText('Recording')
+                    self.floating_accordion.checkBox_Network.setChecked(1)  # check it due to being off
+                    self.tab_2.NetworkActivityDataOnButton.setChecked(1)
+                    self.tab_2.NetworkActivityDataOffButton.setChecked(0)
+                    control.networkRecording(True)
 
-        if self.sender().objectName().__contains__("Mouse") and self.sender().objectName().__contains__('Off'):
-            self.tab_2.MouseActOnButton.setChecked(0)  # check off the on button
-            self.tab_2.MouseActOffButton.setChecked(1)  # check on the off button
-            control.mouseActionRecording(False)
+                elif self.sender().isChecked() and self.sender().objectName().__contains__('Off'):
+                    self.floating_accordion.tableWidget.item(2, 1).setText('Stopped')
+                    self.floating_accordion.checkBox_Network.setChecked(0)  # check it due to being off
+                    self.tab_2.NetworkActivityDataOnButton.setChecked(0)
+                    self.tab_2.NetworkActivityDataOffButton.setChecked(1)
+                    control.networkRecording(False)
 
-        if self.sender().objectName().__contains__("Network") and self.sender().objectName().__contains__('On'):
-            self.tab_2.NetworkActivityDataOnButton.setChecked(1)  # check the button we clicked
-            self.tab_2.NetworkActivityDataOffButton.setChecked(0)  # check false the off button incase it is checked
+        if self.sender().objectName().__contains__('Process'):
+            if self.sender().objectName().__contains__('checkBox'):
+                if self.sender().isChecked():
+                    self.floating_accordion.tableWidget.item(3, 1).setText('Recording')
+                    self.tab_2.ProcessStatOnButton.setChecked(1)
+                    self.tab_2.ProcessStatOffButton.setChecked(0)
+                    control.processRecording(True)
 
-        if self.sender().objectName().__contains__("Network") and self.sender().objectName().__contains__('Off'):
-            self.tab_2.NetworkActivityDataOnButton.setChecked(0)  # check off the on button
-            self.tab_2.NetworkActivityDataOffButton.setChecked(1)  # check on the off button
+                elif not self.sender().isChecked():
+                    self.floating_accordion.tableWidget.item(3, 1).setText('Stopped')
+                    self.tab_2.ProcessStatOnButton.setChecked(0)
+                    self.tab_2.ProcessStatOffButton.setChecked(1)
+                    control.processRecording(False)
 
-        if self.sender().objectName().__contains__("Process") and self.sender().objectName().__contains__('On'):
-            self.tab_2.ProcessStatOnButton.setChecked(1)  # check the button we clicked
-            self.tab_2.ProcessStatOffButton.setChecked(0)  # check false the off button in case it is checked
-            control.processRecording(True)
+            else:  # anything else is a button
+                if self.sender().isChecked() and self.sender().objectName().__contains__('On'):  # hitting the one
+                    self.floating_accordion.tableWidget.item(3, 1).setText('Recording')
+                    self.floating_accordion.checkBox_Process.setChecked(1)
+                    self.tab_2.ProcessStatOnButton.setChecked(1)
+                    self.tab_2.ProcessStatOffButton.setChecked(0)
+                    control.processRecording(True)
 
-        if self.sender().objectName().__contains__("Process") and self.sender().objectName().__contains__('Off'):
-            self.tab_2.ProcessStatOnButton.setChecked(0)  # check off the on button
-            self.tab_2.ProcessStatOffButton.setChecked(1)  # check on the off button
-            control.processRecording(False)
+                elif self.sender().isChecked() and self.sender().objectName().__contains__('Off'):
+                    self.floating_accordion.tableWidget.item(3, 1).setText('Stopped')
+                    self.floating_accordion.checkBox_Process.setChcked(0)
+                    self.tab_2.ProcessStatOnButton.setChecked(0)
+                    self.tab_2.ProcessStatOffButton.setChecked(1)
+                    control.processRecording(False)
+
+        if self.sender().objectName().__contains__('Keystroke') or self.sender().objectName().__contains__('KeyStroke'):
+            if self.sender().objectName().__contains__('checkBox'):
+                if self.sender().isChecked():
+                    self.floating_accordion.tableWidget.item(4, 1).setText('Recording')
+                    self.tab_2.KeyStrokeStatOnButton.setChecked(1)
+                    self.tab_2.KeyStrokeStatOffButton.setChecked(0)
+                    control.keyboardRecording(True)
+
+                elif not self.sender().isChecked():
+                    self.floating_accordion.tableWidget.item(4, 1).setText('Stopped')
+                    self.tab_2.KeyStrokeStatOnButton.setChecked(0)
+                    self.tab_2.KeyStrokeStatOffButton.setChecked(1)
+                    control.keyboardRecording(False)
+
+            else:  # anything else is a button
+                if self.sender().isChecked() and self.sender().objectName().__contains__('On'):
+                    self.floating_accordion.tableWidget.item(4, 1).setText('Recording')
+                    self.floating_accordion.checkBox_Keystroke.setChecked(1)
+                    self.tab_2.KeyStrokeStatOnButton.setChecked(1)
+                    self.tab_2.KeyStrokeStatOffButton.setChecked(0)
+                    control.keyboardRecording(True)
+
+                elif self.sender().isChecked() and self.sender().objectName().__contains__('Off'):
+                    self.floating_accordion.tableWidget.item(4, 1).setText('Stopped')
+                    self.floating_accordion.checkBox_Keystroke.setChecked(0)
+                    self.tab_2.KeyStrokeStatOnButton.setChecked(0)
+                    self.tab_2.KeyStrokeStatOffButton.setChecked(1)
+                    control.keyboardRecording(False)
+
+        if self.sender().objectName().__contains__('Mouse'):
+            if self.sender().objectName().__contains__('checkBox'):
+                if self.sender().isChecked():
+                    self.floating_accordion.tableWidget.item(5, 1).setText('Recording')
+                    self.tab_2.MouseActOnButton.setChecked(1)
+                    self.tab_2.MouseActOffButton.setChecked(0)
+                    control.mouseActionRecording(True)
+
+                elif not self.sender().isChecked():
+                    self.floating_accordion.tableWidget.item(5, 1).setText('Stopped')
+                    self.tab_2.MouseActOnButton.setChecked(0)
+                    self.tab_2.MouseActOffButton.setChecked(1)
+                    control.mouseActionRecording(False)
+
+            else:
+                if self.sender().isChecked() and self.sender().objectName().__contains__('On'):
+                    self.floating_accordion.tableWidget.item(5, 1).setText('Recording')
+                    self.floating_accordion.checkBox_Mouse_Action.setChecked(1)
+                    self.tab_2.MouseActOnButton.setChecked(1)
+                    self.tab_2.MouseActOffButton.setChecked(0)
+                    control.mouseActionRecording(True)
+
+                elif self.sender().isChecked() and self.sender().objectName().__contains__('Off'):
+                    self.floating_accordion.tableWidget.item(5, 1).setText('Stopped')
+                    self.floating_accordion.checkBox_Mouse_Action.setChecked(0)
+                    self.tab_2.MouseActOnButton.setChecked(0)
+                    self.tab_2.MouseActOffButton.setChecked(1)
+                    control.mouseActionRecording(False)
+
+        if self.sender().objectName().__contains__('Window'):
+            if self.sender().objectName().__contains__('checkBox'):
+                if self.sender().isChecked():
+                    self.floating_accordion.tableWidget.item(6, 1).setText('Recording')
+                    self.tab_2.WindowHistoryOnButton.setChecked(1)
+                    self.tab_2.WindowHistoryOffButton.setChecked(0)
+                    control.windowHistoryRecording(True)
+
+                elif not self.sender().isChecked():
+                    self.floating_accordion.tableWidget.item(6, 1).setText('Stopped')
+                    self.tab_2.WindowHistoryOnButton.setChecked(0)
+                    self.tab_2.WindowHistoryOffButton.setChecked(1)
+                    control.windowHistoryRecording(False)
+
+            else:
+                if self.sender().isChecked() and self.sender().objectName().__contains__('On'):
+                    self.floating_accordion.tableWidget.item(6, 1).setText('Recording')
+                    self.floating_accordion.checkBox_Window_History.setChecked(1)
+                    self.tab_2.WindowHistoryOnButton.setChecked(1)
+                    self.tab_2.WindowHistoryOffButton.setChecked(0)
+                    control.windowHistoryRecording(True)
+
+                elif self.sender().isChecked() and self.sender().objectName().__contains__('Off'):
+                    self.floating_accordion.tableWidget.item(6, 1).setText('Stopped')
+                    self.floating_accordion.checkBox_Window_History.setChecked(0)
+                    self.tab_2.WindowHistoryOnButton.setChecked(0)
+                    self.tab_2.WindowHistoryOffButton.setChecked(1)
+                    control.windowHistoryRecording(False)
+
+        if self.sender().objectName().__contains__('System'):
+            if self.sender().objectName().__contains__('checkBox'):
+                if self.sender().isChecked():
+                    self.floating_accordion.tableWidget.item(7, 1).setText('Recording')
+                    self.tab_2.SystemCallOnButton.setChecked(1)
+                    self.tab_2.SystemCallOffButton.setChecked(0)
+                    control.systemCallRecording(True)
+
+                elif not self.sender().isChecked():
+                    self.floating_accordion.tableWidget.item(7, 1).setText('Stopped')
+                    self.tab_2.SystemCallOnButton.setChecked(0)
+                    self.tab_2.SystemCallOffButton.setChecked(1)
+                    control.systemCallRecording(False)
+
+            else:
+                if self.sender().isChecked() and self.sender().objectName().__contains__('On'):
+                    self.floating_accordion.tableWidget.item(7, 1).setText('Recording')
+                    self.floating_accordion.checkBox_System_Call.setChecked(1)
+                    self.tab_2.SystemCallOnButton.setChecked(1)
+                    self.tab_2.SystemCallOffButton.setChecked(0)
+                    control.systemCallRecording(True)
+
+                elif self.sender().isChecked() and self.sender().objectName().__contains__('Off'):
+                    self.floating_accordion.tableWidget.item(7, 1).setText('Stopped')
+                    self.floating_accordion.checkBox_System_Call.setChecked(0)
+                    self.tab_2.SystemCallOnButton.setChecked(0)
+                    self.tab_2.SystemCallOffButton.setChecked(1)
+                    control.systemCallRecording(False)
 
     def add_annotation(self, index):  # add a row when the button add is selected
         """
-        Add an annotation to the selected artifact
+        Add an annotation to the selected artifacts
         """
         global attain, control
-        index = self.tab_1.table_result.getIndexSelected()
 
-        if len(self.tab_1.detailed_view_accordion.annotation_text.toPlainText().strip()):
-            control.annotationAdd(self.tab_1.detailed_view_accordion.annotation_text.toPlainText(), attain[index])
+        if (len(self.tab_1.detailed_view_accordion.annotation_text.toPlainText().strip()) > 0):
+            for index in all_selected:
+                control.annotationAdd(self.tab_1.detailed_view_accordion.annotation_text.toPlainText(), attain[index])
+            print("Annotations Added")
             self.annotationDisplay(self.tab_1.table_result.getIndexSelected())
 
     def add_tag(self):  # add a row when the button add is selected
@@ -188,6 +363,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def universalButton(self):
         global universal_btn_state
+
         if not universal_btn_state:
             universal_btn_state = 1
             control.universalRecording(True)
@@ -218,6 +394,24 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.tab_2.NetworkActivityDataOffButton.setChecked(0)  # check false the off button incase it is checked
             self.tab_2.ProcessStatOnButton.setChecked(1)  # check the button we clicked
             self.tab_2.ProcessStatOffButton.setChecked(0)  # check false the off button incase it is checked
+
+            # check all the check boxes off
+            self.floating_accordion.checkBox_Screenshot.setChecked(1)  # check it due to being off
+            self.floating_accordion.tableWidget.item(0, 1).setText('Recording')
+            self.floating_accordion.checkBox_Video.setChecked(1)  # check it due to being off
+            self.floating_accordion.tableWidget.item(1, 1).setText('Recording')
+            self.floating_accordion.checkBox_Network.setChecked(1)  # check it due to being off
+            self.floating_accordion.tableWidget.item(2, 1).setText('Recording')
+            self.floating_accordion.checkBox_Process.setChecked(1)
+            self.floating_accordion.tableWidget.item(3, 1).setText('Recording')
+            self.floating_accordion.checkBox_Keystroke.setChecked(1)
+            self.floating_accordion.tableWidget.item(4, 1).setText('Recording')
+            self.floating_accordion.checkBox_Mouse_Action.setChecked(1)
+            self.floating_accordion.tableWidget.item(5, 1).setText('Recording')
+            self.floating_accordion.checkBox_Window_History.setChecked(1)
+            self.floating_accordion.tableWidget.item(6, 1).setText('Recording')
+            self.floating_accordion.checkBox_System_Call.setChecked(1)
+            self.floating_accordion.tableWidget.item(7, 1).setText('Recording')
 
         else:  # if off
             universal_btn_state = 0
@@ -250,6 +444,24 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.tab_2.ProcessStatOnButton.setChecked(0)  # check off the on button
             self.tab_2.ProcessStatOffButton.setChecked(1)  # check on the off button
 
+            #  doing the checkboxes on the accordion
+            self.floating_accordion.checkBox_Screenshot.setChecked(0)  # check it due to being off
+            self.floating_accordion.tableWidget.item(0, 1).setText('Stopped')
+            self.floating_accordion.checkBox_Video.setChecked(0)  # check it due to being off
+            self.floating_accordion.tableWidget.item(1, 1).setText('Stopped')
+            self.floating_accordion.checkBox_Network.setChecked(0)  # check it due to being off
+            self.floating_accordion.tableWidget.item(2, 1).setText('Stopped')
+            self.floating_accordion.checkBox_Process.setChecked(0)
+            self.floating_accordion.tableWidget.item(3, 1).setText('Stopped')
+            self.floating_accordion.checkBox_Keystroke.setChecked(0)
+            self.floating_accordion.tableWidget.item(4, 1).setText('Stopped')
+            self.floating_accordion.checkBox_Mouse_Action.setChecked(0)
+            self.floating_accordion.tableWidget.item(5, 1).setText('Stopped')
+            self.floating_accordion.checkBox_Window_History.setChecked(0)
+            self.floating_accordion.tableWidget.item(6, 1).setText('Stopped')
+            self.floating_accordion.checkBox_System_Call.setChecked(0)
+            self.floating_accordion.tableWidget.item(7, 1).setText('Stopped')
+
     def thresholdChange(self):
         if self.tab_2.StorageInValue.text() == '':  # in case empty
             control.storageRecording(70)  # set to default as user inputs full number
@@ -258,6 +470,24 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     #    full = control.storageRecording(float(self.StorageInValue.text()))  # send the value
     #   if full:
     #      QtWidgets.QMessageBox.about(self, 'Storage Alert', 'Storage is full')
+
+    def selectAll(self):
+        global pressed
+        global selected
+        global all_selected
+        pressed = not pressed
+        if pressed:
+            all_selected.clear()
+            state = QtCore.Qt.Unchecked
+            self.tab_1.select_button.setText("Select All")
+        else:
+            state = QtCore.Qt.Checked
+            self.tab_1.select_button.setText("Deselect All")
+        for i in range(len(attain)):
+            item = self.tab_1.table_result.avert_result_table.item(i, 0)
+            item.setCheckState(state)
+            if not pressed:
+                all_selected.add(i)
 
     def searchPressed(self):  # once search is pressed we must search the given data
         # attain the the value in the search box
@@ -288,16 +518,33 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def exportPressed(self, index):
         global selected, attain
         index = self.tab_1.table_result.getIndexSelected()
-        if index not in clicks:
-            clicks.append(index)
+        if index not in all_selected:
+            all_selected.append(index)
             selected = index
             # print(selected)
             exporter = attain[selected]
             control.export(exporter)
         else:
-            clicks.remove(index)
+            all_selected.remove(index)
             selected = None
         # print(self.table_tag.itemClicked)
+
+    def selectionChange(self, selected, deselected):
+        global all_selected
+
+        for i in selected.indexes():
+            print('Selected Row = {0}, Column = {1}'.format(i.row(), i.column()))
+            item = self.tab_1.table_result.avert_result_table.item(i.row(), 0)
+            item.setCheckState(QtCore.Qt.Checked)
+            all_selected.add(i.row())
+            # self.tab_1.table_result.avert_result_table.setItem(i.row(), 0, item)
+        for i in deselected.indexes():
+            print('Selected Row = {0}, Column = {1}'.format(i.row(), i.column()))
+            item = self.tab_1.table_result.avert_result_table.item(i.row(), 0)
+            item.setCheckState(QtCore.Qt.Unchecked)
+            if (i.row() in all_selected):
+                all_selected.remove(i.row())
+            # self.tab_1.table_result.avert_result_table.setItem(i.row(), 0, item)
 
     def updateAttain(self, checked):
         global control
@@ -348,13 +595,16 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             filters_checked[6] = 0
         '''
         ALL OTHER ARTIFACTS FOLLOW THIS PATTERN
-    
+
         if self.tab_1.checkBox_ARTIFACT_NAME.isChecked():
-            attain = control.view('ARTIFACT_NAME')   
+            attain = control.view('ARTIFACT_NAME')
             self.updateTable(attain)
         '''
         attain = self.updateAttain(filters_checked)
         self.updateTable(attain)
+
+    def test(self):
+        print(self.sender().objectName())
 
 def avertInit():
     s.Popen("sudo auditctl -a always,exit -S read,write,open,close,mmap,pipe,alarm,getpid,fork,exit,chmod,chown,umask",
@@ -363,12 +613,31 @@ def avertInit():
 
 '''
 *** FLOATING ACCORDING CLASS FOR BEHAVIOR ***
-class floatingAccord(QtWidgets.QWidget):
-    def __init__(self, form):
-        super(floatingAccord, self).__init__()
-        ui = Ui_Form()
-        ui.setupUi(form)
 '''
+
+
+class floatingAccord(QtWidgets.QWidget, Ui_Form):
+    def __init__(self):
+        super(floatingAccord, self).__init__()
+        self.setupUi(self)
+
+        '''
+        #  checkbox behavior
+        self.checkBox_Screenshot.stateChanged.connect(self.clickedCheckbox)
+        self.checkBox_Video.stateChanged.connect(self.clickedCheckbox)
+        self.checkBox_Process.stateChanged.connect(self.clickedCheckbox)
+        self.checkBox_Keystroke.stateChanged.connect(self.clickedCheckbox)
+        self.checkBox_Mouse_Action.stateChanged.connect(self.clickedCheckbox)
+        self.checkBox_Window_History.stateChanged.connect(self.clickedCheckbox)
+        self.checkBox_System_Call.stateChanged.connect(self.clickedCheckbox)
+        self.checkBox_Network.stateChanged.connect(self.clickedCheckbox)
+
+    def clickedCheckbox(self):
+        if not self.checkBox_Screenshot.isChecked():
+            self.tableWidget.item(0, 1).setText('Stopped')
+        elif self.checkBox_Screenshot.isChecked():
+            self.tableWidget.item(0, 1).setText('Recording')
+    '''
 
 
 def main():
@@ -377,13 +646,19 @@ def main():
     form = AvertApp()
     form.show()
 
-    Form = QtWidgets.QWidget()
-    form2 = Ui_Form()
-    form2.setupUi(Form)
-    Form.show()
+    #  floating according
+    '''
+    form2 = floatingAccord()
+    form2.show()
+    '''
     app.exec()
-
 
 if __name__ == '__main__':
     main()
     sys.exit()
+'''
+    Form = QtWidgets.QWidget()
+    form2 = Ui_Form()
+    form2.setupUi(Form)
+    Form.show()
+'''

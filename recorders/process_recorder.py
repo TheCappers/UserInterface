@@ -51,7 +51,7 @@ class ProcessRecorder(RecordedData):
             self.__autorecording = True
         self.__listener.start()
 
-    # destroies thread
+    # destroys thread
     def stop(self):
         self.__autorecording = False
 

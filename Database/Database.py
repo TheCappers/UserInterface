@@ -26,8 +26,15 @@ class DataBase:
     def __find(self, target):
         db_list = []
         for data_type in self.db.list_collection_names():
-            for entry in self.db[data_type].find(target):
-                db_list.append(entry)
+            for entry in self.db[data_type].find():
+                for key, value in entry.items():
+                    if type(value) == dict:
+                        if target in value.values():
+                            db_list.append(entry)
+                            #print(entry)
+                    elif target in value:
+                        #print(entry)
+                        db_list.append(entry)
         return db_list
 
     # returns list of everything based on that type.
@@ -135,11 +142,19 @@ class DataBase:
             if post.get('name') == "Network":
                 self.__delete_one(self.network_collection, post)
 
+        if query == "deep_search":
+            return self.__deep_search(target)
+
 
 
 # post_1 = {'_id': '615b8dee3f96615d6166ead6', 'name': 'Mouse_Action', 'Keystroke': 'H', 'Date': '9/11/2021', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': 'David'}
 
 # db = DataBase()
+#
+# root_list = db.query_db("find", "", "polkitd")
+
+# for root in root_list:
+#     print(root)
 
 # insert data to the database
 # db.query_db("post", post_1, "")

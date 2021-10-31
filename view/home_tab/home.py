@@ -80,6 +80,10 @@ class Home:
 		self.search_button.setMaximumSize(QtCore.QSize(150, 16777215))
 		self.search_button.setObjectName("search_button")
 		self.horizontalLayout.addWidget(self.search_button)
+		self.select_button = QtWidgets.QPushButton(self.tagSearch_2)
+		self.select_button.setMaximumSize(QtCore.QSize(150, 16777215))
+		self.select_button.setObjectName("select_button")
+		self.horizontalLayout.addWidget(self.select_button)
 		self.verticalLayout.addWidget(self.tagSearch_2, 0, QtCore.Qt.AlignLeft)
 		self.gridLayout_70.addWidget(self.search_bar, 0, 0, 1, 2)
 		self.frame_21 = QtWidgets.QFrame(self.home_top_view)
@@ -389,6 +393,7 @@ class Home:
 		self.search_tag.setItemText(0, _translate("MainWindow", "Tag"))
 		self.search_tag.setItemText(1, _translate("MainWindow", "Tag"))
 		self.search_button.setText(_translate("MainWindow", "Search"))
+		self.select_button.setText(_translate("MainWindow","Select All"))
 		self.universalRecord.setText(_translate("MainWindow", "Record On"))
 
 
