@@ -31,6 +31,8 @@ class Configuration:
         self.__system_call_on = True
         self.__window_history_on = True
         self.__screenshot_on = True
+        self.__video_on = True
+        self.__network_on = True
         '''
         Here we add the new records values
         '''
@@ -78,6 +80,7 @@ class Configuration:
             self.setSystemCall(True)
             self.setProcess(True)
             self.setWindowHistory(True)
+
             # recorders
         else:
             self.setKeystroke(False)
@@ -87,6 +90,14 @@ class Configuration:
             self.setScreenshot(False)
             self.setWindowHistory(False)
             # recorders
+
+    def setNetwork(self, network_value):
+        self.__network_on = network_value
+        # add the appropriate behavior
+
+    def setVideo(self, video_value):
+        self.__video_on = video_value
+        # add the appropriate behavior
 
     def setKeystroke(self, keystroke_value):
         self.__keystroke_on = keystroke_value
