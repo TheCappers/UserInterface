@@ -102,7 +102,7 @@ class Ui_MainWindow():
         else:
             all_selected.remove(index)
             selected = None
-        self.tab_1.script_accordion.populateTable()
+        self.tab_1.script_accordion.populateTable(all_selected)
 
     def updateTable(self, attain1):
         global attain

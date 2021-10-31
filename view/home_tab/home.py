@@ -365,7 +365,11 @@ class Home:
 		"""Visualization End"""
 
 		"""Script Start"""
-		self.script_accordion = Script_Accordion()
+		script_accordion = Script_Accordion()
+		script_accordion.startAccordion()
+		self.script_accordion = script_accordion
+
+
 		self.toolBox_accordion.addItem(self.script_accordion.get_accordion(), "Script_Accordion")
 		"""Script End"""
 
