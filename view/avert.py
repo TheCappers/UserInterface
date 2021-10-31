@@ -77,14 +77,13 @@ class Ui_MainWindow():
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "AVERT"))
 
         self.menuAVERT.setTitle(_translate("MainWindow", "AVERT"))
 
         """COMMENTING OUT UI MODIFICATION"""
 
     def updateTable(self, attain):
-        self.tab_1.table_result.printwhatv()
         self.tab_1.table_result.populateTable(attain)
         # self.verticalLayout_3.addWidget(table_result.getTable()) si jala
         # print(attain)
@@ -101,8 +100,6 @@ class Ui_MainWindow():
             all_selected.append(index)
             selected = index
             self.changeDetailView(selected)
-						# update script table
-            print(selected) #prints when an item is selected
         else:
             all_selected.remove(index)
             selected = None
@@ -111,10 +108,7 @@ class Ui_MainWindow():
     def updateTable(self, attain1):
         global attain
         attain = attain1
-        # self.tab_1.table_result.printwhatv()
         self.tab_1.table_result.populateTable(attain)
-        # self.verticalLayout_3.addWidget(table_result.getTable()) si jala
-        # print(attain)
 
     def changeDetailView(self, selected):
         _translate = QtCore.QCoreApplication.translate

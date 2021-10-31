@@ -38,6 +38,12 @@ class Controller:
     def processRecording(self, signal):
         self.__config.setProcess(signal)
 
+    def videoRecording(self, signal):
+        return
+
+    def networkRecording(self, signal):
+        return
+
     def storageRecording(self, amount):
         self.__config.setThreshold(amount)
         full = self.__config.storage_alert()

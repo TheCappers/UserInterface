@@ -3,7 +3,8 @@ Will apply logical configuration settings as
 given by the user
 '''
 import shutil
-from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, process_recorder, window_recorder,screenshot_recorder
+from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, process_recorder, window_recorder, \
+    screenshot_recorder
 
 # global recorders
 keyboard = keyboard_recorder.KeyboardRecorder(True)
@@ -86,7 +87,6 @@ class Configuration:
             self.setScreenshot(False)
             self.setWindowHistory(False)
             # recorders
-
 
     def setKeystroke(self, keystroke_value):
         self.__keystroke_on = keystroke_value
