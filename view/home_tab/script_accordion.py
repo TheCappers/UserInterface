@@ -4,7 +4,7 @@ from view.components import result_table, annotation_table, bar_graph
 class Script_Accordion:
 	def __init__(self):
 		self.accordion = ""
-		self.script_item = []
+		self.script_items = []
 
 
 	def startAccordion(self):
@@ -172,42 +172,7 @@ class Script_Accordion:
 		item = QtWidgets.QTableWidgetItem()
 		item.setText(_translate("MainWindow", "Description"))
 		self.table.setHorizontalHeaderItem(6, item)
-		"""item = QtWidgets.QTableWidgetItem()
-		item.setCheckState(QtCore.Qt.Unchecked)
-		self.table.setItem(0, 0, item)
-		item = QtWidgets.QTableWidgetItem()
-		item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
-		self.table.setItem(0, 1, item)
-		item = QtWidgets.QTableWidgetItem()
-		item.setFlags(QtCore.Qt.ItemIsSelectable)
-		self.table.setItem(0, 3, item)
-		item = QtWidgets.QTableWidgetItem()
-		item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
-		self.table.setItem(0, 4, item)"""
-		"""item = QtWidgets.QTableWidgetItem()
-		item.setCheckState(QtCore.Qt.Unchecked)
-		self.table.setItem(1, 0, item)
-		item = QtWidgets.QTableWidgetItem()
-		item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
-		self.table.setItem(1, 1, item)
-		item = QtWidgets.QTableWidgetItem()
-		item.setFlags(QtCore.Qt.ItemIsSelectable)
-		self.table.setItem(1, 3, item)
-		item = QtWidgets.QTableWidgetItem()
-		item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
-		self.table.setItem(1, 4, item)"""
-		"""item = QtWidgets.QTableWidgetItem()
-		item.setCheckState(QtCore.Qt.Unchecked)
-		self.table.setItem(2, 0, item)
-		item = QtWidgets.QTableWidgetItem()
-		item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
-		self.table.setItem(2, 1, item)
-		item = QtWidgets.QTableWidgetItem()
-		item.setFlags(QtCore.Qt.ItemIsSelectable)
-		self.table.setItem(2, 3, item)
-		item = QtWidgets.QTableWidgetItem()
-		item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
-		self.table.setItem(2, 4, item)"""
+
 		self.table.horizontalHeader().setCascadingSectionResizes(True)
 		self.table.horizontalHeader().setDefaultSectionSize(150)
 		self.table.horizontalHeader().setMinimumSectionSize(20)
@@ -295,13 +260,56 @@ class Script_Accordion:
 	def get_accordion(self):
 		return self.accordion
 
-	def populateTable(self, selected_items, selectAll=False):
-		if(selectAll):
-			print("select all was selected")
-			print(selected_items)
-		else:
-			print("nope")
-			print(selected_items)
+
+	def populateTable(self, selected_items):
+		_translate = QtCore.QCoreApplication.translate
+		print("THIS IS populateTable")
+		# print(selected_items)
 		
-		# self.accordion
-		print(selected_items)
+		isChanged = False
+
+		for d in selected_items:
+			if not d in self.script_items:
+				self.script_items.append(d)
+				isChanged = True
+
+		if isChanged:
+			print("SET CHANGED")
+			self.table.setRowCount(len(self.script_items))
+			i = 0
+			for d in self.script_items:
+				item = QtWidgets.QTableWidgetItem()
+				item.setCheckState(QtCore.Qt.Unchecked)
+				self.table.setItem(i, 0, item)
+
+				item = QtWidgets.QTableWidgetItem()
+				#item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
+				item.setText(_translate("MainWindow", 'data'))
+				self.table.setItem(i, 1, item)
+				
+				item = QtWidgets.QTableWidgetItem()
+				#item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
+				item.setText(_translate("MainWindow", d['timestamp']))
+				self.table.setItem(i, 2, item)
+
+				item = QtWidgets.QTableWidgetItem()
+				#item.setFlags(QtCore.Qt.ItemIsSelectable)
+				item.setText(_translate("MainWindow", d['name']))
+				self.table.setItem(i, 3, item)
+
+				item = QtWidgets.QTableWidgetItem()
+				#item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
+				item.setText(_translate("MainWindow", ' '.join(d['tag'])))
+				self.table.setItem(i, 4, item)
+
+				item = QtWidgets.QTableWidgetItem()
+				#item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
+				item.setText(_translate("MainWindow", d['mac_address']))
+				self.table.setItem(i, 5, item)
+
+				item = QtWidgets.QTableWidgetItem()
+				#item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
+				#### What is description???
+				item.setText(_translate("MainWindow", "description?"))
+				self.table.setItem(i, 6, item)
+				i+=1

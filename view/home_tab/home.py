@@ -334,9 +334,9 @@ class Home:
 		self.pushButton_15.setObjectName("pushButton_15")
 		self.horizontalLayout_5.addWidget(self.pushButton_15)
 
-		self.pushButton_16 = QtWidgets.QPushButton(self.frame_14)
-		self.pushButton_16.setObjectName("pushButton_16")
-		self.horizontalLayout_5.addWidget(self.pushButton_16)
+		self.addToScriptButton = QtWidgets.QPushButton(self.frame_14)
+		self.addToScriptButton.setObjectName("addToScriptButton")
+		self.horizontalLayout_5.addWidget(self.addToScriptButton)
 		self.verticalLayout_3.addWidget(self.frame_14, 0, QtCore.Qt.AlignLeft)
 		self.gridLayout_70.addWidget(self.avert_table, 1, 1, 1, 2)
 		self.verticalLayout_4.addWidget(self.home_top_view)
@@ -443,7 +443,7 @@ class Home:
 		self.label_9.setText(_translate("MainWindow", "AVERT RESULT"))
 		self.exportButton.setText(_translate("MainWindow", "Export"))
 		self.pushButton_15.setText(_translate("MainWindow", "Delete"))
-		self.pushButton_16.setText(_translate("MainWindow", "Add Selected to Script Creation"))
+		self.addToScriptButton.setText(_translate("MainWindow", "Add Selected to Script Creation"))
 
 
 		self.toolBox_accordion.setItemText(self.toolBox_accordion.indexOf(self.detailed_view_accordion.get_accordion()),

@@ -1194,7 +1194,7 @@
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="pushButton_16">
+                      <widget class="QPushButton" name="addToScriptButton">
                        <property name="text">
                         <string>Add Selected to Script Creation</string>
                        </property>
