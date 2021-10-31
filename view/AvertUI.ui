@@ -4455,7 +4455,7 @@ border-color: rgb(170, 0, 0);</string>
                <attribute name="label">
                 <string>Script</string>
                </attribute>
-               <layout class="QVBoxLayout" name="verticalLayout_8">
+               <layout class="QVBoxLayout" name="script_verticallayout">
                 <item>
                  <widget class="QTableWidget" name="table_tag_2">
                   <property name="acceptDrops">
@@ -4804,7 +4804,7 @@ border-color: rgb(170, 0, 0);</string>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QFrame" name="frame_13">
+                 <widget class="QFrame" name="script_pushbutton_frame">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -4817,51 +4817,51 @@ border-color: rgb(170, 0, 0);</string>
                   <property name="frameShadow">
                    <enum>QFrame::Raised</enum>
                   </property>
-                  <layout class="QGridLayout" name="gridLayout_35">
+                  <layout class="QGridLayout" name="script_pushbutton_gridlayout">
                    <item row="0" column="0" alignment="Qt::AlignLeft">
-                    <widget class="QPushButton" name="pushButton_7">
+                    <widget class="QPushButton" name="script_moveup_btn">
                      <property name="text">
                       <string>Up</string>
                      </property>
                     </widget>
                    </item>
                    <item row="0" column="1" alignment="Qt::AlignLeft">
-                    <widget class="QPushButton" name="pushButton_8">
+                    <widget class="QPushButton" name="script_movedown_btn">
                      <property name="text">
                       <string>Down</string>
                      </property>
                     </widget>
                    </item>
                    <item row="0" column="2" alignment="Qt::AlignLeft">
-                    <widget class="QPushButton" name="pushButton_9">
+                    <widget class="QPushButton" name="script_remove_btn">
                      <property name="text">
                       <string>Remove</string>
                      </property>
                     </widget>
                    </item>
                    <item row="0" column="3" alignment="Qt::AlignLeft">
-                    <widget class="QPushButton" name="pushButton_11">
+                    <widget class="QPushButton" name="script_generate_btn">
                      <property name="text">
                       <string>Generate</string>
                      </property>
                     </widget>
                    </item>
                    <item row="0" column="4" alignment="Qt::AlignLeft">
-                    <widget class="QPushButton" name="pushButton_10">
+                    <widget class="QPushButton" name="script_export_btn">
                      <property name="text">
                       <string>Export</string>
                      </property>
                     </widget>
                    </item>
                    <item row="0" column="5" alignment="Qt::AlignLeft">
-                    <widget class="QPushButton" name="pushButton_12">
+                    <widget class="QPushButton" name="script_preview_btn">
                      <property name="text">
                       <string>Preview</string>
                      </property>
                     </widget>
                    </item>
                    <item row="1" column="0">
-                    <widget class="QPlainTextEdit" name="plainTextEdit_2">
+                    <widget class="QPlainTextEdit" name="script_moveup_text">
                      <property name="readOnly">
                       <bool>true</bool>
                      </property>
@@ -4874,7 +4874,7 @@ border-color: rgb(170, 0, 0);</string>
                     </widget>
                    </item>
                    <item row="1" column="1">
-                    <widget class="QPlainTextEdit" name="plainTextEdit_3">
+                    <widget class="QPlainTextEdit" name="script_movedown_text">
                      <property name="readOnly">
                       <bool>true</bool>
                      </property>
@@ -4884,7 +4884,7 @@ border-color: rgb(170, 0, 0);</string>
                     </widget>
                    </item>
                    <item row="1" column="2">
-                    <widget class="QPlainTextEdit" name="plainTextEdit_5">
+                    <widget class="QPlainTextEdit" name="script_remove_text">
                      <property name="readOnly">
                       <bool>true</bool>
                      </property>
@@ -4894,7 +4894,7 @@ border-color: rgb(170, 0, 0);</string>
                     </widget>
                    </item>
                    <item row="1" column="3">
-                    <widget class="QPlainTextEdit" name="plainTextEdit_6">
+                    <widget class="QPlainTextEdit" name="script_generate_text">
                      <property name="readOnly">
                       <bool>true</bool>
                      </property>
@@ -4904,7 +4904,7 @@ border-color: rgb(170, 0, 0);</string>
                     </widget>
                    </item>
                    <item row="1" column="4">
-                    <widget class="QPlainTextEdit" name="plainTextEdit_7">
+                    <widget class="QPlainTextEdit" name="script_export_text">
                      <property name="readOnly">
                       <bool>true</bool>
                      </property>
@@ -4914,7 +4914,7 @@ border-color: rgb(170, 0, 0);</string>
                     </widget>
                    </item>
                    <item row="1" column="5">
-                    <widget class="QPlainTextEdit" name="plainTextEdit_4">
+                    <widget class="QPlainTextEdit" name="script_preview_text">
                      <property name="readOnly">
                       <bool>true</bool>
                      </property>
