@@ -483,6 +483,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         else:
             state = QtCore.Qt.Checked
             self.tab_1.select_button.setText("Deselect All")
+            # print("select all pressed")
         for i in range(len(attain)):
             item = self.tab_1.table_result.avert_result_table.item(i, 0)
             item.setCheckState(state)
@@ -530,6 +531,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # print(self.table_tag.itemClicked)
 
     def selectionChange(self, selected, deselected):
+        print("item selected in table")
         global all_selected
 
         for i in selected.indexes():

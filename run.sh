@@ -15,7 +15,6 @@ rm -rf .idea
 sudo apt update
 sudo apt install -y auditd wmctrl scrot python3-tk python3-dev
 
-
 if [ ! -d "venv/" ]
 then
     python3 -m venv venv
