@@ -518,18 +518,16 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         info = info['tag']
 
     def exportPressed(self, index):
-        global selected, attain
+        global selected, attain, all_selected  # set global variables
         index = self.tab_1.table_result.getIndexSelected()
         if index not in all_selected:
-            all_selected.append(index)
+            all_selected.add(index)
             selected = index
-            # print(selected)
-            exporter = attain[selected]
-            control.export(exporter)
+            exporter = attain[selected]  # add the formatted data to exporter
+            control.export(exporter.get('_id'))  # export the selected data using the ID
         else:
             all_selected.remove(index)
             selected = None
-        # print(self.table_tag.itemClicked)
 
     def selectionChange(self, selected, deselected):
         print("item selected in table")
@@ -609,6 +607,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def test(self):
         print(self.sender().objectName())
 
+
 def avertInit():
     s.Popen("sudo auditctl -a always,exit -S read,write,open,close,mmap,pipe,alarm,getpid,fork,exit,chmod,chown,umask",
             shell=True, stdout=s.PIPE, stderr=s.PIPE)
@@ -655,6 +654,7 @@ def main():
     form2.show()
     '''
     app.exec()
+
 
 if __name__ == '__main__':
     main()
