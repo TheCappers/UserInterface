@@ -261,7 +261,12 @@ class Script_Accordion:
 		return self.accordion
 
 
-	def populateTable(self, selected_items):
+	def populateTable(self, selected_items, isAllChecked):
+		if isAllChecked:
+			print("NOT SELECTED ALL")
+			return
+		else:
+			print("SELECT ALL!")
 		_translate = QtCore.QCoreApplication.translate
 		print("THIS IS populateTable")
 		# print(selected_items)
