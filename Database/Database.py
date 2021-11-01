@@ -17,7 +17,6 @@ class DataBase:
         self.video_collection = self.db["video_collection"]
         self.network_collection = self.db["network_collection"]
 
-
     def __insert_post(self, collection, post):
         post.update({"_id": ObjectId().__str__()})
         collection.insert_one(post)
