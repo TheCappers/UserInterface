@@ -41,7 +41,8 @@ class Ui_MainWindow():
         self.tab_1 = Home()
         self.tabWidget.addTab(self.tab_1.get_tab(), "HOME")
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.exportRow)
-        self.tab_1.addToScriptButton.clicked.connect(lambda: self.tab_1.script_accordion.populateTable(np.array(attain)[all_selected]))
+        self.tab_1.addToScriptButton.clicked.connect(lambda: self.tab_1.script_accordion.populateTable(np.array(attain)[all_selected], False))
+        # self.tab_1.addToScriptButton.clicked.connect(self.testtest)
         """tab_1 end"""
 
         """tab_2 start"""

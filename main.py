@@ -5,6 +5,7 @@ import sys
 from controller import controller
 from view.components.description import Description
 import subprocess as s
+import numpy as np
 
 # global values
 control = controller.Controller()
@@ -42,7 +43,8 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.tagDisplay)
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.descriptionDisplay)
         self.tab_1.table_result.avert_result_table.selectionModel().selectionChanged.connect(self.selectionChange)
-
+        self.tab_1.addToScriptButton.clicked.connect(lambda: self.tab_1.script_accordion.populateTable(np.array(attain)[list(all_selected)], pressed))
+        # self.tab_1.addToScriptButton.clicked.connect(self.test)
         # portion for the floating accordion
         self.floating_accordion.checkBox_Screenshot.clicked.connect(self.toggleButtons)
         self.floating_accordion.checkBox_Video.clicked.connect(self.toggleButtons)
@@ -607,7 +609,11 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.updateTable(attain)
 
     def test(self):
-        print(self.sender().objectName())
+      global all_selected
+      global attain
+      print(self.sender().objectName())
+      print(all_selected)
+      # print(attain)
 
 def avertInit():
     s.Popen("sudo auditctl -a always,exit -S read,write,open,close,mmap,pipe,alarm,getpid,fork,exit,chmod,chown,umask",
