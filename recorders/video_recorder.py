@@ -26,6 +26,7 @@ class VideoRecorder(RecordedData):
         self._duration = 5
         self._writer = ''
         self._start_time = 'default'
+        self._video_paused = False
         self.__db = DataBase()
 
         # Setup the listener threads
@@ -38,7 +39,7 @@ class VideoRecorder(RecordedData):
     def on_press(self, key):
         if self._video_started:
             self._duration = 50
-            #self.takeVideo()
+            self.start()
 
     def on_release(self, key):
         if self._video_started:
@@ -49,14 +50,18 @@ class VideoRecorder(RecordedData):
         if self._video_started:
             if pressed:
                 self._duration = 50
+                self.start()
 
     def on_move(self, x, y):
         if self._video_started:
             self._duration = 50
-            #self.takeVideo()
+            #self.start()
 
     def start(self):
         if self._video_started:
+            if self._video_paused:
+                self._video_paused = False
+                self.takeVideo()
             return
 
         print("start video")
@@ -84,6 +89,7 @@ class VideoRecorder(RecordedData):
         #TODO: self.insert_to_db()
         print('stop video recording')
         self._isAutoRecord = False
+        self.insert_to_db()
 
     def takeVideo(self):
         #self.image = ImageGrab.grab()
@@ -97,13 +103,7 @@ class VideoRecorder(RecordedData):
             self._writer.append_data(img)
             self._duration-=1
         print("video paused")
-
-
-'''
-    def viewVideo(self):
-        os.system("xdg-open " + self._video_data['data']['path'])
-        time.sleep(3)
+        self._video_paused = True
 
     def insert_to_db(self):
         self.__db.query_db("post", self._video_data, "")
-'''
