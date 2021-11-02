@@ -17,13 +17,13 @@ class Controller:
         self.__config = configuration.Configuration()
         self.__db = Database.DataBase()
 
-    def universalRecording(self, signal):  # automatically records
+    def universalRecording(self, signal) -> None :  # automatically records
         self.__config.setUniversalOn(signal)
 
-    def mouseActionRecording(self, signal):
+    def mouseActionRecording(self, signal) -> None:
         self.__config.setMouseAction(signal)
 
-    def keyboardRecording(self, signal):
+    def keyboardRecording(self, signal) -> None:
         self.__config.setKeystroke(signal)
 
     def systemCallRecording(self, signal):
@@ -45,14 +45,30 @@ class Controller:
         return
 
     def networkRecording(self, signal):
+        self.__config.setNetwork(signal)
+
+    def systemCallRecording(self, signal) -> None:
+        # update once the recorders are done and added to configuration
         return
 
-    def storageRecording(self, amount):
+    def processRecording(self, signal) -> None:
+        # update once the recorders are done and added to configuration
+        return
+
+    def screenshotRecording(self, signal) -> None:
+        # update once the recorders are done and added to configuration
+        return
+
+    def windowHistoryRecording(self, signal) -> None:
+        # update once the recorders are done and added to configuration
+        return
+
+    def storageRecording(self, amount) -> None:
         self.__config.setThreshold(amount)
         full = self.__config.storage_alert()
         return full  # send to view
 
-    def export(self, item):  # here is where we would use the database to export
+    def export(self, item) -> None:  # here is where we would use the database to export
         desk_top = os.path.join(os.environ["HOME"], "Desktop")
         dd_dir = desk_top + "/Downloads"
         if not os.path.exists(dd_dir):
@@ -91,6 +107,10 @@ class Controller:
 
         if item.lower() == 'Screenshot' or item.lower() == 'screenshot' or item.lower() == 'screenshots':
             data = self.__db.query_db('find', '', 'Screenshot')
+            return data
+
+        if item.lower() == 'network' or item.lower() == 'networks' or item.lower() == 'packets':
+            data = self.__db.query_db('find', '', 'Network')
             return data
 
         else:  # anything else is either a date or other keyword

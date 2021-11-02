@@ -1,10 +1,12 @@
-'''
+"""
 Will apply logical configuration settings as
 given by the user
-'''
+"""
+
+from time import time
 import shutil
-from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, process_recorder, window_recorder, \
-    screenshot_recorder, network_recorder, video_recorder
+from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, process_recorder, screenshot_recorder, \
+    window_recorder, network_recorder, video_recorder
 
 # global recorders
 keyboard = keyboard_recorder.KeyboardRecorder(True)
@@ -72,8 +74,11 @@ class Configuration:
     def getProcessOn(self):
         return self.__process_on
 
-    def setThreshold(self, threshold_value):
-        self.__threshold = threshold_value
+    def getVideoOn(self):
+        return self.__video_on
+
+    def getNetworkOn(self):
+        return self.__network_on
 
     def setUniversalOn(self, universal_value):  # applies default values
         self.__universal_on = universal_value
@@ -171,6 +176,9 @@ class Configuration:
             process.start()
         else:
             process.stop()
+
+    def setThreshold(self, threshold_value):
+        self.__threshold = threshold_value
 
     def manualScreenshot(self, manuel_value):
         return
