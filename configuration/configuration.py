@@ -2,10 +2,10 @@
 Will apply logical configuration settings as
 given by the user
 '''
-import shutil
-from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, process_recorder, window_recorder, \
-    screenshot_recorder, network_recorder
 from time import time
+import shutil
+from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, process_recorder, window_recorder,
+    screenshot_recorder, network_recorder, video_recorder
 
 # global recorders
 keyboard = keyboard_recorder.KeyboardRecorder(True)
@@ -16,6 +16,7 @@ window_history = window_recorder.WindowRecorder()
 process = process_recorder.ProcessRecorder()
 screenshot = screenshot_recorder.ScreenshotRecorder()
 network = network_recorder.NetworkRecorder()
+video = video_recorder.VideoRecorder()
 process.start()
 
 
@@ -61,7 +62,10 @@ class Configuration:
         return self.__system_call_on
 
     def getScreenshotOn(self):
-        return
+        return self.__screenshot_on
+
+    def getVideoOn(self):
+        return self.__video_on
 
     def getWindowHistory(self):
         return self.__window_history_on
@@ -82,6 +86,7 @@ class Configuration:
             self.setKeystroke(True)
             self.setMouseAction(True)
             self.setScreenshot(True)
+            self.setVideo(True)
             self.setSystemCall(True)
             self.setProcess(True)
             self.setWindowHistory(True)
@@ -94,6 +99,7 @@ class Configuration:
             self.setSystemCall(False)
             self.setMouseAction(False)
             self.setScreenshot(False)
+            self.setVideo(False)
             self.setWindowHistory(False)
             self.setNetwork(False)
             # recorders
@@ -143,6 +149,16 @@ class Configuration:
             screenshot.start()
         else:
             screenshot.stop()
+
+    def setVideo(self, video_value):
+        self.__video_on = video_value
+        # controlling the recording tool
+        # system_call.willRecord = sys_call_value
+        if video_value:
+            video.start()
+        else:
+            video.stop()
+
 
     def setWindowHistory(self, window_history_value):
         self.__window_history_on = window_history_value
