@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 class DescriptionNetwork:
-    def __init__(self) -> None:
+    def __init__(self, selected) -> None:
         self.descriptionnetwork_tab = QtWidgets.QWidget()
         self.descriptionnetwork_tab.setObjectName("descriptionnetwork_tab")
         self.gridLayout_33 = QtWidgets.QGridLayout(
