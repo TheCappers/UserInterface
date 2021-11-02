@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 class DescriptionVideo:
-    def __init__(self) -> None:
+    def __init__(self, selected) -> None:
         self.descriptionvideo_tab = QtWidgets.QWidget()
         self.descriptionvideo_tab.setFocusPolicy(QtCore.Qt.ClickFocus)
         self.descriptionvideo_tab.setObjectName("descriptionvideo_tab")
@@ -140,16 +140,16 @@ class DescriptionVideo:
                 "<html><head/><body><p><img src=\":/pics_for_detailedview/video_detailedview.png\"/></p></body></html>"))
         self.descriptionvideo_timestamp_label.setText(
             _translate("MainWindow", "Timestamp:"))
-        self.label_41.setText(_translate("MainWindow", "10-6-26 02:31:29"))
+        self.label_41.setText(_translate("MainWindow", selected['timestamp']))
         self.descriptionvideo_timestamp_label_2.setText(
             _translate("MainWindow", "Video Size:"))
-        self.label_42.setText(_translate("MainWindow", "60MB"))
+        self.label_42.setText(_translate("MainWindow", selected['data']['size']))
         self.descriptionvideo_timestamp_label_3.setText(
             _translate("MainWindow", "Video Resolution:"))
-        self.label_43.setText(_translate("MainWindow", "1260 x 680"))
+        self.label_43.setText(_translate("MainWindow", selected['data']['dimensions']))
         self.descriptionvideo_timestamp_label_4.setText(
             _translate("MainWindow", "Video Frame Rate:"))
-        self.label_44.setText(_translate("MainWindow", "24fps"))
+        self.label_44.setText(_translate("MainWindow", selected['data']['framerate']))
 
     def get_tab(self):
         return self.descriptionvideo_tab

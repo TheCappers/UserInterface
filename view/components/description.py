@@ -60,5 +60,9 @@ class Description:
             tab_1 = DescriptionNetwork(selected)
             name = 'Network'
 
+        elif selected['name'] == 'Video':
+            tab_1 = DescriptionVideo(selected)
+            name = 'Video'
+
         if tab_1:
             self.description_tab.addTab(tab_1.get_tab(), name)
