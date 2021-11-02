@@ -1,11 +1,12 @@
-'''
+"""
 Will apply logical configuration settings as
 given by the user
-'''
+"""
+
 from time import time
 import shutil
-from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, process_recorder, window_recorder,
-    screenshot_recorder, network_recorder, video_recorder
+from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, process_recorder, screenshot_recorder, \
+    window_recorder, network_recorder, video_recorder
 
 # global recorders
 keyboard = keyboard_recorder.KeyboardRecorder(True)
