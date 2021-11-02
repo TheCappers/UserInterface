@@ -3,7 +3,8 @@ Will apply logical configuration settings as
 given by the user
 '''
 import shutil
-from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, process_recorder, window_recorder, screenshot_recorder, video_recorder
+from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, process_recorder, window_recorder, \
+    screenshot_recorder, network_recorder, video_recorder
 
 # global recorders
 keyboard = keyboard_recorder.KeyboardRecorder(True)
@@ -13,6 +14,7 @@ system_call.systemcallrecorder_start()
 window_history = window_recorder.WindowRecorder()
 process = process_recorder.ProcessRecorder()
 screenshot = screenshot_recorder.ScreenshotRecorder()
+network = network_recorder.NetworkRecorder()
 video = video_recorder.VideoRecorder()
 process.start()
 
@@ -32,6 +34,7 @@ class Configuration:
         self.__window_history_on = True
         self.__screenshot_on = True
         self.__video_on = True
+        self.__network_on = True
         '''
         Here we add the new records values
         '''
@@ -83,6 +86,8 @@ class Configuration:
             self.setSystemCall(True)
             self.setProcess(True)
             self.setWindowHistory(True)
+            self.setNetwork(True)
+
             # recorders
         else:
             self.setKeystroke(False)
@@ -92,7 +97,19 @@ class Configuration:
             self.setScreenshot(False)
             self.setVideo(False)
             self.setWindowHistory(False)
+            self.setNetwork(False)
             # recorders
+
+    def setNetwork(self, network_value):
+        self.__network_on = network_value
+        if network_value:
+            network.start()
+        else:
+            network.stop()
+
+    def setVideo(self, video_value):
+        self.__video_on = video_value
+        # add the appropriate behavior
 
     def setKeystroke(self, keystroke_value):
         self.__keystroke_on = keystroke_value

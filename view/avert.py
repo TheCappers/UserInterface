@@ -13,6 +13,7 @@ from view.components import annotation_table
 from view.home_tab.home import Home
 from view.configuration_tab.configuration import Configuration
 from view.sync_tab.sync import Sync
+import numpy as np
 
 table_result = None
 all_selected = []
@@ -40,6 +41,8 @@ class Ui_MainWindow():
         self.tab_1 = Home()
         self.tabWidget.addTab(self.tab_1.get_tab(), "HOME")
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.exportRow)
+        self.tab_1.addToScriptButton.clicked.connect(lambda: self.tab_1.script_accordion.populateTable(np.array(attain)[all_selected], False))
+        # self.tab_1.addToScriptButton.clicked.connect(self.testtest)
         """tab_1 end"""
 
         """tab_2 start"""
@@ -91,7 +94,9 @@ class Ui_MainWindow():
         return table_result
 
     def exportRow(self, index):
+        # print("THIS IS exportRow")
         global selected
+        global attain
         if index not in all_selected:
             all_selected.append(index)
             selected = index
@@ -99,6 +104,7 @@ class Ui_MainWindow():
         else:
             all_selected.remove(index)
             selected = None
+        # self.tab_1.script_accordion.populateTable(all_selected)
 
     def updateTable(self, attain1):
         global attain

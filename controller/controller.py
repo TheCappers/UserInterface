@@ -65,41 +65,41 @@ class Controller:
                 file.write(str(entry))
 
     def view(self, item):  # here is where we would connect to database to view an item in avert
-        print(item)
         if item == '' or item.lower() == 'all':  # gets the 'name' collection
             data = self.__db.query_db('all', '', '')
-            print(True, ': All')
             return data
 
         if item.lower() == 'keystrokes' or item.lower() == 'keystroke':
-            data = self.__db.query_db('get_type', '', 'Keystroke')
-            print(True, ': keystroke')
+            data = self.__db.query_db('find', '', 'Keystroke')
             return data
 
         if item.lower() == 'Mouse Action' or item.lower() == 'mouse' or item.lower() == 'mouse action':
-            data = self.__db.query_db('get_type', '', 'Mouse_Action')
-            print(True, ': Mouse Action')
+            data = self.__db.query_db('find', '', 'Mouse_Action')
             return data
 
         if item.lower() == 'process' or item.lower() == 'processes':
-            data = self.__db.query_db('get_type', '', 'Process')
-            print(True, ': process')
+            data = self.__db.query_db('find', '', 'Process')
             return data
 
         if item.lower() == 'Window History' or item.lower() == 'window history':
-            data = self.__db.query_db('get_type', '', 'Window_History')
-            print(True, ': Window History')
+            data = self.__db.query_db('find', '', 'Window_History')
             return data
 
         if item.lower() == 'System Call' or item.lower() == 'system call':
-            data = self.__db.query_db('get_type', '', 'System_Call')
-            print(True, ': System Call')
+            data = self.__db.query_db('find', '', 'System_Call')
             return data
 
         if item.lower() == 'Screenshot' or item.lower() == 'screenshot' or item.lower() == 'screenshots':
-            data = self.__db.query_db('get_type', '', 'Screenshot')
-            print(True, ': Screen shot')
+            data = self.__db.query_db('find', '', 'Screenshot')
             return data
+
+        else:  # anything else is either a date or other keyword
+            data = self.__db.query_db('find', '', item)
+            return data
+
+    def creation_script(self, selected):
+        return
+        # create the script with the given information
 
     # assume that the return given by y
     def annotationAdd(self, annotation, item):  # here we update the item in the DB with an annotation
