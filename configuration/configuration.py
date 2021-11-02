@@ -4,7 +4,7 @@ given by the user
 '''
 import shutil
 from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, process_recorder, window_recorder, \
-    screenshot_recorder
+    screenshot_recorder, network_recorder
 
 # global recorders
 keyboard = keyboard_recorder.KeyboardRecorder(True)
@@ -14,6 +14,7 @@ system_call.systemcallrecorder_start()
 window_history = window_recorder.WindowRecorder()
 process = process_recorder.ProcessRecorder()
 screenshot = screenshot_recorder.ScreenshotRecorder()
+network = network_recorder.NetworkRecorder()
 process.start()
 
 
@@ -80,6 +81,7 @@ class Configuration:
             self.setSystemCall(True)
             self.setProcess(True)
             self.setWindowHistory(True)
+            self.setNetwork(True)
 
             # recorders
         else:
@@ -89,11 +91,15 @@ class Configuration:
             self.setMouseAction(False)
             self.setScreenshot(False)
             self.setWindowHistory(False)
+            self.setNetwork(False)
             # recorders
 
     def setNetwork(self, network_value):
         self.__network_on = network_value
-        # add the appropriate behavior
+        if network_value:
+            network.start()
+        else:
+            network.stop()
 
     def setVideo(self, video_value):
         self.__video_on = video_value
