@@ -613,12 +613,11 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.updateTable(attain)
 
     def test(self):
-        global all_selected
-        global attain
-        print(self.sender().objectName())
-        print(all_selected)
-        # print(attain)
-
+      global all_selected
+      global attain
+      print(self.sender().objectName())
+      print(all_selected)
+      # print(attain)
 
 def avertInit():
     s.Popen("sudo auditctl -a always,exit -S read,write,open,close,mmap,pipe,alarm,getpid,fork,exit,chmod,chown,umask",
