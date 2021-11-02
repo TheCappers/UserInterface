@@ -20,7 +20,7 @@ class VideoRecorder(RecordedData):
         self.isAutoRecord = True
         self._video_data = self.get_recorded_data()
         self._video_data['name'] = "Video"
-        self._video_data['data'] = {'path': "", 'size': "", 'resolution': "", 'frame_rate': ""}
+        self._video_data['data'] = {'path': "", 'size': "", 'dimensions': "", 'framerate': ""}
         self._video_started = False
         self._frame_rate = 15
         self._duration = 5
@@ -80,6 +80,9 @@ class VideoRecorder(RecordedData):
         print("vidoe stopped")
         self._video_started = False
         self._writer.close()
+        self._video_data['data']['size'] = os.stat(self._video_data['data']['path']).st_size
+        self._video_data['data']['framerate'] = self._frame_rate
+        self._video_data['data']['description'] = "1900x1200"
         #self.image.save(self._video_data['data']['path'])
         #file_size = os.path.getsize(self._video_data['data']['path'])
         #file_type = os.path.splitext(self._video_data['data']['path'])[-1]
