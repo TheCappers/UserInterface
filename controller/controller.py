@@ -42,7 +42,7 @@ class Controller:
         return
 
     def networkRecording(self, signal):
-        return
+        self.__config.setNetwork(signal)
 
     def storageRecording(self, amount):
         self.__config.setThreshold(amount)
@@ -88,6 +88,10 @@ class Controller:
 
         if item.lower() == 'Screenshot' or item.lower() == 'screenshot' or item.lower() == 'screenshots':
             data = self.__db.query_db('find', '', 'Screenshot')
+            return data
+
+        if item.lower() == 'network' or tem.lower() == 'networks' or tem.lower() == 'packets':
+            data = self.__db.query_db('find', '', 'Network')
             return data
 
         else:  # anything else is either a date or other keyword
