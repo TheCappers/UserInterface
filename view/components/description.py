@@ -56,5 +56,9 @@ class Description:
             tab_1 = DescriptionHistory(selected)
             name = 'Window History'
 
+        elif selected['name'] == 'Network':
+            tab_1 = DescriptionNetwork(selected)
+            name = 'Network'
+
         if tab_1:
             self.description_tab.addTab(tab_1.get_tab(), name)

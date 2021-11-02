@@ -4,7 +4,8 @@ given by the user
 '''
 import shutil
 from recorders import keyboard_recorder, mouse_recorder, systemcall_recorder, process_recorder, window_recorder, \
-    screenshot_recorder
+    screenshot_recorder, network_recorder
+from time import time
 
 # global recorders
 keyboard = keyboard_recorder.KeyboardRecorder(True)
@@ -14,6 +15,7 @@ system_call.systemcallrecorder_start()
 window_history = window_recorder.WindowRecorder()
 process = process_recorder.ProcessRecorder()
 screenshot = screenshot_recorder.ScreenshotRecorder()
+network = network_recorder.NetworkRecorder()
 process.start()
 
 
@@ -67,8 +69,11 @@ class Configuration:
     def getProcessOn(self):
         return self.__process_on
 
-    def setThreshold(self, threshold_value):
-        self.__threshold = threshold_value
+    def getVideoOn(self):
+        return self.__video_on
+
+    def getNetworkOn(self):
+        return self.__network_on
 
     def setUniversalOn(self, universal_value):  # applies default values
         self.__universal_on = universal_value
@@ -80,6 +85,7 @@ class Configuration:
             self.setSystemCall(True)
             self.setProcess(True)
             self.setWindowHistory(True)
+            self.setNetwork(True)
 
             # recorders
         else:
@@ -89,11 +95,15 @@ class Configuration:
             self.setMouseAction(False)
             self.setScreenshot(False)
             self.setWindowHistory(False)
+            self.setNetwork(False)
             # recorders
 
     def setNetwork(self, network_value):
         self.__network_on = network_value
-        # add the appropriate behavior
+        if network_value:
+            network.start()
+        else:
+            network.stop()
 
     def setVideo(self, video_value):
         self.__video_on = video_value
@@ -149,6 +159,9 @@ class Configuration:
             process.start()
         else:
             process.stop()
+
+    def setThreshold(self, threshold_value):
+        self.__threshold = threshold_value
 
     def manualScreenshot(self, manuel_value):
         return

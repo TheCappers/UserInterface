@@ -43,7 +43,8 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.tagDisplay)
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.descriptionDisplay)
         self.tab_1.table_result.avert_result_table.selectionModel().selectionChanged.connect(self.selectionChange)
-        self.tab_1.addToScriptButton.clicked.connect(lambda: self.tab_1.script_accordion.populateTable(np.array(attain)[list(all_selected)], pressed))
+        self.tab_1.addToScriptButton.clicked.connect(
+            lambda: self.tab_1.script_accordion.populateTable(np.array(attain)[list(all_selected)], pressed))
         # self.tab_1.addToScriptButton.clicked.connect(self.test)
         # portion for the floating accordion
         self.floating_accordion.checkBox_Screenshot.clicked.connect(self.toggleButtons)
@@ -520,18 +521,16 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         info = info['tag']
 
     def exportPressed(self, index):
-        global selected, attain
+        global selected, attain, all_selected  # set global variables
         index = self.tab_1.table_result.getIndexSelected()
         if index not in all_selected:
-            all_selected.append(index)
+            all_selected.add(index)
             selected = index
-            # print(selected)
-            exporter = attain[selected]
-            control.export(exporter)
+            exporter = attain[selected]  # add the formatted data to exporter
+            control.export(exporter.get('_id'))  # export the selected data using the ID
         else:
             all_selected.remove(index)
             selected = None
-        # print(self.table_tag.itemClicked)
 
     def selectionChange(self, selected, deselected):
         print("item selected in table")
@@ -598,6 +597,11 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             filters_checked[6] = 'Window History'
         elif not self.tab_1.checkBox_windowHistory.isChecked():
             filters_checked[6] = 0
+
+        if self.tab_1.checkBox_network.isChecked():
+            filters_checked[7] = 'Network'
+        elif not self.tab_1.checkBox_network.isChecked():
+            filters_checked[7] = 0
         '''
         ALL OTHER ARTIFACTS FOLLOW THIS PATTERN
 
@@ -630,24 +634,6 @@ class floatingAccord(QtWidgets.QWidget, Ui_Form):
         super(floatingAccord, self).__init__()
         self.setupUi(self)
 
-        '''
-        #  checkbox behavior
-        self.checkBox_Screenshot.stateChanged.connect(self.clickedCheckbox)
-        self.checkBox_Video.stateChanged.connect(self.clickedCheckbox)
-        self.checkBox_Process.stateChanged.connect(self.clickedCheckbox)
-        self.checkBox_Keystroke.stateChanged.connect(self.clickedCheckbox)
-        self.checkBox_Mouse_Action.stateChanged.connect(self.clickedCheckbox)
-        self.checkBox_Window_History.stateChanged.connect(self.clickedCheckbox)
-        self.checkBox_System_Call.stateChanged.connect(self.clickedCheckbox)
-        self.checkBox_Network.stateChanged.connect(self.clickedCheckbox)
-
-    def clickedCheckbox(self):
-        if not self.checkBox_Screenshot.isChecked():
-            self.tableWidget.item(0, 1).setText('Stopped')
-        elif self.checkBox_Screenshot.isChecked():
-            self.tableWidget.item(0, 1).setText('Recording')
-    '''
-
 
 def main():
     avertInit()
@@ -661,6 +647,7 @@ def main():
     form2.show()
     '''
     app.exec()
+
 
 if __name__ == '__main__':
     main()
