@@ -12,3 +12,4 @@ Pillow==8.4.0
 PyAutoGUI==0.9.53
 imageio==2.10.1
 imageio-ffmpeg==0.4.5
+mplayer.py==0.7.2

@@ -1,7 +1,9 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
+import os
 
 class DescriptionVideo:
     def __init__(self, selected) -> None:
+        self.selected = selected
         self.descriptionvideo_tab = QtWidgets.QWidget()
         self.descriptionvideo_tab.setFocusPolicy(QtCore.Qt.ClickFocus)
         self.descriptionvideo_tab.setObjectName("descriptionvideo_tab")
@@ -20,17 +22,10 @@ class DescriptionVideo:
         self.gridLayout_28 = QtWidgets.QGridLayout(
             self.descriptionvideo_frame)
         self.gridLayout_28.setObjectName("gridLayout_28")
-        self.label_88 = QtWidgets.QLabel(self.descriptionvideo_frame)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Maximum,
-            QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(3)
-        sizePolicy.setVerticalStretch(4)
-        sizePolicy.setHeightForWidth(
-            self.label_88.sizePolicy().hasHeightForWidth())
-        self.label_88.setSizePolicy(sizePolicy)
-        self.label_88.setObjectName("label_88")
-        self.gridLayout_28.addWidget(self.label_88, 0, 0, 1, 1)
+        self.video_btn = QtWidgets.QPushButton(self.descriptionvideo_frame)
+        self.video_btn.setText("View Video")
+        self.video_btn.clicked.connect(lambda: self.open_video(selected))
+        self.gridLayout_28.addWidget(self.video_btn, 0, 0, 1, 1)
         self.gridLayout_26.addWidget(
             self.descriptionvideo_frame, 0, 0, 1, 1)
         self.descriptionvideo_info = QtWidgets.QFrame(
@@ -134,22 +129,23 @@ class DescriptionVideo:
             self.descriptionvideo_info, 0, 1, 1, 1)
 
         _translate = QtCore.QCoreApplication.translate
-        self.label_88.setText(
-            _translate(
-                "MainWindow",
-                "<html><head/><body><p><img src=\":/pics_for_detailedview/video_detailedview.png\"/></p></body></html>"))
         self.descriptionvideo_timestamp_label.setText(
             _translate("MainWindow", "Timestamp:"))
         self.label_41.setText(_translate("MainWindow", selected['timestamp']))
         self.descriptionvideo_timestamp_label_2.setText(
             _translate("MainWindow", "Video Size:"))
-        self.label_42.setText(_translate("MainWindow", selected['data']['size']))
+        self.label_42.setText(_translate("MainWindow", str(selected['data']['size'])))
         self.descriptionvideo_timestamp_label_3.setText(
             _translate("MainWindow", "Video Resolution:"))
         self.label_43.setText(_translate("MainWindow", selected['data']['dimensions']))
         self.descriptionvideo_timestamp_label_4.setText(
             _translate("MainWindow", "Video Frame Rate:"))
-        self.label_44.setText(_translate("MainWindow", selected['data']['framerate']))
+        self.label_44.setText(_translate("MainWindow", str(selected['data']['framerate'])))
+
+
+    def open_video(self, selected): 
+        if selected['data']['path']:
+            os.system('mplayer -geometry 50%:50% -xy 800 ./' + selected['data']['path'])
 
     def get_tab(self):
         return self.descriptionvideo_tab
