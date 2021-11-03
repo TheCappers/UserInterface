@@ -21,7 +21,8 @@ class ScriptMaker:
         #print("MOUSE ACTIONS")
 
         coordinates = item.get("data").get("position")
-        mouse_movement_string = "pyautogui.moveTo("+coordinates[0]+","+coordinates[1]+", 2)"
+        print(coordinates)
+        mouse_movement_string = "pyautogui.moveTo("+str(coordinates[0])+","+str(coordinates[1])+", 2)\nsleep(0.1)\n"
 
         return mouse_movement_string
 
@@ -47,7 +48,11 @@ class ScriptMaker:
         file.close()
 
 #
-# items_list = [
+# items_list = [{ '_id': '617f39e3acf707ca9b53b4f9', 'ip_address': '127.0.1.1', 'mac_address': '00:0C:29:F0:6B:3F',
+#                 'timestamp': '18:50:42 10/31/2021', 'name': 'Mouse_Action', 'data': { 'position': [ 1967, 144 ],
+#                 'clicked': 'false', 'scroll': 0, 'button': '' }, 'tag': [], 'annotation': []}
+#               ]
+
 #             {'_id': '617f3a09acf707ca9b53e24b', 'ip_address': '127.0.1.1', 'mac_address': '00:0C:29:F0:6B:3F', 'timestamp': '18:50:42 10/31/2021', 'name': 'Keystroke', 'data': 'H', 'tag': [], 'annotation': []},
 #             {'_id': '617f3a09acf707ca9b53e278', 'ip_address': '127.0.1.1', 'mac_address': '00:0C:29:F0:6B:3F', 'timestamp': '18:50:42 10/31/2021', 'name': 'Keystroke', 'data': 'E', 'tag': [], 'annotation': []},
 #             {'_id': '617f3a0aacf707ca9b53e288', 'ip_address': '127.0.1.1', 'mac_address': '00:0C:29:F0:6B:3F', 'timestamp': '18:50:42 10/31/2021', 'name': 'Keystroke', 'data': 'L', 'tag': [], 'annotation': []},
