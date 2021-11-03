@@ -47,6 +47,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.table_result.avert_result_table.horizontalHeader().sectionClicked.connect(self.horizontalHeaderSort)
         self.tab_1.addToScriptButton.clicked.connect(
             lambda: self.tab_1.script_accordion.populateTable(np.array(attain)[list(all_selected)], pressed))
+        self.tab_1.script_accordion.generate_btn.clicked.connect(lambda: control.creation_script(self.tab_1.script_accordion.getScriptItems()))
         # self.tab_1.addToScriptButton.clicked.connect(self.test)
         # portion for the floating accordion
         self.floating_accordion.checkBox_Screenshot.clicked.connect(self.toggleButtons)
@@ -629,10 +630,11 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.updateTable(attain)
 
     def test(self):
-      global all_selected
-      global attain
-      print(self.sender().objectName())
-      print(all_selected)
+      print("testing message")
+      # global all_selected
+      # global attain
+      # print(self.sender().objectName())
+      # print(all_selected)
       # print(attain)
 
 def avertInit():

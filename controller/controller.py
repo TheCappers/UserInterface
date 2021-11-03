@@ -140,6 +140,8 @@ class Controller:
             return data
 
     def creation_script(self, selected):
+        # print("create script")
+        # print(selected)
         return
         # create the script with the given information
 
