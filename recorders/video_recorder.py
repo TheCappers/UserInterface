@@ -4,8 +4,6 @@ import imageio
 
 import numpy as np
 import os
-import sys
-import time
 from PIL import ImageGrab
 from PIL import Image
 
@@ -82,7 +80,8 @@ class VideoRecorder(RecordedData):
         self._video_data['data']['size'] = os.stat(self._video_data['data']['path']).st_size
         self._video_data['data']['framerate'] = self._frame_rate
         self._video_data['data']['dimensions'] = "1900x1200"
-        #  print('stop video recording')
+        print('stop video recording')
+
         self._isAutoRecord = False
         self.insert_to_db()
 

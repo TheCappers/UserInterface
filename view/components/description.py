@@ -22,7 +22,6 @@ class Description:
         self.description_tab.setAutoFillBackground(False)
         self.description_tab.setUsesScrollButtons(False)
         self.description_tab.setObjectName("description_tab")
-
         self.gridLayout_24.addWidget(self.description_tab, 0, 0, 1, 1)
 
     def get_tab(self):
@@ -59,6 +58,10 @@ class Description:
         elif selected['name'] == 'Network':
             tab_1 = DescriptionNetwork(selected)
             name = 'Network'
+
+        elif selected['name'] == 'Video':
+            tab_1 = DescriptionVideo(selected)
+            name = 'Video'
 
         if tab_1:
             self.description_tab.addTab(tab_1.get_tab(), name)
