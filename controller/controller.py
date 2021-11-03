@@ -1,5 +1,7 @@
 from configuration import configuration
 from Database import Database
+from Script import script_maker
+
 import os
 
 '''
@@ -16,6 +18,7 @@ class Controller:
     def __init__(self):
         self.__config = configuration.Configuration()
         self.__db = Database.DataBase()
+        self.__script_gen = script_maker.ScriptMaker()
 
     def universalRecording(self, signal) -> None :  # automatically records
         self.__config.setUniversalOn(signal)
@@ -139,11 +142,9 @@ class Controller:
             data = self.__db.query_db('get_type', '', 'Video')
             return data
 
-    def creation_script(self, selected):
-        # print("create script")
-        # print(selected)
-        return
-        # create the script with the given information
+    def creation_script(self, script_items):
+        print(script_items)
+        self.__script_gen.script(script_items)  # creation of the script
 
     # assume that the return given by y
     def annotationAdd(self, annotation, item):  # here we update the item in the DB with an annotation

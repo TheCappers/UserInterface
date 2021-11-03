@@ -2,8 +2,8 @@
 # from Database.Database import DataBase
 import os
 
-class ScriptMaker:
 
+class ScriptMaker:
     def __init__(self):
         # sample
         self.items_list = []
@@ -38,7 +38,7 @@ class ScriptMaker:
             file.write("\n")
 
             for item in items_list:
-                #print(item.get("name"))
+                # print(item.get("name"))
                 if item.get('name') == "Keystroke":
                     file.write(self.__keystroke(item))
 
