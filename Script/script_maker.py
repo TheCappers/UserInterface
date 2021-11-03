@@ -18,12 +18,12 @@ class ScriptMaker:
 
     # data: { position: [ 1967, 144 ], clicked: false, scroll: 0, button: '' },
     def __mouse_action(self, item):
-        print("MOUSE ACTIONS")
-        #
-        # coordinates = item.get("data").get("position")
-        # mouse_movement_string = "pyautogui.moveTo("+coordinates[0]+","+coordinates[1]+")"
-        #
-        # return mouse_movement_string
+        #print("MOUSE ACTIONS")
+
+        coordinates = item.get("data").get("position")
+        mouse_movement_string = "pyautogui.moveTo("+coordinates[0]+","+coordinates[1]+", 2)"
+
+        return mouse_movement_string
 
     def script(self, items_list):
         file_name = "demo_script_1.py"
