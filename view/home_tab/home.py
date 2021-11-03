@@ -6,6 +6,7 @@ from view.home_tab.script_accordion import Script_Accordion
 from view.home_tab.history_accordion import History_Accordion
 from view.home_tab.log_accordion import Log_Accordion
 
+
 class Home:
 	def __init__(self):
 		self.tab_1 = QtWidgets.QWidget()
@@ -99,7 +100,6 @@ class Home:
 		self.gridLayout_3.addWidget(self.universalRecord, 0, 0, 1, 1)
 		self.gridLayout_70.addWidget(self.frame_21, 0, 2, 1, 1, QtCore.Qt.AlignRight | QtCore.Qt.AlignBottom)
 
-
 		""" FILTER START """
 
 		self.search_filters = QtWidgets.QFrame(self.home_top_view)
@@ -159,7 +159,6 @@ class Home:
 		self.label_value_type = QtWidgets.QLabel(self.search_filters)
 		self.label_value_type.setObjectName("label_2")
 		self.gridLayout_2.addWidget(self.label_value_type, 4, 1, 1, 1)
-
 
 		"""  FILTER CHECKBOXES    """
 
@@ -353,7 +352,6 @@ class Home:
 		self.toolBox_accordion.setFrameShape(QtWidgets.QFrame.NoFrame)
 		self.toolBox_accordion.setObjectName("toolBox_accordion")
 
-
 		""" DetailedViewAccordion Start """
 		self.detailed_view_accordion = DetailedView()
 		self.toolBox_accordion.addItem(self.detailed_view_accordion.get_accordion(), "Detailed_View_Accordion")
@@ -369,7 +367,6 @@ class Home:
 		script_accordion.startAccordion()
 		self.script_accordion = script_accordion
 
-
 		self.toolBox_accordion.addItem(self.script_accordion.get_accordion(), "Script_Accordion")
 		"""Script End"""
 
@@ -377,7 +374,6 @@ class Home:
 		self.history_accordion = History_Accordion()
 		self.toolBox_accordion.addItem(self.history_accordion.get_accordion(), "History_Accordion")
 		"""History End"""
-
 
 		""" Log Start """
 		self.log_accordion = Log_Accordion()
@@ -390,16 +386,14 @@ class Home:
 
 		_translate = QtCore.QCoreApplication.translate
 
-
 		self.label_10.setText(_translate("MainWindow", "Search"))
 		self.search_expression_bar.setPlaceholderText(_translate("MainWindow", "Search Expression"))
 		self.label_8.setText(_translate("MainWindow", "Tag"))
 		self.search_tag.setItemText(0, _translate("MainWindow", "Tag"))
 		self.search_tag.setItemText(1, _translate("MainWindow", "Tag"))
 		self.search_button.setText(_translate("MainWindow", "Search"))
-		self.select_button.setText(_translate("MainWindow","Select All"))
+		self.select_button.setText(_translate("MainWindow", "Select All"))
 		self.universalRecord.setText(_translate("MainWindow", "Record On"))
-
 
 		self.mac_dropdown.setItemText(0, _translate("MainWindow", "7D:93:74:82:7B:71"))
 		self.mac_dropdown.setItemText(1, _translate("MainWindow", "7D:93:74:82:7B:71"))
@@ -414,7 +408,6 @@ class Home:
 		self.label_type.setText(_translate("MainWindow", "Type"))
 		self.label_value_type.setText(_translate("MainWindow", "Value"))
 
-
 		self.label_all_artifacts.setText(_translate("MainWindow", "All Arifact Types"))
 		self.label_screenshot.setText(_translate("MainWindow", "Still Screenshot"))
 		self.label_video.setText(_translate("MainWindow", "Video"))
@@ -427,14 +420,12 @@ class Home:
 		self.label_history.setText(_translate("MainWindow", "History"))
 		self.label_log.setText(_translate("MainWindow", "Log"))
 
-
 		self.label_date_time.setText(_translate("MainWindow", "Date and Time"))
 		self.label_value_date_time.setText(_translate("MainWindow", "Value"))
 		self.label_start_date.setText(_translate("MainWindow", "Start Date"))
 		self.label_start_time.setText(_translate("MainWindow", "Start Time"))
 		self.label_end_date.setText(_translate("MainWindow", "End Date"))
 		self.label_end_time.setText(_translate("MainWindow", "End Time"))
-
 
 		self.ip_dropdown.setItemText(0, _translate("MainWindow", "195.273.25.4"))
 		self.ip_dropdown.setItemText(1, _translate("MainWindow", "195.273.25.4"))
@@ -445,17 +436,20 @@ class Home:
 		self.pushButton_15.setText(_translate("MainWindow", "Delete"))
 		self.addToScriptButton.setText(_translate("MainWindow", "Add Selected to Script Creation"))
 
+		self.toolBox_accordion.setItemText(self.toolBox_accordion.indexOf(
+			self.detailed_view_accordion.get_accordion()), _translate("MainWindow", "Detailed View of Selected Artifact"))
 
-		self.toolBox_accordion.setItemText(self.toolBox_accordion.indexOf(self.detailed_view_accordion.get_accordion()),
-																_translate("MainWindow", "Detailed View of Selected Artifact"))
-		self.toolBox_accordion.setItemText(self.toolBox_accordion.indexOf(self.visualization_accordion.get_accordion()),
-																_translate("MainWindow", "Visualization"))
-		self.toolBox_accordion.setItemText(self.toolBox_accordion.indexOf(self.script_accordion.get_accordion()),
-																_translate("MainWindow", "Script"))
-		self.toolBox_accordion.setItemText(self.toolBox_accordion.indexOf(self.history_accordion.get_accordion()),
-																_translate("MainWindow", "History"))
-		self.toolBox_accordion.setItemText(self.toolBox_accordion.indexOf(self.log_accordion.get_accordion()),
-																_translate("MainWindow", "Log Content"))
+		self.toolBox_accordion.setItemText(self.toolBox_accordion.indexOf(
+			self.visualization_accordion.get_accordion()), _translate("MainWindow", "Visualization"))
+
+		self.toolBox_accordion.setItemText(
+			self.toolBox_accordion.indexOf(self.script_accordion.get_accordion()), _translate("MainWindow", "Script"))
+
+		self.toolBox_accordion.setItemText(self.toolBox_accordion.indexOf(
+			self.history_accordion.get_accordion()), _translate("MainWindow", "History"))
+
+		self.toolBox_accordion.setItemText(self.toolBox_accordion.indexOf(
+			self.log_accordion.get_accordion()), _translate("MainWindow", "Log Content"))
 
 	def get_tab(self):
 		return self.tab_1

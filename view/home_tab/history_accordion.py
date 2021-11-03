@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 from view.components import result_table, annotation_table, bar_graph
 
+
 class History_Accordion:
     def __init__(self):
         self.history_accordion = QtWidgets.QWidget()
