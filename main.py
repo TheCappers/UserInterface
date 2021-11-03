@@ -39,6 +39,8 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.select_button.clicked.connect(self.selectAll)
         # export button being activated
         self.tab_1.exportButton.clicked.connect(self.exportPressed)
+        # Script Preview button being activated
+        self.tab_1.script_accordion.preview_btn.clicked.connect(self.script_preview_btn_pressed)
         # result table cell clicked
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.annotationDisplay)
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.tagDisplay)
@@ -47,7 +49,8 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.table_result.avert_result_table.horizontalHeader().sectionClicked.connect(self.horizontalHeaderSort)
         self.tab_1.addToScriptButton.clicked.connect(
             lambda: self.tab_1.script_accordion.populateTable(np.array(attain)[list(all_selected)], pressed))
-        self.tab_1.script_accordion.generate_btn.clicked.connect(lambda: control.creation_script(self.tab_1.script_accordion.getScriptItems()))
+        self.tab_1.script_accordion.generate_btn.clicked.connect(
+            lambda: control.creation_script(self.tab_1.script_accordion.getScriptItems()))
         # self.tab_1.addToScriptButton.clicked.connect(self.test)
         # portion for the floating accordion
         self.floating_accordion.checkBox_Screenshot.clicked.connect(self.toggleButtons)
@@ -550,6 +553,17 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             all_selected.remove(index)
             selected = None
 
+    def script_preview_btn_pressed(self):
+        file_obj = ""  # Variable to write script to
+
+        # Write to variable the script preview
+        with open("/home/kali/PycharmProjects/UserInterface/view/components/script_example.py", 'r') as file:
+            for line in file:
+                file_obj += line
+
+        # Generate the preview window based on written script
+        QtWidgets.QMessageBox.about(self, 'Script Preview', file_obj)
+
     def selectionChange(self, selected, deselected):
         print("item selected in table")
         global all_selected
@@ -630,12 +644,13 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.updateTable(attain)
 
     def test(self):
-      print("testing message")
-      # global all_selected
-      # global attain
-      # print(self.sender().objectName())
-      # print(all_selected)
-      # print(attain)
+        print("testing message")
+        # global all_selected
+        # global attain
+        # print(self.sender().objectName())
+        # print(all_selected)
+        # print(attain)
+
 
 def avertInit():
     s.Popen("sudo auditctl -a always,exit -S read,write,open,close,mmap,pipe,alarm,getpid,fork,exit,chmod,chown,umask",
