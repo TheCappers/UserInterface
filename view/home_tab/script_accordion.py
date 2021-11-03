@@ -193,3 +193,7 @@ class Script_Accordion:
 				item.setText(_translate("MainWindow", "description?"))
 				self.table.setItem(i, 6, item)
 				i+=1
+
+
+	def getScriptItems(self):
+		return self.script_items
