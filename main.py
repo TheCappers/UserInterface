@@ -38,7 +38,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # select all button
         self.tab_1.select_button.clicked.connect(self.selectAll)
         # export button being activated
-        self.tab_1.exportButton.clicked.connect(self.exportPressed)
+        self.tab_1.exportButton.clicked.connect(self.export_pressed)
         # Script Preview button being activated
         self.tab_1.script_accordion.preview_btn.clicked.connect(self.script_preview_btn_pressed)
         # result table cell clicked
@@ -541,17 +541,11 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         info = attain[index]
         info = info['tag']
 
-    def exportPressed(self, index):
-        global selected, attain, all_selected  # set global variables
-        index = self.tab_1.table_result.getIndexSelected()
-        if index not in all_selected:
-            all_selected.add(index)
-            selected = index
-            exporter = attain[selected]  # add the formatted data to exporter
-            control.export(exporter.get('_id'))  # export the selected data using the ID
-        else:
-            all_selected.remove(index)
-            selected = None
+    def export_pressed(self, index):
+        global attain  # set global variables
+        self.tab_1.table_result.setIndexSelected(index)  # set the index selected
+        exporter = attain[index]  # add the formatted data to exporter
+        control.export(exporter.get('_id'))  # export the selected data using the ID
 
     def script_preview_btn_pressed(self):
         file_obj = ""  # Variable to write script to
