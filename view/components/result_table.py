@@ -16,7 +16,6 @@ class ResultTable:
         self.avert_result_table = avert_result_table
         self.avert_result_table.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.avert_result_table.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
-        # self.avert_result_table.horizontalHeader().sectionClick
         self.avert_result_table.setAlternatingRowColors(True)
         self.avert_result_table.setObjectName("avert_result_table")
         self.avert_result_table.setColumnCount(6)

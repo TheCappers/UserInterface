@@ -6,6 +6,7 @@ from controller import controller
 from view.components.description import Description
 import subprocess as s
 import numpy as np
+import time
 
 # global values
 control = controller.Controller()
@@ -43,6 +44,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.tagDisplay)
         self.tab_1.table_result.avert_result_table.cellClicked.connect(self.descriptionDisplay)
         self.tab_1.table_result.avert_result_table.selectionModel().selectionChanged.connect(self.selectionChange)
+        self.tab_1.table_result.avert_result_table.horizontalHeader().sectionClicked.connect(self.horizontalHeaderSort)
         self.tab_1.addToScriptButton.clicked.connect(
             lambda: self.tab_1.script_accordion.populateTable(np.array(attain)[list(all_selected)], pressed))
         # self.tab_1.addToScriptButton.clicked.connect(self.test)
@@ -494,6 +496,21 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             if not pressed:
                 all_selected.add(i)
 
+    def horizontalHeaderSort(self, index):
+        global attain
+        if index == 1 or index == 5:
+            search_header = 'timestamp'
+        elif index == 2:
+            search_header = 'name'
+        elif index == 3:
+            search_header = 'ip_address'
+        elif index == 4:
+            search_header = 'mac_address'
+
+        self.tab_1.table_result.avert_result_table.clearSelection()
+        attain = sorted(attain, key=lambda d: d[search_header])
+        self.updateTable(attain)
+
     def searchPressed(self):  # once search is pressed we must search the given data
         # attain the the value in the search box
         global attain
@@ -537,13 +554,13 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         global all_selected
 
         for i in selected.indexes():
-            print('Selected Row = {0}, Column = {1}'.format(i.row(), i.column()))
+            # print('Selected Row = {0}, Column = {1}'.format(i.row(), i.column()))
             item = self.tab_1.table_result.avert_result_table.item(i.row(), 0)
             item.setCheckState(QtCore.Qt.Checked)
             all_selected.add(i.row())
             # self.tab_1.table_result.avert_result_table.setItem(i.row(), 0, item)
         for i in deselected.indexes():
-            print('Selected Row = {0}, Column = {1}'.format(i.row(), i.column()))
+            # print('Selected Row = {0}, Column = {1}'.format(i.row(), i.column()))
             item = self.tab_1.table_result.avert_result_table.item(i.row(), 0)
             item.setCheckState(QtCore.Qt.Unchecked)
             if (i.row() in all_selected):
