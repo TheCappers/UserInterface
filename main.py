@@ -572,7 +572,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         result = []
         for i in checked:  # same order as array in clicked checkbox
             if not i == 0:
-                result = result + control.view(i)
+                result = result + control.view_filter(i)
         return result
 
     def clickedCheckbox(self):
@@ -619,13 +619,12 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             filters_checked[7] = 'Network'
         elif not self.tab_1.checkBox_network.isChecked():
             filters_checked[7] = 0
-        '''
-        ALL OTHER ARTIFACTS FOLLOW THIS PATTERN
 
-        if self.tab_1.checkBox_ARTIFACT_NAME.isChecked():
-            attain = control.view('ARTIFACT_NAME')
-            self.updateTable(attain)
-        '''
+        if self.tab_1.checkBox_video.isChecked():
+            filters_checked[8] = 'Video'
+        elif not self.tab_1.checkBox_video.isChecked():
+            filters_checked[8] = 0
+
         attain = self.updateAttain(filters_checked)
         self.updateTable(attain)
 

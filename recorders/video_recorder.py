@@ -44,7 +44,6 @@ class VideoRecorder(RecordedData):
     def on_release(self, key):
         if self._video_started:
             self._duration = 50 #half seconds?
-            #self.takeVideo()
 
     def on_click(self, x, y, button, pressed):
         if self._video_started:
@@ -77,35 +76,24 @@ class VideoRecorder(RecordedData):
     def stop(self):
         if not self._video_started:
             return
-        print("vidoe stopped")
+        #  print("vidoe stopped")
         self._video_started = False
         self._writer.close()
         self._video_data['data']['size'] = os.stat(self._video_data['data']['path']).st_size
         self._video_data['data']['framerate'] = self._frame_rate
-        self._video_data['data']['description'] = "1900x1200"
-        #self.image.save(self._video_data['data']['path'])
-        #file_size = os.path.getsize(self._video_data['data']['path'])
-        #file_type = os.path.splitext(self._video_data['data']['path'])[-1]
-        #self._video_data['data']['size'] = file_size
-
-        #self._video_data['data']['type'] = file_type
-        #TODO: self.insert_to_db()
-        print('stop video recording')
+        self._video_data['data']['dimensions'] = "1900x1200"
+        #  print('stop video recording')
         self._isAutoRecord = False
         self.insert_to_db()
 
     def takeVideo(self):
-        #self.image = ImageGrab.grab()
-
         self._duration = 50
 
         while(self._duration>0):
-        #while(self._duration*selself._durationf._frame_rate > 0):
-            #print(self._duration)
             img = np.array(ImageGrab.grab())
             self._writer.append_data(img)
             self._duration-=1
-        print("video paused")
+        #  print("video paused")
         self._video_paused = True
 
     def insert_to_db(self):
