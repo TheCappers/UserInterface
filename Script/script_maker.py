@@ -1,5 +1,3 @@
-# from recorders.recorded_data import RecordedData
-# from Database.Database import DataBase
 import os
 
 
@@ -18,8 +16,6 @@ class ScriptMaker:
 
     # data: { position: [ 1967, 144 ], clicked: false, scroll: 0, button: '' },
     def __mouse_action(self, item):
-        #print("MOUSE ACTIONS")
-
         coordinates = item.get("data").get("position")
         print(coordinates)
         mouse_movement_string = "pyautogui.moveTo("+str(coordinates[0])+","+str(coordinates[1])+", 2)\nsleep(0.1)\n"
