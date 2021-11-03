@@ -3,7 +3,6 @@ import os
 
 class DescriptionVideo:
     def __init__(self, selected) -> None:
-        self.selected = selected
         self.descriptionvideo_tab = QtWidgets.QWidget()
         self.descriptionvideo_tab.setFocusPolicy(QtCore.Qt.ClickFocus)
         self.descriptionvideo_tab.setObjectName("descriptionvideo_tab")
