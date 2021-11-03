@@ -43,7 +43,7 @@ class ScriptMaker:
                     file.write(self.__keystroke(item))
 
                 if item.get('name') == "Mouse_Action":
-                    self.mouse_action(item)
+                    file.write(self.__mouse_action(item))
         file.close()
 
 #
