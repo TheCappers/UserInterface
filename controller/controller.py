@@ -32,7 +32,7 @@ class Controller:
     def windowHistoryRecording(self, signal):
         self.__config.setWindowHistory(signal)
 
-    def Recording(self, signal):
+    def screenshotRecording(self, signal):
         self.__config.setScreenshot(signal)
 
     def videoRecording(self, signal):
@@ -41,27 +41,8 @@ class Controller:
     def processRecording(self, signal):
         self.__config.setProcess(signal)
 
-    def videoRecording(self, signal):
-        return
-
     def networkRecording(self, signal):
         self.__config.setNetwork(signal)
-
-    def systemCallRecording(self, signal) -> None:
-        # update once the recorders are done and added to configuration
-        return
-
-    def processRecording(self, signal) -> None:
-        # update once the recorders are done and added to configuration
-        return
-
-    def screenshotRecording(self, signal) -> None:
-        # update once the recorders are done and added to configuration
-        return
-
-    def windowHistoryRecording(self, signal) -> None:
-        # update once the recorders are done and added to configuration
-        return
 
     def storageRecording(self, amount) -> None:
         self.__config.setThreshold(amount)
@@ -97,12 +78,12 @@ class Controller:
             data = self.__db.query_db('find', '', 'Process')
             return data
 
-        if item.lower() == 'Window History' or item.lower() == 'window history':
+        if item.lower() == 'Window History' or item.lower() == 'window history' or item.lower() == 'window':
             data = self.__db.query_db('find', '', 'Window_History')
             return data
 
         if item.lower() == 'System Call' or item.lower() == 'system call':
-            data = self.__db.query_db('find', '', 'System_Call')
+            data = self.__db.query_db('find', '', "System_Call")
             return data
 
         if item.lower() == 'Screenshot' or item.lower() == 'screenshot' or item.lower() == 'screenshots':
@@ -113,11 +94,54 @@ class Controller:
             data = self.__db.query_db('find', '', 'Network')
             return data
 
+        if item.lower() == 'video' or item.lower() == 'videos':
+            data = self.__db.query_db('find', '', 'Video')
+            return data
+
         else:  # anything else is either a date or other keyword
             data = self.__db.query_db('find', '', item)
             return data
 
+    def view_filter(self, item):  # here is where we would connect to database to view an item in avert
+        if item == '' or item.lower() == 'all':  # gets the 'name' collection
+            data = self.__db.query_db('all', '', '')
+            return data
+
+        if item.lower() == 'keystrokes' or item.lower() == 'keystroke':
+            data = self.__db.query_db('get_type', '', 'Keystroke')
+            return data
+
+        if item.lower() == 'Mouse Action' or item.lower() == 'mouse' or item.lower() == 'mouse action':
+            data = self.__db.query_db('get_type', '', 'Mouse_Action')
+            return data
+
+        if item.lower() == 'process' or item.lower() == 'processes':
+            data = self.__db.query_db('get_type', '', 'Process')
+            return data
+
+        if item.lower() == 'Window History' or item.lower() == 'window history' or item.lower() == 'window':
+            data = self.__db.query_db('get_type', '', 'Window_History')
+            return data
+
+        if item.lower() == 'System Call' or item.lower() == 'system call':
+            data = self.__db.query_db('get_type', '', "System_Call")
+            return data
+
+        if item.lower() == 'Screenshot' or item.lower() == 'screenshot' or item.lower() == 'screenshots':
+            data = self.__db.query_db('get_type', '', 'Screenshot')
+            return data
+
+        if item.lower() == 'network' or item.lower() == 'networks' or item.lower() == 'packets':
+            data = self.__db.query_db('get_type', '', 'Network')
+            return data
+
+        if item.lower() == 'video' or item.lower() == 'videos':
+            data = self.__db.query_db('get_type', '', 'Video')
+            return data
+
     def creation_script(self, selected):
+        # print("create script")
+        # print(selected)
         return
         # create the script with the given information
 

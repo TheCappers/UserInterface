@@ -21,9 +21,6 @@ video = video_recorder.VideoRecorder()
 process.start()
 
 
-# screenshot =
-
-
 class Configuration:
     def __init__(self):  # configurator constructor
         self.__threshold = 70  # interpret as percent
@@ -92,8 +89,8 @@ class Configuration:
             self.setProcess(True)
             self.setWindowHistory(True)
             self.setNetwork(True)
-
             # recorders
+
         else:
             self.setKeystroke(False)
             self.setProcess(False)
@@ -111,10 +108,6 @@ class Configuration:
             network.start()
         else:
             network.stop()
-
-    def setVideo(self, video_value):
-        self.__video_on = video_value
-        # add the appropriate behavior
 
     def setKeystroke(self, keystroke_value):
         self.__keystroke_on = keystroke_value
@@ -154,12 +147,10 @@ class Configuration:
     def setVideo(self, video_value):
         self.__video_on = video_value
         # controlling the recording tool
-        # system_call.willRecord = sys_call_value
         if video_value:
             video.start()
         else:
             video.stop()
-
 
     def setWindowHistory(self, window_history_value):
         self.__window_history_on = window_history_value

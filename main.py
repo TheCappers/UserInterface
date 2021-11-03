@@ -47,6 +47,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.table_result.avert_result_table.horizontalHeader().sectionClicked.connect(self.horizontalHeaderSort)
         self.tab_1.addToScriptButton.clicked.connect(
             lambda: self.tab_1.script_accordion.populateTable(np.array(attain)[list(all_selected)], pressed))
+        self.tab_1.script_accordion.generate_btn.clicked.connect(lambda: control.creation_script(self.tab_1.script_accordion.getScriptItems()))
         # self.tab_1.addToScriptButton.clicked.connect(self.test)
         # portion for the floating accordion
         self.floating_accordion.checkBox_Screenshot.clicked.connect(self.toggleButtons)
@@ -572,7 +573,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         result = []
         for i in checked:  # same order as array in clicked checkbox
             if not i == 0:
-                result = result + control.view(i)
+                result = result + control.view_filter(i)
         return result
 
     def clickedCheckbox(self):
@@ -619,21 +620,21 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             filters_checked[7] = 'Network'
         elif not self.tab_1.checkBox_network.isChecked():
             filters_checked[7] = 0
-        '''
-        ALL OTHER ARTIFACTS FOLLOW THIS PATTERN
 
-        if self.tab_1.checkBox_ARTIFACT_NAME.isChecked():
-            attain = control.view('ARTIFACT_NAME')
-            self.updateTable(attain)
-        '''
+        if self.tab_1.checkBox_video.isChecked():
+            filters_checked[8] = 'Video'
+        elif not self.tab_1.checkBox_video.isChecked():
+            filters_checked[8] = 0
+
         attain = self.updateAttain(filters_checked)
         self.updateTable(attain)
 
     def test(self):
-      global all_selected
-      global attain
-      print(self.sender().objectName())
-      print(all_selected)
+      print("testing message")
+      # global all_selected
+      # global attain
+      # print(self.sender().objectName())
+      # print(all_selected)
       # print(attain)
 
 def avertInit():
