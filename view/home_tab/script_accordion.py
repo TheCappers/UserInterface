@@ -187,7 +187,7 @@ class Script_Accordion:
 
                 item = QtWidgets.QTableWidgetItem()
                 # item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
-                #### What is description???
+                # ### What is description???
                 item.setText(_translate("MainWindow", "description?"))
                 self.table.setItem(i, 6, item)
                 i += 1

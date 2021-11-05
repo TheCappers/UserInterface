@@ -20,7 +20,7 @@ class Controller:
         self.__db = Database.DataBase()
         self.__script_gen = script_maker.ScriptMaker()
 
-    def universalRecording(self, signal) -> None :  # automatically records
+    def universalRecording(self, signal) -> None:  # automatically records
         self.__config.setUniversalOn(signal)
 
     def mouseActionRecording(self, signal) -> None:
@@ -53,7 +53,7 @@ class Controller:
         return full  # send to view
 
     def export(self, item) -> None:  # here is where we would use the database to export
-        desk_top = os.path.join(os.environ["HOME"], "Desktop")
+        desk_top = "/home/kali/Desktop/"
         dd_dir = desk_top + "/Downloads"
         if not os.path.exists(dd_dir):
             os.makedirs(dd_dir)

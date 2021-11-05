@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 from view.components import result_table, annotation_table, bar_graph
 
+
 class Log_Accordion:
     def __init__(self):
         self.log_accordion = QtWidgets.QWidget()
@@ -88,7 +89,6 @@ class Log_Accordion:
         self.tableWidget_40.horizontalHeader().setStretchLastSection(True)
         self.gridLayout_36.addWidget(self.tableWidget_40, 0, 0, 1, 1)
 
-
         """retranslateUi"""
         _translate = QtCore.QCoreApplication.translate
         self.tableWidget_40.setSortingEnabled(True)
@@ -165,7 +165,6 @@ class Log_Accordion:
         item = self.tableWidget_40.item(4, 4)
         item.setText(_translate("MainWindow", "Captured"))
         self.tableWidget_40.setSortingEnabled(__sortingEnabled)
-
 
     def get_accordion(self):
         return self.log_accordion

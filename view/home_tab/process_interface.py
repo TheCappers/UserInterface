@@ -1,5 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 class ProcessInterface:
     # def __init__(self):
     #     self.scrollAreaWidgetContents_590 = QtWidgets.QWidget()
