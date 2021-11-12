@@ -1,5 +1,6 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
+
 class DescriptionNetwork:
     def __init__(self, selected) -> None:
         self.descriptionnetwork_tab = QtWidgets.QWidget()

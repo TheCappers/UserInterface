@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 import os
 
+
 class DescriptionVideo:
     def __init__(self, selected) -> None:
         self.descriptionvideo_tab = QtWidgets.QWidget()
@@ -141,7 +142,7 @@ class DescriptionVideo:
             _translate("MainWindow", "Video Frame Rate:"))
         self.label_44.setText(_translate("MainWindow", str(selected['data']['framerate'])))
 
-
+    # noinspection PyMethodMayBeStatic
     def open_video(self, selected): 
         if selected['data']['path']:
             os.system('mplayer -geometry 50%:50% -xy 800 ./' + selected['data']['path'])

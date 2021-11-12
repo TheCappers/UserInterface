@@ -1,5 +1,6 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
+
 class DescriptionProcess:
     def __init__(self, selected) -> None:
         self.descriptionprocess_tab = QtWidgets.QWidget()

@@ -1,5 +1,6 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
+
 class DescriptionScreenshot:
     def __init__(self, selected) -> None:
         self.descriptionstillscreenshot_tab = QtWidgets.QWidget()

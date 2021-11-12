@@ -1,5 +1,6 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
+
 class DescriptionMouse:
     def __init__(self, selected) -> None:
         self.descriptionmouse_tab = QtWidgets.QWidget()
@@ -154,13 +155,15 @@ class DescriptionMouse:
         self.label_80.setText(_translate("MainWindow", selected['timestamp']))
         self.descriptionvideo_timestamp_label_43.setText(
             _translate("MainWindow", "Button:"))
-        self.label_73.setText(_translate("MainWindow", 'None' if not selected['data']['clicked'] else selected['data']['button']))
+        self.label_73.setText(_translate(
+            "MainWindow", 'None' if not selected['data']['clicked'] else selected['data']['button']))
         self.descriptionvideo_timestamp_label_44.setText(
             _translate("MainWindow", "Mouse Action:"))
         self.label_83.setText(_translate("MainWindow", 'Movement' if not selected['data']['clicked'] else 'Click'))
         self.descriptionvideo_timestamp_label_log.setText(
             _translate("MainWindow", "Mouse Action Value:"))
-        self.label_84.setText(_translate("MainWindow", str(selected['data']['position'][0]) + ',' + str(selected['data']['position'][1])))
+        self.label_84.setText(_translate(
+            "MainWindow", str(selected['data']['position'][0]) + ',' + str(selected['data']['position'][1])))
         self.descriptionvideo_timestamp_label_37.setText(
             _translate("MainWindow", "Active Window:"))
         self.label_79.setText(_translate("MainWindow", "terminal"))

@@ -2,6 +2,7 @@
 from PyQt5.QtChart import QBarSet, QBarSeries, QChart, QBarCategoryAxis, QValueAxis, QChartView
 from PyQt5.Qt import Qt
 
+
 def add_bar_graph():
     set0 = QBarSet('Screenshot')
     set1 = QBarSet('Video')

@@ -1,5 +1,6 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
+
 class DescriptionKeystroke:
     def __init__(self, selected) -> None:
         self.descriptionkeystroke_tab = QtWidgets.QWidget()
