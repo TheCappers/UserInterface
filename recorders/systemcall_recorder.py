@@ -4,6 +4,7 @@ from time import sleep
 import threading as t
 from datetime import datetime, timedelta
 
+
 class SytemsCallRecorder(RecordedData):
 	def __init__(self, ):
 		RecordedData.__init__(self)
@@ -12,7 +13,6 @@ class SytemsCallRecorder(RecordedData):
 		self.reset_entrydata()
 		self.willRecord = False
 		self.syscall_thread = t.Thread()
-
 
 	def startRecord(self):
 		while self.__autorecording:
@@ -30,7 +30,6 @@ class SytemsCallRecorder(RecordedData):
 					self.insert_to_db(self._systemcall_data)
 			sleep(1)
 
-
 	def systemcallrecorder_start(self):
 		self.syscall_thread = t.Thread(target=self.startRecord)
 		# print("==== SYSTEM CALL RECORDING STARTING =====")
@@ -38,12 +37,10 @@ class SytemsCallRecorder(RecordedData):
 		s.Popen('sudo service auditd start', shell=True, stdout=s.PIPE, stderr=s.PIPE)
 		self.syscall_thread.start()
 
-
 	def systemcallrecorder_end(self):
 		# print("==== SYSTEM CALL RECORDING ENDING =====")
 		# s.Popen('sudo service auditd stop', shell=True, stdout=s.PIPE, stderr=s.PIPE)
 		self.__autorecording = False
-
 
 	def reset_entrydata(self):
 		self._systemcall_data['name'] = "System_Call"
@@ -51,7 +48,6 @@ class SytemsCallRecorder(RecordedData):
 		self._systemcall_data['data']['systemcall_argument'] = []
 		self._systemcall_data['data']['systemcall_returnval'] = ''
 		self._systemcall_data['data']['systemcall_calltype'] = ''
-
 
 	def sysCallHandler(self, curline):
 		for segment in curline:
@@ -62,9 +58,9 @@ class SytemsCallRecorder(RecordedData):
 				self._systemcall_data['data']['systemcall_argument'].append(parts[1])
 			elif parts[0] == 'syscall':
 				self._systemcall_data['data']['systemcall_name'] = parts[1]
-				self._systemcall_data['data']['systemcall_calltype'] = self.systemcalltypeIdentifier(parts[1]) #identify type
+				self._systemcall_data['data']['systemcall_calltype'] = self.systemcalltypeIdentifier(parts[1])  # identify type
 
-
+	# noinspection PyMethodMayBeStatic
 	def systemcalltypeIdentifier(self, systemcall):
 		if systemcall in ['fork', 'exit', 'wait']:
 			return 'Process Control'

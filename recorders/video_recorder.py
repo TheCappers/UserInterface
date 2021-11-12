@@ -26,10 +26,10 @@ class VideoRecorder(RecordedData):
         self._start_time = 'default'
         self._video_paused = False
         self.__db = DataBase()
-
+        self._isAutoRecord = False
         # Setup the listener threads
         self.keyboard_listener = keyboard.Listener(on_press=self.on_press, on_release=self.on_release)
-        self.mouse_listener = mouse.Listener(on_click=self.on_click,on_move=self.on_move)
+        self.mouse_listener = mouse.Listener(on_click=self.on_click, on_move=self.on_move)
         # Start the threads and join them so the script doesn't end early
         self.keyboard_listener.start()
         self.mouse_listener.start()
@@ -41,7 +41,7 @@ class VideoRecorder(RecordedData):
 
     def on_release(self, key):
         if self._video_started:
-            self._duration = 50 #half seconds?
+            self._duration = 50  # half seconds?
 
     def on_click(self, x, y, button, pressed):
         if self._video_started:
@@ -52,7 +52,7 @@ class VideoRecorder(RecordedData):
     def on_move(self, x, y):
         if self._video_started:
             self._duration = 50
-            #self.start()
+            # self.start()
 
     def start(self):
         if self._video_started:
@@ -68,7 +68,7 @@ class VideoRecorder(RecordedData):
         if not isExist:
             os.mkdir("Videos")
         self._video_data['data']['path'] = "Videos/" + self._start_time + '.mp4'
-        self._writer=imageio.get_writer(self._video_data['data']['path'], fps=15)
+        self._writer = imageio.get_writer(self._video_data['data']['path'], fps=15)
         self.takeVideo()
 
     def stop(self):
@@ -88,10 +88,10 @@ class VideoRecorder(RecordedData):
     def takeVideo(self):
         self._duration = 50
 
-        while(self._duration>0):
+        while self._duration > 0:
             img = np.array(ImageGrab.grab())
             self._writer.append_data(img)
-            self._duration-=1
+            self._duration -= 1
         #  print("video paused")
         self._video_paused = True
 

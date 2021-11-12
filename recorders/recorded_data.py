@@ -4,6 +4,7 @@ import os
 from datetime import datetime
 from Database.Database import DataBase
 
+
 class RecordedData(object):
     def __init__(self):
         """ Attributes """
@@ -13,16 +14,20 @@ class RecordedData(object):
         # self.name = ""                #keystroke
         # self.collection = ""          #
         """ Attributes """
-        self._recorded_data = {"ip_address": '', "mac_address": '', 'timestamp': '', "name": '', "data": {}, "tag": [], "annotation": []}
+        self._recorded_data = {
+            "ip_address": '', "mac_address": '', 'timestamp': '', "name": '', "data": {}, "tag": [], "annotation": []}
 
+    # noinspection PyMethodMayBeStatic
     def get_ip_address(self):
         local_ip = socket.gethostbyname(socket.gethostname())
         return local_ip
 
+    # noinspection PyMethodMayBeStatic
     def get_mac_address(self):
         mac = get_mac()
-        return ':'.join(("%012X" % mac)[i:i+2] for i in range(0, 12, 2)) 
-    
+        return ':'.join(("%012X" % mac)[i:i+2] for i in range(0, 12, 2))
+
+    # noinspection PyMethodMayBeStatic
     def get_timestamp(self):
         # gets computer time
         now = datetime.now()
@@ -44,6 +49,7 @@ class RecordedData(object):
     #     print(DataBase().query_db("find", self._recorded_data, "")) # for checking purpose
     #     return
 
+    # noinspection PyMethodMayBeStatic
     def insert_to_db(self, post_data):
         DataBase().query_db("post", post_data, "")
 

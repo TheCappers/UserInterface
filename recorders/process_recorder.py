@@ -1,6 +1,8 @@
-import psutil, time, threading
-from recorders.recorded_data import RecordedData
+import psutil
+import threading
+import time
 from Database.Database import DataBase
+from recorders.recorded_data import RecordedData
 
 
 class ProcessRecorder(RecordedData):
@@ -44,7 +46,7 @@ class ProcessRecorder(RecordedData):
                 self.__process['data'] = process_dictionary
                 self.insert_to_db()
 
-    # creats thread
+    # creates thread
     def start(self):
         self.__listener = threading.Thread(target=self._process_cap)
         if not self.__autorecording:
@@ -62,4 +64,3 @@ class ProcessRecorder(RecordedData):
 # p_recorder = ProcessRecorder()
 # p_recorder.start()
 # p_recorder.stop()
-

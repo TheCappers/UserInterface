@@ -38,7 +38,7 @@ class ScreenshotRecorder(RecordedData):
     def on_release(self, key):
         if self.isAutoRecord:
             pass
-            #print("Key released: {0}".format(key))
+            # print("Key released: {0}".format(key))
 
     def on_click(self, x, y, button, pressed):
         if self.isAutoRecord:
@@ -52,7 +52,7 @@ class ScreenshotRecorder(RecordedData):
             return
         self.isAutoRecord = True
         # self.listener.join()
-        # print('start screenshot recordig')
+        # print('start screenshot recording')
 
     def stop(self):
         if not self.isAutoRecord:
