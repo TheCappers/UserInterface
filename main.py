@@ -30,6 +30,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # portion for the tag_table
         # self.tab_1.detailed_view_accordion.tag_table.setSortingEnabled(1)  # allows for the sorting in the columns
         self.tab_1.detailed_view_accordion.tag_add_button.clicked.connect(self.add_tag)
+        self.tab_1.detailed_view_accordion.tag_delete_button.clicked.connect(self.deleteTag)
         self.tab_1.universalRecord.clicked.connect(self.universalButton)
         self.tab_2.universalRecord.clicked.connect(self.universalButton)
         self.tab_1.detailed_view_accordion.pushButton_18.clicked.connect(self.add_annotation)
@@ -96,6 +97,9 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_2.ProcessStatOnButton.clicked.connect(self.toggleButtons)
         self.tab_2.ProcessStatOffButton.clicked.connect(self.toggleButtons)
 
+        '''used in tab 3'''
+        """Modifications for UI """
+        self.tab_3.sync_btn.clicked.connect(self.clickedSync)
         # threshold changing
         self.tab_2.StorageInValue.textEdited.connect(self.thresholdChange)
 
@@ -353,7 +357,6 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if (len(self.tab_1.detailed_view_accordion.annotation_text.toPlainText().strip()) > 0):
             for index in all_selected:
                 control.annotationAdd(self.tab_1.detailed_view_accordion.annotation_text.toPlainText(), attain[index])
-            print("Annotations Added")
             self.annotationDisplay(self.tab_1.table_result.getIndexSelected())
 
     def add_tag(self):  # add a row when the button add is selected
@@ -537,9 +540,6 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         global attain
         self.tab_1.detailed_view_accordion.tab_134.display_tab(attain[index])
 
-    def deleteTag(self, index):
-        info = attain[index]
-        info = info['tag']
 
     def export_pressed(self, index):
         global attain  # set global variables
@@ -559,7 +559,6 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         QtWidgets.QMessageBox.about(self, 'Script Preview', file_obj)
 
     def selectionChange(self, selected, deselected):
-        print("item selected in table")
         global all_selected
 
         for i in selected.indexes():
@@ -637,6 +636,12 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         attain = self.updateAttain(filters_checked)
         self.updateTable(attain)
 
+    def deleteTag(self, index):
+        global control, attain
+
+        print(self.tab_1.detailed_view_accordion.tag_table.currentRow())
+        #control.tagDelete()
+
     def test(self):
         print("testing message")
         # global all_selected
@@ -645,6 +650,32 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # print(all_selected)
         # print(attain)
 
+    def syncButtonsToggle(self):
+        if self.sender().objectName().__contains__('excluding'):  # keep button checked
+            self.tab_3.allexcludingvideo_btn.setChecked(1)
+            self.tab_3.allincludingvideo_btn.setChecked(0)
+        else:
+            self.tab_3.allexcludingvideo_btn.setChecked(0)
+            self.tab_3.allincludingvideo_btn.setChecked(1)
+
+    def clickedSync(self):
+        global control
+
+        if self.sender().objectName().__contains__('sync'): # once we press the sync and it
+            if self.tab_3.allexcludingvideo_btn.isChecked():
+                control.sync('video')
+                self.tab_3.allexcludingvideo_btn.setChecked(0)  # reset
+
+            if self.tab_3.allincludingvideo_btn.isChecked():
+                control.sync('')
+                self.tab_3.allincludingvideo_btn.setChecked(0)  # rest
+
+        if self.sender().objectName().__contains__('cancel'):
+            # here we will have an if started
+            if control.syncStatus():
+                control.sync(self, '', True)
+            else:
+                pass # here we generate the sync error message
 
 def avertInit():
     s.Popen("sudo auditctl -a always,exit -S read,write,open,close,mmap,pipe,alarm,getpid,fork,exit,chmod,chown,umask",

@@ -1,8 +1,10 @@
 from Database import Database
 
+
 class Sync:
 
     def __init__(self):
+        self.__sync_status = False # if it has started or not
         self.__sync_video = True
         self.__sync_screenshot = True
         self.__sync_mouse_action = True
@@ -11,6 +13,9 @@ class Sync:
         self.__sync_network = True
         self.__sync_window_history = True
         self.__sync_system_call = True
+
+    def getSyncStatus(self):
+        return self.__sync_status
 
     def setVideoSync(self, value):
         self.__sync_video = value

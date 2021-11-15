@@ -1,6 +1,7 @@
 from configuration import configuration
 from Database import Database
 from Script import script_maker
+from Sync import sync
 
 import os
 
@@ -19,6 +20,7 @@ class Controller:
         self.__config = configuration.Configuration()
         self.__db = Database.DataBase()
         self.__script_gen = script_maker.ScriptMaker()
+        self.__sync_tool = sync.Sync()
 
     def universalRecording(self, signal) -> None:  # automatically records
         self.__config.setUniversalOn(signal)
@@ -51,6 +53,22 @@ class Controller:
         self.__config.setThreshold(amount)
         full = self.__config.storage_alert()
         return full  # send to view
+
+    def sync(self, exclusion, cancel_signal=False):
+        if exclusion.lower().__contains__('video'):  # we are excluding video
+            # here we make the function call
+            pass
+        if exclusion.__contains__(''):  # including video
+            # include behavior
+            pass
+        '''
+        signal will make the interruptions to the sync
+        by each data type
+        '''
+        return
+
+    def syncStatus(self):
+        return self.__sync_tool.getSyncStatus()
 
     def export(self, item) -> None:  # here is where we would use the database to export
         desk_top = "/home/kali/Desktop/"
@@ -152,18 +170,15 @@ class Controller:
         old.append(annotation)
         update_post = {'annotation': old}  # create the target to update
         self.__db.query_db('update', item, update_post)
-        return self.__db.query_db('find', '', {'_id': item['_id']})  # return the updated row
 
     def tagAdd(self, tag, item):  # adding a tag
         old = item['tag']  # the old tags
         old.append(tag)
         update_post = {'tag': old}  # create the target to update
         self.__db.query_db('update', item, update_post)  # update with database
-        return self.__db.query_db('find', '', {'_id': item['_id']})
 
     def tagDelete(self, tag, item):  # delete a tag
         old = item['tag']
         old.remove(tag)
         update_post = {'tag': old}
         self.__db.query_db('update', item, update_post)
-        return self.__db.query_db('find', '', {'_id': item['_id']})
