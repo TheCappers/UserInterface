@@ -1,21 +1,21 @@
 import os
-# from Database import Database
+from Database.Database import DataBase
 import threading, socket
+import ast
+from pymongo import MongoClient
 
 
 class Receiver:
-
     def __init__(self):
         self.__listener = threading.Thread()
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.client_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-        # replace this with all of AVERT DATA
-        self.items_list = [
-            {'_id': '617f3a09acf707ca9b53e24b', 'ip_address': '127.0.1.1', 'mac_address': '00:0C:29:F0:6B:3F', 'timestamp': '18:50:42 10/31/2021', 'name': 'Keystroke', 'data': 'H', 'tag': [], 'annotation': []},
-            {'_id': '617f3a09acf707ca9b53e278', 'ip_address': '127.0.1.1', 'mac_address': '00:0C:29:F0:6B:3F', 'timestamp': '18:50:42 10/31/2021', 'name': 'Keystroke', 'data': 'E', 'tag': [], 'annotation': []},
-            {'_id': '617f3a0aacf707ca9b53e288', 'ip_address': '127.0.1.1', 'mac_address': '00:0C:29:F0:6B:3F', 'timestamp': '18:50:42 10/31/2021', 'name': 'Keystroke', 'data': 'L', 'tag': [], 'annotation': []},
-            ]
+        self.__db = DataBase()
+
+        db_server_url = 'mongodb://localhost:27017/'
+        client = MongoClient(db_server_url)
+        self.db = client['AVERT']
 
     def create_temp(self):
         desk_top = os.path.join(os.environ["HOME"], "Desktop")
@@ -23,10 +23,23 @@ class Receiver:
         if not os.path.exists(dd_dir):
             os.makedirs(dd_dir)
 
-        for item in self.items_list:
-            file_name = item.get("_id") + ".txt"
-            with open(os.path.join(dd_dir, file_name), 'w') as file:
-                file.write(str(item))
+        for data_type in self.db.list_collection_names():
+            for item in self.db[data_type].find():
+                file_name = item.get("_id") + ".txt"
+                with open(os.path.join(dd_dir, file_name), 'w') as file:
+                    file.write(str(item))
+
+        self.update_db()
+
+    def update_db(self):
+        directory = r'/root/Desktop/temp2'
+        for entry in os.scandir(directory):
+            if entry.is_file():
+                with open(entry.path, 'r') as file:
+                    data = file.read()
+                    post = ast.literal_eval(str(data))
+                    self.__db.query_db("update", post, post)
+
 
     def port_flag(self, receiver_ip):
         self.client_socket.bind((receiver_ip, 777))

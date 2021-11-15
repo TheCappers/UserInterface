@@ -1,10 +1,8 @@
 import os
-# from Database import Database
 import threading, socket
 
 
 class Sender:
-
     def __init__(self):
         self.__listener = threading.Thread()
         self.syncing = False
@@ -13,7 +11,7 @@ class Sender:
 
     def sync_data(self):
         os.system("rsync -r /root/Desktop/temp/ /root/Desktop/temp2")
-        os.system("rm -r /root/Desktop/temp")
+        #os.system("rm -r /root/Desktop/temp")
         print("rsync DATA done")
 
     def create_temp(self, items_list, receiver_ip):
@@ -23,7 +21,6 @@ class Sender:
             os.makedirs(dd_dir)
 
         for item in items_list:
-            #print(item)
             file_name = item.get("_id") + ".txt"
             with open(os.path.join(dd_dir, file_name), 'w') as file:
                 file.write(str(item))
@@ -48,9 +45,9 @@ class Sender:
 
 
 items_list = [
-            {'_id': '617f3a09acf70', 'ip_address': '127.0.1.1', 'mac_address': '00:12:29:F0:6B:3F', 'timestamp': '18:50:42 10/31/2021', 'name': 'Keystroke', 'data': 'H', 'tag': [], 'annotation': []},
-            {'_id': '617f3a053e278', 'ip_address': '127.0.1.1', 'mac_address': '00:0C:29:F0:6B:3F', 'timestamp': '18:50:42 10/31/2021', 'name': 'Keystroke', 'data': 'E', 'tag': [], 'annotation': []},
-            {'_id': '617f3ae53e288', 'ip_address': '127.0.1.1', 'mac_address': '00:43:29:F0:6B:3F', 'timestamp': '18:50:42 10/31/2021', 'name': 'Keystroke', 'data': 'L', 'tag': [], 'annotation': []},
+            {'_id': '6191edfc31dd401df3390277', 'ip_address': '911', 'mac_address': '0123412341234', 'timestamp': '1sdfa21', 'name': 'test', 'data': 'H', 'tag': [], 'annotation': []},
+            {'_id': '6191edfc31dd401df33902e6', 'ip_address': '177', 'mac_address': '00:0C:29:F0:6B:3F', 'timestamp': '18:50:42 10/31/2021', 'name': 'test', 'data': 'E', 'tag': [], 'annotation': []},
+            {'_id': '6191edfc31dd401df33902e8', 'ip_address': '111', 'mac_address': '00:43:29:F0:6B:3F', 'timestamp': '18:50:42 10/31/2021', 'name': 'test', 'data': 'L', 'tag': [], 'annotation': []},
             ]
 
 receiver_ip = 'localhost'
