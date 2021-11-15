@@ -11,8 +11,10 @@ class Sender:
         self.synced = False
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    def send_data(self):
-        print("Sending DATA")
+    def sync_data(self):
+        os.system("rsync -r /root/Desktop/temp/ /root/Desktop/temp2")
+        os.system("rm -r /root/Desktop/temp")
+        print("rsync DATA done")
 
     def create_temp(self, items_list, receiver_ip):
         desk_top = os.path.join(os.environ["HOME"], "Desktop")
@@ -21,7 +23,7 @@ class Sender:
             os.makedirs(dd_dir)
 
         for item in items_list:
-            print(item)
+            #print(item)
             file_name = item.get("_id") + ".txt"
             with open(os.path.join(dd_dir, file_name), 'w') as file:
                 file.write(str(item))
@@ -34,8 +36,10 @@ class Sender:
         self.client_socket.sendall(b'sync_ready')
         receiver_data = self.client_socket.recv(1024)
         print(receiver_data.decode())
-        if str(receiver_data.decode()) == 'receiver_ready':
-            self.send_data()
+        while True:
+            if str(receiver_data.decode()) == 'receiver_ready':
+                self.sync_data()
+                break
 
     # creates thread
     def start(self, item_list, receiver_ip):
@@ -44,9 +48,9 @@ class Sender:
 
 
 items_list = [
-            {'_id': '617f3a09acf707ca9b53e24b', 'ip_address': '127.0.1.1', 'mac_address': '00:0C:29:F0:6B:3F', 'timestamp': '18:50:42 10/31/2021', 'name': 'Keystroke', 'data': 'H', 'tag': [], 'annotation': []},
-            {'_id': '617f3a09acf707ca9b53e278', 'ip_address': '127.0.1.1', 'mac_address': '00:0C:29:F0:6B:3F', 'timestamp': '18:50:42 10/31/2021', 'name': 'Keystroke', 'data': 'E', 'tag': [], 'annotation': []},
-            {'_id': '617f3a0aacf707ca9b53e288', 'ip_address': '127.0.1.1', 'mac_address': '00:0C:29:F0:6B:3F', 'timestamp': '18:50:42 10/31/2021', 'name': 'Keystroke', 'data': 'L', 'tag': [], 'annotation': []},
+            {'_id': '617f3a09acf70', 'ip_address': '127.0.1.1', 'mac_address': '00:12:29:F0:6B:3F', 'timestamp': '18:50:42 10/31/2021', 'name': 'Keystroke', 'data': 'H', 'tag': [], 'annotation': []},
+            {'_id': '617f3a053e278', 'ip_address': '127.0.1.1', 'mac_address': '00:0C:29:F0:6B:3F', 'timestamp': '18:50:42 10/31/2021', 'name': 'Keystroke', 'data': 'E', 'tag': [], 'annotation': []},
+            {'_id': '617f3ae53e288', 'ip_address': '127.0.1.1', 'mac_address': '00:43:29:F0:6B:3F', 'timestamp': '18:50:42 10/31/2021', 'name': 'Keystroke', 'data': 'L', 'tag': [], 'annotation': []},
             ]
 
 receiver_ip = 'localhost'
