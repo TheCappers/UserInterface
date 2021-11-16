@@ -18,8 +18,14 @@ class DataBase:
         self.network_collection = self.db["network_collection"]
 
     def __insert_post(self, collection, post):
-        post.update({"_id": ObjectId().__str__()})
-        collection.insert_one(post)
+        # print(post.get("_id"), post.get("name"))
+        try:
+            temp = collection.find({"_id": post.get("_id")})[0]
+        except Exception:
+            post.update({"_id": ObjectId().__str__()})
+            print(post)
+            collection.insert_one(post)
+            pass
 
     # returns list based on the searched post in all... Will be reworked for multiple filters
     def __find(self, target):

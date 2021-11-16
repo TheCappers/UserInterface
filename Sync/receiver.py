@@ -38,8 +38,9 @@ class Receiver:
                 with open(entry.path, 'r') as file:
                     data = file.read()
                     post = ast.literal_eval(str(data))
-                    self.__db.query_db("update", post, post)
+                    self.__db.query_db("post", post, "")
 
+        # os.system("rm -r /root/Desktop/temp2")
 
     def port_flag(self, receiver_ip):
         self.client_socket.bind((receiver_ip, 777))
@@ -66,6 +67,6 @@ class Receiver:
         self.__listener.start()
 
 
-receiver_ip = 'localhost'
-sync_sender = Receiver()
-sync_sender.start(receiver_ip)
+# receiver_ip = 'localhost'
+# sync_sender = Receiver()
+# sync_sender.start(receiver_ip)
