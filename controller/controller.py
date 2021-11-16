@@ -54,18 +54,20 @@ class Controller:
         full = self.__config.storage_alert()
         return full  # send to view
 
-    def syncBegin(self, exclusion, cancel_signal=False):
+    def syncBegin(self, exclusion, ip, cancel_signal=False):
+        items = ['Keystroke', 'Mouse_Action', 'Screenshot', 'Process', 'Window_History', 'System_Call', 'Network',
+                 'Video']
+        attain = []
+
         if exclusion.lower().__contains__('video'):  # we are excluding video
-            # here we make the function call
-            pass
-        if exclusion.__contains__(''):  # including video
+            items.remove('Video')
+            for i in items:
+                attain += self.__db.query_db('get_type', '', i)
+
+        if exclusion.lower().__contains__('none'):  # including video
             # include behavior
-            pass
-        '''
-        signal will make the interruptions to the sync
-        by each data type
-        '''
-        return
+            attain = self.__db.query_db('all', '', '')
+
 
     def syncStatus(self):
         return self.__sync_tool.getSyncStatus()

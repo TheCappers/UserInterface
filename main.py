@@ -97,11 +97,13 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_2.ProcessStatOnButton.clicked.connect(self.toggleButtons)
         self.tab_2.ProcessStatOffButton.clicked.connect(self.toggleButtons)
 
+        self.tab_2.StorageInValue.textEdited.connect(self.thresholdChange)
+
         '''used in tab 3'''
         """Modifications for UI """
         self.tab_3.sync_btn.clicked.connect(self.clickedSync)
+
         # threshold changing
-        self.tab_2.StorageInValue.textEdited.connect(self.thresholdChange)
 
     '''
     Allow recording status buttons (on and off) as a toggle buttons
@@ -540,7 +542,6 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         global attain
         self.tab_1.detailed_view_accordion.tab_134.display_tab(attain[index])
 
-
     def export_pressed(self, index):
         global attain  # set global variables
         self.tab_1.table_result.setIndexSelected(index)  # set the index selected
@@ -640,7 +641,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         global control, attain
 
         print(self.tab_1.detailed_view_accordion.tag_table.currentRow())
-        #control.tagDelete()
+        # control.tagDelete()
 
     def test(self):
         print("testing message")
@@ -661,22 +662,27 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def clickedSync(self):
         global control
 
-        if self.sender().objectName().__contains__('sync'): # once we press the sync and it
+        if 7 <= len(self.tab_3.toIPval_lineEdit.text().strip()) <= 15:  # ensure that we have something
+            ip = self.tab_3.toIPval_lineEdit.text()
+        else:
+            return  # add error here
+
+        if self.sender().objectName().__contains__('sync'):  # once we press the sync and it
             if self.tab_3.allexcludingvideo_btn.isChecked():
-                control.syncBegin('video')
+                control.syncBegin('video', ip)
                 self.tab_3.allexcludingvideo_btn.setChecked(0)  # reset
 
             if self.tab_3.allincludingvideo_btn.isChecked():
-                control.syncBegin('')
+                control.syncBegin('None', ip)
                 self.tab_3.allincludingvideo_btn.setChecked(0)  # rest
 
-        if self.sender().objectName().__contains__('cancel'):
+        if self.sender().objectName().__contains__('cancelall_btn'):
             # here we will have an if started
-            #if self.tab_3.
             if control.syncStatus():
-                control.sync(self, '', True)
+                control.syncBegin(self, '', '', True)
             else:
-                pass # here we generate the sync error message
+                pass  # here we generate the sync error message
+
 
 def avertInit():
     s.Popen("sudo auditctl -a always,exit -S read,write,open,close,mmap,pipe,alarm,getpid,fork,exit,chmod,chown,umask",
