@@ -663,15 +663,16 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         if self.sender().objectName().__contains__('sync'): # once we press the sync and it
             if self.tab_3.allexcludingvideo_btn.isChecked():
-                control.sync('video')
+                control.syncBegin('video')
                 self.tab_3.allexcludingvideo_btn.setChecked(0)  # reset
 
             if self.tab_3.allincludingvideo_btn.isChecked():
-                control.sync('')
+                control.syncBegin('')
                 self.tab_3.allincludingvideo_btn.setChecked(0)  # rest
 
         if self.sender().objectName().__contains__('cancel'):
             # here we will have an if started
+            #if self.tab_3.
             if control.syncStatus():
                 control.sync(self, '', True)
             else:

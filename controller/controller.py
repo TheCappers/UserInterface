@@ -54,7 +54,7 @@ class Controller:
         full = self.__config.storage_alert()
         return full  # send to view
 
-    def sync(self, exclusion, cancel_signal=False):
+    def syncBegin(self, exclusion, cancel_signal=False):
         if exclusion.lower().__contains__('video'):  # we are excluding video
             # here we make the function call
             pass
