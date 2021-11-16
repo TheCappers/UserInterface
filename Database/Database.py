@@ -23,7 +23,7 @@ class DataBase:
             temp = collection.find({"_id": post.get("_id")})[0]
         except Exception:
             post.update({"_id": ObjectId().__str__()})
-            print(post)
+            # print(post)
             collection.insert_one(post)
             pass
 

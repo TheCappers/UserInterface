@@ -1,7 +1,7 @@
 from configuration import configuration
 from Database import Database
 from Script import script_maker
-from Sync import sync
+from Sync import sync, receiver, sender
 
 import os
 
@@ -21,6 +21,8 @@ class Controller:
         self.__db = Database.DataBase()
         self.__script_gen = script_maker.ScriptMaker()
         self.__sync_tool = sync.Sync()
+        self.__sync_sender = sender.Sender()
+        self.__sync_receiver = receiver.Receiver()
 
     def universalRecording(self, signal) -> None:  # automatically records
         self.__config.setUniversalOn(signal)
@@ -55,8 +57,9 @@ class Controller:
         return full  # send to view
 
     def syncBegin(self, exclusion, ip, cancel_signal=False):
-        items = ['Keystroke', 'Mouse_Action', 'Screenshot', 'Process', 'Window_History', 'System_Call', 'Network',
-                 'Video']
+        self.__sync_receiver.start(ip)
+
+        items = ['Keystroke', 'Video']
         attain = []
 
         if exclusion.lower().__contains__('video'):  # we are excluding video
@@ -68,6 +71,7 @@ class Controller:
             # include behavior
             attain = self.__db.query_db('all', '', '')
 
+        self.__sync_sender.start(attain, ip)
 
     def syncStatus(self):
         return self.__sync_tool.getSyncStatus()

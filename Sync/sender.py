@@ -10,9 +10,9 @@ class Sender:
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def sync_data(self):
-        os.system("rsync -r /root/Desktop/temp/ /root/Desktop/temp2")
-        #os.system("rm -r /root/Desktop/temp")
-        print("rsync DATA done")
+        os.system("rsync -r /home/dbxation/Desktop/temp/ /home/dbxation/Desktop/temp2")
+        # os.system("rm -r /root/Desktop/temp")
+        # print("rsync DATA done")
 
     def create_temp(self, items_list, receiver_ip):
         desk_top = os.path.join(os.environ["HOME"], "Desktop")
@@ -32,7 +32,7 @@ class Sender:
         self.client_socket.connect((receiver_ip, 777))
         self.client_socket.sendall(b'sync_ready')
         receiver_data = self.client_socket.recv(1024)
-        print(receiver_data.decode())
+        # print(receiver_data.decode())
         while True:
             if str(receiver_data.decode()) == 'receiver_ready':
                 self.sync_data()

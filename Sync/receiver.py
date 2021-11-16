@@ -32,7 +32,7 @@ class Receiver:
         self.update_db()
 
     def update_db(self):
-        directory = r'/root/Desktop/temp2'
+        directory = r'/home/dbxation/Desktop/temp2'
         for entry in os.scandir(directory):
             if entry.is_file():
                 with open(entry.path, 'r') as file:
