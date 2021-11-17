@@ -23,10 +23,13 @@ class DataBase:
             temp = collection.find({"_id": post.get("_id")})[0]
         except Exception:
             if post.get("_id"):
-                collection.insert_one(post)
+                try:
+                    collection.insert_one(post)
+                except Exception:
+                    post.update({"_id": ObjectId().__str__()})
+                    collection.insert_one(post)
             else:
                 post.update({"_id": ObjectId().__str__()})
-                print(post)
                 collection.insert_one(post)
 
     # returns list based on the searched post in all... Will be reworked for multiple filters
