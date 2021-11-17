@@ -57,9 +57,8 @@ class Controller:
         return full  # send to view
 
     def syncBegin(self, exclusion, ip, cancel_signal=False):
-        self.__sync_receiver.start(ip)
-
-        items = ['Keystroke', 'Video']
+        items = ['Keystroke', 'Mouse_Action', 'Screenshot', 'Process', 'Window_History', 'System_Call', 'Network',
+                 'Video']
         attain = []
 
         if exclusion.lower().__contains__('video'):  # we are excluding video
