@@ -639,6 +639,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def deleteTag(self, index):
         global control, attain
+        self.tab_1.detailed_view_accordion.tag_table.setIndexSelected(index)
 
         print(self.tab_1.detailed_view_accordion.tag_table.currentRow())
         # control.tagDelete()
