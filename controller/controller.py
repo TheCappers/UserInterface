@@ -56,9 +56,9 @@ class Controller:
         full = self.__config.storage_alert()
         return full  # send to view
 
+# fill out with all artifact types
     def syncBegin(self, exclusion, ip, cancel_signal=False):
-        items = ['Keystroke', 'Mouse_Action', 'Screenshot', 'Process', 'Window_History', 'System_Call', 'Network',
-                 'Video']
+        items = ['Keystroke', 'Video']
         attain = []
 
         if exclusion.lower().__contains__('video'):  # we are excluding video

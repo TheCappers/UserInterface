@@ -10,13 +10,15 @@ class Sender:
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def sync_data(self):
-        os.system("rsync -r /home/dbxation/Desktop/temp/ /home/dbxation/Desktop/temp2")
+        os.system("rsync -r /PycharmProjects/UserInterface/temp/ /PycharmProjects/UserInterface/temp2")
         # os.system("rm -r /root/Desktop/temp")
         # print("rsync DATA done")
 
     def create_temp(self, items_list, receiver_ip):
-        desk_top = os.path.join(os.environ["HOME"], "Desktop")
-        dd_dir = desk_top + "/temp"
+        # desk_top = os.path.join(os.environ["HOME"], "Desktop")
+        # dd_dir = desk_top + "/temp"
+        dd_dir = r"/PycharmProjects/UserInterface/temp"
+
         if not os.path.exists(dd_dir):
             os.makedirs(dd_dir)
 
