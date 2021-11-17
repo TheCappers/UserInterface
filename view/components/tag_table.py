@@ -4,6 +4,13 @@ from PyQt5 import QtCore, QtWidgets
 class TagTable:
     def __init__(self):
         self.tag_table = ''  # empty values
+        self.indexSelected = 0
+
+    def setIndexSelected(self, index):
+        self.indexSelected = index
+
+    def getIndexSelected(self):
+        return self.indexSelected
 
     def startTable(self, tag_table):  # initiation of the table
         self.tag_table = tag_table  # must begin with table created already

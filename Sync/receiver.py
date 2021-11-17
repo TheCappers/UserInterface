@@ -18,8 +18,8 @@ class Receiver:
         self.db = client['AVERT']
 
     def create_temp(self):
-        desk_top = os.path.join(os.environ["HOME"], "Desktop")
-        dd_dir = desk_top + "/temp2"
+        # desk_top = os.path.join(os.environ["HOME"], "Desktop")
+        dd_dir = r"/PycharmProjects/UserInterface/temp2"
         if not os.path.exists(dd_dir):
             os.makedirs(dd_dir)
 
@@ -32,7 +32,7 @@ class Receiver:
         self.update_db()
 
     def update_db(self):
-        directory = r'/root/Desktop/temp2'
+        directory = r"/PycharmProjects/UserInterface/temp2"
         for entry in os.scandir(directory):
             if entry.is_file():
                 with open(entry.path, 'r') as file:
