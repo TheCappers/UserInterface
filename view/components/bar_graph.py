@@ -46,7 +46,7 @@ class BarGraph:
         self.series = QBarSeries()
 
 
-    def setExploded(self,status,index):slice
+    def setExploded(self,status,index):
         self.series.setLabelsVisible(status)
 
         '''
