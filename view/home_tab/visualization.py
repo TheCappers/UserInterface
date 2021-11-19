@@ -3,6 +3,7 @@ from PyQt5.QtChart import QChart, QChartView, QPieSeries, QPieSlice
 from view.components import result_table, annotation_table, bar_graph, pie_chart
 from view.components.pie_chart import PieChart
 
+''' Test Data For Pie Chart '''
 screenshot_data = QPieSlice('Screenshot',69)
 video_data = QPieSlice('Video',40)
 network_data = QPieSlice('Network',42)
@@ -11,10 +12,13 @@ keystroke_data = QPieSlice('Keystroke',14)
 mouse_action_data = QPieSlice('Mouse Actions',200)
 window_history_data = QPieSlice('Window_History',13)
 system_call_data = QPieSlice('System Calls',69)
-artifact_data = [screenshot_data, video_data, network_data, process_data, keystroke_data,mouse_action_data, window_history_data, system_call_data]
+
+artifact_data = [screenshot_data, video_data, network_data, process_data,
+keystroke_data,mouse_action_data, window_history_data, system_call_data]
 
 class Visualization:
 	def __init__(self):
+
 		self.visualization_accordion = QtWidgets.QWidget()
 		self.visualization_accordion.setGeometry(QtCore.QRect(0, 0, 429, 443))
 		self.visualization_accordion.setObjectName("visualization_accordion")
@@ -71,6 +75,7 @@ class Visualization:
 		self.visualization_tabs.addTab(self.type, "")
 
 		''' Pie Chart Tab '''
+
 		self.pie_chart_class = PieChart()
 		self.pie_chart_class.add_pie_chart(artifact_data)
 		self.pie_chart_graph = self.pie_chart_class.get_chart_view()
@@ -108,7 +113,6 @@ class Visualization:
 		self.pie_tab_screenshot_checkbox = QtWidgets.QCheckBox()
 		self.pie_tab_screenshot_checkbox.setText("Screenshots")
 		self.pie_tab_screenshot_checkbox.setObjectName("pie_tab_screenshot_checkbox")
-		self.pie_tab_screenshot_checkbox.clicked.connect(self.update_pie_chart_graph)
 		self.gridLayout_10.addWidget(self.pie_tab_screenshot_checkbox, 1, 0, 1, 1)
 
 		self.label_pie_chart_video = QtWidgets.QLabel()
@@ -172,6 +176,24 @@ class Visualization:
 		self.pie_chart_scroll_area.setWidget(self.pie_chart_graph)
 		self.gridLayout_10.addWidget(self.pie_chart_scroll_area, 0, 1, 9, 1)
 		self.visualization_tabs.addTab(self.pie_chart, "")
+
+
+		#Checkbox Methods
+		self.pie_tab_all_artifacts_checkbox.clicked.connect(self.update_pie_chart_graph)
+		self.pie_tab_screenshot_checkbox.clicked.connect(self.update_pie_chart_graph)
+		self.pie_tab_video_checkbox.clicked.connect(self.update_pie_chart_graph)
+		self.pie_tab_network_checkbox.clicked.connect(self.update_pie_chart_graph)
+		self.pie_tab_process_checkbox.clicked.connect(self.update_pie_chart_graph)
+		self.pie_tab_keystroke_checkbox.clicked.connect(self.update_pie_chart_graph)
+		self.pie_tab_mouse_action_checkbox.clicked.connect(self.update_pie_chart_graph)
+		self.pie_tab_system_call_checkbox.clicked.connect(self.update_pie_chart_graph)
+		self.pie_tab_window_history_checkbox.clicked.connect(self.update_pie_chart_graph)
+
+		self.artifacts_pie_data = [(screenshot_data,self.pie_tab_screenshot_checkbox), (video_data,self.pie_tab_video_checkbox),
+		(network_data, self.pie_tab_network_checkbox), (process_data, self.pie_tab_process_checkbox),
+		(keystroke_data,self.pie_tab_keystroke_checkbox),(mouse_action_data,self.pie_tab_mouse_action_checkbox),
+		(window_history_data,self.pie_tab_window_history_checkbox), (system_call_data,self.pie_tab_system_call_checkbox)]
+
 
 		''' Bar Graph Tab '''
 		self.bar_graph = QtWidgets.QWidget()
@@ -476,23 +498,14 @@ class Visualization:
 		self.pie_tab_window_history_checkbox.setChecked(on)
 
 	def update_pie_chart_graph(self):
-		on = self.pie_tab_screenshot_checkbox.isChecked()
-		if (on):
-			if not (screenshot_data in artifact_data):
-				self.pie_chart_class.series.append(screenshot_data)
-				artifact_data.append(screenshot_data)
-		else:
-			if (screenshot_data in artifact_data):
-				artifact_data.remove(screenshot_data)
-				self.pie_chart_class.series.remove(screenshot_data)
-		#self.pie_tab_all_artifacts_checkbox.setChecked(on)
-		#self.pie_tab_video_checkbox.setChecked(on)
-		#self.pie_tab_video_checkbox.setChecked(on)
-		#self.pie_tab_network_checkbox.setChecked(on)
-		#self.pie_tab_process_checkbox.setChecked(on)
-		#self.pie_tab_keystroke_checkbox.setChecked(on)
-		#self.pie_tab_screenshot_checkbox.setChecked(on)
-		#self.pie_tab_system_call_checkbox.setChecked(on)
-
-		#self.pie_tab_mouse_action_checkbox.setChecked(on)
-		#self.pie_tab_window_history_checkbox.setChecked(on)
+		#artifact[0] is the slices
+		#artifactt[1] is the checkboxes
+		for artifact in self.artifacts_pie_data:
+			if (artifact[1].isChecked()):
+				if not(artifact[0] in artifact_data):
+					self.pie_chart_class.series.append(artifact[0])
+					artifact_data.append(artifact[0])
+			else:
+				if (artifact[0] in artifact_data):
+					artifact_data.remove(artifact[0])
+					self.pie_chart_class.series.take(artifact[0])
