@@ -1,7 +1,8 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
-from PyQt5.QtChart import QChart, QChartView, QPieSeries, QPieSlice
+from PyQt5.QtChart import QChart, QChartView, QPieSeries, QPieSlice, QBarSet
 from view.components import result_table, annotation_table, bar_graph, pie_chart
 from view.components.pie_chart import PieChart
+from view.components.bar_graph import BarGraph
 
 ''' Test Data For Pie Chart '''
 screenshot_data = QPieSlice('Screenshot',69)
@@ -9,12 +10,22 @@ video_data = QPieSlice('Video',40)
 network_data = QPieSlice('Network',42)
 process_data = QPieSlice('Processes',69)
 keystroke_data = QPieSlice('Keystroke',14)
-mouse_action_data = QPieSlice('Mouse Actions',200)
+mouse_action_data = QPieSlice('Mouse_Actions',200)
 window_history_data = QPieSlice('Window_History',13)
-system_call_data = QPieSlice('System Calls',69)
+system_call_data = QPieSlice('System_Calls',69)
 
 artifact_data = [screenshot_data, video_data, network_data, process_data,
 keystroke_data,mouse_action_data, window_history_data, system_call_data]
+
+
+bar_graph_artifact_data = []
+
+for artifact in artifact_data:
+	set = QBarSet(artifact.label())
+	set.append(artifact.value())
+	bar_graph_artifact_data.append(set)
+
+
 
 class Visualization:
 	def __init__(self):
@@ -80,7 +91,6 @@ class Visualization:
 		self.pie_chart_class.add_pie_chart(artifact_data)
 		self.pie_chart_graph = self.pie_chart_class.get_chart_view()
 
-
 		self.pie_chart = QtWidgets.QWidget()
 		self.pie_chart.setObjectName("pie_chart")
 		self.gridLayout_10 = QtWidgets.QGridLayout(self.pie_chart)
@@ -93,8 +103,6 @@ class Visualization:
 		self.pie_chart_scroll_area_widget_contents.setObjectName("pie_chart_scroll_area_widget_contents")
 		self.pie_chart_scroll_area.setWidget(self.pie_chart_scroll_area_widget_contents)
 
-
-
 		''' Pie Chart Checkboxes '''
 		font = QtGui.QFont()
 
@@ -104,6 +112,7 @@ class Visualization:
 		self.pie_tab_all_artifacts_checkbox = QtWidgets.QCheckBox()
 		self.pie_tab_all_artifacts_checkbox.setText("All Artifacts")
 		self.pie_tab_all_artifacts_checkbox.setObjectName("pie_tab_all_artifacts_checkbox")
+		self.pie_tab_all_artifacts_checkbox.setChecked(True)
 		self.pie_tab_all_artifacts_checkbox.clicked.connect(self.check_pie_chart_boxes)
 		self.gridLayout_10.addWidget(self.pie_tab_all_artifacts_checkbox, 0, 0, 1, 1)
 
@@ -112,6 +121,7 @@ class Visualization:
 		self.gridLayout_10.addWidget(self.label_pie_chart_screenshot, 1, 0, 1, 1)
 		self.pie_tab_screenshot_checkbox = QtWidgets.QCheckBox()
 		self.pie_tab_screenshot_checkbox.setText("Screenshots")
+		self.pie_tab_screenshot_checkbox.setChecked(True)
 		self.pie_tab_screenshot_checkbox.setObjectName("pie_tab_screenshot_checkbox")
 		self.gridLayout_10.addWidget(self.pie_tab_screenshot_checkbox, 1, 0, 1, 1)
 
@@ -120,6 +130,7 @@ class Visualization:
 		self.gridLayout_10.addWidget(self.label_pie_chart_video, 2, 0, 1, 1)
 		self.pie_tab_video_checkbox = QtWidgets.QCheckBox()
 		self.pie_tab_video_checkbox.setText("Videos")
+		self.pie_tab_video_checkbox.setChecked(True)
 		self.pie_tab_video_checkbox.setObjectName("pie_tab_video_checkbox")
 		self.gridLayout_10.addWidget(self.pie_tab_video_checkbox, 2, 0, 1, 1)
 
@@ -128,6 +139,7 @@ class Visualization:
 		self.gridLayout_10.addWidget(self.label_pie_chart_network, 3, 0, 1, 1)
 		self.pie_tab_network_checkbox = QtWidgets.QCheckBox()
 		self.pie_tab_network_checkbox.setText("Network Data")
+		self.pie_tab_network_checkbox.setChecked(True)
 		self.pie_tab_network_checkbox.setObjectName("pie_tab_network_checkbox")
 		self.gridLayout_10.addWidget(self.pie_tab_network_checkbox, 3, 0, 1, 1)
 
@@ -136,6 +148,7 @@ class Visualization:
 		self.gridLayout_10.addWidget(self.label_pie_chart_process, 4, 0, 1, 1)
 		self.pie_tab_process_checkbox = QtWidgets.QCheckBox()
 		self.pie_tab_process_checkbox.setText("Processes")
+		self.pie_tab_process_checkbox.setChecked(True)
 		self.pie_tab_process_checkbox.setObjectName("pie_tab_process_checkbox")
 		self.gridLayout_10.addWidget(self.pie_tab_process_checkbox, 4, 0, 1, 1)
 
@@ -144,6 +157,7 @@ class Visualization:
 		self.gridLayout_10.addWidget(self.label_pie_chart_keystroke, 5, 0, 1, 1)
 		self.pie_tab_keystroke_checkbox = QtWidgets.QCheckBox()
 		self.pie_tab_keystroke_checkbox.setText("Keystrokes")
+		self.pie_tab_keystroke_checkbox.setChecked(True)
 		self.pie_tab_keystroke_checkbox.setObjectName("pie_tab_keystroke_checkbox")
 		self.gridLayout_10.addWidget(self.pie_tab_keystroke_checkbox, 5, 0, 1, 1)
 
@@ -152,6 +166,7 @@ class Visualization:
 		self.gridLayout_10.addWidget(self.label_pie_chart_video, 6, 0, 1, 1)
 		self.pie_tab_mouse_action_checkbox = QtWidgets.QCheckBox()
 		self.pie_tab_mouse_action_checkbox.setText("Mouse Actions")
+		self.pie_tab_mouse_action_checkbox.setChecked(True)
 		self.pie_tab_mouse_action_checkbox.setObjectName("pie_tab_mouse_action_checkbox")
 		self.gridLayout_10.addWidget(self.pie_tab_mouse_action_checkbox, 6, 0, 1, 1)
 
@@ -160,6 +175,7 @@ class Visualization:
 		self.gridLayout_10.addWidget(self.label_pie_chart_window_history, 7, 0, 1, 1)
 		self.pie_tab_window_history_checkbox = QtWidgets.QCheckBox()
 		self.pie_tab_window_history_checkbox.setText("Window History")
+		self.pie_tab_window_history_checkbox.setChecked(True)
 		self.pie_tab_window_history_checkbox.setObjectName("pie_tab_window_history_checkbox")
 		self.gridLayout_10.addWidget(self.pie_tab_window_history_checkbox, 7, 0, 1, 1)
 
@@ -168,15 +184,21 @@ class Visualization:
 		self.gridLayout_10.addWidget(self.label_pie_chart_system_call, 8, 0, 1, 1)
 		self.pie_tab_system_call_checkbox = QtWidgets.QCheckBox()
 		self.pie_tab_system_call_checkbox.setText("System Calls")
+		self.pie_tab_system_call_checkbox.setChecked(True)
 		self.pie_tab_system_call_checkbox.setObjectName("pie_tab_system_call_checkbox")
 		self.gridLayout_10.addWidget(self.pie_tab_system_call_checkbox, 8, 0, 1, 1)
 
+		self.export_button_pie_chart = QtWidgets.QPushButton()
+		self.export_button_pie_chart.setObjectName("export_button_pie_chart")
+		self.export_button_pie_chart.setText('Export')
+		self.gridLayout_10.addWidget(self.export_button_pie_chart, 9, 0, 1, 1)
+
+		'''END PieChart CHECKBOXES'''
 
 		# pie chart addition
 		self.pie_chart_scroll_area.setWidget(self.pie_chart_graph)
 		self.gridLayout_10.addWidget(self.pie_chart_scroll_area, 0, 1, 9, 1)
 		self.visualization_tabs.addTab(self.pie_chart, "")
-
 
 		#Checkbox Methods
 		self.pie_tab_all_artifacts_checkbox.clicked.connect(self.update_pie_chart_graph)
@@ -196,6 +218,11 @@ class Visualization:
 
 
 		''' Bar Graph Tab '''
+
+		self.bar_graph_class = BarGraph()
+		self.bar_graph_class.add_bar_graph(bar_graph_artifact_data)
+		self.bar_graph_diagram = self.bar_graph_class.get_chart_view()
+
 		self.bar_graph = QtWidgets.QWidget()
 		self.bar_graph.setObjectName("bar_graph")
 		self.gridLayout_37 = QtWidgets.QGridLayout(self.bar_graph)
@@ -207,10 +234,119 @@ class Visualization:
 		self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 72, 16))
 		self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
 		self.Bar_Graph_Area_123.setWidget(self.scrollAreaWidgetContents_2)
+
+		''' Bar Graph Checkboxes '''
+		self.label_bar_graph_all = QtWidgets.QLabel()
+		self.label_bar_graph_all.setObjectName("label_bar_graph_all")
+		self.gridLayout_37.addWidget(self.label_bar_graph_all, 0, 0, 1, 1)
+		self.bar_tab_all_artifacts_checkbox = QtWidgets.QCheckBox()
+		self.bar_tab_all_artifacts_checkbox.setText("All Artifacts")
+		self.bar_tab_all_artifacts_checkbox.setObjectName("bar_tab_all_artifacts_checkbox")
+		self.bar_tab_all_artifacts_checkbox.setChecked(True)
+		self.bar_tab_all_artifacts_checkbox.clicked.connect(self.check_bar_graph_boxes)
+		self.gridLayout_37.addWidget(self.bar_tab_all_artifacts_checkbox, 0, 0, 1, 1)
+
+		self.label_bar_graph_screenshot = QtWidgets.QLabel()
+		self.label_bar_graph_screenshot.setObjectName("label_bar_graph_screenshot")
+		self.gridLayout_37.addWidget(self.label_bar_graph_screenshot, 1, 0, 1, 1)
+		self.bar_tab_screenshot_checkbox = QtWidgets.QCheckBox()
+		self.bar_tab_screenshot_checkbox.setText("Screenshots")
+		self.bar_tab_screenshot_checkbox.setChecked(True)
+		self.bar_tab_screenshot_checkbox.setObjectName("bar_tab_screenshot_checkbox")
+		self.gridLayout_37.addWidget(self.bar_tab_screenshot_checkbox, 1, 0, 1, 1)
+
+		self.label_bar_graph_video = QtWidgets.QLabel()
+		self.label_bar_graph_video.setObjectName("label_bar_graph_video")
+		self.gridLayout_37.addWidget(self.label_bar_graph_video, 2, 0, 1, 1)
+		self.bar_tab_video_checkbox = QtWidgets.QCheckBox()
+		self.bar_tab_video_checkbox.setText("Videos")
+		self.bar_tab_video_checkbox.setChecked(True)
+		self.bar_tab_video_checkbox.setObjectName("bar_tab_video_checkbox")
+		self.gridLayout_37.addWidget(self.bar_tab_video_checkbox, 2, 0, 1, 1)
+
+		self.label_bar_graph_network = QtWidgets.QLabel()
+		self.label_bar_graph_network.setObjectName("label_bar_graph_network")
+		self.gridLayout_37.addWidget(self.label_bar_graph_network, 3, 0, 1, 1)
+		self.bar_tab_network_checkbox = QtWidgets.QCheckBox()
+		self.bar_tab_network_checkbox.setText("Network Data")
+		self.bar_tab_network_checkbox.setChecked(True)
+		self.bar_tab_network_checkbox.setObjectName("bar_tab_network_checkbox")
+		self.gridLayout_37.addWidget(self.bar_tab_network_checkbox, 3, 0, 1, 1)
+
+		self.label_bar_graph_process = QtWidgets.QLabel()
+		self.label_bar_graph_process.setObjectName("label_bar_graph_process")
+		self.gridLayout_37.addWidget(self.label_bar_graph_process, 4, 0, 1, 1)
+		self.bar_tab_process_checkbox = QtWidgets.QCheckBox()
+		self.bar_tab_process_checkbox.setText("Processes")
+		self.bar_tab_process_checkbox.setChecked(True)
+		self.bar_tab_process_checkbox.setObjectName("bar_tab_process_checkbox")
+		self.gridLayout_37.addWidget(self.bar_tab_process_checkbox, 4, 0, 1, 1)
+
+		self.label_bar_graph_keystroke = QtWidgets.QLabel()
+		self.label_bar_graph_keystroke.setObjectName("label_bar_graph_keystroke")
+		self.gridLayout_37.addWidget(self.label_bar_graph_keystroke, 5, 0, 1, 1)
+		self.bar_tab_keystroke_checkbox = QtWidgets.QCheckBox()
+		self.bar_tab_keystroke_checkbox.setText("Keystrokes")
+		self.bar_tab_keystroke_checkbox.setChecked(True)
+		self.bar_tab_keystroke_checkbox.setObjectName("bar_tab_keystroke_checkbox")
+		self.gridLayout_37.addWidget(self.bar_tab_keystroke_checkbox, 5, 0, 1, 1)
+
+		self.label_bar_graph_mouse_action = QtWidgets.QLabel()
+		self.label_bar_graph_mouse_action.setObjectName("label_bar_graph_mouse_action")
+		self.gridLayout_37.addWidget(self.label_bar_graph_video, 6, 0, 1, 1)
+		self.bar_tab_mouse_action_checkbox = QtWidgets.QCheckBox()
+		self.bar_tab_mouse_action_checkbox.setText("Mouse Actions")
+		self.bar_tab_mouse_action_checkbox.setChecked(True)
+		self.bar_tab_mouse_action_checkbox.setObjectName("bar_tab_mouse_action_checkbox")
+		self.gridLayout_37.addWidget(self.bar_tab_mouse_action_checkbox, 6, 0, 1, 1)
+
+		self.label_bar_graph_window_history = QtWidgets.QLabel()
+		self.label_bar_graph_window_history.setObjectName("label_bar_graph_window_history")
+		self.gridLayout_37.addWidget(self.label_bar_graph_window_history, 7, 0, 1, 1)
+		self.bar_tab_window_history_checkbox = QtWidgets.QCheckBox()
+		self.bar_tab_window_history_checkbox.setText("Window History")
+		self.bar_tab_window_history_checkbox.setChecked(True)
+		self.bar_tab_window_history_checkbox.setObjectName("bar_tab_window_history_checkbox")
+		self.gridLayout_37.addWidget(self.bar_tab_window_history_checkbox, 7, 0, 1, 1)
+
+		self.label_bar_graph_system_call = QtWidgets.QLabel()
+		self.label_bar_graph_system_call.setObjectName("label_bar_graph_system_call")
+		self.gridLayout_37.addWidget(self.label_bar_graph_system_call, 8, 0, 1, 1)
+		self.bar_tab_system_call_checkbox = QtWidgets.QCheckBox()
+		self.bar_tab_system_call_checkbox.setText("System Calls")
+		self.bar_tab_system_call_checkbox.setChecked(True)
+		self.bar_tab_system_call_checkbox.setObjectName("bar_tab_system_call_checkbox")
+		self.gridLayout_37.addWidget(self.bar_tab_system_call_checkbox, 8, 0, 1, 1)
+
+		self.export_button_bar_graph = QtWidgets.QPushButton()
+		self.export_button_bar_graph.setObjectName("export_button_bar_graph")
+		self.export_button_bar_graph.setText('Export')
+		self.gridLayout_37.addWidget(self.export_button_bar_graph, 9, 0, 1, 1)
+		'''End Bar Graph Checkboxes'''
+
+
 		# bar graph addition
-		self.Bar_Graph_Area_123.setWidget(bar_graph.add_bar_graph())
-		self.gridLayout_37.addWidget(self.Bar_Graph_Area_123, 0, 0, 1, 1)
+		self.Bar_Graph_Area_123.setWidget(self.bar_graph_diagram)
+		self.gridLayout_37.addWidget(self.Bar_Graph_Area_123, 0, 1, 9, 1)
 		self.visualization_tabs.addTab(self.bar_graph, "")
+
+		#Bar Graph Methods
+		self.bar_tab_all_artifacts_checkbox.clicked.connect(self.update_bar_graph_graph)
+		self.bar_tab_screenshot_checkbox.clicked.connect(self.update_bar_graph_graph)
+		self.bar_tab_video_checkbox.clicked.connect(self.update_bar_graph_graph)
+		self.bar_tab_network_checkbox.clicked.connect(self.update_bar_graph_graph)
+		self.bar_tab_process_checkbox.clicked.connect(self.update_bar_graph_graph)
+		self.bar_tab_keystroke_checkbox.clicked.connect(self.update_bar_graph_graph)
+		self.bar_tab_mouse_action_checkbox.clicked.connect(self.update_bar_graph_graph)
+		self.bar_tab_system_call_checkbox.clicked.connect(self.update_bar_graph_graph)
+		self.bar_tab_window_history_checkbox.clicked.connect(self.update_bar_graph_graph)
+
+		self.artifacts_bar_data = [ (bar_graph_artifact_data[0],self.bar_tab_screenshot_checkbox), (bar_graph_artifact_data[1],self.bar_tab_video_checkbox),
+		(bar_graph_artifact_data[2], self.bar_tab_network_checkbox), (bar_graph_artifact_data[3], self.bar_tab_process_checkbox),
+		(bar_graph_artifact_data[4],self.bar_tab_keystroke_checkbox),(bar_graph_artifact_data[5],self.bar_tab_mouse_action_checkbox),
+		(bar_graph_artifact_data[6],self.bar_tab_window_history_checkbox), (bar_graph_artifact_data[7],self.bar_tab_system_call_checkbox)]
+
+
 
 		''' Timeline Tab '''
 		self.timeline = QtWidgets.QWidget()
@@ -475,7 +611,7 @@ class Visualization:
 		self.label_5.setText(_translate("MainWindow", "Visualization Result"))
 		self.label_7.setText(_translate("MainWindow", "Timeline Title"))
 		self.pushButton_2.setText(_translate("MainWindow", "+"))
-		#self.pushButton_3.setText(_translate("MainWindow", "-"))
+		self.pushButton_3.setText(_translate("MainWindow", "-"))
 		self.label_40.setText(_translate("MainWindow", "Zoom"))
 		self.visualization_tabs.setTabText(
 			self.visualization_tabs.indexOf(self.timeline), _translate("MainWindow", "Timeline"))
@@ -486,7 +622,6 @@ class Visualization:
 	def check_pie_chart_boxes(self):
 		on = self.pie_tab_all_artifacts_checkbox.isChecked()
 
-		#self.pie_tab_all_artifacts_checkbox.setChecked(on)
 		self.pie_tab_video_checkbox.setChecked(on)
 		self.pie_tab_video_checkbox.setChecked(on)
 		self.pie_tab_network_checkbox.setChecked(on)
@@ -496,6 +631,19 @@ class Visualization:
 		self.pie_tab_system_call_checkbox.setChecked(on)
 		self.pie_tab_mouse_action_checkbox.setChecked(on)
 		self.pie_tab_window_history_checkbox.setChecked(on)
+
+	def check_bar_graph_boxes(self):
+	  on = self.bar_tab_all_artifacts_checkbox.isChecked()
+
+	  self.bar_tab_video_checkbox.setChecked(on)
+	  self.bar_tab_video_checkbox.setChecked(on)
+	  self.bar_tab_network_checkbox.setChecked(on)
+	  self.bar_tab_process_checkbox.setChecked(on)
+	  self.bar_tab_keystroke_checkbox.setChecked(on)
+	  self.bar_tab_screenshot_checkbox.setChecked(on)
+	  self.bar_tab_system_call_checkbox.setChecked(on)
+	  self.bar_tab_mouse_action_checkbox.setChecked(on)
+	  self.bar_tab_window_history_checkbox.setChecked(on)
 
 	def update_pie_chart_graph(self):
 		#artifact[0] is the slices
@@ -509,3 +657,17 @@ class Visualization:
 				if (artifact[0] in artifact_data):
 					artifact_data.remove(artifact[0])
 					self.pie_chart_class.series.take(artifact[0])
+
+
+	def update_bar_graph_graph(self):
+		#artifact[0] is the slices
+		#artifactt[1] is the checkboxes
+		for artifact in self.artifacts_bar_data:
+			if (artifact[1].isChecked()):
+				if not(artifact[0] in artifact_data):
+					self.bar_graph_class.series.append(artifact[0])
+					artifact_data.append(artifact[0])
+			else:
+				if (artifact[0] in artifact_data):
+					artifact_data.remove(artifact[0])
+					self.bar_graph_class.series.take(artifact[0])
