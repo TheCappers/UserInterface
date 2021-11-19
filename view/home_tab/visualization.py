@@ -1,6 +1,17 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
+from PyQt5.QtChart import QChart, QChartView, QPieSeries, QPieSlice
 from view.components import result_table, annotation_table, bar_graph, pie_chart
+from view.components.pie_chart import PieChart
 
+screenshot_data = QPieSlice('Screenshot',69)
+video_data = QPieSlice('Video',40)
+network_data = QPieSlice('Network',42)
+process_data = QPieSlice('Processes',69)
+keystroke_data = QPieSlice('Keystroke',14)
+mouse_action_data = QPieSlice('Mouse Actions',200)
+window_history_data = QPieSlice('Window_History',13)
+system_call_data = QPieSlice('System Calls',69)
+artifact_data = [screenshot_data, video_data, network_data, process_data, keystroke_data,mouse_action_data, window_history_data, system_call_data]
 
 class Visualization:
 	def __init__(self):
@@ -60,6 +71,10 @@ class Visualization:
 		self.visualization_tabs.addTab(self.type, "")
 
 		''' Pie Chart Tab '''
+		self.pie_chart_class = PieChart()
+		self.pie_chart_class.add_pie_chart(artifact_data)
+		self.pie_chart_graph = self.pie_chart_class.get_chart_view()
+
 
 		self.pie_chart = QtWidgets.QWidget()
 		self.pie_chart.setObjectName("pie_chart")
@@ -84,6 +99,7 @@ class Visualization:
 		self.pie_tab_all_artifacts_checkbox = QtWidgets.QCheckBox()
 		self.pie_tab_all_artifacts_checkbox.setText("All Artifacts")
 		self.pie_tab_all_artifacts_checkbox.setObjectName("pie_tab_all_artifacts_checkbox")
+		self.pie_tab_all_artifacts_checkbox.clicked.connect(self.check_pie_chart_boxes)
 		self.gridLayout_10.addWidget(self.pie_tab_all_artifacts_checkbox, 0, 0, 1, 1)
 
 		self.label_pie_chart_screenshot = QtWidgets.QLabel()
@@ -92,8 +108,8 @@ class Visualization:
 		self.pie_tab_screenshot_checkbox = QtWidgets.QCheckBox()
 		self.pie_tab_screenshot_checkbox.setText("Screenshots")
 		self.pie_tab_screenshot_checkbox.setObjectName("pie_tab_screenshot_checkbox")
+		self.pie_tab_screenshot_checkbox.clicked.connect(self.update_pie_chart_graph)
 		self.gridLayout_10.addWidget(self.pie_tab_screenshot_checkbox, 1, 0, 1, 1)
-
 
 		self.label_pie_chart_video = QtWidgets.QLabel()
 		self.label_pie_chart_video.setObjectName("label_pie_chart_video")
@@ -153,7 +169,7 @@ class Visualization:
 
 
 		# pie chart addition
-		self.pie_chart_scroll_area.setWidget(pie_chart.add_pie_chart())
+		self.pie_chart_scroll_area.setWidget(self.pie_chart_graph)
 		self.gridLayout_10.addWidget(self.pie_chart_scroll_area, 0, 1, 9, 1)
 		self.visualization_tabs.addTab(self.pie_chart, "")
 
@@ -444,3 +460,39 @@ class Visualization:
 
 	def get_accordion(self):
 		return self.visualization_accordion
+
+	def check_pie_chart_boxes(self):
+		on = self.pie_tab_all_artifacts_checkbox.isChecked()
+
+		#self.pie_tab_all_artifacts_checkbox.setChecked(on)
+		self.pie_tab_video_checkbox.setChecked(on)
+		self.pie_tab_video_checkbox.setChecked(on)
+		self.pie_tab_network_checkbox.setChecked(on)
+		self.pie_tab_process_checkbox.setChecked(on)
+		self.pie_tab_keystroke_checkbox.setChecked(on)
+		self.pie_tab_screenshot_checkbox.setChecked(on)
+		self.pie_tab_system_call_checkbox.setChecked(on)
+		self.pie_tab_mouse_action_checkbox.setChecked(on)
+		self.pie_tab_window_history_checkbox.setChecked(on)
+
+	def update_pie_chart_graph(self):
+		on = self.pie_tab_screenshot_checkbox.isChecked()
+		if (on):
+			if not (screenshot_data in artifact_data):
+				self.pie_chart_class.series.append(screenshot_data)
+				artifact_data.append(screenshot_data)
+		else:
+			if (screenshot_data in artifact_data):
+				artifact_data.remove(screenshot_data)
+				self.pie_chart_class.series.remove(screenshot_data)
+		#self.pie_tab_all_artifacts_checkbox.setChecked(on)
+		#self.pie_tab_video_checkbox.setChecked(on)
+		#self.pie_tab_video_checkbox.setChecked(on)
+		#self.pie_tab_network_checkbox.setChecked(on)
+		#self.pie_tab_process_checkbox.setChecked(on)
+		#self.pie_tab_keystroke_checkbox.setChecked(on)
+		#self.pie_tab_screenshot_checkbox.setChecked(on)
+		#self.pie_tab_system_call_checkbox.setChecked(on)
+
+		#self.pie_tab_mouse_action_checkbox.setChecked(on)
+		#self.pie_tab_window_history_checkbox.setChecked(on)
