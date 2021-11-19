@@ -111,30 +111,50 @@ class Visualization:
 		self.pie_tab_network_checkbox.setObjectName("pie_tab_network_checkbox")
 		self.gridLayout_10.addWidget(self.pie_tab_network_checkbox, 3, 0, 1, 1)
 
+		self.label_pie_chart_process = QtWidgets.QLabel()
+		self.label_pie_chart_process.setObjectName("label_pie_chart_process")
+		self.gridLayout_10.addWidget(self.label_pie_chart_process, 4, 0, 1, 1)
+		self.pie_tab_process_checkbox = QtWidgets.QCheckBox()
+		self.pie_tab_process_checkbox.setText("Processes")
+		self.pie_tab_process_checkbox.setObjectName("pie_tab_process_checkbox")
+		self.gridLayout_10.addWidget(self.pie_tab_process_checkbox, 4, 0, 1, 1)
+
 		self.label_pie_chart_keystroke = QtWidgets.QLabel()
 		self.label_pie_chart_keystroke.setObjectName("label_pie_chart_keystroke")
-		self.gridLayout_10.addWidget(self.label_pie_chart_keystroke, 4, 0, 1, 1)
+		self.gridLayout_10.addWidget(self.label_pie_chart_keystroke, 5, 0, 1, 1)
 		self.pie_tab_keystroke_checkbox = QtWidgets.QCheckBox()
 		self.pie_tab_keystroke_checkbox.setText("Keystrokes")
 		self.pie_tab_keystroke_checkbox.setObjectName("pie_tab_keystroke_checkbox")
-		self.gridLayout_10.addWidget(self.pie_tab_keystroke_checkbox, 4, 0, 1, 1)
+		self.gridLayout_10.addWidget(self.pie_tab_keystroke_checkbox, 5, 0, 1, 1)
 
 		self.label_pie_chart_mouse_action = QtWidgets.QLabel()
 		self.label_pie_chart_mouse_action.setObjectName("label_pie_chart_mouse_action")
-		self.gridLayout_10.addWidget(self.label_pie_chart_video, 5, 0, 1, 1)
+		self.gridLayout_10.addWidget(self.label_pie_chart_video, 6, 0, 1, 1)
 		self.pie_tab_mouse_action_checkbox = QtWidgets.QCheckBox()
 		self.pie_tab_mouse_action_checkbox.setText("Mouse Actions")
 		self.pie_tab_mouse_action_checkbox.setObjectName("pie_tab_mouse_action_checkbox")
-		self.gridLayout_10.addWidget(self.pie_tab_mouse_action_checkbox, 5, 0, 1, 1)
+		self.gridLayout_10.addWidget(self.pie_tab_mouse_action_checkbox, 6, 0, 1, 1)
 
+		self.label_pie_chart_window_history = QtWidgets.QLabel()
+		self.label_pie_chart_window_history.setObjectName("label_pie_chart_window_history")
+		self.gridLayout_10.addWidget(self.label_pie_chart_window_history, 7, 0, 1, 1)
+		self.pie_tab_window_history_checkbox = QtWidgets.QCheckBox()
+		self.pie_tab_window_history_checkbox.setText("Window History")
+		self.pie_tab_window_history_checkbox.setObjectName("pie_tab_window_history_checkbox")
+		self.gridLayout_10.addWidget(self.pie_tab_window_history_checkbox, 7, 0, 1, 1)
 
-
-
+		self.label_pie_chart_system_call = QtWidgets.QLabel()
+		self.label_pie_chart_system_call.setObjectName("label_pie_chart_system_call")
+		self.gridLayout_10.addWidget(self.label_pie_chart_system_call, 8, 0, 1, 1)
+		self.pie_tab_system_call_checkbox = QtWidgets.QCheckBox()
+		self.pie_tab_system_call_checkbox.setText("System Calls")
+		self.pie_tab_system_call_checkbox.setObjectName("pie_tab_system_call_checkbox")
+		self.gridLayout_10.addWidget(self.pie_tab_system_call_checkbox, 8, 0, 1, 1)
 
 
 		# pie chart addition
 		self.pie_chart_scroll_area.setWidget(pie_chart.add_pie_chart())
-		self.gridLayout_10.addWidget(self.pie_chart_scroll_area, 0, 1, 6, 1)
+		self.gridLayout_10.addWidget(self.pie_chart_scroll_area, 0, 1, 9, 1)
 		self.visualization_tabs.addTab(self.pie_chart, "")
 
 		''' Bar Graph Tab '''

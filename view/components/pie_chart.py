@@ -4,25 +4,54 @@ from PyQt5.QtGui import QPainter, QPen
 from PyQt5.Qt import Qt
 
 
+series = QPieSeries()
+def setExploded(slice,state):
+    slice.setExploded(state)
+    slice.setLabelVisible(state)
+
+
+def removeItem(slice):
+    series.remove(slice)
+
+
+
+
 def add_pie_chart():
 
+    screenshot_data = QPieSlice('Screenshot',69)
+    #screenshot_data.onPressed()
+    video_data = QPieSlice('Video',40)
+    network_data = QPieSlice('Network',42)
+    process_data = QPieSlice('Processes',69)
+    keystroke_data = QPieSlice('Keystroke',14)
+    mouse_action_data = QPieSlice('Mouse Actions',200)
+    window_history_data = QPieSlice('Window_History',13)
+    system_call_data = QPieSlice('System Calls',69)
 
-    series = QPieSeries()
-    series.append("Python", 80)
-    series.append("C++", 70)
-    series.append("Java", 50)
-    series.append("C#", 40)
-    series.append("PHP", 30)
+    artifact_data = [screenshot_data, video_data, network_data, process_data, keystroke_data,mouse_action_data, window_history_data, system_call_data]
 
+
+
+    for i in artifact_data:
+        series.append(i)
+
+
+    #self.tab_1.table_result.avert_result_table.cellClicked.connect(self.exportRow)
+    series.clicked.connect(removeItem)
+    series.hovered.connect(setExploded)
+
+    #series.released.connect(removeExploded)
+    #series.released.connect(removeExploded)
 
 
     #adding slice
-    slice = QPieSlice()
+    '''slice = QPieSlice()
     slice = series.slices()[2]
     slice.setExploded(True)
     slice.setLabelVisible(True)
     slice.setPen(QPen(Qt.darkGreen, 2))
     slice.setBrush(Qt.green)
+    '''
 
 
     chart = QChart()
