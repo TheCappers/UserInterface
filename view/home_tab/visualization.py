@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
-from view.components import result_table, annotation_table, bar_graph
+from view.components import result_table, annotation_table, bar_graph, pie_chart
 
 
 class Visualization:
@@ -12,7 +12,7 @@ class Visualization:
 		self.visualization_tabs = QtWidgets.QTabWidget(self.visualization_accordion)
 		self.visualization_tabs.setLayoutDirection(QtCore.Qt.LeftToRight)
 		self.visualization_tabs.setObjectName("visualization_tabs")
-		
+
 		''' Type tab '''
 		self.type = QtWidgets.QWidget()
 		self.type.setObjectName("type")
@@ -58,72 +58,85 @@ class Visualization:
 		spacerItem4 = QtWidgets.QSpacerItem(466, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
 		self.gridLayout.addItem(spacerItem4, 0, 2, 1, 1)
 		self.visualization_tabs.addTab(self.type, "")
-		
+
 		''' Pie Chart Tab '''
+
 		self.pie_chart = QtWidgets.QWidget()
 		self.pie_chart.setObjectName("pie_chart")
 		self.gridLayout_10 = QtWidgets.QGridLayout(self.pie_chart)
 		self.gridLayout_10.setObjectName("gridLayout_10")
-		self.widget = QtWidgets.QWidget(self.pie_chart)
-		self.widget.setObjectName("widget")
-		self.gridLayout_34 = QtWidgets.QGridLayout(self.widget)
-		self.gridLayout_34.setObjectName("gridLayout_34")
-		self.timeline_metadata_2 = QtWidgets.QFrame(self.widget)
-		self.timeline_metadata_2.setFrameShape(QtWidgets.QFrame.NoFrame)
-		self.timeline_metadata_2.setFrameShadow(QtWidgets.QFrame.Plain)
-		self.timeline_metadata_2.setObjectName("timeline_metadata_2")
-		self.gridLayout_16 = QtWidgets.QGridLayout(self.timeline_metadata_2)
-		self.gridLayout_16.setObjectName("gridLayout_16")
-		self.label_91 = QtWidgets.QLabel(self.timeline_metadata_2)
-		self.label_91.setObjectName("label_91")
-		self.gridLayout_16.addWidget(self.label_91, 1, 0, 1, 1)
-		self.lineEdit_4 = QtWidgets.QLineEdit(self.timeline_metadata_2)
-		self.lineEdit_4.setText("")
-		self.lineEdit_4.setObjectName("lineEdit_4")
-		self.gridLayout_16.addWidget(self.lineEdit_4, 1, 1, 1, 1)
-		self.label_90 = QtWidgets.QLabel(self.timeline_metadata_2)
-		self.label_90.setObjectName("label_90")
-		self.gridLayout_16.addWidget(self.label_90, 0, 0, 1, 1)
-		self.gridLayout_34.addWidget(self.timeline_metadata_2, 0, 0, 1, 1, QtCore.Qt.AlignTop)
-		self.timeline_title_2 = QtWidgets.QFrame(self.widget)
-		self.timeline_title_2.setFrameShape(QtWidgets.QFrame.NoFrame)
-		self.timeline_title_2.setFrameShadow(QtWidgets.QFrame.Raised)
-		self.timeline_title_2.setObjectName("timeline_title_2")
-		self.gridLayout_17 = QtWidgets.QGridLayout(self.timeline_title_2)
-		self.gridLayout_17.setObjectName("gridLayout_17")
-		self.label_92 = QtWidgets.QLabel(self.timeline_title_2)
-		self.label_92.setObjectName("label_92")
-		self.gridLayout_17.addWidget(self.label_92, 0, 0, 1, 1)
-		self.label_93 = QtWidgets.QLabel(self.timeline_title_2)
-		self.label_93.setObjectName("label_93")
-		self.gridLayout_17.addWidget(self.label_93, 1, 0, 1, 1)
-		self.lineEdit_5 = QtWidgets.QLineEdit(self.timeline_title_2)
-		self.lineEdit_5.setObjectName("lineEdit_5")
-		self.gridLayout_17.addWidget(self.lineEdit_5, 1, 1, 1, 1)
-		self.frame_4 = QtWidgets.QFrame(self.timeline_title_2)
-		self.frame_4.setFrameShape(QtWidgets.QFrame.NoFrame)
-		self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
-		self.frame_4.setObjectName("frame_4")
-		self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.frame_4)
-		self.horizontalLayout_4.setObjectName("horizontalLayout_4")
-		self.gridLayout_17.addWidget(self.frame_4, 2, 1, 1, 1)
-		self.gridLayout_34.addWidget(self.timeline_title_2, 0, 1, 1, 1, QtCore.Qt.AlignTop)
-		self.frame_12 = QtWidgets.QFrame(self.widget)
-		self.frame_12.setFrameShape(QtWidgets.QFrame.NoFrame)
-		self.frame_12.setFrameShadow(QtWidgets.QFrame.Plain)
-		self.frame_12.setObjectName("frame_12")
-		self.gridLayout_15 = QtWidgets.QGridLayout(self.frame_12)
-		self.gridLayout_15.setObjectName("gridLayout_15")
-		self.label_94 = QtWidgets.QLabel(self.frame_12)
-		self.label_94.setMaximumSize(QtCore.QSize(301, 241))
-		self.label_94.setText("")
-		self.label_94.setPixmap(QtGui.QPixmap("view/assets/pie-chart-too-few-slices.png"))
-		self.label_94.setObjectName("label_94")
-		self.gridLayout_15.addWidget(self.label_94, 0, 0, 1, 1)
-		self.gridLayout_34.addWidget(self.frame_12, 1, 0, 1, 2)
-		self.gridLayout_10.addWidget(self.widget, 0, 0, 1, 1)
+		self.pie_chart_scroll_area = QtWidgets.QScrollArea(self.pie_chart)
+		self.pie_chart_scroll_area.setWidgetResizable(True)
+		self.pie_chart_scroll_area.setObjectName("pie_chart_scroll_area")
+		self.pie_chart_scroll_area_widget_contents = QtWidgets.QWidget()
+		self.pie_chart_scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 72, 16))
+		self.pie_chart_scroll_area_widget_contents.setObjectName("pie_chart_scroll_area_widget_contents")
+		self.pie_chart_scroll_area.setWidget(self.pie_chart_scroll_area_widget_contents)
+
+
+
+		''' Pie Chart Checkboxes '''
+		font = QtGui.QFont()
+
+		self.label_pie_chart_all = QtWidgets.QLabel()
+		self.label_pie_chart_all.setObjectName("label_pie_chart_all")
+		self.gridLayout_10.addWidget(self.label_pie_chart_all, 0, 0, 1, 1)
+		self.pie_tab_all_artifacts_checkbox = QtWidgets.QCheckBox()
+		self.pie_tab_all_artifacts_checkbox.setText("All Artifacts")
+		self.pie_tab_all_artifacts_checkbox.setObjectName("pie_tab_all_artifacts_checkbox")
+		self.gridLayout_10.addWidget(self.pie_tab_all_artifacts_checkbox, 0, 0, 1, 1)
+
+		self.label_pie_chart_screenshot = QtWidgets.QLabel()
+		self.label_pie_chart_screenshot.setObjectName("label_pie_chart_screenshot")
+		self.gridLayout_10.addWidget(self.label_pie_chart_screenshot, 1, 0, 1, 1)
+		self.pie_tab_screenshot_checkbox = QtWidgets.QCheckBox()
+		self.pie_tab_screenshot_checkbox.setText("Screenshots")
+		self.pie_tab_screenshot_checkbox.setObjectName("pie_tab_screenshot_checkbox")
+		self.gridLayout_10.addWidget(self.pie_tab_screenshot_checkbox, 1, 0, 1, 1)
+
+
+		self.label_pie_chart_video = QtWidgets.QLabel()
+		self.label_pie_chart_video.setObjectName("label_pie_chart_video")
+		self.gridLayout_10.addWidget(self.label_pie_chart_video, 2, 0, 1, 1)
+		self.pie_tab_video_checkbox = QtWidgets.QCheckBox()
+		self.pie_tab_video_checkbox.setText("Videos")
+		self.pie_tab_video_checkbox.setObjectName("pie_tab_video_checkbox")
+		self.gridLayout_10.addWidget(self.pie_tab_video_checkbox, 2, 0, 1, 1)
+
+		self.label_pie_chart_network = QtWidgets.QLabel()
+		self.label_pie_chart_network.setObjectName("label_pie_chart_network")
+		self.gridLayout_10.addWidget(self.label_pie_chart_network, 3, 0, 1, 1)
+		self.pie_tab_network_checkbox = QtWidgets.QCheckBox()
+		self.pie_tab_network_checkbox.setText("Network Data")
+		self.pie_tab_network_checkbox.setObjectName("pie_tab_network_checkbox")
+		self.gridLayout_10.addWidget(self.pie_tab_network_checkbox, 3, 0, 1, 1)
+
+		self.label_pie_chart_keystroke = QtWidgets.QLabel()
+		self.label_pie_chart_keystroke.setObjectName("label_pie_chart_keystroke")
+		self.gridLayout_10.addWidget(self.label_pie_chart_keystroke, 4, 0, 1, 1)
+		self.pie_tab_keystroke_checkbox = QtWidgets.QCheckBox()
+		self.pie_tab_keystroke_checkbox.setText("Keystrokes")
+		self.pie_tab_keystroke_checkbox.setObjectName("pie_tab_keystroke_checkbox")
+		self.gridLayout_10.addWidget(self.pie_tab_keystroke_checkbox, 4, 0, 1, 1)
+
+		self.label_pie_chart_mouse_action = QtWidgets.QLabel()
+		self.label_pie_chart_mouse_action.setObjectName("label_pie_chart_mouse_action")
+		self.gridLayout_10.addWidget(self.label_pie_chart_video, 5, 0, 1, 1)
+		self.pie_tab_mouse_action_checkbox = QtWidgets.QCheckBox()
+		self.pie_tab_mouse_action_checkbox.setText("Mouse Actions")
+		self.pie_tab_mouse_action_checkbox.setObjectName("pie_tab_mouse_action_checkbox")
+		self.gridLayout_10.addWidget(self.pie_tab_mouse_action_checkbox, 5, 0, 1, 1)
+
+
+
+
+
+
+		# pie chart addition
+		self.pie_chart_scroll_area.setWidget(pie_chart.add_pie_chart())
+		self.gridLayout_10.addWidget(self.pie_chart_scroll_area, 0, 1, 6, 1)
 		self.visualization_tabs.addTab(self.pie_chart, "")
-		
+
 		''' Bar Graph Tab '''
 		self.bar_graph = QtWidgets.QWidget()
 		self.bar_graph.setObjectName("bar_graph")
@@ -140,7 +153,7 @@ class Visualization:
 		self.Bar_Graph_Area_123.setWidget(bar_graph.add_bar_graph())
 		self.gridLayout_37.addWidget(self.Bar_Graph_Area_123, 0, 0, 1, 1)
 		self.visualization_tabs.addTab(self.bar_graph, "")
-		
+
 		''' Timeline Tab '''
 		self.timeline = QtWidgets.QWidget()
 		self.timeline.setObjectName("timeline")
@@ -364,10 +377,10 @@ class Visualization:
 		self.pushButton_5.setText(_translate("MainWindow", "Generate"))
 		self.pushButton_6.setText(_translate("MainWindow", "Export"))
 		self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(self.type), _translate("MainWindow", "Type"))
-		self.label_91.setText(_translate("MainWindow", "Title"))
-		self.label_90.setText(_translate("MainWindow", "Pie Chart Metadata"))
-		self.label_92.setText(_translate("MainWindow", "Visualization Result"))
-		self.label_93.setText(_translate("MainWindow", "Pie Chart Title"))
+		#self.label_91.setText(_translate("MainWindow", "Title"))
+		#self.label_90.setText(_translate("MainWindow", "Pie Chart Metadata"))
+		#self.label_92.setText(_translate("MainWindow", "Visualization Result"))
+		#self.label_93.setText(_translate("MainWindow", "Pie Chart Title"))
 		self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(
 			self.pie_chart), _translate("MainWindow", "Pie Chart"))
 		self.visualization_tabs.setTabText(self.visualization_tabs.indexOf(
@@ -404,7 +417,7 @@ class Visualization:
 		self.label_5.setText(_translate("MainWindow", "Visualization Result"))
 		self.label_7.setText(_translate("MainWindow", "Timeline Title"))
 		self.pushButton_2.setText(_translate("MainWindow", "+"))
-		self.pushButton_3.setText(_translate("MainWindow", "-"))
+		#self.pushButton_3.setText(_translate("MainWindow", "-"))
 		self.label_40.setText(_translate("MainWindow", "Zoom"))
 		self.visualization_tabs.setTabText(
 			self.visualization_tabs.indexOf(self.timeline), _translate("MainWindow", "Timeline"))
