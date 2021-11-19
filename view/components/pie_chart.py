@@ -10,6 +10,11 @@ class PieChart:
     def setExploded(self,slice,state):
         slice.setExploded(state)
         slice.setLabelVisible(state)
+        spl = slice.label().split(" ")
+        if (state):
+            slice.setLabel(spl[0] + ' ' + str(slice.value()))
+        else:
+            slice.setLabel(spl[0])
 
     def removeItem(self,slice):
         self.series.remove(slice)
@@ -19,7 +24,7 @@ class PieChart:
         for i in artifact_data:
             self.series.append(i)
 
-        self.series.clicked.connect(self.removeItem)
+        #self.series.clicked.connect(self.removeItem)
         self.series.hovered.connect(self.setExploded)
 
         chart = QChart()
