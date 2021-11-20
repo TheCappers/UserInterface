@@ -5,7 +5,7 @@ from bson.objectid import ObjectId
 class DataBase:
 
     def __init__(self):
-        db_server_url = 'mongodb://192.168.239.131:27017/'
+        db_server_url = 'mongodb://localhost:27017/'
         client = MongoClient(db_server_url)
         self.db = client['AVERT']
         self.keystroke_collection = self.db["keystroke_collection"]
@@ -155,8 +155,8 @@ class DataBase:
         if query == "deep_search":
             return self.__deep_search(target)
 
-# post_1 = {'_id': '615b8dee3f96615d61661111', 'name': 'Mouse_Action', 'Keystroke': 'MANNYYYYYYYYYYY', 'Date': '9/11/2021', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': 'David'}
-#
+# post_1 = {'_id': '615b8dee3f96615d6166ead6', 'name': 'Mouse_Action', 'Keystroke': 'H', 'Date': '9/11/2021', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': 'David'}
+
 # db = DataBase()
 #
 # root_list = db.query_db("find", "", "polkitd")
@@ -165,7 +165,7 @@ class DataBase:
 #     print(root)
 
 # insert data to the database
-#db.query_db("post", post_1, "")
+# db.query_db("post", post_1, "")
 
 # return a list of all items in the database
 # list_all = db.query_db("all", "", "")

@@ -1,7 +1,6 @@
-import os
 from Database.Database import DataBase
-import threading, socket
-import ast
+import threading
+from bson.objectid import ObjectId
 from pymongo import MongoClient
 
 
@@ -34,6 +33,8 @@ class Sender:
         self.video_collection = self.__db2["video_collection"]
         self.network_collection = self.__db2["network_collection"]
 
+        self.collection_type(item_list)
+
     def collection_type(self, item_list):
         if item_list[0].get('name') == "Keystroke":
             self.sync_2db(self.keystroke_collection, item_list)
@@ -52,34 +53,39 @@ class Sender:
         if item_list[0].get('name') == "Network":
             self.sync_2db(self.network_collection, item_list)
 
-
     def sync_2db(self, collection, item_list):
-        break_flag = True
 
-        while break_flag:
+        items_matched = False
 
+        for item in item_list:
             for entry in collection.find({}):
-                for item in item_list:
+                for key, value in entry.items():
+                    if key == '_id':
+                        pass
+                    elif item.get(key) == value:
+                        items_matched = True
+                    else:
+                        items_matched = False
+                        break
 
-                    for key, value in entry.items():
-                        if key == '_id':
-                            pass
-                        elif item.get(key) == value:
-                            print('Duplicate', item.get(key), '\n', value)
-                            pass
-                        else:
-                            print('Not duplicate', item, '\n', entry)
-                            # not a duplicate so we added it to the DATABASE
-                            collection.insert_one(item)
-            break
+                if items_matched:
+                    break
+
+            if items_matched:
+                pass
+            else:
+                # not a duplicate so we added it to the DATABASE
+                item.update({"_id": ObjectId().__str__()})
+                collection.insert_one(item)
 
     # creates thread
     def start(self, item_list, receiver_ip):
         self.__listener = threading.Thread(target=self.connect_2db(item_list, receiver_ip))
         self.__listener.start()
 
-
-receiver_ip = 'localhost'
-sync_sender = Sender()
-item_list = []
-sync_sender.start(item_list, receiver_ip)
+# item_list = [
+#     {'_id': '615b8dee3f96615d6166ead6', 'name': 'Mouse_Action', 'Keystroke': 'H', 'Date': '9/11/2021', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': 'David'}
+#           ]
+# receiver_ip = '192.168.239.131'
+# sync_sender = Sender()
+# sync_sender.start(item_list, receiver_ip)
