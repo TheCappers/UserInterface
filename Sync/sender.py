@@ -54,7 +54,7 @@ class Sender:
             self.sync_2db(self.network_collection, item_list)
 
     def sync_2db(self, collection, item_list):
-
+        synced_count = 0
         items_matched = False
 
         for item in item_list:
@@ -72,11 +72,13 @@ class Sender:
                     break
 
             if items_matched:
+                synced_count += 1
                 pass
             else:
                 # not a duplicate so we added it to the DATABASE
                 item.update({"_id": ObjectId().__str__()})
                 collection.insert_one(item)
+                synced_count += 1
 
     # creates thread
     def start(self, item_list, receiver_ip):
