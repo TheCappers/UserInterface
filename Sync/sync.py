@@ -1,43 +1,99 @@
 from Database import Database
-
+import threading
+from Sync.sender import Sender
 
 class Sync:
 
     def __init__(self):
-        self.__sync_status = False  # if it has started or not
-        self.__sync_video = True
-        self.__sync_screenshot = True
-        self.__sync_mouse_action = True
-        self.__sync_keystroke = True
-        self.__sync_process = True
-        self.__sync_network = True
-        self.__sync_window_history = True
-        self.__sync_system_call = True
+        self.__listener = threading.Thread()
+        self.video_list = []
+        self.screenshot_list = []
+        self.mouse_action_list = []
+        self.keystroke_list = []
+        self.process_list = []
+        self.network_list = []
+        self.window_history_list = []
+        self.system_call_list = []
+        self.sync_sender = Sender()
 
-    def getSyncStatus(self):
-        return self.__sync_status
+    def videoSync(self, ip_address):
+        self.__listener = threading.Thread(target=self.sync_sender.start(self.video_list, ip_address))
+        self.__listener.start()
 
-    def setVideoSync(self, value):  # the following would be used when interrupting
-        self.__sync_video = value
-        # add interuption if here
+    def screenshotSync(self, ip_address):
+        self.__listener = threading.Thread(target=self.sync_sender.start(self.screenshot_list, ip_address))
+        self.__listener.start()
 
-    def setScreenshotSync(self, value):
-        self.__sync_screenshot = value
+    def mouseSync(self, ip_address):
+        self.__listener = threading.Thread(target=self.sync_sender.start(self.mouse_action_list, ip_address))
+        self.__listener.start()
 
-    def setMouseSync(self, value):
-        self.__sync_mouse_action = value
+    def keystrokSync(self, ip_address):
+        self.__listener = threading.Thread(target=self.sync_sender.start(self.keystroke_list, ip_address))
+        self.__listener.start()
 
-    def setKeystrokSync(self, value):
-        self.__sync_keystroke = value
+    def processSync(self, ip_address):
+        self.__listener = threading.Thread(target=self.sync_sender.start(self.process_list, ip_address))
+        self.__listener.start()
 
-    def setProcessSync(self, value):
-        self.__sync_process = value
+    def networkSync(self, ip_address):
+        self.__listener = threading.Thread(target=self.sync_sender.start(self.network_list, ip_address))
+        self.__listener.start()
 
-    def setNetworkSync(self, value):
-        self.__sync_network = value
+    def windowSync(self, ip_address):
+        self.__listener = threading.Thread(target=self.sync_sender.start(self.window_history_list, ip_address))
+        self.__listener.start()
 
-    def setWindowSync(self, value):
-        self.__sync_window_history = value
+    def systemCall(self, ip_address):
+        self.__listener = threading.Thread(target=self.sync_sender.start(self.system_call_list, ip_address))
+        self.__listener.start()
 
-    def setSystemCall(self, value):
-        self.__sync_system_call = value
+    def artifcateSpliter(self, item_list, ip_address):
+        for item in item_list:
+            if item.get('name') == "Keystroke":
+                self.keystroke_list.append(item)
+            if item.get('name') == "Mouse_Action":
+                self.mouse_action_list.append(item)
+            if item.get('name') == "Screenshot":
+                self.screenshot_list.append(item)
+            if item.get('name') == "Process":
+                self.process_list.append(item)
+            if item.get('name') == "Window_History":
+                self.window_history_list.append(item)
+            if item.get('name') == "System_Call":
+                self.system_call_list.append(item)
+            if item.get('name') == "Video":
+                self.video_list.append(item)
+            if item.get('name') == "Network":
+                self.network_list.append(item)
+
+        if self.video_list:
+            self.videoSync(ip_address)
+        if self.screenshot_list:
+            self.screenshotSync(ip_address)
+        if self.mouse_action_list:
+            self.mouseSync(ip_address)
+        if self.keystroke_list:
+            self.keystrokSync(ip_address)
+        if self.process_list:
+            self.processSync(ip_address)
+        if self.network_list:
+            self.networkSync(ip_address)
+        if self.window_history_list:
+            self.windowSync(ip_address)
+        if self.system_call_list:
+            self.systemCall(ip_address)
+
+    def start(self, item_list, ip_address):
+        self.artifcateSpliter(item_list, ip_address)
+
+
+# item_list = [
+#     {'_id': '615b8dee3f96615d6166ead6', 'name': 'Window_History', 'Keystroke': 'H', 'Date': '9/11/2022', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': ['David', 'Manny']},
+#     {'_id': '615b8dee3f96615d6166ead6', 'name': 'Mouse_Action', 'Keystroke': 'H', 'Date': '9/11/2022', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': ['David', 'Manny']},
+#     {'_id': '615b8dee3f96615d6166ead6', 'name': 'Keystroke', 'Keystroke': 'H', 'Date': '9/11/2022', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': ['David', 'Manny']}
+#           ]
+#
+# receiver_ip = '192.168.239.131'
+# sync = Sync()
+# sync.start(item_list, receiver_ip)
