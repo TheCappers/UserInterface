@@ -70,6 +70,9 @@ class DataBase:
     def __delete_one(self, collection, post):
         collection.delete_one({"_id": post.get("_id")})
 
+    def collection_total_size(self, collection):
+        return collection.find().count()
+
     def query_db(self, query, post, target):
         # returns a list of all items on the database
         if query == "all":
