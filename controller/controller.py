@@ -212,4 +212,4 @@ class Controller(object):
             collection = self.__db.windows_collection
         else:
             collection = self.__db.syscall_collection
-        return self.__db.get_total_size_of_collection(collection)
+        return self.__db.collection_total_size(collection)
