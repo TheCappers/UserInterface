@@ -1,54 +1,85 @@
-import os
-import threading, socket
+from Database.Database import DataBase
+import threading
+from bson.objectid import ObjectId
+from pymongo import MongoClient
 
 
 class Sender:
     def __init__(self):
         self.__listener = threading.Thread()
-        self.syncing = False
-        self.synced = False
-        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.__db = DataBase()
 
-    def sync_data(self):
-        os.system("rsync -r /PycharmProjects/UserInterface/temp/ /PycharmProjects/UserInterface/temp2")
-        # os.system("rm -r /root/Desktop/temp")
-        # print("rsync DATA done")
+        self.__db2 = ''
+        self.keystroke_collection = ''
+        self.mouse_collection = ''
+        self.screenshot_collection = ''
+        self.process_collection = ''
+        self.windows_collection = ''
+        self.syscall_collection = ''
+        self.video_collection = ''
+        self.network_collection = ''
 
-    def create_temp(self, items_list, receiver_ip):
-        # desk_top = os.path.join(os.environ["HOME"], "Desktop")
-        # dd_dir = desk_top + "/temp"
-        dd_dir = r"/PycharmProjects/UserInterface/temp"
+    def connect_2db(self, item_list, receiver_ip):
+        db_server_url = 'mongodb://'+str(receiver_ip)+':27017/'
+        print('Connecting to:', db_server_url)
+        client = MongoClient(db_server_url)
+        self.__db2 = client['AVERT']
+        self.keystroke_collection = self.__db2["keystroke_collection"]
+        self.mouse_collection = self.__db2["mouse_collection"]
+        self.screenshot_collection = self.__db2["screenshot_collection"]
+        self.process_collection = self.__db2["process_collection"]
+        self.windows_collection = self.__db2["windows_collection"]
+        self.syscall_collection = self.__db2["syscall_collection"]
+        self.video_collection = self.__db2["video_collection"]
+        self.network_collection = self.__db2["network_collection"]
 
-        if not os.path.exists(dd_dir):
-            os.makedirs(dd_dir)
+        self.collection_type(item_list)
 
-        for item in items_list:
-            file_name = item.get("_id") + ".txt"
-            with open(os.path.join(dd_dir, file_name), 'w') as file:
-                file.write(str(item))
+    def collection_type(self, item_list):
+        if item_list[0].get('name') == "Keystroke":
+            self.sync_2db(self.keystroke_collection, item_list)
+        if item_list[0].get('name') == "Mouse_Action":
+            self.sync_2db(self.mouse_collection, item_list)
+        if item_list[0].get('name') == "Screenshot":
+            self.sync_2db(self.screenshot_collection, item_list)
+        if item_list[0].get('name') == "Process":
+            self.sync_2db(self.process_collection, item_list)
+        if item_list[0].get('name') == "Window_History":
+            self.sync_2db(self.windows_collection, item_list)
+        if item_list[0].get('name') == "System_Call":
+            self.sync_2db(self.syscall_collection, item_list)
+        if item_list[0].get('name') == "Video":
+            self.sync_2db(self.video_collection, item_list)
+        if item_list[0].get('name') == "Network":
+            self.sync_2db(self.network_collection, item_list)
 
-        self.port_flag(receiver_ip)
+    def sync_2db(self, collection, item_list):
+        synced_count = 0
+        items_matched = False
 
-    def port_flag(self, receiver_ip):
-        self.syncing = True
-        self.client_socket.connect((receiver_ip, 777))
-        self.client_socket.sendall(b'sync_ready')
-        receiver_data = self.client_socket.recv(1024)
-        # print(receiver_data.decode())
-        while True:
-            if str(receiver_data.decode()) == 'receiver_ready':
-                self.sync_data()
-                break
+        for item in item_list:
+            for entry in collection.find({}):
+                for key, value in entry.items():
+                    if key == '_id':
+                        pass
+                    elif item.get(key) == value:
+                        items_matched = True
+                    else:
+                        items_matched = False
+                        break
+
+                if items_matched:
+                    break
+
+            if items_matched:
+                synced_count += 1
+                pass
+            else:
+                # not a duplicate so we added it to the DATABASE
+                item.update({"_id": ObjectId().__str__()})
+                collection.insert_one(item)
+                synced_count += 1
 
     # creates thread
     def start(self, item_list, receiver_ip):
-        self.__listener = threading.Thread(target=self.create_temp(item_list, receiver_ip))
-        self.__listener.start()
-
-
-# items_list = [
-#             {'_id': '11111dfc31dd401df3390277', 'ip_address': '911', 'mac_address': '0123412341234', 'timestamp': '1sdfa21', 'name': 'Keystroke', 'data': 'H', 'tag': [], 'annotation': []},
-#             ]
-# receiver_ip = 'localhost'
-# sync_sender = Sender()
-# sync_sender.start(items_list, receiver_ip)
+        self.connect_2db(item_list, receiver_ip)
