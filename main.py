@@ -97,7 +97,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_2.ProcessStatOnButton.clicked.connect(self.toggleButtons)
         self.tab_2.ProcessStatOffButton.clicked.connect(self.toggleButtons)
 
-        self.tab_2.StorageInValue.textEdited.connect(self.thresholdChange)
+        self.tab_2.StorageInValue.editingFinished.connect(self.thresholdChange)
 
         '''used in tab 3'''
         """Modifications for UI """
@@ -479,11 +479,10 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def thresholdChange(self):
         if self.tab_2.StorageInValue.text() == '':  # in case empty
             control.storageRecording(70)  # set to default as user inputs full number
-
-    # else:
-    #    full = control.storageRecording(float(self.StorageInValue.text()))  # send the value
-    #   if full:
-    #      QtWidgets.QMessageBox.about(self, 'Storage Alert', 'Storage is full')
+        else:
+            full = control.storageRecording(float(self.tab_2.StorageInValue.text()))  # send the value
+        if full:
+            QtWidgets.QMessageBox.about(self, 'Storage Alert', 'Storage is full')
 
     def selectAll(self):
         global pressed
