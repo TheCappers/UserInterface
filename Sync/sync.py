@@ -2,6 +2,7 @@ from Database import Database
 import threading
 from Sync.sender import Sender
 
+
 class Sync:
 
     def __init__(self):
@@ -89,9 +90,33 @@ class Sync:
 
 
 # item_list = [
-#     {'_id': '615b8dee3f96615d6166ead6', 'name': 'Window_History', 'Keystroke': 'H', 'Date': '9/11/2022', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': ['David', 'Manny']},
-#     {'_id': '615b8dee3f96615d6166ead6', 'name': 'Mouse_Action', 'Keystroke': 'H', 'Date': '9/11/2022', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': ['David', 'Manny']},
-#     {'_id': '615b8dee3f96615d6166ead6', 'name': 'Keystroke', 'Keystroke': 'H', 'Date': '9/11/2022', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': ['David', 'Manny']}
+#     {'_id': '615b8dee3f96615d6166ead6', 'name': 'Window_History', 'Keystroke': 'LOL', 'Date': '9/11/2022',
+#      'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': ['David', 'Manny']},
+#
+#     {'_id': '615b8dee3f96615d6166ead6', 'name': 'Mouse_Action', 'Keystroke': 'Zsas', 'Date': '9/11/2022',
+#      'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': ['David', 'Manny']},
+#
+#     {'_id': '615b8dee3f96615d6166ead6', 'name': 'Keystroke', 'Keystroke': 'Hsfdasdf', 'Date': '9/11/2022',
+#      'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': ['David', 'Manny']},
+#
+#     {'_id': '615b8dee3f96615d6166ead6', 'name': 'Window_History', 'Keystroke': 'adfasdH', 'Date': '9/11/2022',
+#      'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': ['David', 'Manny']},
+#
+#     {'_id': '615b8dee3f96615d6166ead6', 'name': 'Mouse_Action', 'Keystroke': 'fdgbsdfgbZ', 'Date': '9/11/2022',
+#      'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': ['David', 'Manny']},
+#
+#     {'_id': '615b8dee3f96615d6166ead6', 'name': 'Keystroke', 'Keystroke': 'Hsdfgsdfg', 'Date': '9/11/2022',
+#      'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': ['David', 'Manny']},
+#
+#     {'_id': '615b8dee3f96615d6166ead6', 'name': 'Window_History', 'Keystroke': 'sdfgsdvH', 'Date': '9/11/2022',
+#      'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': ['David', 'Manny']},
+#
+#     {'_id': '615b8dee3f96615d6166ead6', 'name': 'Mouse_Action', 'Keystroke': 'Zzxcvxzcv', 'Date': '9/11/2022',
+#      'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': ['David', 'Manny']},
+#
+#     {'_id': '615b8dee3f96615d6166ead6', 'name': 'Keystroke', 'Keystroke': 'Hzxvczxrdfasdf', 'Date': '9/11/2022',
+#      'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': ['David', 'Manny']}
+#
 #           ]
 #
 # receiver_ip = '192.168.239.131'

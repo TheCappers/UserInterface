@@ -3,12 +3,10 @@ import threading
 from bson.objectid import ObjectId
 from pymongo import MongoClient
 
-
 class Sender:
     def __init__(self):
         self.__listener = threading.Thread()
         self.__db = DataBase()
-
         self.__db2 = ''
         self.keystroke_collection = ''
         self.mouse_collection = ''
@@ -18,6 +16,8 @@ class Sender:
         self.syscall_collection = ''
         self.video_collection = ''
         self.network_collection = ''
+        self.sync_percentage = 0
+        self.artifact_type = ''
 
     def connect_2db(self, item_list, receiver_ip):
         db_server_url = 'mongodb://'+str(receiver_ip)+':27017/'
@@ -73,13 +73,19 @@ class Sender:
 
             if items_matched:
                 synced_count += 1
+                self.calculate_percentage(len(item_list), synced_count, item.get('name'))
                 pass
             else:
                 # not a duplicate so we added it to the DATABASE
                 item.update({"_id": ObjectId().__str__()})
                 collection.insert_one(item)
                 synced_count += 1
+                self.calculate_percentage(len(item_list), synced_count, item.get('name'))
 
-    # creates thread
+    def calculate_percentage(self, total_items, items_synced, artifact_type):
+        self.sync_percentage = items_synced / total_items
+        self.artifact_type = artifact_type
+        print(self.sync_percentage, artifact_type)
+
     def start(self, item_list, receiver_ip):
         self.connect_2db(item_list, receiver_ip)
