@@ -82,12 +82,4 @@ class Sender:
 
     # creates thread
     def start(self, item_list, receiver_ip):
-        self.__listener = threading.Thread(target=self.connect_2db(item_list, receiver_ip))
-        self.__listener.start()
-
-# item_list = [
-#     {'_id': '615b8dee3f96615d6166ead6', 'name': 'Mouse_Action', 'Keystroke': 'H', 'Date': '9/11/2021', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': 'David'}
-#           ]
-# receiver_ip = '192.168.239.131'
-# sync_sender = Sender()
-# sync_sender.start(item_list, receiver_ip)
+        self.connect_2db(item_list, receiver_ip)

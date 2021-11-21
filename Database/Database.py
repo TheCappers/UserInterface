@@ -155,8 +155,8 @@ class DataBase:
         if query == "deep_search":
             return self.__deep_search(target)
 
-# post_1 = {'_id': '615b8dee3f96615d6166ead6', 'name': 'Mouse_Action', 'Keystroke': 'H', 'Date': '9/11/2021', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': 'David'}
-
+# post_1 = {'_id': '615b8dee3f96615d6166ead6', 'name': 'Mouse_Action', 'Keystroke': 'HELLLLO', 'Date': '9/11/2021', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': 'David'}
+#
 # db = DataBase()
 #
 # root_list = db.query_db("find", "", "polkitd")
