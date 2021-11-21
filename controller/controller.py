@@ -15,7 +15,14 @@ post_1 = {
 '''
 
 
-class Controller:
+class Controller(object):
+    __instance = None
+
+    def __new__(cls):
+        if not Controller.__instance:
+            Controller.__instance = object.__new__(cls)
+        return Controller.__instance
+
     def __init__(self):
         self.__config = configuration.Configuration()
         self.__db = Database.DataBase()
@@ -187,3 +194,22 @@ class Controller:
         old.remove(tag)
         update_post = {'tag': old}
         self.__db.query_db('update', item, update_post)
+
+    def collection_total_size(self, collection_name):
+        if collection_name == 'Screenshot':
+            collection = self.__db.screenshot_collection
+        elif collection_name == 'Video':
+            collection = self.__db.video_collection
+        elif collection_name == 'Network':
+            collection = self.__db.network_collection
+        elif collection_name == 'Processes':
+            collection = self.__db.process_collection
+        elif collection_name == 'Keystroke':
+            collection = self.__db.keystroke_collection
+        elif collection_name == 'Mouse_Actions':
+            collection = self.__db.mouse_collection
+        elif collection_name == 'Window_History':
+            collection = self.__db.windows_collection
+        else:
+            collection = self.__db.syscall_collection
+        return self.__db.get_total_size_of_collection(collection)

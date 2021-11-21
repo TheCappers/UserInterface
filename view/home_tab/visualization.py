@@ -3,16 +3,18 @@ from PyQt5.QtChart import QChart, QChartView, QPieSeries, QPieSlice, QBarSet
 from view.components import result_table, annotation_table, bar_graph, pie_chart
 from view.components.pie_chart import PieChart
 from view.components.bar_graph import BarGraph
+from controller.controller import Controller
 
+controller = Controller()
 ''' Test Data For Pie Chart '''
-screenshot_data = QPieSlice('Screenshot',69)
-video_data = QPieSlice('Video',40)
-network_data = QPieSlice('Network',42)
-process_data = QPieSlice('Processes',69)
-keystroke_data = QPieSlice('Keystroke',14)
-mouse_action_data = QPieSlice('Mouse_Actions',200)
-window_history_data = QPieSlice('Window_History',13)
-system_call_data = QPieSlice('System_Calls',69)
+screenshot_data = QPieSlice('Screenshot', controller.collection_total_size('Screenshot'))
+video_data = QPieSlice('Video',controller.collection_total_size('Video'))
+network_data = QPieSlice('Network',controller.collection_total_size('Network'))
+process_data = QPieSlice('Processes',controller.collection_total_size('Processes'))
+keystroke_data = QPieSlice('Keystroke',controller.collection_total_size('Keystroke'))
+mouse_action_data = QPieSlice('Mouse_Actions',controller.collection_total_size('Mouse_Actions'))
+window_history_data = QPieSlice('Window_History',controller.collection_total_size('Window_History'))
+system_call_data = QPieSlice('System_Calls',controller.collection_total_size('System_Calls'))
 
 artifact_data = [screenshot_data, video_data, network_data, process_data,
 keystroke_data,mouse_action_data, window_history_data, system_call_data]
