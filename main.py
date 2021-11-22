@@ -682,6 +682,16 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
                 control.syncBegin(self, '', '', True)
             else:
                 pass  # here we generate the sync error message
+        syncPercentages()
+
+
+def syncPercentages(self):
+    status = control.syncStatus()
+    if status:
+        while True:
+            value = control.getSyncPercentage()
+            if control.getSyncComplete():
+                return
 
 
 def avertInit():

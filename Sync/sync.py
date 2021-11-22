@@ -4,7 +4,6 @@ from Sync.sender import Sender
 
 
 class Sync:
-
     def __init__(self):
         self.__listener = threading.Thread()
         self.video_list = []
@@ -16,6 +15,10 @@ class Sync:
         self.window_history_list = []
         self.system_call_list = []
         self.sync_sender = Sender()
+        self.status = False
+
+    def getSyncStatus(self):
+        return self.status
 
     def videoSync(self, ip_address):
         self.__listener = threading.Thread(target=self.sync_sender.start(self.video_list, ip_address))
@@ -86,6 +89,7 @@ class Sync:
             self.systemCall(ip_address)
 
     def start(self, item_list, ip_address):
+        self.status = True
         self.artifcateSpliter(item_list, ip_address)
 
 

@@ -63,7 +63,7 @@ class Controller(object):
         full = self.__config.storage_alert()
         return full  # send to view
 
-# fill out with all artifact types
+    # fill out with all artifact types
     def syncBegin(self, exclusion, ip, cancel_signal=False):
         items = ['Keystroke', 'Video']
         attain = []
@@ -77,10 +77,16 @@ class Controller(object):
             # include behavior
             attain = self.__db.query_db('all', '', '')
 
-        self.__sync_sender.start(attain, ip)
+        self.__sync_tool.start(attain, ip)
 
     def syncStatus(self):
         return self.__sync_tool.getSyncStatus()
+
+    def getSyncPercentage(self):
+        return self.__sync_sender.getPercentageInfo()
+
+    def getSyncComplete(self):
+        return self.__sync_sender.isSyncComplete()
 
     def export(self, item) -> None:  # here is where we would use the database to export
         desk_top = "/home/kali/Desktop/"

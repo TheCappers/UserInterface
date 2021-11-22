@@ -3,6 +3,7 @@ import threading
 from bson.objectid import ObjectId
 from pymongo import MongoClient
 
+
 class Sender:
     def __init__(self):
         self.__listener = threading.Thread()
@@ -18,9 +19,10 @@ class Sender:
         self.network_collection = ''
         self.sync_percentage = 0
         self.artifact_type = ''
+        self.sync_complete = False
 
     def connect_2db(self, item_list, receiver_ip):
-        db_server_url = 'mongodb://'+str(receiver_ip)+':27017/'
+        db_server_url = 'mongodb://' + str(receiver_ip) + ':27017/'
         print('Connecting to:', db_server_url)
         client = MongoClient(db_server_url)
         self.__db2 = client['AVERT']
@@ -52,6 +54,7 @@ class Sender:
             self.sync_2db(self.video_collection, item_list)
         if item_list[0].get('name') == "Network":
             self.sync_2db(self.network_collection, item_list)
+        self.sync_complete = True
 
     def sync_2db(self, collection, item_list):
         synced_count = 0
@@ -81,11 +84,18 @@ class Sender:
                 collection.insert_one(item)
                 synced_count += 1
                 self.calculate_percentage(len(item_list), synced_count, item.get('name'))
+        return None
 
     def calculate_percentage(self, total_items, items_synced, artifact_type):
-        self.sync_percentage = items_synced / total_items
+        self.sync_percentage = int((items_synced / total_items)*100)
         self.artifact_type = artifact_type
         print(self.sync_percentage, artifact_type)
 
+    def getPercentageInfo(self):
+        return self.sync_percentage, artifact_type
+
     def start(self, item_list, receiver_ip):
         self.connect_2db(item_list, receiver_ip)
+
+    def isSyncComplete(self):
+        return self.status
