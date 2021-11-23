@@ -1,5 +1,6 @@
 all: venv
 	(python3 main.py)
+	(make clean)
 
 clean:
 	(rm -rf __pycache__)
@@ -13,6 +14,9 @@ clean:
 	(rm -rf view/home_tab/__pycache__)
 	(rm -rf view/sync_tab/__pycache__)
 	(rm -rf view/assets/__pycache__)
+	(rm -rf Sync/__pycache__)
+	(rm -rf Script/__pycache__)
+	(rm -rf recorders/.systemcall_recorder.py.swp)
 	(rm -rf .idea)
 
 venv:
