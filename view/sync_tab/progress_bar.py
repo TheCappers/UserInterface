@@ -18,7 +18,7 @@ class ProgressBar:
 		self.gridLayout_41.addWidget(self.label, 0, 0, 1, 5)
 
 		self.progress_bar = QtWidgets.QProgressBar(self.frame)
-		self.progress_bar.setProperty("value", 24)
+		self.progress_bar.setProperty("value", 0)
 		self.gridLayout_41.addWidget(self.progress_bar, 1, 1, 2, 4)
 		self.label_0 = QtWidgets.QLabel(self.frame)
 		self.gridLayout_41.addWidget(self.label_0, 2, 0, 1, 1)
