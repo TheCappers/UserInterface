@@ -2,6 +2,7 @@ from configuration import configuration
 from Database import Database
 from Script import script_maker
 from Sync import sync, sender
+from view.components import timeline
 
 import os
 
@@ -29,6 +30,7 @@ class Controller(object):
         self.__script_gen = script_maker.ScriptMaker()
         self.__sync_tool = sync.Sync()
         self.__sync_sender = sender.Sender()
+        self.__timeline_gen = timeline.Timeline()
 
     def universalRecording(self, signal) -> None:  # automatically records
         self.__config.setUniversalOn(signal)
@@ -218,3 +220,7 @@ class Controller(object):
         else:
             collection = self.__db.syscall_collection
         return self.__db.collection_total_size(collection)
+
+    def graphGeneration(self, type, make_up):
+        if type == 'Timeline':
+            self.__timeline_gen.generateTimeline(make_up)

@@ -76,6 +76,9 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.checkBox_history.stateChanged.connect(self.clickedCheckbox)
         self.tab_1.checkBox_log.stateChanged.connect(self.clickedCheckbox)
 
+        # portion for grpah creation
+        self.tab_1.visualization_accordion.pushButton_5.clicked.connect(self.generateGraph)
+
         """used in tab 2"""
         """COMMENTING OUT UI MODIFICATION"""
 
@@ -103,7 +106,18 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         """Modifications for UI """
         self.tab_3.sync_btn.clicked.connect(lambda: self.clickedSync(self.tab_3))
 
-        # threshold changing
+    def generateGraph(self):
+        global control
+
+        type = ''
+        if self.tab_1.visualization_accordion.radioButton_4.isChecked():
+            make_up = [self.tab_1.visualization_accordion.lineEdit_3.text(),
+                       self.tab_1.visualization_accordion.lineEdit.text(),
+                       self.tab_1.visualization_accordion.comboBox.currentText(),
+                       self.tab_1.visualization_accordion.lineEdit_2.text()]
+            type = 'Timeline'
+
+        control.graphGeneration(type, make_up)
 
     '''
     Allow recording status buttons (on and off) as a toggle buttons
