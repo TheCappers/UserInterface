@@ -355,8 +355,6 @@ class Home:
 		""" DetailedViewAccordion Start """
 		self.detailed_view_accordion = DetailedView()
 		self.toolBox_accordion.addItem(self.detailed_view_accordion.get_accordion(), "Detailed_View_Accordion")
-		if self.detailed_view_accordion.tag_table is not None:
-			self.detailed_view_accordion.tag_table.cellClicked.connect(self.exportRow)
 		""" DetailedViewAccordion End """
 
 		"""Visualization Start"""
