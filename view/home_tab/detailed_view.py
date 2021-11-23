@@ -122,7 +122,8 @@ class DetailedView:
         tag_table = tag_table.TagTable()
         tag_table.startTable(QtWidgets.QTableWidget(self.tags_tab))
         self.tag_table = tag_table
-
+        self.tag_table.cellClicked.connect(self.exportRow)
+        
         ''' TAG TABLE START '''
         self.verticalLayout_7.addWidget(tag_table.getTable())
         self.frame_11 = QtWidgets.QFrame(self.tags_tab)
@@ -206,8 +207,7 @@ class DetailedView:
             self.DetailedViewTab.indexOf(
                 self.tags_tab), _translate(
                 "MainWindow", "Tags"))
-        self.tags_tab.tag_table.cellClicked.connect(self.exportRow)
-        # self.tags_tab.
+        
 
     def get_accordion(self):
         return self.detailed_view_accordion
