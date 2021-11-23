@@ -640,8 +640,8 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def deleteTag(self, index):
         global control, attain
-        if index != []:
-            for i in index:
+        if all_selected_tag != []:
+            for i in all_selected_tag:
                 self.tab_1.detailed_view_accordion.tag_table.setIndexSelected(i)
 
         print(all_selected_tag)
