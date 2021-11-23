@@ -1,7 +1,7 @@
 from configuration import configuration
 from Database import Database
 from Script import script_maker
-from Sync import sync, receiver, sender
+from Sync import sync, sender
 
 import os
 
