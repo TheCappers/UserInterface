@@ -29,7 +29,6 @@ class Controller(object):
         self.__script_gen = script_maker.ScriptMaker()
         self.__sync_tool = sync.Sync()
         self.__sync_sender = sender.Sender()
-        self.__sync_receiver = receiver.Receiver()
 
     def universalRecording(self, signal) -> None:  # automatically records
         self.__config.setUniversalOn(signal)
