@@ -206,7 +206,8 @@ class DetailedView:
             self.DetailedViewTab.indexOf(
                 self.tags_tab), _translate(
                 "MainWindow", "Tags"))
-        self.tag_table.cellClicked.connect(self.exportRow)
+        self.tags_tab.tag_table.cellClicked.connect(self.exportRow)
+        # self.tags_tab.
 
     def get_accordion(self):
         return self.detailed_view_accordion
