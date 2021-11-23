@@ -20,39 +20,39 @@ class Sync:
     def getSyncStatus(self):
         return self.status
 
-    def videoSync(self, ip_address):
-        self.__listener = threading.Thread(target=self.sync_sender.start(self.video_list, ip_address))
+    def videoSync(self, ip_address, tab3_widget):
+        self.__listener = threading.Thread(target=self.sync_sender.start(self.video_list, ip_address, tab3_widget))
         self.__listener.start()
 
-    def screenshotSync(self, ip_address):
-        self.__listener = threading.Thread(target=self.sync_sender.start(self.screenshot_list, ip_address))
+    def screenshotSync(self, ip_address, tab3_widget):
+        self.__listener = threading.Thread(target=self.sync_sender.start(self.screenshot_list, ip_address, tab3_widget))
         self.__listener.start()
 
-    def mouseSync(self, ip_address):
-        self.__listener = threading.Thread(target=self.sync_sender.start(self.mouse_action_list, ip_address))
+    def mouseSync(self, ip_address, tab3_widget):
+        self.__listener = threading.Thread(target=self.sync_sender.start(self.mouse_action_list, ip_address, tab3_widget))
         self.__listener.start()
 
-    def keystrokSync(self, ip_address):
-        self.__listener = threading.Thread(target=self.sync_sender.start(self.keystroke_list, ip_address))
+    def keystrokSync(self, ip_address, tab3_widget):
+        self.__listener = threading.Thread(target=self.sync_sender.start(self.keystroke_list, ip_address, tab3_widget))
         self.__listener.start()
 
-    def processSync(self, ip_address):
-        self.__listener = threading.Thread(target=self.sync_sender.start(self.process_list, ip_address))
+    def processSync(self, ip_address, tab3_widget):
+        self.__listener = threading.Thread(target=self.sync_sender.start(self.process_list, ip_address, tab3_widget))
         self.__listener.start()
 
-    def networkSync(self, ip_address):
-        self.__listener = threading.Thread(target=self.sync_sender.start(self.network_list, ip_address))
+    def networkSync(self, ip_address, tab3_widget):
+        self.__listener = threading.Thread(target=self.sync_sender.start(self.network_list, ip_address, tab3_widget))
         self.__listener.start()
 
-    def windowSync(self, ip_address):
-        self.__listener = threading.Thread(target=self.sync_sender.start(self.window_history_list, ip_address))
+    def windowSync(self, ip_address, tab3_widget):
+        self.__listener = threading.Thread(target=self.sync_sender.start(self.window_history_list, ip_address, tab3_widget))
         self.__listener.start()
 
-    def systemCall(self, ip_address):
-        self.__listener = threading.Thread(target=self.sync_sender.start(self.system_call_list, ip_address))
+    def systemCall(self, ip_address, tab3_widget):
+        self.__listener = threading.Thread(target=self.sync_sender.start(self.system_call_list, ip_address, tab3_widget))
         self.__listener.start()
 
-    def artifcateSpliter(self, item_list, ip_address):
+    def artifcateSpliter(self, item_list, ip_address, tab3_widget):
         for item in item_list:
             if item.get('name') == "Keystroke":
                 self.keystroke_list.append(item)
@@ -72,25 +72,25 @@ class Sync:
                 self.network_list.append(item)
 
         if self.video_list:
-            self.videoSync(ip_address)
+            self.videoSync(ip_address, tab3_widget)
         if self.screenshot_list:
-            self.screenshotSync(ip_address)
+            self.screenshotSync(ip_address, tab3_widget)
         if self.mouse_action_list:
-            self.mouseSync(ip_address)
+            self.mouseSync(ip_address, tab3_widget)
         if self.keystroke_list:
-            self.keystrokSync(ip_address)
+            self.keystrokSync(ip_address, tab3_widget)
         if self.process_list:
-            self.processSync(ip_address)
+            self.processSync(ip_address, tab3_widget)
         if self.network_list:
-            self.networkSync(ip_address)
+            self.networkSync(ip_address, tab3_widget)
         if self.window_history_list:
-            self.windowSync(ip_address)
+            self.windowSync(ip_address, tab3_widget)
         if self.system_call_list:
-            self.systemCall(ip_address)
+            self.systemCall(ip_address, tab3_widget)
 
-    def start(self, item_list, ip_address):
+    def start(self, item_list, ip_address, tab3_widget):
         self.status = True
-        self.artifcateSpliter(item_list, ip_address)
+        self.artifcateSpliter(item_list, ip_address, tab3_widget)
 
 
 # item_list = [

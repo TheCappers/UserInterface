@@ -101,7 +101,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         '''used in tab 3'''
         """Modifications for UI """
-        self.tab_3.sync_btn.clicked.connect(self.clickedSync)
+        self.tab_3.sync_btn.clicked.connect(lambda: self.clickedSync(self.tab_3))
 
         # threshold changing
 
@@ -659,7 +659,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.tab_3.allexcludingvideo_btn.setChecked(0)
             self.tab_3.allincludingvideo_btn.setChecked(1)
 
-    def clickedSync(self):
+    def clickedSync(self, tab3_widget):
         global control
 
         if 7 <= len(self.tab_3.toIPval_lineEdit.text().strip()) <= 15:  # ensure that we have something
@@ -669,29 +669,29 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         if self.sender().objectName().__contains__('sync'):  # once we press the sync and it
             if self.tab_3.allexcludingvideo_btn.isChecked():
-                control.syncBegin('video', ip)
+                control.syncBegin('video', ip, tab3_widget)
                 self.tab_3.allexcludingvideo_btn.setChecked(0)  # reset
 
             if self.tab_3.allincludingvideo_btn.isChecked():
-                control.syncBegin('None', ip)
+                control.syncBegin('None', ip, tab3_widget)
                 self.tab_3.allincludingvideo_btn.setChecked(0)  # rest
 
         if self.sender().objectName().__contains__('cancelall_btn'):
             # here we will have an if started
             if control.syncStatus():
-                control.syncBegin(self, '', '', True)
+                control.syncBegin(self, '', '', True, tab3_widget)
             else:
                 pass  # here we generate the sync error message
-        syncPercentages()
+        # self.syncPercentages(self)
 
 
-def syncPercentages(self):
-    status = control.syncStatus()
-    if status:
-        while True:
-            value = control.getSyncPercentage()
-            if control.getSyncComplete():
-                return
+# def syncPercentages(self):
+#     status = control.syncStatus()
+#     if status:
+#         while True:
+#             value = control.getSyncPercentage()
+#             if control.getSyncComplete():
+#                 return
 
 
 def avertInit():

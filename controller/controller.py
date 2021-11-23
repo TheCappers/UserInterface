@@ -63,8 +63,8 @@ class Controller(object):
         return full  # send to view
 
     # fill out with all artifact types
-    def syncBegin(self, exclusion, ip, cancel_signal=False):
-        items = ['Keystroke', 'Video']
+    def syncBegin(self, exclusion, ip, tab3_widget, cancel_signal=False):
+        items = ['Keystroke', 'Screenshot', "Process", 'System_Call', 'Mouse_Action', 'Window_History', 'Network', 'Video']
         attain = []
 
         if exclusion.lower().__contains__('video'):  # we are excluding video
@@ -76,7 +76,7 @@ class Controller(object):
             # include behavior
             attain = self.__db.query_db('all', '', '')
 
-        self.__sync_tool.start(attain, ip)
+        self.__sync_tool.start(attain, ip, tab3_widget)
 
     def syncStatus(self):
         return self.__sync_tool.getSyncStatus()
