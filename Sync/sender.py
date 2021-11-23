@@ -24,7 +24,7 @@ class Sender:
 
     def connect_2db(self, item_list, receiver_ip, tab3_widget):
         db_server_url = 'mongodb://' + str(receiver_ip) + ':27017/'
-        print('Connecting to:', db_server_url)
+        # print('Connecting to:', db_server_url)
         client = MongoClient(db_server_url)
         self.__db2 = client['AVERT']
         self.keystroke_collection = self.__db2["keystroke_collection"]
@@ -106,8 +106,7 @@ class Sender:
             tab3_widget.video_frame.progress_bar.setValue(sync_percentage)
         if artifact_type == "Network":
             tab3_widget.networkactivitydata_frame.progress_bar.setValue(sync_percentage)
-        
-        print(sync_percentage, artifact_type)
+        # print(sync_percentage, artifact_type)
 
     def getPercentageInfo(self):
         return self.sync_percentage, artifact_type

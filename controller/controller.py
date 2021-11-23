@@ -66,8 +66,7 @@ class Controller(object):
 
     # fill out with all artifact types
     def syncBegin(self, exclusion, ip, tab3_widget, cancel_signal=False):
-        items = ['Keystroke', 'Screenshot', "Process", 'System_Call', 'Mouse_Action', 'Window_History', 'Network',
-                 'Video']
+        items = ['Keystroke', 'Screenshot', "Process", 'System_Call', 'Mouse_Action', 'Window_History', 'Network', 'Video']
         attain = []
 
         if exclusion.lower().__contains__('video'):  # we are excluding video
