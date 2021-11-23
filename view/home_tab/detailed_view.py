@@ -215,6 +215,7 @@ class DetailedView:
 
     def exportRow(self, index):
         # print("THIS IS exportRow")
+        print("this is export", index)
         if index not in all_selected_tag:
             all_selected_tag.append(index)
         else:

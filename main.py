@@ -30,6 +30,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # portion for the tag_table
         # self.tab_1.detailed_view_accordion.tag_table.setSortingEnabled(1)  # allows for the sorting in the columns
+        self.tab_1.detailed_view_accordion.tag_table.cellClicked.connect(self.tab_1.detailed_view_accordion.exportRow)
         self.tab_1.detailed_view_accordion.tag_add_button.clicked.connect(self.add_tag)
         self.tab_1.detailed_view_accordion.tag_delete_button.clicked.connect(self.deleteTag)
         self.tab_1.universalRecord.clicked.connect(self.universalButton)
