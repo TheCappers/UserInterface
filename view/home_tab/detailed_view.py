@@ -4,6 +4,7 @@ from view.components.description import Description
 from view.home_tab import process_interface
 
 global tag_table
+all_selected_tag = [] 
 
 
 class DetailedView:
@@ -205,6 +206,15 @@ class DetailedView:
             self.DetailedViewTab.indexOf(
                 self.tags_tab), _translate(
                 "MainWindow", "Tags"))
+        self.tag_table.cellClicked.connect(self.exportRow)
 
     def get_accordion(self):
         return self.detailed_view_accordion
+
+    def exportRow(self, index):
+        # print("THIS IS exportRow")
+        if index not in all_selected_tag:
+            all_selected_tag.append(index)
+        else:
+            all_selected_tag.remove(index)
+            selected = None

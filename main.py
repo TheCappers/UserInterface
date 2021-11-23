@@ -4,6 +4,7 @@ from view.avert import Ui_MainWindow
 import sys
 from controller import controller
 from view.components.description import Description
+from view.home_tab.detailed_view import all_selected_tag
 import subprocess as s
 import numpy as np
 import time
@@ -640,7 +641,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         global control, attain
         self.tab_1.detailed_view_accordion.tag_table.setIndexSelected(index)
 
-        print(self.tab_1.detailed_view_accordion.tag_table.currentRow())
+        print(all_selected_tag)
         # control.tagDelete()
 
     def test(self):
