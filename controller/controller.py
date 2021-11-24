@@ -1,8 +1,9 @@
 from configuration import configuration
 from Database import Database
 from Script import script_maker
-from Sync import sync, receiver, sender
-
+from Sync import sync, sender
+from view.components import timeline
+from shutil import copy
 import os
 
 '''
@@ -29,7 +30,7 @@ class Controller(object):
         self.__script_gen = script_maker.ScriptMaker()
         self.__sync_tool = sync.Sync()
         self.__sync_sender = sender.Sender()
-        self.__sync_receiver = receiver.Receiver()
+        self.__timeline_gen = timeline.Timeline()
 
     def universalRecording(self, signal) -> None:  # automatically records
         self.__config.setUniversalOn(signal)
@@ -66,9 +67,9 @@ class Controller(object):
         full = self.__config.storage_alert()
         return full  # send to view
 
-# fill out with all artifact types
-    def syncBegin(self, exclusion, ip, cancel_signal=False):
-        items = ['Keystroke', 'Video']
+    # fill out with all artifact types
+    def syncBegin(self, exclusion, ip, tab3_widget, cancel_signal=False):
+        items = ['Keystroke', 'Screenshot', "Process", 'System_Call', 'Mouse_Action', 'Window_History', 'Network', 'Video']
         attain = []
 
         if exclusion.lower().__contains__('video'):  # we are excluding video
@@ -80,22 +81,34 @@ class Controller(object):
             # include behavior
             attain = self.__db.query_db('all', '', '')
 
-        self.__sync_sender.start(attain, ip)
+        self.__sync_tool.start(attain, ip, tab3_widget)
 
     def syncStatus(self):
         return self.__sync_tool.getSyncStatus()
 
-    def export(self, item) -> None:  # here is where we would use the database to export
-        desk_top = "/home/kali/Desktop/"
-        dd_dir = desk_top + "/Downloads"
+    def getSyncPercentage(self):
+        return self.__sync_sender.getPercentageInfo()
+
+    def getSyncComplete(self):
+        return self.__sync_sender.isSyncComplete()
+
+    def export(self, item):  # here is where we would use the database to export
+        desktop = os.path.join(os.path.join(os.path.expanduser('~')), 'Desktop')
+        dd_dir = desktop + "/Downloads"
         if not os.path.exists(dd_dir):
             os.makedirs(dd_dir)
 
         db_entries = self.__db.query_db("find", "", item)
-        file_name = db_entries[0].get("name") + "_" + db_entries[0].get("_id") + ".txt"
-        with open(os.path.join(dd_dir, file_name), 'w') as file:
-            for entry in db_entries:
-                file.write(str(entry))
+
+        for entry in db_entries:
+            if entry.get("name") == 'Screenshot' or entry.get("name") == 'Video':
+                copy(db_entries[0].get("data").get("path"), dd_dir)
+                print(db_entries[0].get("data").get("path"))
+            else:
+                file_name = entry.get("name") + "_" + entry.get("_id") + ".txt"
+                with open(os.path.join(dd_dir, file_name), 'w') as file:
+                    file.write(str(entry))
+                    print(file_name)
 
     def view(self, item):  # here is where we would connect to database to view an item in avert
         if item == '' or item.lower() == 'all':  # gets the 'name' collection
@@ -193,9 +206,10 @@ class Controller(object):
         self.__db.query_db('update', item, update_post)  # update with database
 
     def tagDelete(self, tag, item):  # delete a tag
-        old = item['tag']
-        old.remove(tag)
-        update_post = {'tag': old}
+        old_tag_list = item['tag']
+        for i in tag:
+            old_tag_list.remove(i)
+        update_post = {'tag': old_tag_list}
         self.__db.query_db('update', item, update_post)
 
     def collection_total_size(self, collection_name):
@@ -216,3 +230,7 @@ class Controller(object):
         else:
             collection = self.__db.syscall_collection
         return self.__db.collection_total_size(collection)
+
+    def graphGeneration(self, type, make_up):
+        if type == 'Timeline':
+            self.__timeline_gen.generateTimeline(make_up)

@@ -40,7 +40,6 @@ class TagTable:
         ''' FILLING OUT COLUMNS '''
         item = QtWidgets.QTableWidgetItem()
         item.setCheckState(QtCore.Qt.Unchecked)
-        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.tag_table.setItem(0, 0, item)  # fill column 0
 
         item = QtWidgets.QTableWidgetItem()
@@ -88,7 +87,6 @@ class TagTable:
             i = 0
             for tag in selected['tag']:  # iterate through the tags on the item
                 item = QtWidgets.QTableWidgetItem()
-                item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
                 item.setCheckState(False)
                 self.tag_table.setItem(i, 0, item)
                 item = self.tag_table.item(i, 0)

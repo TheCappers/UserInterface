@@ -41,11 +41,33 @@ class DataBase:
                     if type(value) == dict:
                         if target in value.values():
                             db_list.append(entry)
-                            # print(entry)
                     elif target in value:
-                        # print(entry)
                         db_list.append(entry)
         return db_list
+
+    def __complex_find(self, target):
+        db_list = []
+        if " " not in target:
+            db_list = self.__find(target)
+        else:
+            target = target.split(" ")
+            for index, value in enumerate(target):
+                if index == 0:
+                    db_list = self.__find(value)
+                else:
+                    db_list = self.__list_find(db_list, value)
+        return db_list
+
+    def __list_find(self, db_list, target):
+        new_list = []
+        for entry in db_list:
+            for key, value in entry.items():
+                if type(value) == dict:
+                    if target in value.values():
+                        new_list.append(entry)
+                elif target in value:
+                    new_list.append(entry)
+        return new_list
 
     # returns list of everything based on that type.
     def __get_type(self, collection):
@@ -80,7 +102,7 @@ class DataBase:
 
         # returns list of data based on everything that has been filtered
         if query == "find":
-            return self.__find(target)
+            return self.__complex_find(target)
 
         if query == "post":
             if post.get('name') == "Keystroke":
@@ -158,12 +180,11 @@ class DataBase:
         if query == "deep_search":
             return self.__deep_search(target)
 
-# post_1 = {'_id': '615b8dee3f96615d6166ead6', 'name': 'Mouse_Action', 'Keystroke': 'H', 'Date': '9/11/2021', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': 'David'}
-
+# post_1 = {'_id': '615b8dee3f96615d6166ead6', 'name': 'Mouse_Action', 'Keystroke': 'HELLLLO', 'Date': '9/11/2021', 'IP Address': '1.2.3.4', 'Annotation': '', 'Tag': 'David'}
+#
 # db = DataBase()
 #
-# root_list = db.query_db("find", "", "polkitd")
-
+# root_list = db.query_db("find", "", "p Window_History")
 # for root in root_list:
 #     print(root)
 
