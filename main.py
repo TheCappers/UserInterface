@@ -30,7 +30,8 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # portion for the tag_table
         # self.tab_1.detailed_view_accordion.tag_table.setSortingEnabled(1)  # allows for the sorting in the columns
-        self.tab_1.detailed_view_accordion.tag_table.tag_table.cellClicked.connect(self.tab_1.detailed_view_accordion.exportRow)
+        self.tab_1.detailed_view_accordion.tag_table.tag_table.cellClicked.connect(
+            self.tab_1.detailed_view_accordion.exportRow)
         self.tab_1.detailed_view_accordion.tag_add_button.clicked.connect(self.add_tag)
         self.tab_1.detailed_view_accordion.tag_delete_button.clicked.connect(self.deleteTag)
         self.tab_1.universalRecord.clicked.connect(self.universalButton)
@@ -640,12 +641,21 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def deleteTag(self, index):
         global control, attain
+        self.tab_1.table_result.setIndexSelected(index)
+        item_at = self.tab_1.detailed_view_accordion.tag_table.getIndexSelected()
+        print('Item found: ', self.tab_1.detailed_view_accordion.tag_table.tag_table.item(item_at, 3))
+        tags_to_delete = [self.tab_1.detailed_view_accordion.tag_table.tag_table.item(item_at, 3).text()]
+
+        '''
+       
         if all_selected_tag != []:
             for i in all_selected_tag:
-                self.tab_1.detailed_view_accordion.tag_table.setIndexSelected(i)
+                tags_to_delete.append(self.tab_1.detailed_view_accordion.tag_table.tag_table.item(all_selected_tag[i], 3).text())
+        '''
+        control.tagDelete(tags_to_delete, attain[index])
+        #self.tab_1.detailed_view_accordion.clearSelectedTags()
+        self.tagDisplay(self.tab_1.table_result.getIndexSelected())
 
-        print(all_selected_tag)
-        # control.tagDelete()
 
     def test(self):
         print("testing message")
