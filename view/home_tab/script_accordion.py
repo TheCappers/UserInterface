@@ -138,31 +138,23 @@ class Script_Accordion:
         return self.accordion
     
     def populateTableHelper(self, selected_items, parent_widget):
-        print(selected_items)
-        # if not selected_items:
-        #         selected_items = []
+        for d in selected_items:
+            self.temp_script_items.append(d)
         if not self.checker:
             self.checker = not self.checker
-            if selected_items == []:
-                selected_items = [{}]
-            self.temp_script_items = selected_items
         else:
             self.checker = not self.checker
-            if selected_items != []:
-                self.temp_script_items += selected_items
             self.populateTable(self.temp_script_items, parent_widget)
             self.temp_script_items = []
         
-
     def populateTable(self, selected_items, parent_widget):
-        print(len(selected_items))
+        # print(len(selected_items))
         if len(selected_items)==0:
-            print("length zero")
+            # print("length zero")
             QtWidgets.QMessageBox.about(parent_widget, "No Selection Error", "Please select at least one item before adding to script table.")
             return
-
         _translate = QtCore.QCoreApplication.translate
-        print("THIS IS populateTable")
+        # print("THIS IS populateTable")
 
         isChanged = False
     
