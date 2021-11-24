@@ -3,7 +3,7 @@ from Database import Database
 from Script import script_maker
 from Sync import sync, sender
 from view.components import timeline
-
+from shutil import copy
 import os
 
 '''
@@ -89,17 +89,23 @@ class Controller(object):
     def getSyncComplete(self):
         return self.__sync_sender.isSyncComplete()
 
-    def export(self, item) -> None:  # here is where we would use the database to export
-        desk_top = "/home/kali/Desktop/"
-        dd_dir = desk_top + "/Downloads"
+    def export(self, item):  # here is where we would use the database to export
+        desktop = os.path.join(os.path.join(os.path.expanduser('~')), 'Desktop')
+        dd_dir = desktop + "/Downloads"
         if not os.path.exists(dd_dir):
             os.makedirs(dd_dir)
 
         db_entries = self.__db.query_db("find", "", item)
-        file_name = db_entries[0].get("name") + "_" + db_entries[0].get("_id") + ".txt"
-        with open(os.path.join(dd_dir, file_name), 'w') as file:
-            for entry in db_entries:
-                file.write(str(entry))
+
+        for entry in db_entries:
+            if entry.get("name") == 'Screenshot' or entry.get("name") == 'Video':
+                copy(db_entries[0].get("data").get("path"), dd_dir)
+                print(db_entries[0].get("data").get("path"))
+            else:
+                file_name = entry.get("name") + "_" + entry.get("_id") + ".txt"
+                with open(os.path.join(dd_dir, file_name), 'w') as file:
+                    file.write(str(entry))
+                    print(file_name)
 
     def view(self, item):  # here is where we would connect to database to view an item in avert
         if item == '' or item.lower() == 'all':  # gets the 'name' collection
@@ -197,9 +203,10 @@ class Controller(object):
         self.__db.query_db('update', item, update_post)  # update with database
 
     def tagDelete(self, tag, item):  # delete a tag
-        old = item['tag']
-        old.remove(tag)
-        update_post = {'tag': old}
+        old_tag_list = item['tag']
+        for i in tag:
+            old_tag_list.remove(i)
+        update_post = {'tag': old_tag_list}
         self.__db.query_db('update', item, update_post)
 
     def collection_total_size(self, collection_name):
