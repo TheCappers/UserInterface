@@ -197,9 +197,10 @@ class Controller(object):
         self.__db.query_db('update', item, update_post)  # update with database
 
     def tagDelete(self, tag, item):  # delete a tag
-        old = item['tag']
-        old.remove(tag)
-        update_post = {'tag': old}
+        old_tag_list = item['tag']
+        for i in tag:
+            old_tag_list.remove(i)
+        update_post = {'tag': old_tag_list}
         self.__db.query_db('update', item, update_post)
 
     def collection_total_size(self, collection_name):
