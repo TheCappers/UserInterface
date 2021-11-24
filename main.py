@@ -99,6 +99,8 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.tab_2.StorageInValue.editingFinished.connect(self.thresholdChange)
 
+        self.tab_2.ScreenshotFormatDrop.activated.connect(self._setScreenshotType)
+
         '''used in tab 3'''
         """Modifications for UI """
         self.tab_3.sync_btn.clicked.connect(self.clickedSync)
@@ -110,6 +112,11 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     meaning when one is pressed it stays down and when the other is pressed it stays down
     while the other one pops up
     '''
+
+    def _setScreenshotType(self):
+         global control
+         type = self.tab_2.ScreenshotFormatDrop.currentText()
+         control.setScreenshotType(type)
 
     def toggleButtons(self):  # called upon by button automatically will know which button
         global control  # individual button on and off

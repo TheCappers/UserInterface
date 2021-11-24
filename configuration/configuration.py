@@ -144,6 +144,9 @@ class Configuration:
         else:
             screenshot.stop()
 
+    def setScreenshotType(self, type):
+        screenshot.type = type
+
     def setVideo(self, video_value):
         self.__video_on = video_value
         # controlling the recording tool

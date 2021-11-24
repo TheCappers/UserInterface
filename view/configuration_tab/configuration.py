@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+#import main
 
 class Configuration:
     def __init__(self):
@@ -158,9 +158,8 @@ class Configuration:
         self.ScreenshotFormatDrop = QtWidgets.QComboBox(self.frame_16)
         self.ScreenshotFormatDrop.setMaximumSize(QtCore.QSize(220, 20))
         self.ScreenshotFormatDrop.setObjectName("ScreenshotFormatDrop")
-        self.ScreenshotFormatDrop.addItem("")
-        self.ScreenshotFormatDrop.addItem("")
-        self.ScreenshotFormatDrop.addItem("")
+        self.ScreenshotFormatDrop.addItem(".png")
+        self.ScreenshotFormatDrop.addItem(".jpg")
         self.gridLayout_56.addWidget(self.ScreenshotFormatDrop, 0, 2, 1, 1)
         self.ScreenshotStatButtonFrame = QtWidgets.QFrame(self.frame_16)
         self.ScreenshotStatButtonFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -513,9 +512,6 @@ class Configuration:
         self.VideoAutoStat.setText(_translate("MainWindow", "Automatic Video Recording Default Status"))
         self.ScreenshotStat.setText(_translate("MainWindow", "Automatic Screenshot Recording Default Status"))
         self.ScreenshotTitle.setText(_translate("MainWindow", "Screenshot"))
-        self.ScreenshotFormatDrop.setItemText(0, _translate("MainWindow", "Screenshot Format Default"))
-        self.ScreenshotFormatDrop.setItemText(1, _translate("MainWindow", "JPG"))
-        self.ScreenshotFormatDrop.setItemText(2, _translate("MainWindow", "PNG"))
         self.ScreenshotStatOnButton.setText(_translate("MainWindow", "On"))
         self.ScreenshotStatOffButton.setText(_translate("MainWindow", "Off"))
         self.SysCallStatus.setText(_translate("MainWindow", "Automatic System Call Recording Default Status"))
@@ -548,6 +544,7 @@ class Configuration:
         self.ProcessTitle.setText(_translate("MainWindow", "Process"))
         self.ProcessStatOnButton.setText(_translate("MainWindow", "On"))
         self.ProcessStatOffButton.setText(_translate('MainWindow', 'Off'))
+
 
     def get_tab(self):
         return self.tab_2
