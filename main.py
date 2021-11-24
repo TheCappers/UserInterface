@@ -49,7 +49,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_1.table_result.avert_result_table.selectionModel().selectionChanged.connect(self.selectionChange)
         self.tab_1.table_result.avert_result_table.horizontalHeader().sectionClicked.connect(self.horizontalHeaderSort)
         self.tab_1.addToScriptButton.clicked.connect(
-            lambda: self.tab_1.script_accordion.populateTable(np.array(attain)[list(all_selected)], pressed))
+            lambda: self.tab_1.script_accordion.populateTableHelper(np.array(attain)[list(all_selected)], self))
         self.tab_1.script_accordion.generate_btn.clicked.connect(
             lambda: control.creation_script(self.tab_1.script_accordion.getScriptItems()))
         # self.tab_1.addToScriptButton.clicked.connect(self.test)
@@ -511,7 +511,6 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             state = QtCore.Qt.Checked
             self.tab_1.select_button.setText("Deselect All")
             # print("select all pressed")
-            # self.tab_1.script_accordion.populateTable(attain)
         for i in range(len(attain)):
             item = self.tab_1.table_result.avert_result_table.item(i, 0)
             item.setCheckState(state)
