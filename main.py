@@ -657,7 +657,6 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         global control, attain
         self.tab_1.table_result.setIndexSelected(index)
         item_at = self.tab_1.detailed_view_accordion.tag_table.getIndexSelected()
-        print('Item found: ', self.tab_1.detailed_view_accordion.tag_table.tag_table.item(item_at, 3))
         tags_to_delete = [self.tab_1.detailed_view_accordion.tag_table.tag_table.item(item_at, 3).text()]
 
         '''
