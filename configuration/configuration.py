@@ -174,15 +174,24 @@ class Configuration:
     def manualScreenshot(self, manuel_value):
         return
 
+    '''
+    Signature: def storage_alert(self)
+    Author: David Amparan
+    Purpose: Monitor threshold of storage and give signal regarding
+    its status
+    Pre: @requires (*\ True)
+    Post: @ensures (*\ if >= self.__threshold return true else false) 
+    '''
     def storage_alert(self):  # return value to send error
         total, used, free = shutil.disk_usage("/")
 
         total = total // (2 ** 30)  # gb representation
         used = used // (2 ** 30)
-        # hist = [self.getMouseActionOn(), self.getKeystrokeOn()]
 
         if ((used / total) * 100) >= self.__threshold:  # if we meet the threshold
             return True
         else:
             return False  # all good nothing going on
         # probably do not need this
+        # hist = [self.getMouseActionOn(), self.getKeystrokeOn()]
+

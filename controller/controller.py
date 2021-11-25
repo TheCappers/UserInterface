@@ -106,7 +106,14 @@ class Controller(object):
                 with open(os.path.join(dd_dir, file_name), 'w') as file:
                     file.write(str(entry))
                     print(file_name)
-
+    '''
+    Signature: def view(self, item)
+    Author: David Amparan
+    Purpose: Attains the items from the database which match item given
+    Pre: @requires (*\ True )
+    Post: @ensures (data is None 
+                    \*)
+    '''
     def view(self, item):  # here is where we would connect to database to view an item in avert
         if item == '' or item.lower() == 'all':  # gets the 'name' collection
             data = self.__db.query_db('all', '', '')
@@ -196,12 +203,29 @@ class Controller(object):
         update_post = {'annotation': old}  # create the target to update
         self.__db.query_db('update', item, update_post)
 
+    '''
+    Signature: def tagAdd(self, tag, item)
+    Author: David Amparan
+    Purpose: Add a new tag to the given item then update the item in the database
+    to hold the new tag
+    Pre: @requires (*\ item not None && len(tag)>0)
+    Post: @ensures (*\ tag in item('tag') 
+    \* item('tag') is List)
+    '''
     def tagAdd(self, tag, item):  # adding a tag
         old = item['tag']  # the old tags
         old.append(tag)
         update_post = {'tag': old}  # create the target to update
         self.__db.query_db('update', item, update_post)  # update with database
 
+    '''
+    Signature: def tagDelete(self, tag, item)
+    Author: David Amparan, Emmanuel Briones
+    Purpose: Delete a tag from a given item 
+    Pre: @requires (*\ item not None && len(tag)>0)
+    Post: @ensures (*\ tag not in item('tag') 
+    \* item('tag') is List)
+    '''
     def tagDelete(self, tag, item):  # delete a tag
         old_tag_list = item['tag']
         for i in tag:

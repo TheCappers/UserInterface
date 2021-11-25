@@ -76,7 +76,16 @@ class TagTable:
 
     def getTable(self):
         return self.tag_table
-
+    
+    
+    '''
+    Signature: def display_tag(self, selected)
+    Author: David Amparan, William Croslen, Esteban Retana
+    Purpose: Populate the tag table with tags from the selected item
+    Pre: @requires (*\ selected is not None)
+    Post: @ensures (*\ forall tag in selected['tag']
+                        self.tag_table.setItewm(tag)))
+    '''
     def display_tag(self, selected):  # refresh and update the tags for the item
         if selected:
             self.tag_table.setRowCount(len(selected['tag']))
