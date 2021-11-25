@@ -6,6 +6,9 @@ class Script_Accordion:
     def __init__(self):
         self.accordion = ""
         self.script_items = []
+        self.temp_script_items = []
+        self.checker = False
+        # self.check2 = False
 
     def startAccordion(self):
         _translate = QtCore.QCoreApplication.translate
@@ -133,29 +136,51 @@ class Script_Accordion:
 
     def get_accordion(self):
         return self.accordion
-
-    def populateTable(self, selected_items, isAllChecked):
-        if isAllChecked:
-            #  print("NOT SELECTED ALL")
-            return
+    
+    def populateTableHelper(self, selected_items, parent_widget):
+        for d in selected_items:
+            self.temp_script_items.append(d)
+        if not self.checker:
+            self.checker = not self.checker
         else:
-            print("SELECT ALL!")
+            self.checker = not self.checker
+            self.populateTable(self.temp_script_items, parent_widget)
+            self.temp_script_items = []
+        
+    def populateTable(self, selected_items, parent_widget):
+        # print(len(selected_items))
+        if len(selected_items)==0:
+            # print("length zero")
+            QtWidgets.QMessageBox.about(parent_widget, "No Selection Error", "Please select at least one item before adding to script table.")
+            return
         _translate = QtCore.QCoreApplication.translate
-        print("THIS IS populateTable")
-        # print(selected_items)
+        # print("THIS IS populateTable")
 
         isChanged = False
-
+    
+        p = 0
         for d in selected_items:
+            if d['name'] == "Video" or d['name'] == "Screenshot":
+                print("video or screenshot")
+                for j in range(p):
+                    self.script_items.pop(j)
+                    # print("error")
+                QtWidgets.QMessageBox.about(parent_widget, "Script Selection Error", "Error: Video & Screenshot artifact cannot be selected.")
+                return
             if not d in self.script_items:
                 self.script_items.append(d)
+                p+=1
                 isChanged = True
+
 
         if isChanged:
             #  print("SET CHANGED")
             self.table.setRowCount(len(self.script_items))
             i = 0
             for d in self.script_items:
+                if d['name'] == "Video" or d['name'] == 'Screenshot':
+                    self.table.setRowCount(1)
+                    isChanged = False
                 item = QtWidgets.QTableWidgetItem()
                 item.setCheckState(QtCore.Qt.Unchecked)
                 self.table.setItem(i, 0, item)
