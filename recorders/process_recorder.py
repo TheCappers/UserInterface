@@ -16,6 +16,13 @@ class ProcessRecorder(RecordedData):
         self.__db = DataBase()
         self.__listener = threading.Thread()
 
+    '''
+            Signature: def __process_cap(self):
+            Author: Manuel Galaviz
+            Purpose: Captures all the current processes that are occurring on the terminal.
+            Pre: @requires (*\ True);
+            Post: @ensures (*\ if the thread self.__listener is started capture processes else null);
+    '''
     def _process_cap(self):
         while self.__autorecording:
             for process in psutil.process_iter():
