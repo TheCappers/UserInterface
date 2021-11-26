@@ -89,6 +89,14 @@ class Controller(object):
     def getSyncComplete(self):
         return self.__sync_sender.isSyncComplete()
 
+    '''
+        Signature: def export(self, item)
+        Author: Manuel Galaviz
+        Purpose: Export a selected item onto the desktop directory of the terminal.
+        Pre: @requires item != null;
+        Post: @ensures (*\ forall int i: 0<=i && i <= db_entries.length;
+                        *\ results file.write(db_entries[i]));
+    '''
     def export(self, item):  # here is where we would use the database to export
         desktop = os.path.join(os.path.join(os.path.expanduser('~')), 'Desktop')
         dd_dir = desktop + "/Downloads"

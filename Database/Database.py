@@ -17,6 +17,15 @@ class DataBase:
         self.video_collection = self.db["video_collection"]
         self.network_collection = self.db["network_collection"]
 
+    '''
+        Signature: def __insert_post(self, collection, post):
+        Author: Manuel Galaviz
+        Purpose: Appends a unique identifier for a captured artifact and then Inserts that 
+                 captured artifact onto the MongoDB.
+        Pre: @requires collection != null && post.length >0;
+        Post: @ensures (\ forall int i: 0<=i && i <= post.length;
+                             MongoDB[_id] == post[i]);
+    '''
     def __insert_post(self, collection, post):
         # print(post.get("_id"), post.get("name"))
         try:
@@ -32,7 +41,14 @@ class DataBase:
                 post.update({"_id": ObjectId().__str__()})
                 collection.insert_one(post)
 
-    # returns list based on the searched post in all... Will be reworked for multiple filters
+    '''
+        Signature: def __find(self, target):
+        Author: Manuel Galaviz
+        Purpose: Returns a list based on the targeted search queried by the user.
+        Pre: @requires target != null;
+        Post: @ensures (\ forall int i; && i<= MongoDB.get(target).length;
+                        db_list == MongoDB.get(target);
+    '''
     def __find(self, target):
         db_list = []
         for data_type in self.db.list_collection_names():
@@ -69,14 +85,29 @@ class DataBase:
                     new_list.append(entry)
         return new_list
 
-    # returns list of everything based on that type.
+    '''
+        Signature: def __get_type(self, collection):
+        Author: Manuel Galaviz
+        Purpose: Returns an item list that contains a shared artifact type with all items in the 
+                 list i.e. all mouse actions or all keystrokes.
+        Pre: @requires collection != null;
+        Post: @ensures (\ forall int i; && i<= MongoDB.get(collection)..length;
+                             item_list[i] == MongoDB[_id]);
+    '''
     def __get_type(self, collection):
         db_list = []
         for entry in collection.find({}):
             db_list.append(entry)
         return db_list
 
-    # return a list of items in the database.
+    '''
+        Signature: def __get_all(self, target):
+        Author: Manuel Galaviz
+        Purpose: Returns a list with all the items that are stored on the MongoDB.
+        Pre: @requires (*\ True);
+        Post: @ensures (\ forall int i; 0<=i && i<= MongoDB.length;
+                             db_list == MongoDB[i]);
+    '''
     def __get_all(self):
         db_list = []
         for data_type in self.db.list_collection_names():
@@ -88,7 +119,14 @@ class DataBase:
     def __update_one(self, collection, post, updated_post):
         collection.update_one({"_id": post.get("_id")}, {"$set": updated_post})
 
-    # deletes an item based on unique id
+    '''
+        Signature: def __delete_one(self, collection, post):
+        Author: Manuel Galaviz
+        Purpose: Deletes a unique item from MongoDB.
+        Pre: @requires collection != null && post.length =1;
+        Post: @ensures  (\ result if post is a valid item in the mongoDB remove 
+                        from the collection *);
+    '''
     def __delete_one(self, collection, post):
         collection.delete_one({"_id": post.get("_id")})
 
