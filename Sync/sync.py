@@ -87,6 +87,17 @@ class Sync:
             self.windowSync(ip_address, tab3_widget)
         if self.system_call_list:
             self.systemCall(ip_address, tab3_widget)
+        self.reset_progressbar(tab3_widget)
+
+    def reset_progressbar(self, tab3_widget):
+        tab3_widget.keystroke_frame.progress_bar.setValue(0)
+        tab3_widget.mouseaction_frame.progress_bar.setValue(0)
+        tab3_widget.stillscreenshot_frame.progress_bar.setValue(0)
+        tab3_widget.process_frame.progress_bar.setValue(0)
+        tab3_widget.windowhistory_frame.progress_bar.setValue(0)
+        tab3_widget.systemcall_frame.progress_bar.setValue(0)
+        tab3_widget.video_frame.progress_bar.setValue(0)
+        tab3_widget.networkactivitydata_frame.progress_bar.setValue(0)
 
     def start(self, item_list, ip_address, tab3_widget):
         self.status = True
