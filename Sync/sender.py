@@ -37,6 +37,7 @@ class Sender:
         self.network_collection = self.__db2["network_collection"]
 
         self.collection_type(item_list, tab3_widget)
+        # self.reset_progressbar(tab3_widget)
 
     def collection_type(self, item_list, tab3_widget):
         if item_list[0].get('name') == "Keystroke":
@@ -116,3 +117,5 @@ class Sender:
 
     def isSyncComplete(self):
         return self.status
+
+
