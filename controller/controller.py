@@ -263,3 +263,13 @@ class Controller(object):
     def graphGeneration(self, type, make_up):
         if type == 'Timeline':
             self.__timeline_gen.generateTimeline(make_up)
+
+    def updateNetworkConfig(self, time_unit, time_value):
+        self.__config.updateNetwork(time_unit, time_value)
+
+    def updateScreenshot(self, format):
+        self.__config.updateScreenshot(format)
+
+    def updateWindowHistory(self, time_unit, time_value):
+        print(time_unit)
+        self.__config.updateWindowHistory(time_unit, time_value)

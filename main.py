@@ -757,21 +757,10 @@ def main():
     app = QtWidgets.QApplication(sys.argv)
     form = AvertApp()
     form.show()
-
-    #  floating according
-    '''
-    form2 = floatingAccord()
-    form2.show()
-    '''
     app.exec()
 
 
 if __name__ == '__main__':
     main()
     sys.exit()
-'''
-    Form = QtWidgets.QWidget()
-    form2 = Ui_Form()
-    form2.setupUi(Form)
-    Form.show()
-'''
+

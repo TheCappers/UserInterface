@@ -1,8 +1,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from controller import controller
 
 
 class Configuration:
     def __init__(self):
+        self.controller = controller.Controller()
+
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
@@ -156,9 +159,9 @@ class Configuration:
         self.ScreenshotTitle.setObjectName("ScreenshotTitle")
         self.gridLayout_56.addWidget(self.ScreenshotTitle, 0, 0, 1, 2)
         self.ScreenshotFormatDrop = QtWidgets.QComboBox(self.frame_16)
-        self.ScreenshotFormatDrop.setMaximumSize(QtCore.QSize(220, 20))
+        self.ScreenshotFormatDrop.setMinimumSize(QtCore.QSize(100, 20))
+        self.ScreenshotFormatDrop.setMaximumSize(QtCore.QSize(100, 20))
         self.ScreenshotFormatDrop.setObjectName("ScreenshotFormatDrop")
-        self.ScreenshotFormatDrop.addItem("")
         self.ScreenshotFormatDrop.addItem("")
         self.ScreenshotFormatDrop.addItem("")
         self.gridLayout_56.addWidget(self.ScreenshotFormatDrop, 0, 2, 1, 1)
@@ -239,10 +242,14 @@ class Configuration:
         self.frame_19.setObjectName("frame_19")
         self.gridLayout_58 = QtWidgets.QGridLayout(self.frame_19)
         self.gridLayout_58.setObjectName("gridLayout_58")
-        self.WindowHistoryWaitVal = QtWidgets.QComboBox(self.frame_19)
-        self.WindowHistoryWaitVal.setMaximumSize(QtCore.QSize(220, 20))
+        self.WindowHistoryWaitVal = QtWidgets.QLineEdit(self.frame_19)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.WindowHistoryWaitVal.sizePolicy().hasHeightForWidth())
+        self.WindowHistoryWaitVal.setSizePolicy(sizePolicy)
+        self.WindowHistoryWaitVal.setMaximumSize(QtCore.QSize(150, 20))
         self.WindowHistoryWaitVal.setObjectName("WindowHistoryWaitVal")
-        self.WindowHistoryWaitVal.addItem("")
         self.gridLayout_58.addWidget(self.WindowHistoryWaitVal, 1, 2, 1, 1)
         self.WindowHistoryStat = QtWidgets.QLabel(self.frame_19)
         font = QtGui.QFont()
@@ -265,6 +272,9 @@ class Configuration:
         self.WindowHistoryDurUnit = QtWidgets.QComboBox(self.frame_19)
         self.WindowHistoryDurUnit.setMaximumSize(QtCore.QSize(250, 20))
         self.WindowHistoryDurUnit.setObjectName("WindowHistoryDurUnit")
+        self.WindowHistoryDurUnit.addItem("")
+        self.WindowHistoryDurUnit.addItem("")
+        self.WindowHistoryDurUnit.addItem("")
         self.WindowHistoryDurUnit.addItem("")
         self.gridLayout_58.addWidget(self.WindowHistoryDurUnit, 0, 2, 1, 1)
         self.WindowHistoryButtonFrame = QtWidgets.QFrame(self.frame_19)
@@ -353,8 +363,8 @@ class Configuration:
         self.MouseActionTitle.setObjectName("MouseActionTitle")
         self.verticalLayout_11.addWidget(self.MouseActionTitle)
         self.MouseActStatus = QtWidgets.QLabel(self.frame_22)
-        self.MouseActStatus.setMinimumSize(QtCore.QSize(151, 91))
-        self.MouseActStatus.setMaximumSize(QtCore.QSize(151, 91))
+        self.MouseActStatus.setMinimumSize(QtCore.QSize(180, 91))
+        self.MouseActStatus.setMaximumSize(QtCore.QSize(180, 91))
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setBold(True)
@@ -389,8 +399,8 @@ class Configuration:
         self.gridLayout_61 = QtWidgets.QGridLayout(self.frame_23)
         self.gridLayout_61.setObjectName("gridLayout_61")
         self.NetworkActivityStatus = QtWidgets.QLabel(self.frame_23)
-        self.NetworkActivityStatus.setMinimumSize(QtCore.QSize(151, 91))
-        self.NetworkActivityStatus.setMaximumSize(QtCore.QSize(151, 91))
+        self.NetworkActivityStatus.setMinimumSize(QtCore.QSize(180, 91))
+        self.NetworkActivityStatus.setMaximumSize(QtCore.QSize(180, 91))
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setBold(True)
@@ -412,12 +422,19 @@ class Configuration:
         self.NetworkActivityDataUnit.setMaximumSize(QtCore.QSize(300, 20))
         self.NetworkActivityDataUnit.setObjectName("NetworkActivityDataUnit")
         self.NetworkActivityDataUnit.addItem("")
+        self.NetworkActivityDataUnit.addItem("")
+        self.NetworkActivityDataUnit.addItem("")
+        self.NetworkActivityDataUnit.addItem("")
         self.gridLayout_61.addWidget(self.NetworkActivityDataUnit, 0, 2, 1, 1)
-        self.NetworkActivityDataWaiValue = QtWidgets.QComboBox(self.frame_23)
-        self.NetworkActivityDataWaiValue.setMaximumSize(QtCore.QSize(300, 20))
-        self.NetworkActivityDataWaiValue.setObjectName("NetworkActivityDataWaiValue")
-        self.NetworkActivityDataWaiValue.addItem("")
-        self.gridLayout_61.addWidget(self.NetworkActivityDataWaiValue, 1, 2, 1, 1)
+        self.network_value_line = QtWidgets.QLineEdit(self.frame_23)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.network_value_line.sizePolicy().hasHeightForWidth())
+        self.network_value_line.setSizePolicy(sizePolicy)
+        self.network_value_line.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.network_value_line.setObjectName("network_value_line")
+        self.gridLayout_61.addWidget(self.network_value_line, 1, 2, 1, 1)
         self.NetworkActivityButtonFrame = QtWidgets.QFrame(self.frame_23)
         self.NetworkActivityButtonFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.NetworkActivityButtonFrame.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -444,8 +461,8 @@ class Configuration:
         self.gridLayout_62 = QtWidgets.QGridLayout(self.frame_24)
         self.gridLayout_62.setObjectName("gridLayout_62")
         self.ProcessStatLabel = QtWidgets.QLabel(self.frame_24)
-        self.ProcessStatLabel.setMinimumSize(QtCore.QSize(151, 91))
-        self.ProcessStatLabel.setMaximumSize(QtCore.QSize(151, 91))
+        self.ProcessStatLabel.setMinimumSize(QtCore.QSize(180, 91))
+        self.ProcessStatLabel.setMaximumSize(QtCore.QSize(180, 91))
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setBold(True)
@@ -513,19 +530,21 @@ class Configuration:
         self.VideoAutoStat.setText(_translate("MainWindow", "Automatic Video Recording Default Status"))
         self.ScreenshotStat.setText(_translate("MainWindow", "Automatic Screenshot Recording Default Status"))
         self.ScreenshotTitle.setText(_translate("MainWindow", "Screenshot"))
-        self.ScreenshotFormatDrop.setItemText(0, _translate("MainWindow", "Screenshot Format Default"))
+        self.ScreenshotFormatDrop.setItemText(0, _translate("MainWindow", "PNG"))
         self.ScreenshotFormatDrop.setItemText(1, _translate("MainWindow", "JPG"))
-        self.ScreenshotFormatDrop.setItemText(2, _translate("MainWindow", "PNG"))
         self.ScreenshotStatOnButton.setText(_translate("MainWindow", "On"))
         self.ScreenshotStatOffButton.setText(_translate("MainWindow", "Off"))
         self.SysCallStatus.setText(_translate("MainWindow", "Automatic System Call Recording Default Status"))
         self.SystemCallLabel.setText(_translate("MainWindow", "System Call"))
         self.SystemCallOnButton.setText(_translate("MainWindow", "On"))
         self.SystemCallOffButton.setText(_translate("MainWindow", "Off"))
-        self.WindowHistoryWaitVal.setItemText(0, _translate("MainWindow", "Window History Wait Value"))
         self.WindowHistoryStat.setText(_translate("MainWindow", "Automatic Video Recording Default Status"))
         self.WindowHistLabel.setText(_translate("MainWindow", "Window History"))
-        self.WindowHistoryDurUnit.setItemText(0, _translate("MainWindow", "Window History Duration Unit"))
+        self.WindowHistoryDurUnit.setItemText(0, _translate("MainWindow", "Milliseconds"))
+        self.WindowHistoryDurUnit.setItemText(1, _translate("MainWindow", "Seconds"))
+        self.WindowHistoryDurUnit.setItemText(2, _translate("MainWindow", "Minutes"))
+        self.WindowHistoryDurUnit.setItemText(3, _translate("MainWindow", "Hours"))
+
         self.WindowHistoryOnButton.setText(_translate("MainWindow", "On"))
         self.WindowHistoryOffButton.setText(_translate("MainWindow", "Off"))
         self.KeystrokeStatus.setText(_translate("MainWindow", "Automatic Keystroke Recording Default Status"))
@@ -539,15 +558,47 @@ class Configuration:
         self.NetworkActivityStatus.setText(
             _translate("MainWindow", "Automatic Network Activity Data Recording Default Status"))
         self.NetworkActivityDataLabel.setText(_translate("MainWindow", "Network Activity Data"))
-        self.NetworkActivityDataUnit.setItemText(0, _translate("MainWindow", "Network Activity Data Duration Unit"))
-        self.NetworkActivityDataWaiValue.setItemText(0,
-                                                     _translate("MainWindow", "Network Activity Data Duration Value"))
+        self.NetworkActivityDataUnit.setItemText(0, _translate("MainWindow", "Milliseconds"))
+        self.NetworkActivityDataUnit.setItemText(1, _translate("MainWindow", "Seconds"))
+        self.NetworkActivityDataUnit.setItemText(2, _translate("MainWindow", "Minutes"))
+        self.NetworkActivityDataUnit.setItemText(3, _translate("MainWindow", "Hours"))
+        self.network_value_line.setPlaceholderText(_translate("MainWindow", "Enter Time Value"))
+        self.WindowHistoryWaitVal.setPlaceholderText(_translate('MainWindow', 'Enter Time Value'))
         self.NetworkActivityDataOnButton.setText(_translate("MainWindow", "On"))
         self.NetworkActivityDataOffButton.setText(_translate("MainWindow", "Off"))
         self.ProcessStatLabel.setText(_translate("MainWindow", "Automatic Process Recording Default Status"))
         self.ProcessTitle.setText(_translate("MainWindow", "Process"))
         self.ProcessStatOnButton.setText(_translate("MainWindow", "On"))
         self.ProcessStatOffButton.setText(_translate('MainWindow', 'Off'))
+
+        #  establishing connections with controller
+        #  network
+        self.network_value_line.editingFinished.connect(self.network_update)
+        self.NetworkActivityDataUnit.currentIndexChanged.connect(self.network_update)
+
+        # screenshot
+        self.ScreenshotFormatDrop.currentIndexChanged.connect(self.screenshotUpdate)
+
+        # window history
+        self.WindowHistoryWaitVal.editingFinished.connect(self.windowHistoryUpdate)
+        self.WindowHistoryDurUnit.currentIndexChanged.connect(self.windowHistoryUpdate)
+
+    def network_update(self):
+        if self.network_value_line.text() == '':
+            self.controller.updateNetworkConfig(self.NetworkActivityDataUnit.currentText(),
+                                                int('60'))
+        else:
+            self.controller.updateNetworkConfig(self.NetworkActivityDataUnit.currentText(), int(self.network_value_line.text()))
+
+    def screenshotUpdate(self):
+        self.controller.updateScreenshot(self.ScreenshotFormatDrop.currentText())
+
+    def windowHistoryUpdate(self):
+        if self.WindowHistoryWaitVal.text() == '':
+            self.controller.updateWindowHistory(self.WindowHistoryDurUnit.currentText(), int('60'))
+        else:
+            self.controller.updateWindowHistory(self.WindowHistoryDurUnit.currentText(),
+                                                int(self.WindowHistoryWaitVal.text()))
 
     def get_tab(self):
         return self.tab_2

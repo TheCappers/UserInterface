@@ -30,10 +30,10 @@ class Configuration:
         self.__mouse_action_on = True
         self.__process_on = True
         self.__system_call_on = True
-        self.__window_history_on = True
-        self.__screenshot_on = True
+        self.__window_history_on = [True, 'Seconds', 60]
+        self.__screenshot_on = [True, 'png']
         self.__video_on = True
-        self.__network_on = True
+        self.__network_on = [True, 'Seconds', 60]
         '''
         Here we add the new records values
         '''
@@ -60,13 +60,13 @@ class Configuration:
         return self.__system_call_on
 
     def getScreenshotOn(self):
-        return self.__screenshot_on
+        return self.__screenshot_on[0]
 
     def getVideoOn(self):
         return self.__video_on
 
     def getWindowHistory(self):
-        return self.__window_history_on
+        return self.__window_history_on[0]
 
     def getProcessOn(self):
         return self.__process_on
@@ -75,7 +75,7 @@ class Configuration:
         return self.__video_on
 
     def getNetworkOn(self):
-        return self.__network_on
+        return self.__network_on[0]
 
     def setUniversalOn(self, universal_value):  # applies default values
         self.__universal_on = universal_value
@@ -103,7 +103,7 @@ class Configuration:
             # recorders
 
     def setNetwork(self, network_value):
-        self.__network_on = network_value
+        self.__network_on[0] = network_value
         if network_value:
             network.start()
         else:
@@ -136,7 +136,7 @@ class Configuration:
             system_call.systemcallrecorder_end()
 
     def setScreenshot(self, screenshot_value):
-        self.__screenshot_on = screenshot_value
+        self.__screenshot_on[0] = screenshot_value
         # controlling the recording tool
         # system_call.willRecord = sys_call_value
         if screenshot_value:
@@ -153,7 +153,7 @@ class Configuration:
             video.stop()
 
     def setWindowHistory(self, window_history_value):
-        self.__window_history_on = window_history_value
+        self.__window_history_on[0] = window_history_value
         # controlling the recording tool
         if window_history_value:
             window_history.start()
@@ -195,3 +195,33 @@ class Configuration:
         # probably do not need this
         # hist = [self.getMouseActionOn(), self.getKeystrokeOn()]
 
+    @staticmethod
+    def calculateTime(unit, value):
+        #  will only update based on seconds
+        #  convert all to seconds
+        if unit == 'Milliseconds':
+            return value * 0.001
+        if unit == 'Seconds':
+            return value
+        if unit == 'Minutes':
+            return value * 60
+        if unit == 'Hours':
+            return value * 3600
+
+    def updateNetwork(self, unit, value):
+        self.__network_on[1] = unit
+        self.__network_on[2] = self.calculateTime(unit, value)
+        # here we call the update method for network=
+        print(self.__network_on)
+
+    def updateScreenshot(self, format):
+        self.__screenshot_on[1] = format
+        print(self.__screenshot_on)
+        #  here we update
+
+    def updateWindowHistory(self, unit, value):
+        self.__window_history_on[1] = unit
+        self.__window_history_on[2] = self.calculateTime(unit, value)
+
+        # here we call the update method
+        print(self.__window_history_on)
