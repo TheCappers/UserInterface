@@ -24,7 +24,7 @@
        </sizepolicy>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_1">
        <attribute name="title">
@@ -382,7 +382,7 @@
                     </property>
                     <property name="text">
                      <string>Date and Time</string>
-                    </property>universal
+                    </property>
                    </widget>
                   </item>
                   <item row="17" column="1">
@@ -677,7 +677,7 @@
                      <bool>true</bool>
                     </attribute>
                     <attribute name="verticalHeaderVisible">
-                     <bool>true</bool>
+                     <bool>false</bool>
                     </attribute>
                     <attribute name="verticalHeaderHighlightSections">
                      <bool>true</bool>
@@ -1269,7 +1269,7 @@
                        </size>
                       </property>
                       <property name="currentIndex">
-                       <number>0</number>
+                       <number>3</number>
                       </property>
                       <widget class="QWidget" name="tab_133">
                        <attribute name="title">
@@ -2560,7 +2560,7 @@
                                 <rect>
                                  <x>0</x>
                                  <y>0</y>
-                                 <width>92</width>
+                                 <width>80</width>
                                  <height>80</height>
                                 </rect>
                                </property>
@@ -3531,8 +3531,8 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>429</width>
-                 <height>443</height>
+                 <width>1204</width>
+                 <height>535</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -3545,7 +3545,7 @@
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>3</number>
                   </property>
                   <widget class="QWidget" name="type">
                    <attribute name="title">
@@ -3845,8 +3845,8 @@
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>572</width>
-                         <height>265</height>
+                         <width>1164</width>
+                         <height>466</height>
                         </rect>
                        </property>
                        <layout class="QGridLayout" name="gridLayout_6">
@@ -4448,8 +4448,8 @@ border-color: rgb(170, 0, 0);</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>548</width>
-                 <height>197</height>
+                 <width>1204</width>
+                 <height>535</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -4933,8 +4933,8 @@ border-color: rgb(170, 0, 0);</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>141</width>
-                 <height>113</height>
+                 <width>1204</width>
+                 <height>535</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -5249,8 +5249,8 @@ border-color: rgb(170, 0, 0);</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>92</width>
-                 <height>80</height>
+                 <width>1204</width>
+                 <height>535</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -6030,21 +6030,6 @@ border-color: rgb(170, 0, 0);</string>
                   <enum>QFrame::Raised</enum>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_58">
-                  <item row="1" column="2">
-                   <widget class="QComboBox" name="WindowHistoryWaitVal">
-                    <property name="maximumSize">
-                     <size>
-                      <width>220</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>Window History Wait Value</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
                   <item row="2" column="0" colspan="2">
                    <widget class="QLabel" name="WindowHistoryStat">
                     <property name="font">
@@ -6139,6 +6124,22 @@ border-color: rgb(170, 0, 0);</string>
                       </widget>
                      </item>
                     </layout>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLineEdit" name="WindowHistoryWaitVal">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>150</width>
+                      <height>20</height>
+                     </size>
+                    </property>
                    </widget>
                   </item>
                  </layout>
@@ -6381,38 +6382,6 @@ border-color: rgb(170, 0, 0);</string>
                   <enum>QFrame::Raised</enum>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_61">
-                  <item row="2" column="0" colspan="2">
-                   <widget class="QLabel" name="NetworkActivityStatus">
-                    <property name="minimumSize">
-                     <size>
-                      <width>151</width>
-                      <height>91</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>151</width>
-                      <height>91</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <pointsize>14</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Automatic Network Activity Data Recording Default Stauts</string>
-                    </property>
-                    <property name="scaledContents">
-                     <bool>false</bool>
-                    </property>
-                    <property name="wordWrap">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="0" column="0" colspan="2">
                    <widget class="QLabel" name="NetworkActivityDataLabel">
                     <property name="font">
@@ -6427,37 +6396,7 @@ border-color: rgb(170, 0, 0);</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="0" column="2">
-                   <widget class="QComboBox" name="NetworkActivityDataUnit">
-                    <property name="maximumSize">
-                     <size>
-                      <width>300</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>Network Activity Data Duration Unit</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="1" column="2">
-                   <widget class="QComboBox" name="NetworkActivityDataWaiValue">
-                    <property name="maximumSize">
-                     <size>
-                      <width>300</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>Network Activity Data Duration Value</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="3" column="0" alignment="Qt::AlignLeft|Qt::AlignBottom">
+                  <item row="4" column="0" alignment="Qt::AlignLeft|Qt::AlignBottom">
                    <widget class="QFrame" name="NetworkActivityButtonFrame">
                     <property name="frameShape">
                      <enum>QFrame::StyledPanel</enum>
@@ -6504,20 +6443,24 @@ border-color: rgb(170, 0, 0);</string>
                     </layout>
                    </widget>
                   </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
-                <widget class="QFrame" name="frame_24">
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QGridLayout" name="gridLayout_62">
-                  <item row="2" column="0" colspan="2">
-                   <widget class="QLabel" name="ProcessStatLabel">
+                  <item row="2" column="2">
+                   <widget class="QLineEdit" name="lineEdit_6">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>150</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0" colspan="2">
+                   <widget class="QLabel" name="NetworkActivityStatus">
                     <property name="minimumSize">
                      <size>
                       <width>151</width>
@@ -6538,7 +6481,7 @@ border-color: rgb(170, 0, 0);</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>Automatic Process Recording Default Status</string>
+                     <string>Automatic Network Activity Data Recording Default Stauts</string>
                     </property>
                     <property name="scaledContents">
                      <bool>false</bool>
@@ -6548,20 +6491,33 @@ border-color: rgb(170, 0, 0);</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="ProcessTitle">
-                    <property name="font">
-                     <font>
-                      <pointsize>14</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
+                  <item row="1" column="2">
+                   <widget class="QComboBox" name="NetworkActivityDataUnit">
+                    <property name="maximumSize">
+                     <size>
+                      <width>300</width>
+                      <height>20</height>
+                     </size>
                     </property>
-                    <property name="text">
-                     <string>Process</string>
-                    </property>
+                    <item>
+                     <property name="text">
+                      <string>Network Activity Data Duration Unit</string>
+                     </property>
+                    </item>
                    </widget>
                   </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QFrame" name="frame_24">
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_62">
                   <item row="3" column="0" alignment="Qt::AlignLeft|Qt::AlignBottom">
                    <widget class="QFrame" name="ProcessStatButtonFrame">
                     <property name="frameShape">
@@ -6607,6 +6563,52 @@ border-color: rgb(170, 0, 0);</string>
                       </widget>
                      </item>
                     </layout>
+                   </widget>
+                  </item>
+                  <item row="2" column="0" colspan="2">
+                   <widget class="QLabel" name="ProcessStatLabel">
+                    <property name="minimumSize">
+                     <size>
+                      <width>151</width>
+                      <height>91</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>151</width>
+                      <height>91</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>14</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Automatic Process Recording Default Status</string>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>false</bool>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="ProcessTitle">
+                    <property name="font">
+                     <font>
+                      <pointsize>14</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Process</string>
+                    </property>
                    </widget>
                   </item>
                  </layout>

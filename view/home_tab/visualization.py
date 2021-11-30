@@ -512,6 +512,14 @@ class Visualization:
         self.label_32.setObjectName("label_32")
         self.gridLayout_7.addWidget(self.label_32, 1, 0, 1, 1)
         self.lineEdit = QtWidgets.QLineEdit(self.timeline_metadata)
+
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lineEdit.sizePolicy().hasHeightForWidth())
+        self.lineEdit.setSizePolicy(sizePolicy)
+        self.lineEdit.setMinimumSize(QtCore.QSize(250, 16777215))
+        self.lineEdit.setMaximumSize(QtCore.QSize(250, 16777215))
         self.lineEdit.setText("")
         self.lineEdit.setObjectName("lineEdit")
         self.gridLayout_7.addWidget(self.lineEdit, 1, 1, 1, 1)
@@ -635,6 +643,8 @@ class Visualization:
         self.label_40.setText(_translate("MainWindow", "Zoom"))
         self.visualization_tabs.setTabText(
             self.visualization_tabs.indexOf(self.timeline), _translate("MainWindow", "Timeline"))
+        self.lineEdit.setPlaceholderText(_translate('MainWindow', 'Ex. Start - End'))
+
 
     def get_accordion(self):
         return self.visualization_accordion
