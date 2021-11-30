@@ -59,6 +59,9 @@ class Controller(object):
     def networkRecording(self, signal):
         self.__config.setNetwork(signal)
 
+    def setScreenshotType(self,type):
+        self.__config.setScreenshotType(type)
+
     def storageRecording(self, amount) -> None:
         self.__config.setThreshold(amount)
         full = self.__config.storage_alert()

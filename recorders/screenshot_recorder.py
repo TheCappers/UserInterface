@@ -21,6 +21,7 @@ class ScreenshotRecorder(RecordedData):
         self._screenshot_data['name'] = "Screenshot"
         self._screenshot_data['data'] = {'path': "", 'size': "", 'type': ""}
         self.image = None
+        self.type = '.png'
         self.__db = DataBase()
 
         # Setup the listener threads
@@ -66,7 +67,7 @@ class ScreenshotRecorder(RecordedData):
         isExist = os.path.exists("Images")
         if not isExist:
             os.mkdir("Images")
-        self._screenshot_data['data']['path'] = "Images/" + date_time + '.png'
+        self._screenshot_data['data']['path'] = "Images/" + date_time + self.type
         self.image.save(self._screenshot_data['data']['path'])
         file_size = os.path.getsize(self._screenshot_data['data']['path'])
         file_type = os.path.splitext(self._screenshot_data['data']['path'])[-1]

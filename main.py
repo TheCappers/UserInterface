@@ -105,6 +105,8 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.tab_2.StorageInValue.editingFinished.connect(self.thresholdChange)
 
+        self.tab_2.ScreenshotFormatDrop.activated.connect(self._setScreenshotType)
+
         '''used in tab 3'''
         """Modifications for UI """
         self.tab_3.sync_btn.clicked.connect(lambda: self.clickedSync(self.tab_3))
@@ -127,15 +129,24 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     meaning when one is pressed it stays down and when the other is pressed it stays down
     while the other one pops up
     '''
-    
+
+
+
+    def _setScreenshotType(self):
+         global control
+         type = self.tab_2.ScreenshotFormatDrop.currentText()
+         control.setScreenshotType(type)
+
+
     '''
     Signature: def toggleButtons(self)
     Author: David Amparan
     Purpose: Toggle the buttons within the UI to be set and unset when clicked
-    furthermore, these pertain to configuration settings (on and off recordings) 
+    furthermore, these pertain to configuration settings (on and off recordings)
     Pre: @requires (*\ True)
     Post: @ensures (*\ on = QtWidget.QButton.setChecked(True) off = QtWidget.QButton.setChecked(False))
     '''
+
     def toggleButtons(self):  # called upon by button automatically will know which button
         global control  # individual button on and off
 
@@ -667,7 +678,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         tags_to_delete = [self.tab_1.detailed_view_accordion.tag_table.tag_table.item(item_at, 3).text()]
 
         '''
-       
+
         if all_selected_tag != []:
             for i in all_selected_tag:
                 tags_to_delete.append(self.tab_1.detailed_view_accordion.tag_table.tag_table.item(all_selected_tag[i], 3).text())
@@ -692,7 +703,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         else:
             self.tab_3.allexcludingvideo_btn.setChecked(0)
             self.tab_3.allincludingvideo_btn.setChecked(1)
-    
+
     '''
     Signature: def clickedSync(self)
     Author: David Amparan
@@ -763,4 +774,3 @@ def main():
 if __name__ == '__main__':
     main()
     sys.exit()
-
