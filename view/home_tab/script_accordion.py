@@ -138,41 +138,29 @@ class Script_Accordion:
         return self.accordion
     
     def populateTableHelper(self, selected_items, parent_widget):
-        print(selected_items)
-        # if not selected_items:
-        #         selected_items = []
+        for d in selected_items:
+            self.temp_script_items.append(d)
         if not self.checker:
             self.checker = not self.checker
-            if selected_items == []:
-                selected_items = [{}]
-            self.temp_script_items = selected_items
         else:
             self.checker = not self.checker
-            if selected_items != []:
-                self.temp_script_items += selected_items
             self.populateTable(self.temp_script_items, parent_widget)
             self.temp_script_items = []
-        
 
     def populateTable(self, selected_items, parent_widget):
-        print(len(selected_items))
         if len(selected_items)==0:
-            print("length zero")
             QtWidgets.QMessageBox.about(parent_widget, "No Selection Error", "Please select at least one item before adding to script table.")
             return
-
         _translate = QtCore.QCoreApplication.translate
-        print("THIS IS populateTable")
 
         isChanged = False
-    
+
         p = 0
         for d in selected_items:
             if d['name'] == "Video" or d['name'] == "Screenshot":
                 print("video or screenshot")
                 for j in range(p):
                     self.script_items.pop(j)
-                    # print("error")
                 QtWidgets.QMessageBox.about(parent_widget, "Script Selection Error", "Error: Video & Screenshot artifact cannot be selected.")
                 return
             if not d in self.script_items:
@@ -180,9 +168,7 @@ class Script_Accordion:
                 p+=1
                 isChanged = True
 
-
         if isChanged:
-            #  print("SET CHANGED")
             self.table.setRowCount(len(self.script_items))
             i = 0
             for d in self.script_items:
@@ -194,32 +180,26 @@ class Script_Accordion:
                 self.table.setItem(i, 0, item)
 
                 item = QtWidgets.QTableWidgetItem()
-                # item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
                 item.setText(_translate("MainWindow", 'data'))
                 self.table.setItem(i, 1, item)
 
                 item = QtWidgets.QTableWidgetItem()
-                # item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
                 item.setText(_translate("MainWindow", d['timestamp']))
                 self.table.setItem(i, 2, item)
 
                 item = QtWidgets.QTableWidgetItem()
-                # item.setFlags(QtCore.Qt.ItemIsSelectable)
                 item.setText(_translate("MainWindow", d['name']))
                 self.table.setItem(i, 3, item)
 
                 item = QtWidgets.QTableWidgetItem()
-                # item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled)
                 item.setText(_translate("MainWindow", ' '.join(d['tag'])))
                 self.table.setItem(i, 4, item)
 
                 item = QtWidgets.QTableWidgetItem()
-                # item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
                 item.setText(_translate("MainWindow", d['mac_address']))
                 self.table.setItem(i, 5, item)
 
                 item = QtWidgets.QTableWidgetItem()
-                # item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
                 # ### What is description???
                 item.setText(_translate("MainWindow", "description?"))
                 self.table.setItem(i, 6, item)

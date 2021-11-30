@@ -130,10 +130,22 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     while the other one pops up
     '''
 
+
+
     def _setScreenshotType(self):
          global control
          type = self.tab_2.ScreenshotFormatDrop.currentText()
          control.setScreenshotType(type)
+
+
+    '''
+    Signature: def toggleButtons(self)
+    Author: David Amparan
+    Purpose: Toggle the buttons within the UI to be set and unset when clicked
+    furthermore, these pertain to configuration settings (on and off recordings)
+    Pre: @requires (*\ True)
+    Post: @ensures (*\ on = QtWidget.QButton.setChecked(True) off = QtWidget.QButton.setChecked(False))
+    '''
 
     def toggleButtons(self):  # called upon by button automatically will know which button
         global control  # individual button on and off
@@ -666,7 +678,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         tags_to_delete = [self.tab_1.detailed_view_accordion.tag_table.tag_table.item(item_at, 3).text()]
 
         '''
-       
+
         if all_selected_tag != []:
             for i in all_selected_tag:
                 tags_to_delete.append(self.tab_1.detailed_view_accordion.tag_table.tag_table.item(all_selected_tag[i], 3).text())
@@ -692,6 +704,14 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.tab_3.allexcludingvideo_btn.setChecked(0)
             self.tab_3.allincludingvideo_btn.setChecked(1)
 
+    '''
+    Signature: def clickedSync(self)
+    Author: David Amparan
+    Purpose: Toggle the buttons within the UI to be set and unset when clicking Sync
+    and that the sync is started
+    Pre: @requires (*\ 7 <= len(self.tab_3.toIPval_lineEdit.text()) <= 15 )
+    Post: @ensures (*\ control.syncBegin))
+    '''
     def clickedSync(self, tab3_widget):
         global control
 
@@ -748,21 +768,9 @@ def main():
     app = QtWidgets.QApplication(sys.argv)
     form = AvertApp()
     form.show()
-
-    #  floating according
-    '''
-    form2 = floatingAccord()
-    form2.show()
-    '''
     app.exec()
 
 
 if __name__ == '__main__':
     main()
     sys.exit()
-'''
-    Form = QtWidgets.QWidget()
-    form2 = Ui_Form()
-    form2.setupUi(Form)
-    Form.show()
-'''

@@ -33,6 +33,7 @@ class KeyboardRecorder(RecordedData):
 	def on_press(self, key):
 		if not self.checkrecording():
 			return False
+		self._keystroke_data = self.get_recorded_data()
 		self._keystroke_data['data'] = str(key).replace('\'', '')
 		self.insert_to_db(self._keystroke_data)
 		# print(format(key))

@@ -92,6 +92,14 @@ class Controller(object):
     def getSyncComplete(self):
         return self.__sync_sender.isSyncComplete()
 
+    '''
+        Signature: def export(self, item)
+        Author: Manuel Galaviz
+        Purpose: Export a selected item onto the desktop directory of the terminal.
+        Pre: @requires item != null;
+        Post: @ensures (*\ forall int i: 0<=i && i <= db_entries.length;
+                        *\ results file.write(db_entries[i]));
+    '''
     def export(self, item):  # here is where we would use the database to export
         desktop = os.path.join(os.path.join(os.path.expanduser('~')), 'Desktop')
         dd_dir = desktop + "/Downloads"
@@ -109,7 +117,14 @@ class Controller(object):
                 with open(os.path.join(dd_dir, file_name), 'w') as file:
                     file.write(str(entry))
                     print(file_name)
-
+    '''
+    Signature: def view(self, item)
+    Author: David Amparan
+    Purpose: Attains the items from the database which match item given
+    Pre: @requires (*\ True )
+    Post: @ensures (data is None 
+                    \*)
+    '''
     def view(self, item):  # here is where we would connect to database to view an item in avert
         if item == '' or item.lower() == 'all':  # gets the 'name' collection
             data = self.__db.query_db('all', '', '')
@@ -199,12 +214,29 @@ class Controller(object):
         update_post = {'annotation': old}  # create the target to update
         self.__db.query_db('update', item, update_post)
 
+    '''
+    Signature: def tagAdd(self, tag, item)
+    Author: David Amparan
+    Purpose: Add a new tag to the given item then update the item in the database
+    to hold the new tag
+    Pre: @requires (*\ item not None && len(tag)>0)
+    Post: @ensures (*\ tag in item('tag') 
+    \* item('tag') is List)
+    '''
     def tagAdd(self, tag, item):  # adding a tag
         old = item['tag']  # the old tags
         old.append(tag)
         update_post = {'tag': old}  # create the target to update
         self.__db.query_db('update', item, update_post)  # update with database
 
+    '''
+    Signature: def tagDelete(self, tag, item)
+    Author: David Amparan, Emmanuel Briones
+    Purpose: Delete a tag from a given item 
+    Pre: @requires (*\ item not None && len(tag)>0)
+    Post: @ensures (*\ tag not in item('tag') 
+    \* item('tag') is List)
+    '''
     def tagDelete(self, tag, item):  # delete a tag
         old_tag_list = item['tag']
         for i in tag:
@@ -234,3 +266,13 @@ class Controller(object):
     def graphGeneration(self, type, make_up):
         if type == 'Timeline':
             self.__timeline_gen.generateTimeline(make_up)
+
+    def updateNetworkConfig(self, time_unit, time_value):
+        self.__config.updateNetwork(time_unit, time_value)
+
+    def updateScreenshot(self, format):
+        self.__config.updateScreenshot(format)
+
+    def updateWindowHistory(self, time_unit, time_value):
+        print(time_unit)
+        self.__config.updateWindowHistory(time_unit, time_value)
