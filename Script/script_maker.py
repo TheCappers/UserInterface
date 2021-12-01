@@ -8,11 +8,11 @@ class ScriptMaker:
 
     def __keystroke(self, item):
         if len(item.get('data')) > 1:
-            keystroke_string = "pyautogui.typewrite(['" + str(item.get('data')) + "'], interval=0.1)\n"
-            print(keystroke_string)
+            keystroke_string = "pyautogui.press('" + str(item.get('data')).replace('Key.', '') + "', interval=0.1)\n"
+            # print(keystroke_string)
         else:
             keystroke_string = "pyautogui.typewrite('" + str(item.get('data')) + "', interval=0.1)\n"
-            print(keystroke_string)
+            # print(keystroke_string)
         return keystroke_string
 
     # data: { position: [ 1967, 144 ], clicked: false, scroll: 0, button: '' },
@@ -49,8 +49,8 @@ class ScriptMaker:
 
     def sort_list(self, item_list):
         sorted_list = sorted(item_list, key=lambda d: d['milliseconds'])
-        for i in sorted_list:
-            print(i)
+        # for i in sorted_list:
+        #     print(i)
         return sorted_list
 #
 # items_list = [{ '_id': '617f39e3acf707ca9b53b4f9', 'ip_address': '127.0.1.1', 'mac_address': '00:0C:29:F0:6B:3F',
