@@ -27,19 +27,8 @@ class DataBase:
                              MongoDB[_id] == post[i]);
     '''
     def __insert_post(self, collection, post):
-        # print(post.get("_id"), post.get("name"))
-        try:
-            temp = collection.find({"_id": post.get("_id")})
-        except Exception:
-            if post.get("_id"):
-                try:
-                    collection.insert_one(post)
-                except Exception:
-                    post.update({"_id": ObjectId().__str__()})
-                    collection.insert_one(post)
-            else:
-                post.update({"_id": ObjectId().__str__()})
-                collection.insert_one(post)
+        post.update({"_id": ObjectId().__str__()})
+        collection.insert_one(post)
 
     '''
         Signature: def __find(self, target):
