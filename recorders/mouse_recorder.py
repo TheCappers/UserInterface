@@ -30,12 +30,14 @@ class MouseRecorder(RecordedData):
 
     def _on_move(self, x, y):
         if self.__autorecording:
+            self.__mouse_action = self.get_recorded_data() 
             self.__mouse_action['data']['position'] = (x, y)
             self.insert_to_db()
 
     def _on_click(self, x, y, button, pressed):
         if self.__autorecording:
             if pressed:
+                self.__mouse_action = self.get_recorded_data() 
                 self.__mouse_action['data']['clicked'] = True
                 if str(button) == "Button.left":
                     self.__mouse_action['data']['button'] = "left"
@@ -44,12 +46,15 @@ class MouseRecorder(RecordedData):
                 else:
                     self.__mouse_action['data']['button'] = "middle"
             else:
+                self.__mouse_action = self.get_recorded_data() 
                 self.__mouse_action['data']['clicked'] = False
                 self.__mouse_action['data']['button'] = ''
+            
             self.insert_to_db()
 
     def _on_scroll(self, x, y, dx, dy):
         if self.__autorecording:
+            self.__mouse_action = self.get_recorded_data() 
             self.__mouse_action['data']['scroll'] = dy
             self.insert_to_db()
 
