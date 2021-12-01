@@ -15,7 +15,8 @@ class RecordedData(object):
         # self.collection = ""          #
         """ Attributes """
         self._recorded_data = {
-            "ip_address": '', "mac_address": '', 'timestamp': '', "name": '', "data": {}, "tag": [], "annotation": []}
+            "ip_address": '', "mac_address": '', 'timestamp': '', 'milliseconds': '', "name": '', "data": {}, "tag": [],
+            "annotation": []}
 
     # noinspection PyMethodMayBeStatic
     def get_ip_address(self):
@@ -25,19 +26,21 @@ class RecordedData(object):
     # noinspection PyMethodMayBeStatic
     def get_mac_address(self):
         mac = get_mac()
-        return ':'.join(("%012X" % mac)[i:i+2] for i in range(0, 12, 2))
+        return ':'.join(("%012X" % mac)[i:i + 2] for i in range(0, 12, 2))
 
     # noinspection PyMethodMayBeStatic
     def get_timestamp(self):
         # gets computer time
         now = datetime.now()
         # dd/mm/YY H:M:S
-        return now.strftime("%H:%M:%S %m/%d/%Y")
-    
+        return now.strftime("%H:%M:%S %m/%d/%Y"), now.strftime("%H:%M:%S.%f")
+
     def get_recorded_data(self):
         self._recorded_data['ip_address'] = self.get_ip_address()
         self._recorded_data['mac_address'] = self.get_mac_address()
-        self._recorded_data['timestamp'] = self.get_timestamp()
+        timestamp, milliseconds = self.get_timestamp()
+        self._recorded_data['timestamp'] = timestamp
+        self._recorded_data['milliseconds'] = milliseconds
         return self._recorded_data
 
     # def save_recorded_data(self, data_dict):
@@ -52,7 +55,6 @@ class RecordedData(object):
     # noinspection PyMethodMayBeStatic
     def insert_to_db(self, post_data):
         DataBase().query_db("post", post_data, "")
-
 
 # R = RecordedData()
 # print(R.get_mac_address())
