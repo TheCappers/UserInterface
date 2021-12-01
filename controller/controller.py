@@ -204,7 +204,6 @@ class Controller(object):
             return data
 
     def creation_script(self, script_items):
-        print(script_items)
         self.__script_gen.script(script_items)  # creation of the script
 
     # assume that the return given by y

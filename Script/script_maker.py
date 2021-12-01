@@ -8,18 +8,20 @@ class ScriptMaker:
 
     def __keystroke(self, item):
         if len(item.get('data')) > 1:
-            keystroke_string = "pyautogui.typewrite(['" + str(item.get('data')) + "'], interval=0.1)\nsleep(0.1)\n"
+            keystroke_string = "pyautogui.typewrite(['" + str(item.get('data')) + "'], interval=0.1)\n"
+            print(keystroke_string)
         else:
-            keystroke_string = "pyautogui.typewrite('" + str(item.get('data')) + "', interval=0.1)\nsleep(0.1)\n"
-
+            keystroke_string = "pyautogui.typewrite('" + str(item.get('data')) + "', interval=0.1)\n"
+            print(keystroke_string)
         return keystroke_string
 
     # data: { position: [ 1967, 144 ], clicked: false, scroll: 0, button: '' },
     def __mouse_action(self, item):
         coordinates = item.get("data").get("position")
-        # print(coordinates)
-        mouse_movement_string = "pyautogui.moveTo("+str(coordinates[0])+","+str(coordinates[1])+", 2)\nsleep(0.1)\n"
-
+        if item.get("data").get("clicked"):
+            mouse_movement_string = "pyautogui.click("+str(coordinates[0])+", "+str(coordinates[1])+")\n"
+        else:
+            mouse_movement_string = "pyautogui.moveTo(" + str(coordinates[0]) + ", " + str(coordinates[1]) + ", 0.1)\n"
         return mouse_movement_string
 
     def script(self, items_list):
@@ -47,6 +49,8 @@ class ScriptMaker:
 
     def sort_list(self, item_list):
         sorted_list = sorted(item_list, key=lambda d: d['milliseconds'])
+        for i in sorted_list:
+            print(i)
         return sorted_list
 #
 # items_list = [{ '_id': '617f39e3acf707ca9b53b4f9', 'ip_address': '127.0.1.1', 'mac_address': '00:0C:29:F0:6B:3F',
