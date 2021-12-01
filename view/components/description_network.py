@@ -39,8 +39,9 @@ class DescriptionNetwork:
         self.network_1.setGeometry(QtCore.QRect(0, 0, 92, 80))
         self.gridLayout_30 = QtWidgets.QGridLayout(self.network_1)
         self.label = ScrollLabel(self.network_1)
+        self.label.setWidgetResizable(True)
         self.label.setText(selected['tree'])
-        self.label.setGeometry(0,0,1110,345)
+        self.gridLayout_30.addWidget(self.label)
 
         self.toolBox.addItem(self.network_1, "Tree")
 
