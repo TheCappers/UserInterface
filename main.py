@@ -8,6 +8,7 @@ from view.home_tab.detailed_view import all_selected_tag
 import subprocess as s
 import numpy as np
 import time
+import logging
 
 # global values
 control = controller.Controller()
@@ -410,6 +411,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             for index in all_selected:
                 control.annotationAdd(self.tab_1.detailed_view_accordion.annotation_text.toPlainText(), attain[index])
             self.annotationDisplay(self.tab_1.table_result.getIndexSelected())
+        logging.info("Annotation added to {0}".format(attain[index]))
 
     def add_tag(self):  # add a row when the button add is selected
         """
@@ -424,6 +426,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
             control.tagAdd(self.tab_1.detailed_view_accordion.tag_input.text(), attain[index])
             self.tagDisplay(self.tab_1.table_result.getIndexSelected())
             self.tab_1.detailed_view_accordion.tag_input.setText('')
+        logging.info("Tag added to {0}".format(attain[index]))
 
     def universalButton(self):
         global universal_btn_state
@@ -594,6 +597,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         global attain  # set global variables
         self.tab_1.table_result.setIndexSelected(index)  # set the index selected
         exporter = attain[index]  # add the formatted data to exporter
+        logging.info("Export called on {0}".format(exporter))
         control.export(exporter.get('_id'))  # export the selected data using the ID
 
     def script_preview_btn_pressed(self):
@@ -698,6 +702,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
                 tags_to_delete.append(self.tab_1.detailed_view_accordion.tag_table.tag_table.item(all_selected_tag[i], 3).text())
         '''
         control.tagDelete(tags_to_delete, attain[index])
+        logging.info("Tag deleted from {0}".format(attain[index]))
         # self.tab_1.detailed_view_accordion.clearSelectedTags()
         self.tagDisplay(self.tab_1.table_result.getIndexSelected())
 
@@ -728,7 +733,8 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def clickedSync(self, tab3_widget):
         global control
-
+        logging.info("Sync has started"
+                     "")
         if 7 <= len(self.tab_3.toIPval_lineEdit.text().strip()) <= 15:  # ensure that we have something
             ip = self.tab_3.toIPval_lineEdit.text()
         else:
@@ -778,6 +784,8 @@ class floatingAccord(QtWidgets.QWidget, Ui_Form):
 
 
 def main():
+    logging.basicConfig(filename='actions.log', format='%(asctime)s %(message)s',
+                        datefmt='%H:%M:%S %d-%b-%y', level=logging.INFO)
     avertInit()
     app = QtWidgets.QApplication(sys.argv)
     form = AvertApp()
