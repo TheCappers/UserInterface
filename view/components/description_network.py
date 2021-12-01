@@ -35,6 +35,7 @@ class DescriptionNetwork:
             self.descriptionnetwork_tab)
         
         self.toolBox = QtWidgets.QToolBox(self.descriptionnetwork_tab)
+
         self.network_1 = QtWidgets.QWidget()
         self.network_1.setGeometry(QtCore.QRect(0, 0, 92, 80))
         self.gridLayout_30 = QtWidgets.QGridLayout(self.network_1)
@@ -42,29 +43,20 @@ class DescriptionNetwork:
         self.label.setWidgetResizable(True)
         self.label.setText(selected['tree'])
         self.gridLayout_30.addWidget(self.label)
-
         self.toolBox.addItem(self.network_1, "Tree")
 
         self.network_2 = QtWidgets.QWidget()
         self.network_2.setGeometry(QtCore.QRect(0, 0, 92, 80))
         self.gridLayout_31 = QtWidgets.QGridLayout(self.network_2)
-        self.listWidget_3 = QtWidgets.QListWidget(self.network_2)
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        self.listWidget_3.setFont(font)
-
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget_3.addItem(item)
-
-        self.gridLayout_31.addWidget(self.listWidget_3, 0, 0, 1, 1)
+        self.label_r = ScrollLabel(self.network_1)
+        self.label_r.setWidgetResizable(True)
+        self.label_r.setText(selected['raw_hex'])
+        self.gridLayout_31.addWidget(self.label_r)
         self.toolBox.addItem(self.network_2, "Raw Data")
 
         self.gridLayout_33.addWidget(self.toolBox, 0, 0, 1, 1)
 
         _translate = QtCore.QCoreApplication.translate
-
-        item = self.listWidget_3.item(0)
-        item.setText(_translate("MainWindow", selected['raw_hex']))
 
     def get_tab(self):
         return self.descriptionnetwork_tab
