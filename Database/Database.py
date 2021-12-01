@@ -29,7 +29,7 @@ class DataBase:
     def __insert_post(self, collection, post):
         # print(post.get("_id"), post.get("name"))
         try:
-            temp = collection.find({"_id": post.get("_id")})[0]
+            temp = collection.find({"_id": post.get("_id")})
         except Exception:
             if post.get("_id"):
                 try:
