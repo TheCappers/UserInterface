@@ -273,5 +273,18 @@ class Controller(object):
         self.__config.updateScreenshot(format)
 
     def updateWindowHistory(self, time_unit, time_value):
-        print(time_unit)
         self.__config.updateWindowHistory(time_unit, time_value)
+
+    def deleteVideoImage(self, item, name):
+        if name == 'Screenshot':
+            file = item['data']['path']
+            os.remove(file)
+        else:
+            file = item['data']['path']
+            os.remove(file)
+
+    def deleteArtifact(self, target, item):
+        if item == 'Video' or item == 'Screenshot':
+            print(target)
+            self.deleteVideoImage(target, item)
+        self.__db.query_db('delete', target, '')

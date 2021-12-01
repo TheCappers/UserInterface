@@ -44,6 +44,9 @@ class Configuration:
     # getters and setters
     # all parameters treated as booleans
 
+    def getScreenshotFormat(self):
+        return self.__screenshot_on[1]
+
     def getThreshold(self):
         return self.__threshold
 

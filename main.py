@@ -82,6 +82,9 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # portion for grpah creation
         self.tab_1.visualization_accordion.pushButton_5.clicked.connect(self.generateGraph)
 
+        #  deletion of artifact is selected
+        self.tab_1.pushButton_15.clicked.connect(self.deleteArtifact)
+
         """used in tab 2"""
         """COMMENTING OUT UI MODIFICATION"""
 
@@ -130,13 +133,24 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     while the other one pops up
     '''
 
-
-
     def _setScreenshotType(self):
-         global control
-         type = self.tab_2.ScreenshotFormatDrop.currentText()
-         control.setScreenshotType(type)
+        global control
+        type = self.tab_2.ScreenshotFormatDrop.currentText()
+        control.setScreenshotType(type)
 
+    def deleteArtifact(self):
+        global selected, attain, control
+
+        if len(attain) == 0:
+            pass
+        else:
+            deletable = ['Screenshot', 'Video', 'Network']
+            if attain[selected]['name'] in deletable:
+                control.deleteArtifact(attain[selected], attain[selected]['name'])
+                del attain[selected]
+                self.updateTable(attain)
+            else:
+                QtWidgets.QMessageBox.about(self, 'Invalid Deletion', 'Cannot Delete this Type of Artifact')
 
     '''
     Signature: def toggleButtons(self)
@@ -684,9 +698,8 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
                 tags_to_delete.append(self.tab_1.detailed_view_accordion.tag_table.tag_table.item(all_selected_tag[i], 3).text())
         '''
         control.tagDelete(tags_to_delete, attain[index])
-        #self.tab_1.detailed_view_accordion.clearSelectedTags()
+        # self.tab_1.detailed_view_accordion.clearSelectedTags()
         self.tagDisplay(self.tab_1.table_result.getIndexSelected())
-
 
     def test(self):
         print("testing message")
@@ -712,6 +725,7 @@ class AvertApp(QtWidgets.QMainWindow, Ui_MainWindow):
     Pre: @requires (*\ 7 <= len(self.tab_3.toIPval_lineEdit.text()) <= 15 )
     Post: @ensures (*\ control.syncBegin))
     '''
+
     def clickedSync(self, tab3_widget):
         global control
 
