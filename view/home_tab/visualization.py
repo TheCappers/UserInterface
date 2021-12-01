@@ -4,6 +4,12 @@ from view.components import result_table, annotation_table, bar_graph, pie_chart
 from view.components.pie_chart import PieChart
 from view.components.bar_graph import BarGraph
 from controller.controller import Controller
+import datetime
+import os
+import sys
+import time
+from PIL import ImageGrab
+from PIL import Image
 
 controller = Controller()
 ''' Test Data For Pie Chart '''
@@ -191,6 +197,7 @@ class Visualization:
         self.export_button_pie_chart = QtWidgets.QPushButton()
         self.export_button_pie_chart.setObjectName("export_button_pie_chart")
         self.export_button_pie_chart.setText('Export')
+        self.export_button_pie_chart.clicked.connect(self.screenshot_chart)
         self.gridLayout_10.addWidget(self.export_button_pie_chart, 9, 0, 1, 1)
 
         '''END PieChart CHECKBOXES'''
@@ -324,6 +331,7 @@ class Visualization:
         self.export_button_bar_graph = QtWidgets.QPushButton()
         self.export_button_bar_graph.setObjectName("export_button_bar_graph")
         self.export_button_bar_graph.setText('Export')
+        self.export_button_bar_graph.clicked.connect(self.screenshot_graph)
         self.gridLayout_37.addWidget(self.export_button_bar_graph, 9, 0, 1, 1)
         '''End Bar Graph Checkboxes'''
 
@@ -690,3 +698,21 @@ class Visualization:
                 if (artifact[0] in artifact_data):
                     artifact_data.remove(artifact[0])
                     self.bar_graph_class.series.take(artifact[0])
+
+    def screenshot_graph(self):
+        date_time = str(datetime.datetime.now().strftime("%Y-%m-%d~%H:%M:%S"))
+        image = ImageGrab.grab()
+        isExist = os.path.exists("GraphExports")
+        if not isExist:
+            os.mkdir("GraphExports")
+        path = "GraphExports/barGraph" + date_time + '.png'
+        image.save(path)
+
+    def screenshot_chart(self):
+        date_time = str(datetime.datetime.now().strftime("%Y-%m-%d~%H:%M:%S"))
+        image = ImageGrab.grab()
+        isExist = os.path.exists("GraphExports")
+        if not isExist:
+            os.mkdir("GraphExports")
+        path = "GraphExports/pieChart" + date_time + '.png'
+        image.save(path)
